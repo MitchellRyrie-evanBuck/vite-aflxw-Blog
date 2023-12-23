@@ -8,7 +8,7 @@ export const navbarZh: any = [
       {
         text: 'Web',
         items: [
-          { text: 'Javascript', link: '/web/javascript/' },
+          { text: 'Javascript', link: '/web/javascript/设计模式.md' },
           { text: 'Typescript', link: '/web/typescript/' },
           { text: 'Vue', link: '/web/vue/' },
           { text: 'Webpack', link: '/web/webpack/' },

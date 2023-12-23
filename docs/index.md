@@ -5,7 +5,10 @@ layout: home
 hero:
   name: "XL We Blog"
   text: "record life"
-  tagline: My great project tagline
+  tagline: Where there is a will, there is a way
+  image:
+    src: images/user-avatar-dark.png
+    alt: VitePress
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,8 +18,9 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🛠️
+    title: Simple and minimal, always
+    details: Lorem ipsum...
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C

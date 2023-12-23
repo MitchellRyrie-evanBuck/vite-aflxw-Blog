@@ -1,202 +1,512 @@
+const itemsFn = (value: Array<string> | string) => {
+  if (Array.isArray(value)) {
+    return value.map((item, index) => {
+      let nameArr = item.split('/')
+      let name = nameArr[nameArr.length - 1]
+      return {
+        text: name,
+        link: item
+      }
+    })
+  } else {
+    let nameArr = value.split('/')
+    let name = nameArr[nameArr.length - 1]
+    return {
+      text: name,
+      link: value
+    }
+  }
+}
+
 
 export const sidebarZh: any = {
   '/web/javascript/': [
-    '/web/javascript/设计模式.md',
-    '/web/javascript/JS高级.md',
-    '/web/javascript/Zepto.md',
+    {
+      text: '设计模式',
+      link: "/web/javascript/设计模式.md"
+    }, 
+    {
+      text: 'JS高级',
+      link: "/web/javascript/JS高级.md"
+    }, 
+    {
+      text: 'Zepto',
+      link: "/web/javascript/Zepto.md"
+    },
     {
       text: 'Sass、Less',
-      collapsible: true,
+      collapsed: false,
       items: [
         {
           text: 'Less and Sass',
           link: '/web/javascript/Less and Sass/Less and Sass.md'
         },
-        '/web/javascript/Less and Sass/Less and Sass.md',
-        '/web/javascript/Less and Sass/1、相关介绍.md',
-        '/web/javascript/Less and Sass/2、环境配置.md',
-        '/web/javascript/Less and Sass/3、SassScript.md',
+        {
+          text: '1、相关介绍',
+          link: '/web/javascript/Less and Sass/1、相关介绍.md'
+        },
+        {
+          text: '2、环境配置',
+          link: '/web/javascript/Less and Sass/2、环境配置.md'
+        },
+        {
+          text: '3、SassScript',
+          link: '/web/javascript/Less and Sass/3、SassScript.md'
+        },
+
       ]
     },
     {
       text: 'html5',
-      collapsible: true,
-      items: [
-        '/web/javascript/html5/HTML5.md',
-        '/web/javascript/html5/弹性盒子.md',
+      collapsed: true,
+      items: [{
+        text: 'HTML5',
+        link: '/web/javascript/html5/HTML5.md'
+      }, 
+      {
+        text: '弹性盒子',
+        link: '/web/javascript/html5/弹性盒子.md'
+      },
+
       ]
     },
     {
       text: '移动端',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/javascript/移动端/移动端.md',
+        {
+          text: '前言介绍',
+          link: '/web/javascript/移动端/移动端.md'
+        },
       ]
     },
     {
       text: 'ES6',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/javascript/eS6/01.ECMAScript 6 简介.md',
-        '/web/javascript/eS6/02.let与const.md',
-        '/web/javascript/eS6/03 解构赋值.md',
-        '/web/javascript/eS6/04 字符串新特性.md',
-        '/web/javascript/eS6/05 字符串新方法.md',
-        '/web/javascript/eS6/06 数值新特性.md',
-        '/web/javascript/eS6/07 ES5 数组变化.md',
-        '/web/javascript/eS6/08 数组新特性.md',
-        '/web/javascript/eS6/09 对象新特性.md',
-        '/web/javascript/eS6/10 对象新方法.md',
-        '/web/javascript/eS6/11 函数新方法.md',
-        '/web/javascript/eS6/12 新增数据类型和数据结构.md',
-        '/web/javascript/eS6/13 遍历器.md',
-        '/web/javascript/eS6/14 生成器 Generator.md',
-        '/web/javascript/eS6/15 Proxy.md',
-        '/web/javascript/eS6/16 Peflect.md',
-        '/web/javascript/eS6/17 Class 基本语法.md',
-        '/web/javascript/eS6/18 Class 的继承.md',
+        {
+          text: '01.ECMAScript 6 简介.md',
+          link: '/web/javascript/eS6/01.ECMAScript 6 简介.md'
+        },
+        {
+          text: '02.let与const.md',
+          link: '/web/javascript/eS6/02.let与const.md'
+        },
+        {
+          text: '03 解构赋值.md',
+          link: '/web/javascript/eS6/03 解构赋值.md'
+        },
+        {
+          text: '04 字符串新特性.md',
+          link: '/web/javascript/eS6/04 字符串新特性.md'
+        },
+        {
+          text: '05 字符串新方法.md',
+          link: '/web/javascript/eS6/05 字符串新方法.md'
+        },
+        {
+          text: '06 数值新特性.md',
+          link: '/web/javascript/eS6/06 数值新特性.md'
+        },
+        {
+          text: '07 ES5 数组变化.md',
+          link: '/web/javascript/eS6/07 ES5 数组变化.md'
+        },
+        {
+          text: '08 数组新特性.md',
+          link: '/web/javascript/eS6/08 数组新特性.md'
+        },
+        {
+          text: '09 对象新特性.md',
+          link: '/web/javascript/eS6/09 对象新特性.md'
+        },
+        {
+          text: '10 对象新方法.md',
+          link: '/web/javascript/eS6/10 对象新方法.md'
+        },
+        {
+          text: '11 函数新方法.md',
+          link: '/web/javascript/eS6/11 函数新方法.md'
+        },
+        {
+          text: '12 新增数据类型和数据结构.md',
+          link: '/web/javascript/eS6/12 新增数据类型和数据结构.md'
+        },
+        {
+          text: '13 遍历器.md',
+          link: '/web/javascript/eS6/13 遍历器.md'
+        },
+        {
+          text: '14 生成器 Generator.md',
+          link: '/web/javascript/eS6/14 生成器 Generator.md'
+        },
+        {
+          text: '15 Proxy.md',
+          link: '/web/javascript/eS6/15 Proxy.md'
+        },
+        {
+          text: '16 Peflect.md',
+          link: '/web/javascript/eS6/16 Peflect.md'
+        },
+        {
+          text: '17 Class 基本语法.md',
+          link: '/web/javascript/eS6/17 Class 基本语法.md'
+        },
+        {
+          text: '18 Class 的继承.md',
+          link: '/web/javascript/eS6/18 Class 的继承.md'
+        }
       ]
     },
   ],
   "/web/typescript/": [
-    '/web/typescript/基本数据类型.md',
-    '/web/typescript/范型.md',
-    '/web/typescript/infer.md',
-    '/web/typescript/协变逆变.md',
+  {
+    text: '基本数据类型.md',
+    link: '/web/typescript/基本数据类型.md'
+  },
+  {
+    text: '范型.md',
+    link: '/web/typescript/范型.md'
+  },
+  {
+    text: 'infer.md',
+    link: '/web/typescript/infer.md'
+  },
+  {
+    text: '协变逆变.md',
+    link: '/web/typescript/协变逆变.md'
+  },
     {
       text: 'Utility-Types',
-      collapsible: true,
+      collapsed: false,
       items: [
-        '/web/typescript/UtilityTypes/Partial.md',
-        '/web/typescript/UtilityTypes/Record.md',
-        '/web/typescript/UtilityTypes/Exclude.md',
-        '/web/typescript/UtilityTypes/Omit.md',
-        '/web/typescript/UtilityTypes/Required.md',
-        '/web/typescript/UtilityTypes/Readonly.md',
-        '/web/typescript/UtilityTypes/Pick.md',
-        '/web/typescript/UtilityTypes/Capitalize.md',
-        '/web/typescript/UtilityTypes/ConstructorParameters.md',
-        '/web/typescript/UtilityTypes/Extract.md',
-        '/web/typescript/UtilityTypes/ThisType.md',
-        '/web/typescript/UtilityTypes/InstanceType.md',
-        '/web/typescript/UtilityTypes/NonNullable.md',
-        '/web/typescript/UtilityTypes/OmitThisParameter.md',
-        '/web/typescript/UtilityTypes/Parameters.md',
-        '/web/typescript/UtilityTypes/ReturnType.md',
-        '/web/typescript/UtilityTypes/ThisParameterType.md',
-        '/web/typescript/UtilityTypes/Uncapitalize.md',
-        '/web/typescript/UtilityTypes/Uppercase.md',
-        '/web/typescript/UtilityTypes/Utility Types.md',
+        {
+          text: 'Partial.md',
+          link: '/web/typescript/UtilityTypes/Partial.md'
+        },
+        {
+          text: 'Record.md',
+          link: '/web/typescript/UtilityTypes/Record.md'
+        },
+        {
+          text: 'Exclude.md',
+          link: '/web/typescript/UtilityTypes/Exclude.md'
+        },
+        {
+          text: 'Omit.md',
+          link: '/web/typescript/UtilityTypes/Omit.md'
+        },
+        {
+          text: 'Required.md',
+          link: '/web/typescript/UtilityTypes/Required.md'
+        },
+        {
+          text: 'Readonly.md',
+          link: '/web/typescript/UtilityTypes/Readonly.md'
+        },
+        {
+          text: 'Pick.md',
+          link: '/web/typescript/UtilityTypes/Pick.md'
+        },
+        {
+          text: 'Capitalize.md',
+          link: '/web/typescript/UtilityTypes/Capitalize.md'
+        },
+        {
+          text: 'ConstructorParameters.md',
+          link: '/web/typescript/UtilityTypes/ConstructorParameters.md'
+        },
+        {
+          text: 'Extract.md',
+          link: '/web/typescript/UtilityTypes/Extract.md'
+        },
+        {
+          text: 'ThisType.md',
+          link: '/web/typescript/UtilityTypes/ThisType.md'
+        },
+        {
+          text: 'InstanceType.md',
+          link: '/web/typescript/UtilityTypes/InstanceType.md'
+        },
+        {
+          text: 'NonNullable.md',
+          link: '/web/typescript/UtilityTypes/NonNullable.md'
+        },
+        {
+          text: 'OmitThisParameter.md',
+          link: '/web/typescript/UtilityTypes/OmitThisParameter.md'
+        },
+        {
+          text: 'Parameters.md',
+          link: '/web/typescript/UtilityTypes/Parameters.md'
+        },
+        {
+          text: 'ReturnType.md',
+          link: '/web/typescript/UtilityTypes/ReturnType.md'
+        },
+        {
+          text: 'ThisParameterType.md',
+          link: '/web/typescript/UtilityTypes/ThisParameterType.md'
+        },
+        {
+          text: 'Uncapitalize.md',
+          link: '/web/typescript/UtilityTypes/Uncapitalize.md'
+        },
+        {
+          text: 'Uppercase.md',
+          link: '/web/typescript/UtilityTypes/Uppercase.md'
+        },
+        {
+          text: 'Utility Types.md',
+          link: '/web/typescript/UtilityTypes/Utility Types.md'
+        }
       ]
     },
   ],
   "/web/threejs/": [
-    '/web/threejs/',
-    '/web/threejs/three.JS库',
-
+    {
+      text: 'threeJS.md',
+      link: '/web/threejs/three.JS库'
+    },
     {
       text: 'react-three-fiber',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/threejs/react-three-fiber/index.md',
-        '/web/threejs/react-three-fiber/use.md',
-        '/web/threejs/react-three-fiber/canvas.md',
-        '/web/threejs/react-three-fiber/对象、属性和构造函数参数.md',
-        '/web/threejs/react-three-fiber/hooks.md',
-        '/web/threejs/react-three-fiber/event.md',
-        '/web/threejs/react-three-fiber/Additional-Exports.md',
-        '/web/threejs/react-three-fiber/扩展性能.md',
-        '/web/threejs/react-three-fiber/性能陷阱.md',
-        '/web/threejs/react-three-fiber/加载模型.md',
-        '/web/threejs/react-three-fiber/加载纹理.md',
-        // '/web/threejs/react-three-fiber/基本动画.md',
+        {
+          text: 'index.md',
+          link: '/web/threejs/react-three-fiber/index.md'
+        },
+        {
+          text: 'use.md',
+          link: '/web/threejs/react-three-fiber/use.md'
+        },
+        {
+          text: 'canvas.md',
+          link: '/web/threejs/react-three-fiber/canvas.md'
+        },
+        {
+          text: '对象、属性和构造函数参数.md',
+          link: '/web/threejs/react-three-fiber/对象、属性和构造函数参数.md'
+        },
+        {
+          text: 'hooks.md',
+          link: '/web/threejs/react-three-fiber/hooks.md'
+        },
+        {
+          text: 'event.md',
+          link: '/web/threejs/react-three-fiber/event.md'
+        },
+        {
+          text: 'Additional-Exports.md',
+          link: '/web/threejs/react-three-fiber/Additional-Exports.md'
+        },
+        {
+          text: '扩展性能.md',
+          link: '/web/threejs/react-three-fiber/扩展性能.md'
+        },
+        {
+          text: '性能陷阱.md',
+          link: '/web/threejs/react-three-fiber/性能陷阱.md'
+        },
+        {
+          text: '加载模型.md',
+          link: '/web/threejs/react-three-fiber/加载模型.md'
+        },
+        {
+          text: '加载纹理.md',
+          link: '/web/threejs/react-three-fiber/加载纹理.md'
+        }
       ]
+
     },
     {
       text: 'react-three-deri',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/threejs/react-three-deri/index.md',
+        {
+          text: '前言.md',
+          link: '/web/threejs/react-three-deri/index.md'
+        },
       ]
     }
   ],
   "/web/webGL/": [
-    '/web/webGL/',
-    '/web/webGL/原理.md',
+    {
+      text: '原理.md',
+      link: '/web/webGL/原理.md'
+    },
     {
       text: 'Canvas',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/webGL/Canvas/canvas.md',
-        '/web/webGL/Canvas/konva.md',
+        [
+          {
+            text: 'canvas.md',
+            link: '/web/webGL/Canvas/canvas.md'
+          },
+          {
+            text: 'konva.md',
+            link: '/web/webGL/Canvas/konva.md'
+          }
+        ]
       ]
     },
   ],
   "/web/cI-CD/": [
     {
-      text: 'CICD',
-      collapsible: true,
+      text: '前言',
+      collapsed: true,
       items: [
-        '/web/cI-CD/',
+        {
+          text: 'konva.md',
+          link: '/web/cI-CD/'
+        }
       ]
     },
   ],
   "/web/vue/": [
-    "/web/vue/vuex",
-    "/web/vue/vue组件之间通信方式",
+    {
+      text: '介绍',
+      link: '/web/vue/'
+    },
+    {
+      text: 'vue组件之间通信方式',
+      link: '/web/vue/vue组件之间通信方式'
+    },
+    {
+      text: 'vuex',
+      link: '/web/vue/vuex'
+    },
     {
       text: 'vue-router',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/vue/vue-router/1-vue-router',
-        '/web/vue/vue-router/2-异步请求',
-        '/web/vue/vue-router/3-devTools',
-        '/web/vue/vue-router/4-动态路由',
-        '/web/vue/vue-router/5-queryString',
-        '/web/vue/vue-router/6-路由守卫',
-        '/web/vue/vue-router/7-嵌套路由',
-        '/web/vue/vue-router/8-重定向与别名',
-        '/web/vue/vue-router/9-路由组件传参',
-        '/web/vue/vue-router/10-路由数据获取',
-        '/web/vue/vue-router/11-路由动效',
-        '/web/vue/vue-router/12-滚动行为',
-        '/web/vue/vue-router/13-路由元信息',
-        '/web/vue/vue-router/14-路由懒加载',
+        {
+          text: '1-vue-router',
+          link: '/web/vue/vue-router/1-vue-router'
+        },
+        {
+          text: '2-异步请求',
+          link: '/web/vue/vue-router/2-异步请求'
+        },
+        {
+          text: '3-devTools',
+          link: '/web/vue/vue-router/3-devTools'
+        },
+        {
+          text: '4-动态路由',
+          link: '/web/vue/vue-router/4-动态路由'
+        },
+        {
+          text: '5-queryString',
+          link: '/web/vue/vue-router/5-queryString'
+        },
+        {
+          text: '6-路由守卫',
+          link: '/web/vue/vue-router/6-路由守卫'
+        },
+        {
+          text: '7-嵌套路由',
+          link: '/web/vue/vue-router/7-嵌套路由'
+        },
+        {
+          text: '8-重定向与别名',
+          link: '/web/vue/vue-router/8-重定向与别名'
+        },
+        {
+          text: '9-路由组件传参',
+          link: '/web/vue/vue-router/9-路由组件传参'
+        },
+        {
+          text: '10-路由数据获取',
+          link: '/web/vue/vue-router/10-路由数据获取'
+        },
+        {
+          text: '11-路由动效',
+          link: '/web/vue/vue-router/11-路由动效'
+        },
+        {
+          text: '12-滚动行为',
+          link: '/web/vue/vue-router/12-滚动行为'
+        },
+        {
+          text: '13-路由元信息',
+          link: '/web/vue/vue-router/13-路由元信息'
+        },
+        {
+          text: '14-路由懒加载',
+          link: '/web/vue/vue-router/14-路由懒加载'
+        }
       ]
+
     },
   ],
   "/web/webpack/": [
     {
       text: 'Webpack',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/webpack/',
-        '/web/webpack/构建流程',
-        '/web/webpack/理解',
-        '/web/webpack/提高构建速度',
-        '/web/webpack/优化前端性能',
-        '/web/webpack/Loader',
-        '/web/webpack/Loader和Plugin',
-        '/web/webpack/Plugin',
-        '/web/webpack/webpack_proxy',
-        '/web/webpack/webpack热更新',
+        {
+          text: '',
+          link: '/web/webpack/'
+        },
+        {
+          text: '构建流程',
+          link: '/web/webpack/构建流程'
+        },
+        {
+          text: '理解',
+          link: '/web/webpack/理解'
+        },
+        {
+          text: '提高构建速度',
+          link: '/web/webpack/提高构建速度'
+        },
+        {
+          text: '优化前端性能',
+          link: '/web/webpack/优化前端性能'
+        },
+        {
+          text: 'Loader',
+          link: '/web/webpack/Loader'
+        },
+        {
+          text: 'Loader和Plugin',
+          link: '/web/webpack/Loader和Plugin'
+        },
+        {
+          text: 'Plugin',
+          link: '/web/webpack/Plugin'
+        },
+        {
+          text: 'webpack_proxy',
+          link: '/web/webpack/webpack_proxy'
+        },
+        {
+          text: 'webpack热更新',
+          link: '/web/webpack/webpack热更新'
+        }
       ]
+
     },
   ],
   "/web/react/": [
     {
       text: 'React',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/web/react/',
+        {
+          text: '前言',
+          link: '/web/react/'
+        }
       ]
     },
   ],
   "/tests/cypress/": [
     {
       text: 'cypress',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/tests/cypress/',
         '/tests/cypress/1. 环境搭建',
         '/tests/cypress/2. 第一个脚本',
@@ -217,76 +527,73 @@ export const sidebarZh: any = {
         '/tests/cypress/17. 聚焦元素',
         '/tests/cypress/18. 屏幕截图',
         '/tests/cypress/19. 断言',
-
-
-      ]
+      ])
     },
   ],
   "/tests/playwright/": [
     {
       text: 'playwright',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/tests/playwright/',
-      ]
+      ])
     },
   ],
   // --------------------------------------------------------------
   '/service/node/': [
     {
       text: 'nodejs',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/service/node/',
-      ]
+      ])
     },
   ],
   '/service/rust/': [
     {
       text: 'Rust',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/service/rust/',
         '/service/rust/安装.md',
-      ]
+      ])
     },
   ],
   '/service/go/': [
     {
       text: 'Golang',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/service/go/',
-      ]
+      ])
     },
     {
       text: 'Gin',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/service/go/gin/',
-      ]
+      ])
     },
   ],
   '/service/docker/': [
     {
       text: 'Docker',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/service/docker/',
-        '/service/docker/dockerfileMd',
-
+        {
+          text: '前言',
+          link: '/service/docker/'
+        },
+        {
+          text: 'dockerfile',
+          link: '/service/docker/dockerfileMd'
+        }
       ]
+
     },
   ],
   '/service/mongodb/': [
     '/service/mongodb/',
-    // {
-    //   text: 'Mongodb',
-    //   collapsible: true,
-    //   items: [
-    //     '/service/mongodb/',
-    //   ]
-    // },
   ],
   '/service/mysql/': [
     '/service/mysql/',
@@ -303,8 +610,8 @@ export const sidebarZh: any = {
     '/flutter/路由导航.md',
     {
       text: 'Dart',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/flutter/dart/',
         '/flutter/dart/数据类型.md',
         '/flutter/dart/变量定义.md',
@@ -312,19 +619,18 @@ export const sidebarZh: any = {
         '/flutter/dart/list.md',
         '/flutter/dart/map.md',
 
-      ]
+      ])
     },
     {
       text: 'widget',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/flutter/widget/',
-        '/flutter/widget/组件导航.md',
-
+        itemsFn('/flutter/widget/'),
+        itemsFn('/flutter/widget/组件导航.md'),
         {
           text: '基础组件',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/基础组件/Container.md',
             '/flutter/widget/基础组件/Scaffold、Appbar.md',
             '/flutter/widget/基础组件/Row、Column.md',
@@ -334,12 +640,12 @@ export const sidebarZh: any = {
             '/flutter/widget/基础组件/Form.md',
             '/flutter/widget/基础组件/Switch、Checkbox.md',
 
-          ]
+          ])
         },
         {
           text: '滚动组件',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/滚动组件/ListView.md',
             '/flutter/widget/滚动组件/GridView.md',
             '/flutter/widget/滚动组件/SingleChildScrollView.md',
@@ -352,12 +658,12 @@ export const sidebarZh: any = {
             '/flutter/widget/滚动组件/Scrollbar.md',
             '/flutter/widget/滚动组件/ScrollConfiguration.md',
             '/flutter/widget/滚动组件/AnimatedList.md',
-          ]
+          ])
         },
         {
           text: 'Sliver组件',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/Sliver组件/',
             '/flutter/widget/Sliver组件/SliverAppBar.md',
             '/flutter/widget/Sliver组件/SliverList.md',
@@ -379,12 +685,12 @@ export const sidebarZh: any = {
             '/flutter/widget/Sliver组件/SliverAnimatedPadding.md',
             '/flutter/widget/Sliver组件/SliverAnimatedPositioned.md',
 
-          ]
+          ])
         },
         {
           text: '按钮组件',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/按钮组件/ButtonBar.md',
             '/flutter/widget/按钮组件/DropdownButton.md',
             '/flutter/widget/按钮组件/FlatButton.md',
@@ -392,12 +698,12 @@ export const sidebarZh: any = {
             '/flutter/widget/按钮组件/IconButton.md',
             '/flutter/widget/按钮组件/PopupMenuButton.md',
             '/flutter/widget/按钮组件/ElevatedButton.md',
-          ]
+          ])
         },
         {
           text: '布局组件',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/布局组件/',
             '/flutter/widget/布局组件/constraints布局约束.md',
             '/flutter/widget/布局组件/Align.md',
@@ -408,13 +714,13 @@ export const sidebarZh: any = {
             '/flutter/widget/布局组件/LayoutBuilder.md',
             '/flutter/widget/布局组件/FittedBox.md',
 
-            
-          ]
+
+          ])
         },
         {
           text: '动画组件',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: ([
             '/flutter/widget/动画组件/index.md',
             '/flutter/widget/动画组件/AlignTransition.md',
             '/flutter/widget/动画组件/AnimatedBuilder.md',
@@ -439,12 +745,12 @@ export const sidebarZh: any = {
             '/flutter/widget/动画组件/SizeTransition.md',
             '/flutter/widget/动画组件/SlideTransition.md',
             '/flutter/widget/动画组件/Transform.md',
-          ]
+          ])
         },
         {
           text: '手势组件',
-          collapsible: true,
-          items:[
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/手势组件/index.md',
             '/flutter/widget/手势组件/Dismissible.md',
             '/flutter/widget/手势组件/InkWell.md',
@@ -456,42 +762,42 @@ export const sidebarZh: any = {
             '/flutter/widget/手势组件/InteractiveViewer.md',
             '/flutter/widget/手势组件/Listener.md',
             '/flutter/widget/手势组件/RawGestureDetector.md',
-          ]
+          ])
         },
         {
           text: '弹出widget',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/弹出组件/showModalBottomSheet.md',
-          ]
+          ])
         },
         {
           text: '导航和路由Widget',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/导航和路由Widget/index.md',
-   
-          ]
+
+          ])
         },
         {
           text: '画布和绘图Widget',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/画布和绘图Widget/index.md',
 
-          ]
+          ])
         },
         {
           text: '样式Widget',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/样式Widget/index.md',
-          ]
+          ])
         },
         {
           text: '其他组件',
-          collapsible: true,
-          items: [
+          collapsed: true,
+          items: itemsFn([
             '/flutter/widget/其他组件/Canvas.md',
             '/flutter/widget/其他组件/CustomPaint.md',
             '/flutter/widget/其他组件/BackdropFilter.md',
@@ -515,14 +821,14 @@ export const sidebarZh: any = {
             '/flutter/widget/其他组件/FlexibleSpaceBar.md',
             '/flutter/widget/其他组件/SliverFillRemaining.md',
             '/flutter/widget/其他组件/ListTile.md',
-          ]
+          ])
         }
       ]
     },
     {
       text: 'widget基础类',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/flutter/widget基础类/',
         '/flutter/widget基础类/AutomaticKeepAliveClientMixin.md',
         '/flutter/widget基础类/ChangeNotifier.md',
@@ -538,12 +844,12 @@ export const sidebarZh: any = {
         '/flutter/widget基础类/WidgetsBindingObserver.md',
         '/flutter/widget基础类/WidgetsLocalizationsDelegate.md',
 
-      ]
+      ])
     },
     {
       text: 'Animation类',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/flutter/Animation/',
         '/flutter/Animation/Tween.md',
         '/flutter/Animation/AnimatedWidgetBaseState.md',
@@ -551,12 +857,12 @@ export const sidebarZh: any = {
         '/flutter/Animation/CupertinoPageRoute.md',
         '/flutter/Animation/CurvedAnimation.md',
 
-      ]
+      ])
     },
     {
       text: 'controller',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/flutter/controller/',
         '/flutter/controller/ScrollController.md',
         '/flutter/controller/TabController.md',
@@ -579,108 +885,122 @@ export const sidebarZh: any = {
         '/flutter/controller/ValueNotifier.md',
         '/flutter/controller/ValueListenableBuilder.md',
         '/flutter/controller/ValueListenable.md',
-      ]
+      ])
     },
     {
       text: 'package',
-      collapsible: true,
+      collapsed: true,
       items: [
-        '/flutter/package/',
         {
           text: 'getX',
-          collapsible: true,
-          items: [
-            '/flutter/package/getX/',
-          ]
+          collapsed: true,
+          items: itemsFn([
+            '/flutter/package/getX/前言',
+          ])
         },
         {
           text: 'provider',
-          collapsible: true,
-          items: [
-            '/flutter/package/provider/',
-          ]
+          collapsed: true,
+          items: itemsFn([
+            '/flutter/package/provider/前言',
+          ])
         },
         {
           text: 'chewie',
-          collapsible: true,
-          items: [
-            '/flutter/package/chewie/',
-          ]
+          collapsed: true,
+          items: itemsFn([
+            '/flutter/package/chewie/前言',
+          ])
         },
         {
           text: 'infinite_scroll_pagination',
-          collapsible: true,
-          items: [
-            '/flutter/package/infinite_scroll_pagination/',
-          ]
+          collapsed: true,
+          items: itemsFn([
+            '/flutter/package/infinite_scroll_pagination/前言',
+          ])
         },
         {
           text: 'music',
-          collapsible: true,
-          items: [
-            '/flutter/package/music/',
-          ]
+          collapsed: true,
+          items: itemsFn([
+            '/flutter/package/music/前言',
+          ])
         },
         {
           text: 'video',
-          collapsible: true,
-          items: [
-            '/flutter/package/video/',
-          ]
+          collapsed: true,
+          items: itemsFn([
+            '/flutter/package/video/前言',
+          ])
         },
       ]
     },
     {
       text: '事件',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/flutter/event/事件传递',
-      ],
+      ]),
     },
     {
       text: '日志',
-      collapsible: true,
-      items: [
+      collapsed: true,
+      items: itemsFn([
         '/flutter/logs/',
         '/flutter/logs/isolate/index.md',
 
-      ],
+      ]),
     }
   ],
-  '/reactNative/' :[
-    '/reactNative/',
+  '/reactNative/': itemsFn([
+    '/reactNative/reactNative',
     '/reactNative/环境搭建.md',
-  ],
+  ]),
   // --------------------------------------------------------------
 
-  '/docMD/git/': [
+  '/docMD/git/': itemsFn([
     '/docMD/git/版本控制',
     '/docMD/git/分支新建与合并',
     '/docMD/git/提交规范',
-  ],
-  '/docMD/mac/': [
+  ]),
+  '/docMD/mac/': itemsFn([
     '/docMD/mac/菜单大小调整',
     '/docMD/mac/微信双开',
 
-  ],
-  '/docMD/order/': [
+  ]),
+  '/docMD/order/': itemsFn([
     '/docMD/order/',
-  ],
+  ]),
 
 
   // =====================Deisgn=========================
-  '/design/ui/': [
+  '/design/ui/': itemsFn([
     '/design/ui/',
-  ],
-  '/design/ux/': [
+  ]),
+  '/design/ux/': itemsFn([
     '/design/ux/',
-  ],
+  ]),
 
   // ========================Harmony==========================
-  '/harmony/ark/arkts/': [
+  '/harmony/ark/arkts/': itemsFn([
     '/harmony/ark/arkts/',
-  ], 
-  '/harmony/ark/arkui/': [
+  ]),
+  '/harmony/ark/arkui/': itemsFn([
     '/harmony/ark/arkui/',
-  ],
+  ]),
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
