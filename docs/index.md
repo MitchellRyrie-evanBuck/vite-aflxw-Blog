@@ -3,18 +3,18 @@
 layout: home
 
 hero:
-  name: "XL We Blog"
-  text: "record life"
+  name: "Mitchell Ryrie"
+  text: "record IT life"
   tagline: Where there is a will, there is a way
   image:
-    src: images/user-avatar-dark.png
+    src: flutter.svg
     alt: VitePress
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: Go Start
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: Look Around
       link: /api-examples
 
 features:

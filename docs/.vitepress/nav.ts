@@ -80,8 +80,8 @@ export const navbarZh: any = [
       {
         text: "UI/UX",
         items: [
-          { text: "UI", link: '/design/ui/' },
-          { text: "UX", link: '/design/ux/' },
+          { text: "UI", link: '/design/ui/介绍' },
+          { text: "UX", link: '/design/ux/介绍' },
 
         ]
       },
@@ -93,7 +93,7 @@ export const navbarZh: any = [
       {
         text: "有点意思",
         items: [
-          { text: "小技巧", link: '/docMD/order/' },
+          { text: "小技巧", link: '/docMD/order/介绍' },
         ]
       },
       {

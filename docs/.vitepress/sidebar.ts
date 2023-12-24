@@ -332,23 +332,21 @@ export const sidebarZh: any = {
   ],
   "/web/webGL/": [
     {
-      text: '原理.md',
+      text: '原理',
       link: '/web/webGL/原理.md'
     },
     {
       text: 'Canvas',
       collapsed: true,
       items: [
-        [
           {
-            text: 'canvas.md',
+            text: 'canvas',
             link: '/web/webGL/Canvas/canvas.md'
           },
           {
-            text: 'konva.md',
+            text: 'konva',
             link: '/web/webGL/Canvas/konva.md'
           }
-        ]
       ]
     },
   ],
@@ -607,7 +605,7 @@ export const sidebarZh: any = {
   // --------------------------------------------------------------
 
   '/flutter/': [
-    '/flutter/路由导航.md',
+    itemsFn('/flutter/路由导航.md'),
     {
       text: 'Dart',
       collapsed: true,
@@ -969,16 +967,16 @@ export const sidebarZh: any = {
 
   ]),
   '/docMD/order/': itemsFn([
-    '/docMD/order/',
+    '/docMD/order/介绍',
   ]),
 
 
   // =====================Deisgn=========================
   '/design/ui/': itemsFn([
-    '/design/ui/',
+    '/design/ui/介绍',
   ]),
   '/design/ux/': itemsFn([
-    '/design/ux/',
+    '/design/ux/介绍',
   ]),
 
   // ========================Harmony==========================

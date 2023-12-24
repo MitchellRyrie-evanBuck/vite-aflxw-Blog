@@ -15,6 +15,7 @@
   --vp-c-brand-dark: #535bf2;
   --vp-c-brand-darker: #454ce1;
   --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
+   --vp-vp-menu-group-color: rgba(0,0,0,1);
 }
 
 /**
@@ -31,6 +32,7 @@
   --vp-button-brand-active-border: var(--vp-c-brand-light);
   --vp-button-brand-active-text: var(--vp-c-white);
   --vp-button-brand-active-bg: var(--vp-button-brand-bg);
+  --vp-vp-menu-group: var(--vp-vp-menu-group-color);
 }
 
 /**
@@ -119,4 +121,19 @@
 .dark .vp-doc .custom-block a {
   transition: color 0.25s;
 }
+
+
+
+.VPMenuGroup .title{
+  color: var(--vp-vp-menu-group-color);
+  font-weight: 600;
+}
+
+.image-container .VPImage{
+  height: 180px;
+  width: 180px;
+  z-index: 1;
+  opacity: .1;
+}
+
 
