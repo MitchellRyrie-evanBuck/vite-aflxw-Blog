@@ -356,9 +356,21 @@ export const sidebarZh: any = {
       collapsed: true,
       items: [
         {
-          text: 'konva.md',
-          link: '/web/cI-CD/'
-        }
+          text: '前言',
+          link: '/web/cI-CD/前言'
+        },
+        {
+          text: 'CI工具',
+          link: '/web/cI-CD/工具'
+        },
+        {
+          text: 'runner',
+          link: '/web/cI-CD/runner'
+        },
+        {
+          text: '配置事例',
+          link: '/web/cI-CD/配置事例'
+        },
       ]
     },
   ],

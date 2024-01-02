@@ -12,7 +12,7 @@ export const navbarZh: any = [
           { text: 'Typescript', link: '/web/typescript/' },
           { text: 'Vue', link: '/web/vue/' },
           { text: 'Webpack', link: '/web/webpack/' },
-          { text: 'CICD', link: '/web/cI-CD/' },
+          { text: 'CICD', link: '/web/cI-CD/前言' },
           { text: 'WebGL', link: '/web/webGL/' },
           { text: 'THREE.js', link: '/web/threejs/' },
           { text: 'React', link: '/web/react/' },
