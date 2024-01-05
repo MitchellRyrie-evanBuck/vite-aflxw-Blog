@@ -40,7 +40,7 @@ export const navbarZh: any = [
     text: 'service',
     items: [
       { text: "Nodejs", link: '/service/node/' },
-      { text: "Golang", link: '/service/go/' },
+      { text: "Golang", link: '/service/go/前言' },
       { text: "Rust", link: '/service/rust/' },
       {
         text: '服务',

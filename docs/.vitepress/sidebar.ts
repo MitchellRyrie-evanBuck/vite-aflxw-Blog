@@ -574,7 +574,9 @@ export const sidebarZh: any = {
       text: 'Golang',
       collapsed: true,
       items: itemsFn([
-        '/service/go/',
+        '/service/go/前言',
+        '/service/go/package',
+
       ])
     },
     {
