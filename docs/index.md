@@ -23,7 +23,13 @@ features:
     details: Lorem ipsum...
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🙈
+    title: 小技巧分享
+    details: 分享前端一些小技巧&周边内容
+    link: /front-end/工程/pnpm打补丁
+  - icon: 🙈
+    title: flutter
+    details: 分享flutter
+    link: /flutter/
 ---
 
