@@ -576,14 +576,34 @@ export const sidebarZh: any = {
       items: itemsFn([
         '/service/go/前言',
         '/service/go/package',
-
+      ])
+    },
+    {
+      text: '基础参考',
+      collapsed: true,
+      items: itemsFn([
+        '/service/go/基础参考/channel',
+        '/service/go/基础参考/interface',
+        '/service/go/基础参考/map',
+      ])
+    },
+    {
+      text: '进阶',
+      collapsed: true,
+      items: itemsFn([
+        '/service/go/进阶/atomic',
+        '/service/go/进阶/context',
+        '/service/go/进阶/reflect',
+        '/service/go/进阶/sync',
       ])
     },
     {
       text: 'Gin',
       collapsed: true,
       items: itemsFn([
-        '/service/go/gin/',
+        '/service/go/gin/前言',
+        '/service/go/gin/structTag',
+
       ])
     },
   ],
