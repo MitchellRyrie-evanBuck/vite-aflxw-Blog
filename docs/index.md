@@ -7,7 +7,7 @@ hero:
   text: "record IT life"
   tagline: Where there is a will, there is a way
   image:
-    src: flutter.svg
+    src: bird.png
     alt: VitePress
   actions:
     - theme: brand

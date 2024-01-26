@@ -64,7 +64,7 @@ const MyComponent = () => {
 ```jsx
 import { useThree } from 'react-three-fiber';
 
-const MyComponent = () => {
+const MyComponent1 = () => {
   const state = useThree((state) => state);
 
   // 在这里可以使用 state 对象来访问 Three.js 状态
@@ -114,17 +114,16 @@ useFrame 是一个自定义钩子（Hook），它允许您在每一帧渲染时�
 
 在使用 useFrame 钩子时，只需在函数组件中调用它即可。它需要一个回调函数作为参数，这个回调函数将在每一帧渲染时被调用。
 
-```jsx
+```txt
 import { useFrame } from 'react-three-fiber';
 
-const MyComponent = () => {
+const MyComponent3 = () => {
   useFrame(() => {
-    // 在这里可以编写每一帧渲染时的更新逻辑
-    // ...
+
   });
 
-  return null;
-};
+  return null
+}
 ```
 
 ### useFrame注意事项
@@ -175,7 +174,7 @@ R3F 中的 useFrame 钩子会在每一帧渲染时调用注册的回调函数。
 
 ```jsx
 import { useFrame } from 'react-three-fiber';
-const MyComponent = () => {
+const MyComponent4 = () => {
   useFrame(() => {
     // 在这里编写第一个回调函数的更新逻辑
     // ...

@@ -129,11 +129,5 @@
   font-weight: 600;
 }
 
-.image-container .VPImage{
-  height: 180px;
-  width: 180px;
-  z-index: 1;
-  opacity: .1;
-}
 
 
