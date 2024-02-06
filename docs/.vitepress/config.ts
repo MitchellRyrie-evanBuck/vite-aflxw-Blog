@@ -1,3 +1,5 @@
+process.env.VITE_EXTRA_EXTENSIONS = 'crx'
+
 import { defineConfig, defineConfigWithTheme } from 'vitepress'
 import { navbarZh } from './nav'
 import { sidebarZh } from './sidebar'

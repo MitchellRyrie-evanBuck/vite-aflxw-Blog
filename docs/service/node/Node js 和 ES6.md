@@ -1,9 +1,5 @@
 # NodeJS
 
-
-
-
-
 ## 浏览器概述
 
 ```css
@@ -13,8 +9,6 @@
 4、渲染引擎（渲染HTML，CSS）又叫排版引擎或浏览器内核
 5、数据库存储（cookie、HTML5的本地存储Localstorage、SessionStorage）
 ```
-
-
 
 ### 渲染引擎
 
@@ -28,7 +22,6 @@ Opera浏览器: Blink引擎(早期版使用Presto引擎，后改为Blink引擎)
 Internet Explorer浏览器: Trident引擎 。（最后一个版本 IE 11）
 Microsoft Edge浏览器: EdgeHTML引擎(Trident的一个分支) 
 ```
-
 
 
 ### 工作原理
@@ -163,7 +156,7 @@ JavaScript 是单线程工作，这意味着两段脚本不能同时运行，而
 
 
 
-可以自己进行编写代码，来去参考浏览器（与node.js运行原理相同）演示动画地址：http://latentflip.com/loupe
+可以自己进行编写代码，来去参考浏览器（与node.js运行原理相同）演示动画地址：
 ```
 
 
@@ -1245,7 +1238,7 @@ var c = new Crawler({
 });
  
 // Queue just one URL, with default callback
-c.queue('http://www.baidu.com');
+c.queue();
 
 -----------------------------------------------------------------------------------------
 爬取图片或视频，例如：
@@ -1925,7 +1918,7 @@ jsonp是前后端来配合使用的.
         }
     </script>
     <!-- 前端页面：访问后端API，传入后端指定get参数，后端处理返回后，接受到返回的调用和实参对象来使用 -->
-    <script src="http://127.0.0.1:8888/getAll?fun=print"></script>
+    {/* <script src="http://127.0.0.1:8888/getAll?fun=print"></script> */}
 </body>
 </html>
 
@@ -1967,7 +1960,7 @@ app.listen(8888,()=>{
             let $btn= $('button')
             $btn.on("click",()=>{
                 $.ajax({
-                    url:'http://127.0.0.1:8888/getAll',
+                    url:'127.0.0.1:8888/getAll',
                     dataType:'jsonp',
                     success:(backData)=>{
                         alert(backData.user)
@@ -2698,9 +2691,9 @@ app.listen(8888,()=>{
 ### 解决cookie跨域问题
 
 ```javascript
-"注意:在前端页面中设置访问对应的服务器接口（设置了cookie），而且浏览器中的URL为本地地址(C://xxxxx/login.html)去访问，浏览器会获取不到cookie，且http://localhost:8888/login.html，也是获取不到cookie"
+"注意:在前端页面中设置访问对应的服务器接口（设置了cookie），而且浏览器中的URL为本地地址(C://xxxxx/login.html)去访问，浏览器会获取不到cookie，且:/login.html，也是获取不到cookie"
 
-"只能是访问，http://127.0.0.1:8888/login.html  这样cookie才没有跨域问题"
+"只能是访问 :8888/login.html  这样cookie才没有跨域问题"
 
 
 "下面是解决cookie跨域问题，以下内容来自（https://www.cnblogs.com/lijinwen/p/8012547.html）"
