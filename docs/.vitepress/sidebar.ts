@@ -606,6 +606,10 @@ export const sidebarZh: any = {
 
       ])
     },
+    {
+      text: '反射(reflect)性能',
+      link: '/service/go/反射(reflect)性能',
+    }
   ],
   '/service/docker/': [
     {
