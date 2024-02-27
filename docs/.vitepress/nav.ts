@@ -88,6 +88,17 @@ export const navbarZh: any = [
     ]
   },
   {
+    text: '面试题',
+    items: [
+      {
+        text: "web",
+        items: [
+          { text: "code", link: '/interview/code/' },
+        ]
+      },
+    ]
+  },
+  {
     text: '归档',
     items: [
       {
