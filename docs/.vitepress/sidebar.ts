@@ -552,12 +552,16 @@ export const sidebarZh: any = {
 
   //---------------------------------------------------------------
 
-  '/interview/code/': [
+
+  '/interviews/code/': [
+    '/interviews/code/',
     {
-      text: '事件侦听器函数',
-      link: '/interview/code/事件侦听器函数'
+      text: 'code',
+      collapsed: true,
+      items: itemsFn([
+        '/interviews/code/eventFn.md',
+      ]),
     },
-    
   ],
 
   // --------------------------------------------------------------

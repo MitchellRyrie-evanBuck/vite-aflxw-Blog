@@ -93,7 +93,7 @@ export const navbarZh: any = [
       {
         text: "web",
         items: [
-          { text: "code", link: '/interview/code/' },
+          { text: "code", link: '/interviews/code/' },
         ]
       },
     ]
