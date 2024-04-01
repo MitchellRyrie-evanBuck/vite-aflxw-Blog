@@ -377,7 +377,7 @@ export const sidebarZh: any = {
   "/web/vue/": [
     {
       text: '介绍',
-      link: '/web/vue/'
+      link: '/web/vue/vue'
     },
     {
       text: 'vue组件之间通信方式',
@@ -387,69 +387,69 @@ export const sidebarZh: any = {
       text: 'vuex',
       link: '/web/vue/vuex'
     },
-    {
-      text: 'vue-router',
-      collapsed: true,
-      items: [
-        {
-          text: '1-vue-router',
-          link: '/web/vue/vue-router/1-vue-router'
-        },
-        {
-          text: '2-异步请求',
-          link: '/web/vue/vue-router/2-异步请求'
-        },
-        {
-          text: '3-devTools',
-          link: '/web/vue/vue-router/3-devTools'
-        },
-        {
-          text: '4-动态路由',
-          link: '/web/vue/vue-router/4-动态路由'
-        },
-        {
-          text: '5-queryString',
-          link: '/web/vue/vue-router/5-queryString'
-        },
-        {
-          text: '6-路由守卫',
-          link: '/web/vue/vue-router/6-路由守卫'
-        },
-        {
-          text: '7-嵌套路由',
-          link: '/web/vue/vue-router/7-嵌套路由'
-        },
-        {
-          text: '8-重定向与别名',
-          link: '/web/vue/vue-router/8-重定向与别名'
-        },
-        {
-          text: '9-路由组件传参',
-          link: '/web/vue/vue-router/9-路由组件传参'
-        },
-        {
-          text: '10-路由数据获取',
-          link: '/web/vue/vue-router/10-路由数据获取'
-        },
-        {
-          text: '11-路由动效',
-          link: '/web/vue/vue-router/11-路由动效'
-        },
-        {
-          text: '12-滚动行为',
-          link: '/web/vue/vue-router/12-滚动行为'
-        },
-        {
-          text: '13-路由元信息',
-          link: '/web/vue/vue-router/13-路由元信息'
-        },
-        {
-          text: '14-路由懒加载',
-          link: '/web/vue/vue-router/14-路由懒加载'
-        }
-      ]
+    // {
+    //   text: 'vue-router',
+    //   collapsed: true,
+    //   items: [
+    //     {
+    //       text: '1-vue-router',
+    //       link: '/web/vue/vue-router/1-vue-router'
+    //     },
+    //     {
+    //       text: '2-异步请求',
+    //       link: '/web/vue/vue-router/2-异步请求'
+    //     },
+    //     {
+    //       text: '3-devTools',
+    //       link: '/web/vue/vue-router/3-devTools'
+    //     },
+    //     {
+    //       text: '4-动态路由',
+    //       link: '/web/vue/vue-router/4-动态路由'
+    //     },
+    //     {
+    //       text: '5-queryString',
+    //       link: '/web/vue/vue-router/5-queryString'
+    //     },
+    //     {
+    //       text: '6-路由守卫',
+    //       link: '/web/vue/vue-router/6-路由守卫'
+    //     },
+    //     {
+    //       text: '7-嵌套路由',
+    //       link: '/web/vue/vue-router/7-嵌套路由'
+    //     },
+    //     {
+    //       text: '8-重定向与别名',
+    //       link: '/web/vue/vue-router/8-重定向与别名'
+    //     },
+    //     {
+    //       text: '9-路由组件传参',
+    //       link: '/web/vue/vue-router/9-路由组件传参'
+    //     },
+    //     {
+    //       text: '10-路由数据获取',
+    //       link: '/web/vue/vue-router/10-路由数据获取'
+    //     },
+    //     {
+    //       text: '11-路由动效',
+    //       link: '/web/vue/vue-router/11-路由动效'
+    //     },
+    //     {
+    //       text: '12-滚动行为',
+    //       link: '/web/vue/vue-router/12-滚动行为'
+    //     },
+    //     {
+    //       text: '13-路由元信息',
+    //       link: '/web/vue/vue-router/13-路由元信息'
+    //     },
+    //     {
+    //       text: '14-路由懒加载',
+    //       link: '/web/vue/vue-router/14-路由懒加载'
+    //     }
+    //   ]
 
-    },
+    // },
   ],
   "/web/webpack/": [
     {
@@ -549,6 +549,21 @@ export const sidebarZh: any = {
       ])
     },
   ],
+
+  //---------------------------------------------------------------
+
+
+  '/interviews/code/': [
+    '/interviews/code/',
+    {
+      text: 'code',
+      collapsed: true,
+      items: itemsFn([
+        '/interviews/code/eventFn.md',
+      ]),
+    },
+  ],
+
   // --------------------------------------------------------------
   '/service/node/': [
     {
@@ -606,6 +621,10 @@ export const sidebarZh: any = {
 
       ])
     },
+    {
+      text: '反射(reflect)性能',
+      link: '/service/go/反射(reflect)性能',
+    }
   ],
   '/service/docker/': [
     {

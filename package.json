@@ -7,8 +7,9 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "@types/node": "^20.11.16",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "vitepress": "^1.0.0-rc.40"
+    "vitepress": "^1.0.0-rc.41"
   },
   "dependencies": {
     "path": "^0.12.7"

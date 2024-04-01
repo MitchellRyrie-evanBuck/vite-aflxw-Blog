@@ -1,3 +1,5 @@
+process.env.VITE_EXTRA_EXTENSIONS = 'crx'
+
 import { defineConfig, defineConfigWithTheme } from 'vitepress'
 import { navbarZh } from './nav'
 import { sidebarZh } from './sidebar'
@@ -6,11 +8,13 @@ import { sidebarZh } from './sidebar'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "XL We Blog",
+  title: "Mitchell Ryrie Blog",
   description: "Where there is a will, there is a way",
   lastUpdated: true,
   cleanUrls: true,
+  // srcDir: 'src',
   base: "/",
+  // scrollOffset: 'header',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     [
@@ -29,9 +33,8 @@ export default defineConfig({
 
   markdown: {
     theme: { light: 'github-light', dark: 'github-dark' },
-
     config: (md) => {
-
+      // md.use(headerPlugin)
     }
   },
 
@@ -44,11 +47,9 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
       { icon: 'twitter', link: '...' },
-      // You can also add custom icons by passing SVG as string:
       {
         icon: 'youtube',
         link: '...',
-        // You can include a custom label for accessibility too (optional but recommended):
         ariaLabel: 'cool link'
       },
       {
@@ -56,6 +57,15 @@ export default defineConfig({
         link: "https://mastodon.social/@af_xw",
       }
     ],
+    // algolia: {
+    //   indexName: 'Notebook',
+    //   appId: '3II0BF621L',
+    //   apiKey: 'f0f82443dd1e3bb2738c4e904221fc97',
+    //   searchParameters: {
+    //     facetFilters: ['version:v3']
+    //   }
+    // },
+
     lastUpdated: {
       text: 'Updated at',
       formatOptions: {
@@ -63,6 +73,11 @@ export default defineConfig({
         timeStyle: 'medium'
       }
     },
+    editLink: {
+      pattern: 'vuejs/docs',
+      text: 'Edit this page on GitHub'
+    },
+
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2019-present af-xw'

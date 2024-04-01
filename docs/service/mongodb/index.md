@@ -395,8 +395,6 @@ npm install mongodb --save
 
 ### 6.1 快速开始
 
-官方API地址:`http://mongodb.github.io/node-mongodb-native/2.2/quick-start/quick-start/`
-
 ```
 var myClient = require('mongodb').MongoClient;
 var server = 'mongodb://localhost:27017/web';//连接web集合
