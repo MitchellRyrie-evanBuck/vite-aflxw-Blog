@@ -161,19 +161,19 @@ export const sidebarZh: any = {
   ],
   "/web/typescript/": [
   {
-    text: '基本数据类型.md',
+    text: '基本数据类型',
     link: '/web/typescript/基本数据类型.md'
   },
   {
-    text: '范型.md',
+    text: '范型',
     link: '/web/typescript/范型.md'
   },
   {
-    text: 'infer.md',
+    text: 'infer',
     link: '/web/typescript/infer.md'
   },
   {
-    text: '协变逆变.md',
+    text: '协变逆变',
     link: '/web/typescript/协变逆变.md'
   },
     {
@@ -1019,9 +1019,19 @@ export const sidebarZh: any = {
     '/docMD/mac/微信双开',
 
   ]),
-  '/docMD/order/': itemsFn([
-    '/docMD/order/介绍',
-  ]),
+  '/docMD/order/': [
+    {
+      text: '介绍',
+      link: '/docMD/order/介绍',
+    },
+  
+  ],
+  "/system/informationSystem/":[
+    {
+      text: '信息系统管理',
+      link: '/system/informationSystem/information.md',
+    }
+  ],
 
 
   // =====================Deisgn=========================

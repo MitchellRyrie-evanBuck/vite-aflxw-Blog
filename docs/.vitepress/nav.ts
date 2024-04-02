@@ -108,6 +108,12 @@ export const navbarZh: any = [
         ]
       },
       {
+        text: "自考",
+        items: [
+          { text: "信息系统开发与管理", link: '/system/informationSystem/information' },
+        ]
+      },
+      {
         text: "其他",
         items: [
           { text: "Mac", link: '/docMD/mac/' },
