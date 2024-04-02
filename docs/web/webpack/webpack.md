@@ -30,11 +30,11 @@ Webpack以项目目录下的index.js作为入口，使用加载器Loader加载�
 
 进入项目文件夹，使用npm初始化项目，生成package.json
 
-```
+```bash
 npm init -y
-
 npm install webpack@2 --save-dev
 ```
+
 webpack会作为依赖安装与我们的项目下。
 
 ### 2.2 使用
@@ -43,14 +43,14 @@ webpack会作为依赖安装与我们的项目下。
 
 在目录下新建文件夹
 
-```
+```bash
 + 001 + node_modules
       |- package.json
       |- app +
              |-index.js     
 ```
 
-**index.js**
+index.js
 
 ```js
 console.log('hello world')
@@ -198,7 +198,7 @@ Child html-webpack-plugin for "index.html":  //编译用到的插件
 
 在package.json中的scripts下新添一行
 
-```
+```bash
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"webpack"
@@ -242,7 +242,7 @@ npm install webpack-dev-server --save-dev
 
 **配置WDS端口号**
 
->https://webpack.js.org/configuration/dev-server/
+><https://webpack.js.org/configuration/dev-server/>
 
 默认情况下WDS读取的端口号为全局变量中的数据
 
@@ -263,7 +263,7 @@ devServer:{
 
 ESLint是检测js代码规范的插件.
 
->ESLint规则 http://eslint.cn/docs/rules/ 
+>ESLint规则 <http://eslint.cn/docs/rules/>
 >新版本的ESLint甚至可以帮助我们进行代码修复
 
 ### 4.1 在普通项目中使用
@@ -276,7 +276,7 @@ ESLint可配置的方式有很多
 
 + javascript: 使用javascript导出一个包含配置的对象
 + YAML: .eslintrc.yaml或者 .eslintrc.yml
-+ JSON: .eslintrc.json 
++ JSON: .eslintrc.json
 + package.json : 创建eslintConfig属性,所有的配置包含在属性当中
 
 我们在`package.json`中配置脚本
@@ -368,7 +368,7 @@ module: {
     }   
 ```
 
->http://npm.taobao.org/package/eslint-loader
+><http://npm.taobao.org/package/eslint-loader>
 
 我们直接运行`npm run start`，则会在运行脚本之前执行加载器。可以使用eslint运行修复之后再次执行.
 
@@ -381,7 +381,7 @@ module: {
 + css-loader 处理url()和@import引入的css,如果是外部链接,则不作处理.
 + style-loader 处理style标签中的css代码
 
-安装插件:` npm install css-loader style-loader --save-dev`
+安装插件:`npm install css-loader style-loader --save-dev`
 
 配置`webpack.config.js`
 
@@ -490,7 +490,7 @@ document.body.appendChild(component('hello',style.class1,style2.class1));
 
 安装插件`npm install extract-text-webpack-plugin@2.1.2 --save-dev`
 
->https://github.com/webpack-contrib/extract-text-webpack-plugin
+><https://github.com/webpack-contrib/extract-text-webpack-plugin>
 
 在webpack.config.js中增加配置
 
@@ -531,6 +531,7 @@ fallback:编译后用什么loader来提取css文件
 ```
 npm install node-sass sass-loader --save-dev
 ```
+
 只需要在提取css的配置中略作修改,即可动态的编译sass
 
 **webpack.config.js**
@@ -569,7 +570,7 @@ module.exports = {
 
 ## 第六章 深入理解loader
 
->https://webpack.js.org/concepts/loaders/
+><https://webpack.js.org/concepts/loaders/>
 
 loader的加载顺序是从右到左,从下向上进行的,并不是按照我们代码的读取顺序实施.
 比如我们`use:['style-loader','css-loader']`,实际上是
@@ -596,7 +597,6 @@ use: {
 ```javascript
 use:'css-loader?modules=true'
 ```
-
 
 ## 第七章 文件压缩
 
