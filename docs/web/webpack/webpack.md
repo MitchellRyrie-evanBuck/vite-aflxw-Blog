@@ -74,7 +74,7 @@ index.js  2.66 kB       0  [emitted]  main
 
 运行node_modules下的webpack
 
-```
+```js
 D:\Material\MarkDown\Web\webpack\code\001>node_modules\.bin\webpack
 No configuration file found and no output filename configured via CLI option.
 A configuration file could be named 'webpack.config.js' in the current directory.
