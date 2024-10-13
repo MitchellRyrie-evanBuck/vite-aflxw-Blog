@@ -57,7 +57,7 @@ export const navbarZh: any = [
     ]
   },
   {
-    tetx: 'App',
+    text: 'App',
     items: [
       {
         text: "Swift",
@@ -73,6 +73,10 @@ export const navbarZh: any = [
         ]
       },
     ]
+  },
+  {
+    text: '工具',
+    link: '/tool/'
   },
   {
     text: 'Design',
