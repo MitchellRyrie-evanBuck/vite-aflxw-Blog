@@ -57,19 +57,19 @@ export const navbarZh: any = [
     ]
   },
   {
-    text: "Harmony",
+    tetx: 'App',
     items: [
       {
-        text: "Ark",
+        text: "Swift",
         items: [
-          { text: "ArkTs", link: '/harmony/ark/arkts/' },
-          { text: "ArkUI", link: '/harmony/ark/arkui/' },
+          { text: "SwiftUI", link: '/swift/swiftui/' },
         ]
       },
       {
-        text: "Harmony OS",
+        text: "Harmony",
         items: [
-
+          { text: "ArkTs", link: '/harmony/ark/arkts/' },
+          { text: "ArkUI", link: '/harmony/ark/arkui/' },
         ]
       },
     ]
