@@ -11,9 +11,10 @@ node_modules
 node_modules/*
 /node_modules/*
 ./node_modules
+node_modules/
 docs/.vitepress/cache
+docs/.vitepress/cache/
 docs/.vitepress/cache/*
-
 docs/.vitepress/.temp
 
 dist
