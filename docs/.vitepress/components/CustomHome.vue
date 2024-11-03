@@ -7,7 +7,7 @@ const { frontmatter } = useData()
   <div class="custom-home">
     <!-- 头部区域 -->
     <header class="hero">
-      <h1>{{ frontmatter.hero.name }}</h1>
+      <h1 class="text-3xl font-bold text-blue-600">{{ frontmatter.hero.name }}</h1>
       <p class="description">{{ frontmatter.hero.text }}</p>
       <p class="tagline">{{ frontmatter.hero.tagline }}</p>
       
@@ -37,7 +37,8 @@ const { frontmatter } = useData()
   </div>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
+
 .custom-home {
   padding: 24px;
   max-width: 1200px;

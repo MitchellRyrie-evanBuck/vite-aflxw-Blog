@@ -3,6 +3,7 @@ process.env.VITE_EXTRA_EXTENSIONS = 'crx'
 import { defineConfig, defineConfigWithTheme } from 'vitepress'
 import { navbarZh } from './nav'
 import { sidebarZh } from './sidebar'
+import { fileURLToPath } from 'url'
 
 
 
@@ -82,5 +83,19 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2019-present af-xw'
     }
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        less: {
+          // Less 配置选项
+          javascriptEnabled: true,
+          // 如果需要全局变量
+          additionalData: `@import "docs/.vitepress/theme/variables.less";`
+        }
+      }
+    },
+
   }
 })
