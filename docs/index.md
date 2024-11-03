@@ -1,13 +1,13 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-layout: home
+layout: CustomHome
 
 hero:
   name: "Mitchell Ryrie"
   text: "record IT life"
   tagline: Where there is a will, there is a way
   image:
-    src: creativity.png
+    src: angry-monster.svg
     alt: VitePress
   actions:
     - theme: brand

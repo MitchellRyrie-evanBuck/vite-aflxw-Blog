@@ -42,7 +42,7 @@ export default defineConfig({
   themeConfig: {
     nav: navbarZh,
     sidebar: sidebarZh,
-    logo: '/creativity.png',
+    logo: '/king-monster.svg',
     aside: true,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },

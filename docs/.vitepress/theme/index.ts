@@ -1,9 +1,8 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
-// import Theme from 'awesome-vitepress-theme'
 import './style.css'
-import HomeImg from '../components/HomeImage.vue'
+import CustomHome from "../components/CustomHome.vue"
 
 export default {
   ...Theme,
@@ -14,6 +13,6 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     // ...
-    app.component('HomeImg', HomeImg);
+    app.component('CustomHome', CustomHome);
   }
 }
