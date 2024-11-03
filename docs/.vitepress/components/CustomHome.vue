@@ -4,7 +4,7 @@ const { frontmatter } = useData()
 </script>
 
 <template>
-  <div class="custom-home">
+  <div class=" custom-home">
     <!-- 头部区域 -->
     <header class="hero">
       <h1 class="text-3xl font-bold text-blue-600">{{ frontmatter.hero.name }}</h1>

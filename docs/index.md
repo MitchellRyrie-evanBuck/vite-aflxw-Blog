@@ -4,7 +4,7 @@ layout: CustomHome
 
 hero:
   name: "Mitchell Ryrie"
-  text: "record IT life"
+  text: "Executive Force"
   tagline: Where there is a will, there is a way
   image:
     src: angry-monster.svg
