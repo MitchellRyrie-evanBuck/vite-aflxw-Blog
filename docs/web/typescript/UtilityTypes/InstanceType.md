@@ -1,6 +1,6 @@
 # InstanceType
 
-> *基于一个构造函数类型 T 的返回值构造一个新类型*
+> _基于一个构造函数类型 T 的返回值构造一个新类型_
 
 - 源码
 
@@ -8,7 +8,11 @@
 /**
  * Obtain the return type of a constructor function type
  */
-type InstanceType<T extends new (...args: any) => any> = T extends new (...args: any) => infer R ? R : any;
+type InstanceType<T extends new (...args: any) => any> = T extends new (
+  ...args: any
+) => infer R
+  ? R
+  : any;
 ```
 
 - 源码解析
@@ -17,16 +21,16 @@ type InstanceType<T extends new (...args: any) => any> = T extends new (...args:
 
 ```tsx
 class Dog {
-  private dogAge: number
-  private isMale: boolean
-  private dogKind: string
+  private dogAge: number;
+  private isMale: boolean;
+  private dogKind: string;
   constructor(isMale: boolean, dogKind: string) {
-    this.dogAge = 0
-    this.isMale = isMale
-    this.dogKind = dogKind
+    this.dogAge = 0;
+    this.isMale = isMale;
+    this.dogKind = dogKind;
   }
 }
-type DogGaveBirthNeedInfo = InstanceType<typeof Dog> // 得到 Dog 类型
+type DogGaveBirthNeedInfo = InstanceType<typeof Dog>; // 得到 Dog 类型
 ```
 
 也许你会疑问，为什么还得到 Dog 本身了？
@@ -38,4 +42,3 @@ type DogGaveBirthNeedInfo = InstanceType<typeof Dog> // 得到 Dog 类型
 `class` 定义的类本身也是一种类型，它的实例的类型可以用它本身来进行描述
 
 如 `Dog['dogAge']` 能得到实例的私有属性 `dogAge` 的类型 `number`
-

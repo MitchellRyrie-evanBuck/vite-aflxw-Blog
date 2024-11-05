@@ -26,68 +26,68 @@ W3C将H5定义为HTML,CSS,Javascript API的升级语言,是新一代开发Web富
 
 #### 1.3 应用场景
 
-+ 网页应用程序
-  * PC端: iCloud , 百度脑图 ,Office365...
-  * APP端:淘宝 , 京东 ,美团
-  * WeChat端：微信小程序，淘宝，京东等
-+ 混合本地式应用
-  * PC端:网易云音乐 , 有道词典
-  * APP端:淘宝,手机百度,京东
-+ 简单的游戏
+- 网页应用程序
+  - PC端: iCloud , 百度脑图 ,Office365...
+  - APP端:淘宝 , 京东 ,美团
+  - WeChat端：微信小程序，淘宝，京东等
+- 混合本地式应用
+  - PC端:网易云音乐 , 有道词典
+  - APP端:淘宝,手机百度,京东
+- 简单的游戏
 
 #### 1.4 HTML5新增特性
 
 HTML:
 
-+ 标签
-  * 语义化标签
-  * 应用程序标签
-+ 属性
-  * 链接关系描述
-  * 结构数据标记
-  * ARIA
-  * 自定义属性
-+ 智能表单
-  * 新的表单类型
-  * 虚拟键盘配置
-+ 网页多媒体
-  * 音频
-  * 视频
-  * 字幕
-+ Canvas
-  * 2D
-  * 3D (WebGL)
-+ SVG
+- 标签
+  - 语义化标签
+  - 应用程序标签
+- 属性
+  - 链接关系描述
+  - 结构数据标记
+  - ARIA
+  - 自定义属性
+- 智能表单
+  - 新的表单类型
+  - 虚拟键盘配置
+- 网页多媒体
+  - 音频
+  - 视频
+  - 字幕
+- Canvas
+  - 2D
+  - 3D (WebGL)
+- SVG
 
 Javascript API:
 
-+ 核心平台提升
-  * 新的选择器 QuerySelector
-  * 访问历史
-  * 全屏
-+ 网页存储
-  * Application Cache
-  * localStorage
-  * sessionStorage
-  * WebSql
-  * indexedDB
-+ 设备信息访问
-  * 网络状态
-  * 硬件访问
-  * 设备方向
-  * 地理围栏
-+ 拖放操作
-  * 网页内拖放
-  * 桌面拖入
-  * 桌面拖出
-+ 文件
-  * 文件系统API
-  * FileReader
-+ 网络访问
-  * Ajax
-  * WebSocket
-+ 多线程
-+ 桌面通知
+- 核心平台提升
+  - 新的选择器 QuerySelector
+  - 访问历史
+  - 全屏
+- 网页存储
+  - Application Cache
+  - localStorage
+  - sessionStorage
+  - WebSql
+  - indexedDB
+- 设备信息访问
+  - 网络状态
+  - 硬件访问
+  - 设备方向
+  - 地理围栏
+- 拖放操作
+  - 网页内拖放
+  - 桌面拖入
+  - 桌面拖出
+- 文件
+  - 文件系统API
+  - FileReader
+- 网络访问
+  - Ajax
+  - WebSocket
+- 多线程
+- 桌面通知
 
 CSS :
 
@@ -103,10 +103,10 @@ CSS :
 <div class="header"></div>
 <div class="nav"></div>
 <div class="content">
-    <div class="article"></div>
+  <div class="article"></div>
 </div>
 <div class="sidebar">
-    <div class="widget"></div>
+  <div class="widget"></div>
 </div>
 <div class="footer"></div>
 ```
@@ -117,18 +117,18 @@ CSS :
 <header></header>
 <nav></nav>
 <section>
-    <article></article>
+  <article></article>
 </section>
 <aside>
-    <div class="widget"></div>
+  <div class="widget"></div>
 </aside>
 <footer></footer>
 ```
 
 形成统一的规范,更易于人和机器的无障碍读取网页内容.
 
-+ 语义化标签能够便于开发者阅读和写出更优雅的代码
-+ 能够让浏览器或者网络爬虫可以更好的进行解释，从而更好的分析其中的内容，更好的搜索引擎优化
+- 语义化标签能够便于开发者阅读和写出更优雅的代码
+- 能够让浏览器或者网络爬虫可以更好的进行解释，从而更好的分析其中的内容，更好的搜索引擎优化
 
 切记
 **HTML的职责是描述一块区域的内容或意义是什么,而不是它长得是什么样子,网页的外观应该由CSS来决定**
@@ -141,7 +141,7 @@ CSS :
 
 应用程序标签主要由 DataList(数据列表),Progress(进度条),Meter(数值显示器),Menu(右键菜单),Detail(明细)等组成,其中后两种标签兼容性不好,我们只对前三种进行讨论.
 
-> HTML <!DOCTYPE> 标签  http://www.w3school.com.cn/tags/tag_doctype.asp  
+> HTML <!DOCTYPE> 标签 http://www.w3school.com.cn/tags/tag_doctype.asp
 
 #### DataList
 
@@ -173,8 +173,8 @@ CSS :
 **progress**
 
 ```html
-    <progress></progress>
-    <progress value="10" max="100">
+<progress></progress>
+<progress value="10" max="100"></progress>
 ```
 
 当我们修改进度条的颜色的时候,发现并不是我们所期待的颜色,并且我们不能对进度和总体样式进行修改.
@@ -197,7 +197,7 @@ CSS :
 <meter max="100" value="90" high="60" low="30"></meter>
 ```
 
-> http://www.w3school.com.cn/tags/tag_meter.asp  meter标签
+> http://www.w3school.com.cn/tags/tag_meter.asp meter标签
 
 ### 第四章 链接关系
 
@@ -219,17 +219,21 @@ CSS :
 在link头中我们也经常看到rel,指明了文档的类型.
 
 ```html
-<link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" type="text/css" href="" />
 ```
 
 如果rel不对或者href链接的文档不对,css都无法正常引入.
 
 ```html
-<link rel="stylesheet" href="style.css">
-<link rel="alternate" type="application/rss+xml" href="http://myblog.com/feed">
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="pingback" href="http://myblog.com/xmlrpc.php">
-<link rel="prefetch" href="http://myblog.com/main.php">
+<link rel="stylesheet" href="style.css" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="http://myblog.com/feed"
+/>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="pingback" href="http://myblog.com/xmlrpc.php" />
+<link rel="prefetch" href="http://myblog.com/main.php" />
 ...
 
 <a rel="archives" href="http://myblog.com/archives">old posts</a>
@@ -239,27 +243,27 @@ CSS :
 <a rel="tag" href="http://myblog.com/category/games">games posts</a>
 ```
 
-+ alternate   文档的可选版本（例如打印页、翻译页或镜像）
-+ stylesheet  文档的外部样式表
-+ prefetch    预加载
-+ import      文档引入
-+ start   集合中的第一个文档
-+ next    集合中的下一个文档
-+ prev    集合中的前一个文档
-+ contents    文档目录
-+ index   文档索引
-+ glossary    文档中所用字词的术语表或解释
-+ copyright   包含版权信息的文档
-+ chapter 文档的章
-+ section 文档的节
-+ subsection  文档的子段
-+ appendix    文档附录
-+ help    帮助文档
-+ bookmark    相关文档
-+ nofollow    用于指定 Google 搜索引擎不要跟踪链接
-+ licence 一般用于文献，表示许可证的含义
-+ tag 标签集合
-+ friend  友情链接
+- alternate 文档的可选版本（例如打印页、翻译页或镜像）
+- stylesheet 文档的外部样式表
+- prefetch 预加载
+- import 文档引入
+- start 集合中的第一个文档
+- next 集合中的下一个文档
+- prev 集合中的前一个文档
+- contents 文档目录
+- index 文档索引
+- glossary 文档中所用字词的术语表或解释
+- copyright 包含版权信息的文档
+- chapter 文档的章
+- section 文档的节
+- subsection 文档的子段
+- appendix 文档附录
+- help 帮助文档
+- bookmark 相关文档
+- nofollow 用于指定 Google 搜索引擎不要跟踪链接
+- licence 一般用于文献，表示许可证的含义
+- tag 标签集合
+- friend 友情链接
 
 对于rel属性,有些写错了也不会报错,只是不读取.所以rel属性可以完美的过度.
 
@@ -272,8 +276,7 @@ CSS :
   <p>我叫<span itemprop="主人">whitsats</span>。</p>
   <p>
     我养了一条叫
-    <span itemprop="狗名">旺财</span>的
-    <span itemprop="品种">金毛</span>犬。
+    <span itemprop="狗名">旺财</span>的 <span itemprop="品种">金毛</span>犬。
   </p>
 </div>
 ```
@@ -293,39 +296,46 @@ CSS :
 
 ```html
 <label>
-    请输入:
-    <input type="text" name="name">
+  请输入:
+  <input type="text" name="name" />
 </label>
 ```
 
 如何让残障人士知道当前浏览的区域是网站主导航?
 
 ```html
-  <div id="mainnav" role="navigation">
-    <a href="http://news.qq.com/" target="_blank">新闻</a>
-    <a href="http://v.qq.com/" target="_blank">视频</a>
-    <a href="http://ent.qq.com/" target="_blank">娱乐</a>
-  </div>
+<div id="mainnav" role="navigation">
+  <a href="http://news.qq.com/" target="_blank">新闻</a>
+  <a href="http://v.qq.com/" target="_blank">视频</a>
+  <a href="http://ent.qq.com/" target="_blank">娱乐</a>
+</div>
 ```
 
 如何让残障人士知道当li标签是select的选项?
 
 ```html
-  <div class="dropdown">
-    <a href="javascript:;" role="combobox" aria-autocomplete="list" aria-owns="question-list" aria-expanded="true">选择提示问题</a>
-    <ul id="question-list" role="listbox">
-      <li role="option"><a href="javascript:;">我妈妈的名字是？</a></li>
-      <li role="option"><a href="javascript:;">我爸爸的名字是？</a></li>
-      <li role="option"><a href="javascript:;">我爱人的名字是？</a></li>
-    </ul>
-  </div>
+<div class="dropdown">
+  <a
+    href="javascript:;"
+    role="combobox"
+    aria-autocomplete="list"
+    aria-owns="question-list"
+    aria-expanded="true"
+    >选择提示问题</a
+  >
+  <ul id="question-list" role="listbox">
+    <li role="option"><a href="javascript:;">我妈妈的名字是？</a></li>
+    <li role="option"><a href="javascript:;">我爸爸的名字是？</a></li>
+    <li role="option"><a href="javascript:;">我爱人的名字是？</a></li>
+  </ul>
+</div>
 ```
 
 对于残障人士,页面的一些隐藏内容我们也不需要使用屏幕阅读器来进行读取.
 
 现如今国内对于残障人士用户的重视程度相比国外还远远不够
 
-> http://www.zhangxinxu.com/wordpress/2012/03/wai-aria-%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%98%85%E8%AF%BB/     WAI-ARIA无障碍网页应用属性完全展示
+> http://www.zhangxinxu.com/wordpress/2012/03/wai-aria-%E6%97%A0%E9%9A%9C%E7%A2%8D%E9%98%85%E8%AF%BB/ WAI-ARIA无障碍网页应用属性完全展示
 
 ### 第七章 自定义属性
 
@@ -334,22 +344,22 @@ HTML5 增加了一项新功能是 自定义数据属性 ，也就是 `data-*`自
 我们当然可以用JS中的attribute方法存取`data-`自定义属性的值
 
 ```html
-<div id = "user" data-uid = "12345" data-uname = "布尔教育" > </div>
+<div id="user" data-uid="12345" data-uname="布尔教育"></div>
 <script type="text/javascript">
-    // 使用getAttribute获取 data- 属性
-    var user = document.getElementById('user') ;
-    var userName = user.getAttribute('data-uname') ; 
-    var userId = user.getAttribute('data-uid') ; //userId = '12345'
-    // 使用setAttribute设置 data- 属性
-    user.setAttribute('data-site','http://zixue.it') ;
+  // 使用getAttribute获取 data- 属性
+  var user = document.getElementById('user');
+  var userName = user.getAttribute('data-uname');
+  var userId = user.getAttribute('data-uid'); //userId = '12345'
+  // 使用setAttribute设置 data- 属性
+  user.setAttribute('data-site', 'http://zixue.it');
 </script>
 ```
 
-此方法能在所有的现代浏览器中正常工作，但它不是HTML5的自定义 data-*属性被使用目的，不然和我们以前使用的自定义属性就没有什么区别了.我们单纯的不使用`data-`前缀也能完成上述的功能.
+此方法能在所有的现代浏览器中正常工作，但它不是HTML5的自定义 data-\*属性被使用目的，不然和我们以前使用的自定义属性就没有什么区别了.我们单纯的不使用`data-`前缀也能完成上述的功能.
 
 在H5中的`data-`属性和我们自定义属性有很大的不同:
 
-####dataset属性存取data-*自定义属性的值
+####dataset属性存取data-\*自定义属性的值
 
 这种方式通过访问一个元素的`dataset`属性来存取`data-*`自定义属性的值。这个`dataset` 属性是HTML5 `JavaScript API`的一部分，用来返回一个所有选择元素`data-` 属性的DOMStringMap对象。
 
@@ -358,14 +368,14 @@ HTML5 增加了一项新功能是 自定义数据属性 ，也就是 `data-*`自
 还有一点特别注意的是,`data-`属性名如果包含了连字符，例如`date-of-birth` ，连字符将被去掉，并转换为驼峰式的命名，前面的属性名转换后应该是`dateOfBirth`。
 
 ```html
-<div id = "user" data-uid = "12345" data-uname = "布尔教育" data-of-name='bool'> </div>
+<div id="user" data-uid="12345" data-uname="布尔教育" data-of-name="bool"></div>
 <script type="text/javascript">
-     var user = document.getElementById('user');
-     console.log(user.dataset);//一个DOMStringMap
-     console.log(user.dataset.uid);
-     console.log(user.dataset.dataOfName);
-     user.dataset.dateOfBirth = '2013';
-     console.log(user);
+  var user = document.getElementById('user');
+  console.log(user.dataset); //一个DOMStringMap
+  console.log(user.dataset.uid);
+  console.log(user.dataset.dataOfName);
+  user.dataset.dateOfBirth = '2013';
+  console.log(user);
 </script>
 ```
 
@@ -379,55 +389,48 @@ HTML5在原有的表单基础上新增了一些新的标签和属性
 
 我们挑选一些兼容性较好的属性和类型进行讲解.
 
-+ 日期和时间
+- 日期和时间
   PC端的样式不可控,常用于移动端
 
 ```html
 <form>
-    <label>
-        日期:
-        <input type="date" name="bday">
-    </label>
-    <br>
-    <label>
-        日期和时间:
-        生日 (日期和时间): <input type="datetime" name="bdaytime">
-    </label>
-    <br>
-    <label>
-        月份:
-       <input type="month" name="bdaymonth">
-    </label>
-    <br>
-    <label>
-        时间：
-        <input type="time" name="usr_time">
-    </label>
-    <label>
-        选择周: <input type="week" name="week_year">
-    </label>
+  <label>
+    日期:
+    <input type="date" name="bday" />
+  </label>
+  <br />
+  <label>
+    日期和时间: 生日 (日期和时间): <input type="datetime" name="bdaytime" />
+  </label>
+  <br />
+  <label>
+    月份:
+    <input type="month" name="bdaymonth" />
+  </label>
+  <br />
+  <label>
+    时间：
+    <input type="time" name="usr_time" />
+  </label>
+  <label> 选择周: <input type="week" name="week_year" /> </label>
 </form>
 ```
 
-+ 颜色
+- 颜色
 
 ```html
-<label>
-    选择你喜欢的颜色: <input type="color" name="favcolor">
-</label>
+<label> 选择你喜欢的颜色: <input type="color" name="favcolor" /> </label>
 ```
 
-+ email
+- email
 
 自动验证email输入是否符合格式
 
 ```html
-<label>
-    E-mail: <input type="email" name="email">
-</label>
+<label> E-mail: <input type="email" name="email" /> </label>
 ```
 
-+ range
+- range
 
 表示一个数值的取值范围，可以通过一些属性定义
 
@@ -438,17 +441,24 @@ HTML5在原有的表单基础上新增了一些新的标签和属性
 
 ```html
 <label>
- 范围 ：<input type="range" name="points" min="1" max="10" value="2" step="2">
+  范围 ：<input
+    type="range"
+    name="points"
+    min="1"
+    max="10"
+    value="2"
+    step="2"
+  />
 </label>
 ```
 
-+ number
+- number
 
 number 类型用于应该包含数值的输入域,并且我们还可以对期进行设置
 
 ```html
 <label>
-    数量 ( 1 到 5 之间 ): <input type="number" name="quantity" min="1" max="5">
+  数量 ( 1 到 5 之间 ): <input type="number" name="quantity" min="1" max="5" />
 </label>
 ```
 
@@ -456,15 +466,15 @@ number 类型用于应该包含数值的输入域,并且我们还可以对期进
 
 input元素的新增属性：
 
-+ Autocomplete：自动完成功能.记录用户之前输入的内容，并在下次输入时自动提示完成输入
-  + 属性值： on/off
-  + 可以在form表单上使用，对整张表单的所有控件进行自动完成的开关
-  + 也可以在input上使用，对特定输入框进行修改。
-  + 绝大部分浏览器，默认开启。
-+ require   表单中必须填写的部分
-+ novalidate 属性:属性规定在提交表单时不应该验证 form 或 input 域。
-  * 对于input框测试无效
-+ pattern属性:pattern 属性描述了一个正则表达式用于验证input元素的值。
+- Autocomplete：自动完成功能.记录用户之前输入的内容，并在下次输入时自动提示完成输入
+  - 属性值： on/off
+  - 可以在form表单上使用，对整张表单的所有控件进行自动完成的开关
+  - 也可以在input上使用，对特定输入框进行修改。
+  - 绝大部分浏览器，默认开启。
+- require 表单中必须填写的部分
+- novalidate 属性:属性规定在提交表单时不应该验证 form 或 input 域。
+  - 对于input框测试无效
+- pattern属性:pattern 属性描述了一个正则表达式用于验证input元素的值。
 
 ### 第九章 网页多媒体
 
@@ -489,122 +499,128 @@ input元素的新增属性：
 
 ```html
 <audio controls="controls">
-  <source src="song.ogg" type="audio/ogg">
-  <source src="song.mp3" type="audio/mpeg">
-您的浏览器不支持音频播放
+  <source src="song.ogg" type="audio/ogg" />
+  <source src="song.mp3" type="audio/mpeg" />
+  您的浏览器不支持音频播放
 </audio>
 ```
 
 `audio`标签有一些属性提供给我们进行设置：
 
-+ controls ： 显示控制条 `controls = 'controls'`
-+ loop : 歌曲循环 默认是false
-+ autoplay : 自动播放 默认值为false
+- controls ： 显示控制条 `controls = 'controls'`
+- loop : 歌曲循环 默认是false
+- autoplay : 自动播放 默认值为false
 
 我们当然可以使用`shadow-root`来对控制条进行样式上的设置,但是自定义起来更为方便,在H5中的`audio`标签提供了一些DOM对象的属性和方法供我们自定义音频播放
 
 属性:
 
-+ currentTime 获取当前播放时间
-+ duration 获取歌曲的总时间
-+ paused 是否暂停 返回true/false
-+ volume 设置或返回音频的音量 最大为1
-+ + muted 静音播放
+- currentTime 获取当前播放时间
+- duration 获取歌曲的总时间
+- paused 是否暂停 返回true/false
+- volume 设置或返回音频的音量 最大为1
+- - muted 静音播放
 
 方法:
 
-+ play() 播放歌曲
-+ pause() 暂停歌曲
-+ load()重新加载歌曲
+- play() 播放歌曲
+- pause() 暂停歌曲
+- load()重新加载歌曲
 
 事件:
 
-+ play 播放事件
-+ pause 暂停事件
-+ timeupdate 播放位置更改
-+ volumechange 音量更改
-+ loadstart，durationchange，loadeddata，progress，canplay，canplaythrough等
+- play 播放事件
+- pause 暂停事件
+- timeupdate 播放位置更改
+- volumechange 音量更改
+- loadstart，durationchange，loadeddata，progress，canplay，canplaythrough等
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <pre>网页多媒体</pre>
-    <div id="outbox" style="width: 300px;height: 5px;background: #ccc;position: relative;">
-        <div id="inbox" style="height: 100%;width: 0px;background: blue;position: absolute;left: 0;top: 0;"></div>
-        <div id="bar" style="width: 10px;height: 20px;background: blue;position:absolute;left: 0px;top: -7.5px;"></div>
+    <div
+      id="outbox"
+      style="width: 300px;height: 5px;background: #ccc;position: relative;"
+    >
+      <div
+        id="inbox"
+        style="height: 100%;width: 0px;background: blue;position: absolute;left: 0;top: 0;"
+      ></div>
+      <div
+        id="bar"
+        style="width: 10px;height: 20px;background: blue;position:absolute;left: 0px;top: -7.5px;"
+      ></div>
     </div>
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
     <audio>
-        <source src="demo.mp3" type="audio/mpeg">
+      <source src="demo.mp3" type="audio/mpeg" />
     </audio>
-    <br>
+    <br />
     <button id="btn1">播放/暂停</button>
     <button id="btn2">静音</button>
-    <input type="range" name="volume" max="1" step="any" value="1">
+    <input type="range" name="volume" max="1" step="any" value="1" />
     <script type="text/javascript">
-        var btns = document.getElementsByTagName('button')
-        var audio = document.getElementsByTagName('audio')[0]
-        var inp = document.getElementsByTagName('input')
-        var voice = null;
-        var barLeft = 0;
-        audio.oncanplay = function(){
-            voice = this.volume;
-            inp[0].value = voice;
+      var btns = document.getElementsByTagName('button');
+      var audio = document.getElementsByTagName('audio')[0];
+      var inp = document.getElementsByTagName('input');
+      var voice = null;
+      var barLeft = 0;
+      audio.oncanplay = function () {
+        voice = this.volume;
+        inp[0].value = voice;
+      };
+      inp[0].onchange = function () {
+        voice = audio.volume = inp[0].value;
+      };
+      btns[0].onclick = function () {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
         }
-        inp[0].onchange = function(){
-              voice = audio.volume = inp[0].value
-
+      };
+      btns[1].onclick = function () {
+        if (audio.volume) {
+          inp[0].value = audio.volume = 0;
+        } else {
+          inp[0].value = audio.volume = voice;
         }
-        btns[0].onclick = function(){
-            if (audio.paused) {
-                audio.play()
-            }else{
-                audio.pause()
-            }
-        }
-        btns[1].onclick = function(){
-            if (audio.volume) {
-                inp[0].value = audio.volume = 0
-            }else{
-                inp[0].value = audio.volume = voice
-            }
-        }
-        audio.ontimeupdate = function(){
-            var rate = this.currentTime / this.duration;
-            console.log(this.currentTime)
-            inbox.style.width = parseInt(outbox.style.width)*rate + 'px';
-            bar.style.left = parseInt(outbox.style.width)*rate + 'px';
-        }
-        bar.onmousedown = function(event){
-            var leftVal = event.clientX - this.offsetLeft;
-            document.onmousemove = function(event){
-                barLeft = event.clientX - leftVal;
-                if (barLeft<0) {
-                    barLeft = 0;
-                }else if (barLeft>outbox.offsetWidth + bar.offsetWidth) {
-                    barLeft = outbox.offsetWidth + bar.offsetWidth;
-
-                }
-                inbox.style.width = barLeft + 'px';
-                bar.style.left = barLeft + 'px'
-                audio.currentTime = barLeft/parseInt(outbox.style.width)*audio.duration
-                window.getSelection().removeAllRanges()
-            }
-
-        }
-        document.onmouseup = function(){
-            this.onmousemove = null;
-        }
-
+      };
+      audio.ontimeupdate = function () {
+        var rate = this.currentTime / this.duration;
+        console.log(this.currentTime);
+        inbox.style.width = parseInt(outbox.style.width) * rate + 'px';
+        bar.style.left = parseInt(outbox.style.width) * rate + 'px';
+      };
+      bar.onmousedown = function (event) {
+        var leftVal = event.clientX - this.offsetLeft;
+        document.onmousemove = function (event) {
+          barLeft = event.clientX - leftVal;
+          if (barLeft < 0) {
+            barLeft = 0;
+          } else if (barLeft > outbox.offsetWidth + bar.offsetWidth) {
+            barLeft = outbox.offsetWidth + bar.offsetWidth;
+          }
+          inbox.style.width = barLeft + 'px';
+          bar.style.left = barLeft + 'px';
+          audio.currentTime =
+            (barLeft / parseInt(outbox.style.width)) * audio.duration;
+          window.getSelection().removeAllRanges();
+        };
+      };
+      document.onmouseup = function () {
+        this.onmousemove = null;
+      };
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -624,35 +640,35 @@ video标签默认不会播放,显示黑屏,并且大小为原大小.
 
 ```html
 <video width="320" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-您的浏览器不支持Video标签。
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+  您的浏览器不支持Video标签。
 </video>
 ```
 
 `video`标签的属性和`audio`类似
 
-+ autoplay
-+ controls
-+ width
-+ height
-+ loop
-+ muted 静音播放
-+ poster 载入时的图像
+- autoplay
+- controls
+- width
+- height
+- loop
+- muted 静音播放
+- poster 载入时的图像
 
 方法:
 
-+ play()
-+ pause()
-+ load()
+- play()
+- pause()
+- load()
 
 事件:
 
-+ play 播放事件
-+ pause 暂停事件
-+ timeupdate 播放位置更改
-+ volumechange 音量更改
-+ loadstart，durationchange，loadeddata，progress，canplay，canplaythrough等
+- play 播放事件
+- pause 暂停事件
+- timeupdate 播放位置更改
+- volumechange 音量更改
+- loadstart，durationchange，loadeddata，progress，canplay，canplaythrough等
 
 **字幕**
 
@@ -671,7 +687,7 @@ video标签默认不会播放,显示黑屏,并且大小为原大小.
 ```html
 <div class="a b c"></div>
 <script type="text/javascript">
-    console.log(document.getElementsByTagName('div')[0].classList);
+  console.log(document.getElementsByTagName('div')[0].classList);
 </script>
 ```
 
@@ -691,29 +707,29 @@ __proto__: DOMTokenList
 
 属性:
 
-+ length 返回css类的个数
+- length 返回css类的个数
 
 同时我们可以使用toString方法格式化classList
 
 ```js
-console.log(document.getElementsByTagName('div')[0].classList.toString())
+console.log(document.getElementsByTagName('div')[0].classList.toString());
 ```
 
 等同于`document.getElementsByTagName('div')[0].className`
 
 方法:
 
-+ item() 支持一个参数,为类名的索引值,返回响应类名
-+ add() 添加新的类名 等同于jq中的addClass()
-+ remove() 删除一个类名 等同于jq中的removeClass()
-+ toggle() 传递一个类名,如果对象中存在则删除,返回false,如果没有则添加,返回true 类似jq中的toggleClass()
-+ contents() 判断是否存在该类名 类似jq中的hasClass()
+- item() 支持一个参数,为类名的索引值,返回响应类名
+- add() 添加新的类名 等同于jq中的addClass()
+- remove() 删除一个类名 等同于jq中的removeClass()
+- toggle() 传递一个类名,如果对象中存在则删除,返回false,如果没有则添加,返回true 类似jq中的toggleClass()
+- contents() 判断是否存在该类名 类似jq中的hasClass()
 
 注意 无论是添加或者删除,classList并不能一次执行操作多个类名,而JQuery仅仅只需要空格分隔即可
 
 ```js
-    $('div').addClass('d f');
-    console.log($('div'));
+$('div').addClass('d f');
+console.log($('div'));
 ```
 
 ### 第十二章 历史记录
@@ -738,9 +754,9 @@ HTML5新增了历史记录的API接口,新增了两个方法,提供了一个事�
 
 当ajax进行翻页操作时,我们可以通过js将当前页面的信息记录到历史记录中.如果我们需要操作前进后退,可以用事件监听函数获取我们在历史记录中存储的页面信息,从而能够由后台获取所需的数据.
 
-+ history.pushState(放入历史中的状态数据, 设置title(现在浏览器不支持)， 改变历史状态)
-+ history.replaceState(修改历史记录的状态数据, 设置title(现在浏览器不支持)， 改变历史状态)
-+ popstate 监听浏览器的前进后退操作
+- history.pushState(放入历史中的状态数据, 设置title(现在浏览器不支持)， 改变历史状态)
+- history.replaceState(修改历史记录的状态数据, 设置title(现在浏览器不支持)， 改变历史状态)
+- popstate 监听浏览器的前进后退操作
 
 ```html
 <span id="news">新闻</span>
@@ -766,23 +782,27 @@ window.addEventListener("popstate", function(){
 
 除了使用F11可以使网页全屏以外,HTML5提供了一个新的API接口帮助我们实现元素或者页面的全屏显示
 
-+ requestFullScreen() 方法,直接在元素上进行调用
+- requestFullScreen() 方法,直接在元素上进行调用
 
 注意全屏API的兼容性问题,
 
-+ webkitRequestFullScreen()
-+ mozRequestFullScreen()
+- webkitRequestFullScreen()
+- mozRequestFullScreen()
 
 ```html
 <div style="width: 200px;height: 150px">
-    <img src="fate.jpg" width="100%" height='100%'>
+  <img src="fate.jpg" width="100%" height="100%" />
 </div>
 <script type="text/javascript">
-  window.addEventListener('keyup',function(e){
-    if (e.keyCode == 70) {
-        document.getElementsByTagName('body')[0].webkitRequestFullScreen()
-    }
-},false)
+  window.addEventListener(
+    'keyup',
+    function (e) {
+      if (e.keyCode == 70) {
+        document.getElementsByTagName('body')[0].webkitRequestFullScreen();
+      }
+    },
+    false
+  );
 </script>
 ```
 
@@ -794,7 +814,7 @@ if (elem.webkitRequestFullScreen) {
   elem.webkitRequestFullScreen();
 } else if (elem.mozRequestFullScreen) {
   elem.mozRequestFullScreen();
-} else if (elem.requestFullScreen){
+} else if (elem.requestFullScreen) {
   elem.requestFullScreen();
 }
 ```
@@ -838,44 +858,43 @@ FALLBACK
 **01.html**
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" manifest="my.manifest">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="01.css">
-</head>
-<body>
-<div>
-    <img src="fate.jpg">
-</div>
-<span>你好</span>
-</body>
-<script type="text/javascript" src='01.js'>
-
-</script>
+    <link rel="stylesheet" type="text/css" href="01.css" />
+  </head>
+  <body>
+    <div>
+      <img src="fate.jpg" />
+    </div>
+    <span>你好</span>
+  </body>
+  <script type="text/javascript" src="01.js"></script>
 </html>
 ```
 
 **01.css**
 
 ```css
-div{
-    width: 200px;height: 150px;
+div {
+  width: 200px;
+  height: 150px;
 }
-img{
-     width:100%; 
-     height:100%
+img {
+  width: 100%;
+  height: 100%;
 }
 ```
 
 **01.js**
 
 ```js
-document.getElementsByTagName('img')[0].onclick = function(e){
-    this.webkitRequestFullScreen();
-    e.preventDefault()
-}
+document.getElementsByTagName('img')[0].onclick = function (e) {
+  this.webkitRequestFullScreen();
+  e.preventDefault();
+};
 ```
 
 访问一次之后查看控制台,关闭网络并刷新,发现图片并没有加载,其他元素正常显示
@@ -893,29 +912,29 @@ web存储安全性较高，在数据量上可以达到5M,而cookie最多也就4K
 
 ```html
 <body>
-<script>
-//如不设置声明周期,关闭浏览器打开后即消失
-document.cookie="name=zhangsan";
-alert(document.cookie);
-//关闭浏览器不会消失
-localStorage.setItem("name","lisi");
-alert(localStorage.getItem("name"));
-//关闭浏览器会消失
-sessionStorage.setItem("name","wangwu");
-alert(sessionStorage.getItem("name"))
-</script>
+  <script>
+    //如不设置声明周期,关闭浏览器打开后即消失
+    document.cookie = 'name=zhangsan';
+    alert(document.cookie);
+    //关闭浏览器不会消失
+    localStorage.setItem('name', 'lisi');
+    alert(localStorage.getItem('name'));
+    //关闭浏览器会消失
+    sessionStorage.setItem('name', 'wangwu');
+    alert(sessionStorage.getItem('name'));
+  </script>
 </body>
 ```
 
 localStorage/sessionStorage都有相同的API
 
-+ localStorage.length 获得storage中的个数
-+ localStorage .key(n) 获得storage中第n个键值对的键
-+ localStorage.key = value
-+ localStorage.setItem(key, value) 添加
-+ localStorage.getItem(key)获取
-+ localStorage.removeItem(key) 移除
-+ localStorage.clear() 清除
+- localStorage.length 获得storage中的个数
+- localStorage .key(n) 获得storage中第n个键值对的键
+- localStorage.key = value
+- localStorage.setItem(key, value) 添加
+- localStorage.getItem(key)获取
+- localStorage.removeItem(key) 移除
+- localStorage.clear() 清除
 
 ```html
 <script>
@@ -1000,29 +1019,33 @@ btn.addEventListener('click', function() {
 
 对于被拖拽的元素,HTML5增加了三个事件用于监听拖拽的过程
 
-+ dragstart 拖拽开始
-+ drag 正在拖拽
-+ dragend 拖拽结束
+- dragstart 拖拽开始
+- drag 正在拖拽
+- dragend 拖拽结束
 
 ```html
 <body>
-    <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
-    <div id="two" style="width: 100px;height: 100px;border: 1px solid blue" draggable="true"></div>
+  <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
+  <div
+    id="two"
+    style="width: 100px;height: 100px;border: 1px solid blue"
+    draggable="true"
+  ></div>
 </body>
 <script type="text/javascript">
-    two.ondragstart = function(e){
-        // e.preventDefault();
-        console.log(e);
-        e.dataTransfer.setData("Text",e.target.id);
-        console.log(e.dataTransfer.getData("Text",e.target.id));
-        one.innerHTML = '开始'
-    }
-    two.ondrag = function(e){
-        one.innerHTML += '拖动中'
-    }
-    two.ondragend = function(e){
-        one.innerHTML = '结束'
-    }
+  two.ondragstart = function (e) {
+    // e.preventDefault();
+    console.log(e);
+    e.dataTransfer.setData('Text', e.target.id);
+    console.log(e.dataTransfer.getData('Text', e.target.id));
+    one.innerHTML = '开始';
+  };
+  two.ondrag = function (e) {
+    one.innerHTML += '拖动中';
+  };
+  two.ondragend = function (e) {
+    one.innerHTML = '结束';
+  };
 </script>
 ```
 
@@ -1036,27 +1059,31 @@ btn.addEventListener('click', function() {
 
 对于被拖的元素而言，拖向何处则为投放区，投放区的事件如下：
 
-+ dragenter 被拖放元素进入
-+ dragover 被拖放元素移动
-+ dragleave 被拖放元素离开
+- dragenter 被拖放元素进入
+- dragover 被拖放元素移动
+- dragleave 被拖放元素离开
 
 ```html
 <body>
-    <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
-    <div id="two" style="width: 100px;height: 100px;border: 1px solid blue" draggable="true"></div>
+  <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
+  <div
+    id="two"
+    style="width: 100px;height: 100px;border: 1px solid blue"
+    draggable="true"
+  ></div>
 </body>
 <script type="text/javascript">
-    one.ondragenter = function(e){
-        // e.preventDefault();
-        console.log(e);
-        one.innerHTML = '开始'
-    }
-    one.ondragover = function(e){
-        one.innerHTML += '拖动中'
-    }
-    one.ondragleave = function(e){
-        one.innerHTML = '结束'
-    }
+  one.ondragenter = function (e) {
+    // e.preventDefault();
+    console.log(e);
+    one.innerHTML = '开始';
+  };
+  one.ondragover = function (e) {
+    one.innerHTML += '拖动中';
+  };
+  one.ondragleave = function (e) {
+    one.innerHTML = '结束';
+  };
 </script>
 ```
 
@@ -1064,43 +1091,46 @@ btn.addEventListener('click', function() {
 
 ```html
 <style type="text/css">
-    *{
-        box-sizing: border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 </style>
 <body>
-    <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
-    <div id="two" style="width: 100px;height: 100px;border: 1px solid blue;display: flex;">
-        <div style="width: 50px;height: 100px;border:1px solid black;">第一个</div>
-        <div style="width: 50px;height: 100px;border:1px solid pink;">第二个</div>
-    </div>
+  <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
+  <div
+    id="two"
+    style="width: 100px;height: 100px;border: 1px solid blue;display: flex;"
+  >
+    <div style="width: 50px;height: 100px;border:1px solid black;">第一个</div>
+    <div style="width: 50px;height: 100px;border:1px solid pink;">第二个</div>
+  </div>
 </body>
 <script type="text/javascript">
-one.ondragover = function(e) {
+  one.ondragover = function (e) {
     e.preventDefault();
-}
-two.onmousedown = function(e){
+  };
+  two.onmousedown = function (e) {
     e.target.draggable = true;
-    e.target.ondragstart = function(ev) {
-        ev.dataTransfer.setData("Text", ev.target.innerHTML);
-    }
-    e.target.ondragend = function(){
-        two.removeChild(this)
-    }
-}
-one.ondrop = function(e) {
-    var div = document.createElement('div')
-    div.style = "width: 50px;height: 100px;border:1px solid black;"
-    div.innerHTML = e.dataTransfer.getData("Text")
-    this.appendChild(div)
-}
+    e.target.ondragstart = function (ev) {
+      ev.dataTransfer.setData('Text', ev.target.innerHTML);
+    };
+    e.target.ondragend = function () {
+      two.removeChild(this);
+    };
+  };
+  one.ondrop = function (e) {
+    var div = document.createElement('div');
+    div.style = 'width: 50px;height: 100px;border:1px solid black;';
+    div.innerHTML = e.dataTransfer.getData('Text');
+    this.appendChild(div);
+  };
 </script>
 ```
 
-+ 对于谷歌浏览器，`e.dataTransfer.setData(key,value)`会导致拖拽到投放区域外的时候浏览器默认搜索设置的值。如果需要，我们可以屏蔽它
-+ 对于火狐浏览器，没有`e.dataTransfer.setData(key，value)`还不行。我们可以直接设置键值对为`null，""`;
-+ 最新版本的谷歌和火狐浏览器没有发现问题
-+ drop事件并不能直接触发,因为默认的松开鼠标我们的拖拽物会返回原来的位置,并不会掉落,所以我们应该阻止投放区域的默认事件.
+- 对于谷歌浏览器，`e.dataTransfer.setData(key,value)`会导致拖拽到投放区域外的时候浏览器默认搜索设置的值。如果需要，我们可以屏蔽它
+- 对于火狐浏览器，没有`e.dataTransfer.setData(key，value)`还不行。我们可以直接设置键值对为`null，""`;
+- 最新版本的谷歌和火狐浏览器没有发现问题
+- drop事件并不能直接触发,因为默认的松开鼠标我们的拖拽物会返回原来的位置,并不会掉落,所以我们应该阻止投放区域的默认事件.
 
 #### 7.2 拖拽上传
 
@@ -1108,29 +1138,29 @@ one.ondrop = function(e) {
 
 ```html
 <body>
-    <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
+  <div id="one" style="width: 300px;height: 300px;border: 1px solid red"></div>
 </body>
 <script type="text/javascript">
-one.ondragover = function(e) {
+  one.ondragover = function (e) {
     e.preventDefault();
-}
-one.ondrop = function(e) {
-    e.preventDefault()
+  };
+  one.ondrop = function (e) {
+    e.preventDefault();
     console.log(e.dataTransfer.files[0]);
-}
+  };
 </script>
 ```
 
 然后做Ajax文件上传即可
 
 ```js
-one.ondrop = function(e) {
-    e.preventDefault()
-    var file = e.dataTransfer.files[0];
-    var formData = new FormData();
-    formData.append("aa", file);
-    var xml = new XMLHttpRequest();
-    xml.open("post", url, false);
-    xml.send(formData);
-}
+one.ondrop = function (e) {
+  e.preventDefault();
+  var file = e.dataTransfer.files[0];
+  var formData = new FormData();
+  formData.append('aa', file);
+  var xml = new XMLHttpRequest();
+  xml.open('post', url, false);
+  xml.send(formData);
+};
 ```

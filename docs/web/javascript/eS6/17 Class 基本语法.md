@@ -21,15 +21,17 @@
 我们可以通过字面量直接声明一个对象。
 
 ```js
-var ori = {};  // 地球上最原始的蛋白质, 这就是一个对象
-var c = {cell:1}; // 单细胞动物
+var ori = {}; // 地球上最原始的蛋白质, 这就是一个对象
+var c = { cell: 1 }; // 单细胞动物
 
 var bird = {
-    leg:2,
-    song:function() {alert('我是一只小小鸟');}
-}
+  leg: 2,
+  song: function () {
+    alert('我是一只小小鸟');
+  },
+};
 
-console.log(ori,c,bird);
+console.log(ori, c, bird);
 
 bird.song();
 ```
@@ -83,8 +85,8 @@ class Point {
   // ...
 }
 
-typeof Point // "function"
-Point === Point.prototype.constructor // true
+typeof Point; // "function"
+Point === Point.prototype.constructor; // true
 ```
 
 上面代码表明，类的数据类型就是函数，类本身就指向构造函数。
@@ -99,7 +101,7 @@ class Bar {
 }
 
 var b = new Bar();
-b.doStuff() // "stuff"
+b.doStuff(); // "stuff"
 ```
 
 构造函数的`prototype`属性，在 ES6 的“类”上面继续存在。事实上，类的所有方法都定义在类的`prototype`属性上面。
@@ -134,7 +136,7 @@ Point.prototype = {
 class B {}
 let b = new B();
 
-b.constructor === B.prototype.constructor // true
+b.constructor === B.prototype.constructor; // true
 ```
 
 上面代码中，`b`是`B`类的实例，它的`constructor`方法就是`B`类原型的`constructor`方法。
@@ -143,18 +145,16 @@ b.constructor === B.prototype.constructor // true
 
 ```javascript
 class Point {
-  constructor(){
+  constructor() {
     // ...
   }
 }
 
 Object.assign(Point.prototype, {
-  toString(){},
-  toValue(){}
+  toString() {},
+  toValue() {},
 });
 ```
-
-
 
 ### constructor 方法
 
@@ -162,7 +162,7 @@ Object.assign(Point.prototype, {
 
 类似于其它面向对象的语言，ES6 的类也必须有构造方法，在实例化对象时自动调用，用于对实例进行初始化。
 
-> 如果没有定义构造方法，那么一个空的`constructor`	会被自动添加。
+> 如果没有定义构造方法，那么一个空的`constructor` 会被自动添加。
 
 ![17-01](images/17-01.png)
 
@@ -171,8 +171,6 @@ Object.assign(Point.prototype, {
 ![17-02](images/17-02.png)
 
 这就导致，`constructor`方法默认返回实例对象（即`this`），完全可以指定返回另外一个对象。
-
-
 
 ### 类的实例
 
@@ -185,7 +183,6 @@ Object.assign(Point.prototype, {
 ```javascript
 //定义类
 class Point {
-
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -194,17 +191,16 @@ class Point {
   toString() {
     return '(' + this.x + ', ' + this.y + ')';
   }
-
 }
 
 var point = new Point(2, 3);
 
-point.toString() // (2, 3)
+point.toString(); // (2, 3)
 
-point.hasOwnProperty('x') // true
-point.hasOwnProperty('y') // true
-point.hasOwnProperty('toString') // false
-point.__proto__.hasOwnProperty('toString') // true
+point.hasOwnProperty('x'); // true
+point.hasOwnProperty('y'); // true
+point.hasOwnProperty('toString'); // false
+point.__proto__.hasOwnProperty('toString'); // true
 ```
 
 上面代码中，`x`和`y`都是实例对象`point`自身的属性（因为定义在`this`变量上），所以`hasOwnProperty`方法返回`true`，而`toString`是原型对象的属性（因为定义在`Point`类上），所以`hasOwnProperty`方法返回`false`。这些都与 ES5 的行为保持一致。
@@ -212,10 +208,10 @@ point.__proto__.hasOwnProperty('toString') // true
 与 ES5 一样，类的所有实例共享一个原型对象。
 
 ```javascript
-var p1 = new Point(2,3);
-var p2 = new Point(3,2);
+var p1 = new Point(2, 3);
+var p2 = new Point(3, 2);
 
-p1.__proto__ === p2.__proto__
+p1.__proto__ === p2.__proto__;
 ```
 
 ### 取值函数（getter）和存值函数（setter）
@@ -257,7 +253,7 @@ class Foo {
   constructor(...args) {
     this.args = args;
   }
-  * [Symbol.iterator]() {
+  *[Symbol.iterator]() {
     for (let arg of this.args) {
       yield arg;
     }
@@ -287,8 +283,8 @@ const MyClass = class Me {
 
 ```javascript
 let inst = new MyClass();
-inst.getClassName() // Me
-Me.name // ReferenceError: Me is not defined
+inst.getClassName(); // Me
+Me.name; // ReferenceError: Me is not defined
 ```
 
 上面代码表示，`Me`只在 Class 内部有定义。
@@ -296,13 +292,15 @@ Me.name // ReferenceError: Me is not defined
 如果类的内部没用到的话，可以省略`Me`，可以写成匿名类的形式。
 
 ```javascript
-const MyClass = class { /* ... */ };
+const MyClass = class {
+  /* ... */
+};
 ```
 
 采用 Class 表达式，可以写出立即执行的 Class。
 
 ```javascript
-let person = new class {
+let person = new (class {
   constructor(name) {
     this.name = name;
   }
@@ -310,14 +308,12 @@ let person = new class {
   sayName() {
     console.log(this.name);
   }
-}('张三');
+})('张三');
 
 person.sayName(); // "张三"
 ```
 
-
-
-##  公有属性
+## 公有属性
 
 因为 ES6 中的 `class` 并没有实质性的变化，因此构造函数本身无法实现的功能，在`class`上同样无法实现，同样，由于 ES6 在各自运行时上并未完全实现，所以我们在学习时不必按照已经学过的 C++ ，Java 或者 Python 来进行学习。此处只作类比。
 
@@ -351,9 +347,9 @@ ES6 现有关于私有属性和私有方法的提案，今后可能会实现。
 
 function Girl (name,bf) {
     var love;
-    
+
     this.name = name;
-    
+
     // 通过showlove做接口, 来读取私有属性love
     this.showlove = function() {
         return love;
@@ -374,7 +370,7 @@ alert(girl.name + '喜欢' + girl.showlove());
 
 但是在 ES6 中，类中定义的属性被视作 “公有” 的。
 
-**总结**：关于私有属性和公有属性，ES6 的 Class 现在并未提供一个完整的解决方案，这就导致了类的封装性的实现并不完善，我们无法做到像 C++，Java 那样，对类的属性和方法的权限进行有效的管理，权宜的解决方案是，在使用 `Class`的情况下，辅以代理器实现对属性和方法的封装。 
+**总结**：关于私有属性和公有属性，ES6 的 Class 现在并未提供一个完整的解决方案，这就导致了类的封装性的实现并不完善，我们无法做到像 C++，Java 那样，对类的属性和方法的权限进行有效的管理，权宜的解决方案是，在使用 `Class`的情况下，辅以代理器实现对属性和方法的封装。
 
 ## 静态属性和静态方法
 
@@ -383,11 +379,10 @@ alert(girl.name + '喜欢' + girl.showlove());
 静态属性指的是 Class 本身的属性，即`Class.propName`，而不是定义在实例对象（`this`）上的属性。
 
 ```javascript
-class Foo {
-}
+class Foo {}
 
 Foo.prop = 1;
-Foo.prop // 1
+Foo.prop; // 1
 ```
 
 上面的写法为`Foo`类定义了一个静态属性`prop`。
@@ -405,10 +400,10 @@ class Foo {
   }
 }
 
-Foo.classMethod() // 'hello'
+Foo.classMethod(); // 'hello'
 
 var foo = new Foo();
-foo.classMethod()
+foo.classMethod();
 // TypeError: foo.classMethod is not a function
 ```
 
@@ -448,13 +443,11 @@ class Rectangle extends Shape {
   }
 }
 
-var x = new Shape();  // 报错
-var y = new Rectangle(3, 4);  // 正确
+var x = new Shape(); // 报错
+var y = new Rectangle(3, 4); // 正确
 ```
 
 子类中的 `super()`调用父类，`new.target`指向子类，因此我们能够正常的实例化`Rectangle`。
-
-
 
 ## 小结
 

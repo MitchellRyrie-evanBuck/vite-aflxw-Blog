@@ -1,6 +1,6 @@
 # ThisParameterType
 
-> *提取函数声明的 this 类型*
+> _提取函数声明的 this 类型_
 
 - 源码
 
@@ -8,7 +8,9 @@
 /**
  * Extracts the type of the 'this' parameter of a function type, or 'unknown' if the function type has no 'this' parameter.
  */
-type ThisParameterType<T> = T extends (this: infer U, ...args: any[]) => any ? U : unknown;
+type ThisParameterType<T> = T extends (this: infer U, ...args: any[]) => any
+  ? U
+  : unknown;
 ```
 
 - 源码解析
@@ -18,23 +20,22 @@ type ThisParameterType<T> = T extends (this: infer U, ...args: any[]) => any ? U
 ```tsx
 interface Dog {
   voice: {
-    bark(): void
-  }
+    bark(): void;
+  };
 }
 function dogBark(this: Dog) {
-  this.voice.bark()
+  this.voice.bark();
 }
 // 如果不显示的声明 this，则 this 会根据函数声明所在的环境进行推导
 // 声明 this 后，在函数调用时，TS 会校验当前上下文中的 this 是否与所需的 this 相匹配
 // dogBark 的调用方式如下
-declare const dog: Dog
-dogBark.call(dog)
+declare const dog: Dog;
+dogBark.call(dog);
 // 或
-declare const dog: Dog & { dogBark: typeof dogBark }
-dog.dogBark()
+declare const dog: Dog & { dogBark: typeof dogBark };
+dog.dogBark();
 ```
 
 不要在箭头函数里面显示的定义 this，箭头函数的 this 不可改变
 
 `ThisParameterType` 和 `Parameters` 的实现类似，都是基于 `infer`，`ThisParameterType` 推导的是 `this` 的类型，如果没有显示的声明 `this`，则为 `unknown`
-

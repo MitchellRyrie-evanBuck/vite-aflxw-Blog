@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # PageRouteBuilder(页面切换动画)
 
 PageRouteBuilder 是 Flutter 中用于自定义页面切换动画的组件。通过 PageRouteBuilder，您可以创建自定义的页面切换效果，包括淡入淡出、滑动、缩放等过渡动画。以下是关于 PageRouteBuilder 的详细介绍，包括其属性、功能、用法、使用场景、示例和注意事项。
@@ -27,7 +28,7 @@ PageRouteBuilder 的主要属性及其功能：
 
 - settings: 路由的设置，用于传递一些路由的元数据，通常是 RouteSettings 类型的对象。
 - pageBuilder: 一个必需的回调函数，用于构建要过渡到的新页面的内容。该回调应返回一个 Widget，通常是你要显示的页面的主体内容。
-- transitionsBuilder: 一个回调函数，用于构建页面过渡动画。默认情况下，transitionsBuilder 使用 _defaultTransitionsBuilder 函数来创建过渡效果，但你可以自定义该回调来创建你自己的过渡效果。
+- transitionsBuilder: 一个回调函数，用于构建页面过渡动画。默认情况下，transitionsBuilder 使用 \_defaultTransitionsBuilder 函数来创建过渡效果，但你可以自定义该回调来创建你自己的过渡效果。
 - transitionDuration: 指定页面过渡动画的持续时间，即新页面进入屏幕的时间。通常使用 Duration 类型来表示，单位是毫秒。
 - reverseTransitionDuration: 指定反向页面过渡动画的持续时间，即新页面退出屏幕的时间。通常与 transitionDuration 相同。
 - opaque: 布尔值，表示过渡期间的页面是否是不透明的。如果设置为 true，则页面会在过渡期间完全覆盖底部的页面，否则会透出底部的页面。

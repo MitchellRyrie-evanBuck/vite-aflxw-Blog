@@ -6,9 +6,9 @@ Instagram团队在进行前端开发的过程中，发现当项目组成员越�
 
 现今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖包。为了简化开发的复杂度，前端社区涌现出了很多好的实践方法
 
-+ 模块化，让我们可以把复杂的程序细化为小的文件;
-+ 类似于TypeScript这种在JavaScript基础上拓展的开发语言：使我们能够实现目前版本的JavaScript不能直接使用的特性，并且之后还能能装换为JavaScript文件使浏览器可以识别；
-+ Scss，Less等CSS预处理器
+- 模块化，让我们可以把复杂的程序细化为小的文件;
+- 类似于TypeScript这种在JavaScript基础上拓展的开发语言：使我们能够实现目前版本的JavaScript不能直接使用的特性，并且之后还能能装换为JavaScript文件使浏览器可以识别；
+- Scss，Less等CSS预处理器
 
 这些改进确实大大的提高了我们的开发效率，但是利用它们开发的文件往往需要进行额外的处理才能让浏览器识别,而手动处理又是非常繁琐的，这就为WebPack类的工具的出现提供了需求。
 
@@ -47,13 +47,13 @@ webpack会作为依赖安装与我们的项目下。
 + 001 + node_modules
       |- package.json
       |- app +
-             |-index.js     
+             |-index.js
 ```
 
 index.js
 
 ```js
-console.log('hello world')
+console.log('hello world');
 ```
 
 对该js进行打包操作
@@ -65,7 +65,7 @@ Version: webpack 2.6.1
 Time: 60ms
    Asset     Size  Chunks             Chunk Names
 index.js  2.66 kB       0  [emitted]  main
-   [0] ./app/index.js 25 bytes {0} [built] 
+   [0] ./app/index.js 25 bytes {0} [built]
 ```
 
 发现 文件index.js被打包成为了js的模块模式
@@ -90,18 +90,18 @@ Use --help to display the CLI options.
 **index.js**
 
 ```js
-let component = require("./component.js")
+let component = require('./component.js');
 document.body.appendChild(component());
 ```
 
 **component.js**
 
 ```js
-module.exports = (text = 'hello world')=>{
-  const element = document.createElement('div')
+module.exports = (text = 'hello world') => {
+  const element = document.createElement('div');
   element.innerHTML = text;
-  return element
-}
+  return element;
+};
 ```
 
 使用html-webpack-plugin插件快速创建html文件
@@ -115,31 +115,30 @@ npm install html-webpack-plugin --save-dev
 **webpack.config.js**
 
 ```js
-
 const path = require('path'); //引入path模块
-const HtmlWebpackPlugin = require('html-webpack-plugin') //引入html生成模块
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //引入html生成模块
 
 const PATHS = {
-    app : path.join(__dirname , 'app'), //定义app目录位置为当前目录下的app文件夹
-    build : path.join(__dirname , 'build') //定义entry目录位置为当前目录下的entry文件夹
+  app: path.join(__dirname, 'app'), //定义app目录位置为当前目录下的app文件夹
+  build: path.join(__dirname, 'build'), //定义entry目录位置为当前目录下的entry文件夹
 };
 
 module.exports = {
-
-    entry : {
-        app : PATHS.app, //入口目录
-        //entry是页面入口文件配置，可以是一个文件或者多个入口文件，可以是对象格式或者数组格式。
-    },
-    output : {
-        path : PATHS.build, //输出目录
-        filename : "[name].js", //name对应entry的键值,也可以使用[id],[hash]避免重复
-        //output 是对应输出项配置,主要包括path,filename和publishPath属性。path代表输出的路径，filename代表输出的文件名称，publishPath代表静态资源发布后的前缀地址。
-    },
-    plugins : [                 //插件名称和配置
-        new HtmlWebpackPlugin({
-            title : 'webpack demo',
-        }),
-    ],
+  entry: {
+    app: PATHS.app, //入口目录
+    //entry是页面入口文件配置，可以是一个文件或者多个入口文件，可以是对象格式或者数组格式。
+  },
+  output: {
+    path: PATHS.build, //输出目录
+    filename: '[name].js', //name对应entry的键值,也可以使用[id],[hash]避免重复
+    //output 是对应输出项配置,主要包括path,filename和publishPath属性。path代表输出的路径，filename代表输出的文件名称，publishPath代表静态资源发布后的前缀地址。
+  },
+  plugins: [
+    //插件名称和配置
+    new HtmlWebpackPlugin({
+      title: 'webpack demo',
+    }),
+  ],
 };
 ```
 
@@ -211,10 +210,10 @@ Child html-webpack-plugin for "index.html":  //编译用到的插件
 
 四个常用的 npm 脚本有简写形式。
 
-+ npm start是npm run start
-+ npm stop是npm run stop的简写
-+ npm test是npm run test的简写
-+ npm restart是npm run stop && npm run restart && npm run start的简写
+- npm start是npm run start
+- npm stop是npm run stop的简写
+- npm test是npm run test的简写
+- npm restart是npm run stop && npm run restart && npm run start的简写
 
 ### 3.2 配置WDS进行浏览器自动刷新
 
@@ -234,7 +233,7 @@ npm install webpack-dev-server --save-dev
 //其实直接敲命令即可,我们只是使代码更简洁
 ```
 
->`webpack-dev-server`打包的bundle只是存在于内存当中,我们想要输出还需运行`build`命令.
+> `webpack-dev-server`打包的bundle只是存在于内存当中,我们想要输出还需运行`build`命令.
 
 运行 `npm run start` 我们的WDS会启动一个服务器,浏览器访问'127.0.0.1:8080',会显示我们的代码,并且修改后的页面会即时刷新,代码能够动态呈现.
 
@@ -242,7 +241,7 @@ npm install webpack-dev-server --save-dev
 
 **配置WDS端口号**
 
-><https://webpack.js.org/configuration/dev-server/>
+> <https://webpack.js.org/configuration/dev-server/>
 
 默认情况下WDS读取的端口号为全局变量中的数据
 
@@ -263,8 +262,8 @@ devServer:{
 
 ESLint是检测js代码规范的插件.
 
->ESLint规则 <http://eslint.cn/docs/rules/>
->新版本的ESLint甚至可以帮助我们进行代码修复
+> ESLint规则 <http://eslint.cn/docs/rules/>
+> 新版本的ESLint甚至可以帮助我们进行代码修复
 
 ### 4.1 在普通项目中使用
 
@@ -274,10 +273,10 @@ ESLint是检测js代码规范的插件.
 
 ESLint可配置的方式有很多
 
-+ javascript: 使用javascript导出一个包含配置的对象
-+ YAML: .eslintrc.yaml或者 .eslintrc.yml
-+ JSON: .eslintrc.json
-+ package.json : 创建eslintConfig属性,所有的配置包含在属性当中
+- javascript: 使用javascript导出一个包含配置的对象
+- YAML: .eslintrc.yaml或者 .eslintrc.yml
+- JSON: .eslintrc.json
+- package.json : 创建eslintConfig属性,所有的配置包含在属性当中
 
 我们在`package.json`中配置脚本
 
@@ -297,7 +296,8 @@ scripts:{
 
 ```js
 module.exports = {
-  env: { //Environment可以预设好的其他环境的全局变量，如brower、node环境变量、es6环境变量、mocha环境变量等
+  env: {
+    //Environment可以预设好的其他环境的全局变量，如brower、node环境变量、es6环境变量、mocha环境变量等
     browser: true,
     commonjs: true,
     es6: true,
@@ -306,13 +306,13 @@ module.exports = {
   extends: 'eslint:recommended',
   parserOptions: {
     //ecmaVersion:6, //sLint通过parserOptions，允许指定校验的ecma的版本，及ecma的一些特性
-    sourceType: 'module',//指定来源的类型，有两种”script”或”module”
+    sourceType: 'module', //指定来源的类型，有两种”script”或”module”
   },
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
     'linebreak-style': ['error', 'windows'],
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     'no-unused-vars': ['warn'],
     'no-console': 0,
   },
@@ -321,15 +321,15 @@ module.exports = {
 
 ESLint可以被配置的信息主要分为3类：
 
-+ Environments：你的 javascript 脚步将要运行在什么环境（如：nodejs，browser，commonjs等）中。
-+ Globals：执行代码时脚步需要访问的额外全局变量。
-+ Rules：开启某些规则，也可以设置规则的等级。
+- Environments：你的 javascript 脚步将要运行在什么环境（如：nodejs，browser，commonjs等）中。
+- Globals：执行代码时脚步需要访问的额外全局变量。
+- Rules：开启某些规则，也可以设置规则的等级。
 
 规则的错误等级有三种：
 
-+ 0或'off'：关闭规则。
-+ 1或'warn'：打开规则，并且作为一个警告（并不会导致检查不通过）。
-+ 2或'error'：打开规则，并且作为一个错误 (退出码为1，检查不通过)。
+- 0或'off'：关闭规则。
+- 1或'warn'：打开规则，并且作为一个警告（并不会导致检查不通过）。
+- 2或'error'：打开规则，并且作为一个错误 (退出码为1，检查不通过)。
 
 我们可以使用 `"extends":"eslint:recommended"`来启用推荐的规则，报告一些常见的问题.
 
@@ -353,22 +353,24 @@ moudle对应loader（加载器）的配置，主要对指定类型的文件进�
 
 ```js
 module: {
-        rules: [  // rules为数组，保存每个加载器的配置
-　　　　　　{
-　　　　　　　　test: /\.js$/,  // test属性必须配置，值为正则表达式，用于匹配文件
-　　　　　　　　loader: 'eslint-loader',  // loader属性必须配置，值为字符串，loader之间用！隔开
-　　　　　　　　exclude: /node_module/,  // 对于匹配的文件进行过滤，排除node_module目录下的文件
-　　　　　　　　//include: './src'  // 指定匹配文件的范围
-                enforce:'pre',//加载器的执行顺序，不设置为正常执行。可选值 'pre|post' 前|后
-                options:{  //配置loader的options
-                    emitWarning:true,
-                }
-　　　　　　}
-　　　　]　
-    }   
+  rules: [
+    // rules为数组，保存每个加载器的配置
+    {
+      test: /\.js$/, // test属性必须配置，值为正则表达式，用于匹配文件
+      loader: 'eslint-loader', // loader属性必须配置，值为字符串，loader之间用！隔开
+      exclude: /node_module/, // 对于匹配的文件进行过滤，排除node_module目录下的文件
+      //include: './src'  // 指定匹配文件的范围
+      enforce: 'pre', //加载器的执行顺序，不设置为正常执行。可选值 'pre|post' 前|后
+      options: {
+        //配置loader的options
+        emitWarning: true,
+      },
+    },
+  ];
+}
 ```
 
-><http://npm.taobao.org/package/eslint-loader>
+> <http://npm.taobao.org/package/eslint-loader>
 
 我们直接运行`npm run start`，则会在运行脚本之前执行加载器。可以使用eslint运行修复之后再次执行.
 
@@ -378,29 +380,29 @@ module: {
 
 我们对于css的处理首先要加载两个loader
 
-+ css-loader 处理url()和@import引入的css,如果是外部链接,则不作处理.
-+ style-loader 处理style标签中的css代码
+- css-loader 处理url()和@import引入的css,如果是外部链接,则不作处理.
+- style-loader 处理style标签中的css代码
 
 安装插件:`npm install css-loader style-loader --save-dev`
 
 配置`webpack.config.js`
 
 ```js
-module:{
-  rules:[
-      {
-        test:/\.css$/,
-        use:['style-loader','css-loader'] //默认的处理顺序为从右到左
-      }
-  ]
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'], //默认的处理顺序为从右到左
+    },
+  ];
 }
 ```
 
 在app目录下新增文件common.css
 
 ```css
-body{
-  background-color:red;
+body {
+  background-color: red;
 }
 ```
 
@@ -419,22 +421,22 @@ body{
 **style1**
 
 ```css
-body{
-  background-color:red;
+body {
+  background-color: red;
 }
-.class1{
-  color:blue;
+.class1 {
+  color: blue;
 }
 ```
 
 **style2**
 
 ```css
-body{
-  background-color:white;
+body {
+  background-color: white;
 }
-.class1{
-  color:red;
+.class1 {
+  color: red;
 }
 ```
 
@@ -443,17 +445,17 @@ body{
 修改component.js
 
 ```js
-module.exports = (text = '你好 WDS',class1,class2)=>{
-    const element = document.createElement('div');
-    element.innerHTML = text;
-    element.className = class1;
+module.exports = (text = '你好 WDS', class1, class2) => {
+  const element = document.createElement('div');
+  element.innerHTML = text;
+  element.className = class1;
 
-    const p = document.createElement('p');
-    p.innerText = 'p line';
-    p.className = class2;
-    element.appendChild(p);
+  const p = document.createElement('p');
+  p.innerText = 'p line';
+  p.className = class2;
+  element.appendChild(p);
 
-    return element;
+  return element;
 };
 ```
 
@@ -463,7 +465,7 @@ module.exports = (text = '你好 WDS',class1,class2)=>{
 let component = require('./component.js');
 import style1 from './style1.css';
 import style2 from './style2.css';
-document.body.appendChild(component('hello',style.class1,style2.class1));
+document.body.appendChild(component('hello', style.class1, style2.class1));
 ```
 
 修改webpack.config.js中css-loader的配置
@@ -490,7 +492,7 @@ document.body.appendChild(component('hello',style.class1,style2.class1));
 
 安装插件`npm install extract-text-webpack-plugin@2.1.2 --save-dev`
 
-><https://github.com/webpack-contrib/extract-text-webpack-plugin>
+> <https://github.com/webpack-contrib/extract-text-webpack-plugin>
 
 在webpack.config.js中增加配置
 
@@ -514,7 +516,7 @@ plugins: [
         use: {
             loader:'css-loader',
             options:{
-                modules:"true", 
+                modules:"true",
             }
         }
     })
@@ -538,39 +540,38 @@ npm install node-sass sass-loader --save-dev
 
 ```js
 module.exports = {
-    entry:{
-        app:"./app/index.js",
-        style1:'./app/style1.scss',
-        style2:'./app/style1.scss'
-    },
-    output:{
-        path:PATHS.build,
-        filename:'[name].js'
-    },
-    module:{
-        rules:[
-            {
-                test:/\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                        use: ['css-loader','sass-loader']
-                    })
-            }
-        ]
-    },
-    plugins: [
-        new ExtractTextPlugin({
-            filename:'[name].css',
-            ignoreOrder:true, //忽略检测
+  entry: {
+    app: './app/index.js',
+    style1: './app/style1.scss',
+    style2: './app/style1.scss',
+  },
+  output: {
+    path: PATHS.build,
+    filename: '[name].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
         }),
+      },
     ],
-    
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      ignoreOrder: true, //忽略检测
+    }),
+  ],
 };
 ```
 
 ## 第六章 深入理解loader
 
-><https://webpack.js.org/concepts/loaders/>
+> <https://webpack.js.org/concepts/loaders/>
 
 loader的加载顺序是从右到左,从下向上进行的,并不是按照我们代码的读取顺序实施.
 比如我们`use:['style-loader','css-loader']`,实际上是
@@ -587,7 +588,7 @@ Enforcing Order : 我们可以使用enforce来强制条件的加载顺序
 use: {
     loader:'css-loader',
     options:{
-        modules:"true", 
+        modules:"true",
     }
 }
 ```
@@ -595,7 +596,7 @@ use: {
 可以写作
 
 ```javascript
-use:'css-loader?modules=true'
+use: 'css-loader?modules=true';
 ```
 
 ## 第七章 文件压缩
@@ -623,10 +624,12 @@ plugins: [
 
 JavaScript脚本正变得越来越复杂。大部分源码（尤其是各种函数库和框架）都要经过转换，才能投入生产环境。
 常见的源码转换，主要是以下三种情况：
-　　
-+ 压缩，减小体积。比如jQuery 1.9的源码，压缩前是252KB，压缩后是32KB。
-+ 多个文件合并，减少HTTP请求数。
-+ 其他语言编译成JavaScript。最常见的例子就是CoffeeScript。
+
+
+
+- 压缩，减小体积。比如jQuery 1.9的源码，压缩前是252KB，压缩后是32KB。
+- 多个文件合并，减少HTTP请求数。
+- 其他语言编译成JavaScript。最常见的例子就是CoffeeScript。
 
 这三种情况，都使得实际运行的代码不同于开发代码，除错（debug）变得困难重重。
 通常，JavaScript的解释器会告诉你，第几行第几列代码出错。但是，这对于转换后的代码毫无用处。举例来说，jQuery 1.9压缩后只有3行，每行3万个字符，所有内部变量都改了名字。你看着报错信息，感到毫无头绪，根本不知道它所对应的原始位置。
@@ -640,5 +643,5 @@ JavaScript脚本正变得越来越复杂。大部分源码（尤其是各种函�
 ![](./img/sourcemap.png)
 
 ```js
-devtool:"source-map"
+devtool: 'source-map';
 ```

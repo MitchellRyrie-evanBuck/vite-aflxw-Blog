@@ -1,7 +1,9 @@
 # ECMAScript6
 
 ## 一章 ECMA变迁史
+
 ### 1.1 ECMAScript与JavaScript的关系
+
 **ECMAScript**是语言标准,规定一门语言的具体规格.
 如变量如何声明,for循环的格式怎么写,这些最基础的东西.
 Javascrtip是满足ECMAScript要求的一种语言.
@@ -9,7 +11,7 @@ Javascrtip是满足ECMAScript要求的一种语言.
 两者关系,如同*快捷宾馆营业标准*和*如家酒店*一样.
 满足ECMAScrtipt标准的语言还有`Jscript`和`ActionScript`
 
-> ECMA ( European Computer Manufactures Association ) 
+> ECMA ( European Computer Manufactures Association )
 > 欧洲计算机制造联合会,总部设在日内瓦
 
 ### 1.2 ECMAScript的变迁
@@ -22,9 +24,9 @@ ECMAScript 3.0（1999年12月）
 
 ECMAScript 4.0 (太激进,夭折了)
 
-ECMAScript 5.0 (2009) 
+ECMAScript 5.0 (2009)
 
-ECMAScript 6.0 (2015) 
+ECMAScript 6.0 (2015)
 
 3.0版是一个巨大的成功，在业界得到广泛支持，成为通行标准，奠定了JavaScript语言的基本语法，以后的版本完全继承。
 直到今天，初学者一开始学习JavaScript，其实就是在学3.0版的语法。
@@ -36,32 +38,39 @@ ECMAScript 6.0 (2015)
 此标准严格的叫法应是`ECMAScript2015`,当然叫`es6`也没啥,没人和你抬杠.
 
 ### 1.3 浏览器支持情况
+
 http://kangax.github.io/compat-table/es6/
 
 ## 二章 主要变化
+
 ### 2.1 语法的细微变化
-+ let 与 const
-+ 解构赋值
+
+- let 与 const
+- 解构赋值
 
 ### 2.2 原功能的扩展
-+ 字符串扩展
-+ 数值扩展
-+ 数组扩展
-+ 对象扩展
-+ 函数扩展
-+ 正则扩展
-+ Symbol新类型
+
+- 字符串扩展
+- 数值扩展
+- 数组扩展
+- 对象扩展
+- 函数扩展
+- 正则扩展
+- Symbol新类型
 
 ### 2.3 新功能的添加
-+ Set和Map数据结构
-+ Iterator迭代器
-+ Generator生成器
-+ Promise对象
-+ Class类
-+ Module 模块化
+
+- Set和Map数据结构
+- Iterator迭代器
+- Generator生成器
+- Promise对象
+- Class类
+- Module 模块化
 
 ## 三章 语法变化
+
 ### 3.1 let 更清洁的声明变量
+
 ES6新增了`let`命令，用来声明变量。
 它的用法类似于`var` , 但比`var`更"清洁"，因为期声明的变量,只在`let`命令所在的代码块内有效。
 
@@ -70,7 +79,7 @@ ES6新增了`let`命令，用来声明变量。
 ```js
 var a = 3;
 let b = 4;
-console.log(a , b); // 相同的效果
+console.log(a, b); // 相同的效果
 ```
 
 再看下例:
@@ -81,8 +90,8 @@ console.log(a , b); // 相同的效果
   var b = 'world';
 }
 
-console.log(c) //ReferenceError: c is not defined
-console.log(d) // world
+console.log(c); //ReferenceError: c is not defined
+console.log(d); // world
 ```
 
 可以看出: `let`命令在定义的`{}`内生效,某些语言也有类似特点,称"块级作用域".
@@ -93,9 +102,8 @@ console.log(d) // world
 
 ```js
 // 设置i仅为循环数组,但循环后,残留一个变量i.
-var arr = ['a' , 'b' , 'c'];
-for(var i=0; i<arr.length; i++) {
-}
+var arr = ['a', 'b', 'c'];
+for (var i = 0; i < arr.length; i++) {}
 console.log(i); // 3
 ```
 
@@ -118,6 +126,7 @@ let d = 'world';
 window.d; //undefined
 window.c; //hello
 ```
+
 注:同域下,var ,let 声明同一变量名,error
 
 ### 3.2 const 常量
@@ -134,17 +143,18 @@ console.log(PI);
 PI = 3.15; // TypeError: Assignment to constant variable.
 const PI = 3.15; // Identifier 'PI' has already been declare
 ```
+
 注:常量名和变量名,都区分大小写
 
 ```js
-const STU = {name:'lucy' , age : 22};
+const STU = { name: 'lucy', age: 22 };
 console.log(STU);
 STU.name = 'lily';
 console.log(STU);
 ```
 
->console.log()传入的参数如果指向一个可变对象（数组、对象），那么它会默默地记录下这个引用；
-在你查看这个输出结果的时候，才会读取这个对象，并把相关属性和值显示出来
+> console.log()传入的参数如果指向一个可变对象（数组、对象），那么它会默默地记录下这个引用；
+> 在你查看这个输出结果的时候，才会读取这个对象，并把相关属性和值显示出来
 
 ### 3.3 解构赋值
 
@@ -162,33 +172,34 @@ var c = 3;
 
 let [a, b, c] = [1, 2, 3];
 ```
+
 上面代码表示，可以从数组中提取值，按照对应位置，对变量赋值。
 
 本质上，这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。下面是一些使用嵌套数组进行解构的例子。
 
 ```javascript
 var [foo, [[bar], baz]] = [1, [[2], 3]];
-foo // 1
-bar // 2
-baz // 3
+foo; // 1
+bar; // 2
+baz; // 3
 
-let [ , , third] = ["foo", "bar", "baz"];
-third // "baz"
+let [, , third] = ['foo', 'bar', 'baz'];
+third; // "baz"
 
 let [x, , y] = [1, 2, 3];
-x // 1
-y // 3
+x; // 1
+y; // 3
 ```
 
 ```javascript
 let [head, ...tail] = [1, 2, 3, 4];
-head // 1
-tail // [2, 3, 4]
+head; // 1
+tail; // [2, 3, 4]
 
 let [x, y, ...z] = ['a'];
-x // "a"
-y // undefined
-z // []
+x; // "a"
+y; // undefined
+z; // []
 ```
 
 ## 四章 字符串扩展
@@ -198,41 +209,45 @@ z // []
 ### 4.2 for of 循环字符串
 
 ```js
-var str = "𠮷";
+var str = '𠮷';
 
-for(var i=0; i<str.length; i++) {
-    console.log(str[i]);
+for (var i = 0; i < str.length; i++) {
+  console.log(str[i]);
 }
 
-for(let i of str) {
-    console.log(i);
+for (let i of str) {
+  console.log(i);
 }
 ```
 
 可以看出,传统的for循环产生乱码,因为不认识UTF16的编码。
 
 ### 4.4 includes 判断子字符串
+
 传统上，JS只有indexOf方法确定一个字符串是否包含在另一个字符串中，ES6又提供了三种新的方法。
 
 ```js
-'abc'.includes('a')  // true
-'abc'.indexOf('a') >= 0 // true
+'abc'.includes('a'); // true
+'abc'.indexOf('a') >= 0; // true
 ```
 
 ### 4.5 startsWith 和 endsWith
+
 ```js
 var s = 'Hello world!';
-s.startsWith('Hello') // true
-s.endsWith('!') // true
+s.startsWith('Hello'); // true
+s.endsWith('!'); // true
 ```
+
 这三个方法都支持第二个参数，表示开始搜索的位置。
 
 ```javascript
 var s = 'Hello world!';
-s.startsWith('world', 6) // true
-s.endsWith('Hello', 5) // true
-s.includes('Hello', 6) // false
+s.startsWith('world', 6); // true
+s.endsWith('Hello', 5); // true
+s.includes('Hello', 6); // false
 ```
+
 上面代码表示，使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
 
 ### 4.6 repeat重复字符串
@@ -250,15 +265,16 @@ s.includes('Hello', 6) // false
 `'hello.repeat(0.9)' // "" , 空字符串 取整为0  -1到0之间也会被取整`
 
 ### 4.7 padStart()，padEnd() [ES7]
+
 打开实验性的js来进行测试。
 字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。padStart用于头部补全，padEnd用于尾部补全。
 
 ```js
-'x'.padStart(5, 'ab') // 'ababx'
-'x'.padStart(4, 'ab') // 'abax'
+'x'.padStart(5, 'ab'); // 'ababx'
+'x'.padStart(4, 'ab'); // 'abax'
 
-'x'.padEnd(5, 'ab') // 'xabab'
-'x'.padEnd(4, 'ab') // 'xaba'
+'x'.padEnd(5, 'ab'); // 'xabab'
+'x'.padEnd(4, 'ab'); // 'xaba'
 ```
 
 上面代码中，padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。
@@ -266,38 +282,41 @@ s.includes('Hello', 6) // false
 如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。
 
 ```js
-'xxx'.padStart(2, 'ab') // 'xxx'
-'xxx'.padEnd(2, 'ab') // 'xxx'
+'xxx'.padStart(2, 'ab'); // 'xxx'
+'xxx'.padEnd(2, 'ab'); // 'xxx'
 ```
+
 如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。
 
 ```js
-'abc'.padStart(10, '0123456789')
+'abc'.padStart(10, '0123456789');
 // '0123456abc'
 ```
 
 如果省略第二个参数，则会用空格补全长度。
 
 ```js
-'x'.padStart(4) // '   x'
-'x'.padEnd(4) // 'x   '
+'x'.padStart(4); // '   x'
+'x'.padEnd(4); // 'x   '
 ```
 
 padStart的常见用途是为数值补全指定位数。下面代码生成10位的数值字符串。
 
 ```js
-'1'.padStart(10, '0') // "0000000001"
-'12'.padStart(10, '0') // "0000000012"
-'123456'.padStart(10, '0') // "0000123456"
+'1'.padStart(10, '0'); // "0000000001"
+'12'.padStart(10, '0'); // "0000000012"
+'123456'.padStart(10, '0'); // "0000123456"
 ```
 
 另一个用途是提示字符串格式。
 
 ```js
-'12'.padStart(10, 'YYYY-MM-DD') // "YYYY-MM-12"
-'09-12'.padStart(10, 'YYYY-MM-DD') // "YYYY-09-12"
+'12'.padStart(10, 'YYYY-MM-DD'); // "YYYY-MM-12"
+'09-12'.padStart(10, 'YYYY-MM-DD'); // "YYYY-09-12"
 ```
+
 ### 4.8 模板字符
+
 ES6用反引号'`'包住字符串,可以让字符串多行书写,也可以自由的嵌入变量.
 
 例: 旧时,我们将用户信息写入DOM中,要这样
@@ -321,11 +340,11 @@ and last year , I am ${stu.age + 1} years;
 模板内的大括号`{}`可以放任意合法的JS表达式,意味着:
 
 ```js
-function t(){
+function t() {
   return 'world';
 }
 
-let str = `hello , ${t()} , ${7+9} , ${'ok'}`;
+let str = `hello , ${t()} , ${7 + 9} , ${'ok'}`;
 ```
 
 ## 五章 数值Number对象
@@ -336,10 +355,9 @@ let str = `hello , ${t()} , ${7+9} , ${'ok'}`;
 let a = 0b1001;
 console.log(a); // 9
 
-let b = 0O76;
+let b = 0o76;
 console.log(b); //62
 ```
-
 
 十六进制
 
@@ -352,29 +370,29 @@ var c = 0x21
 ES6把一些关于数值的全局函数移植到了Number对象上.为了逐步减少全局性的方法,使得语言逐步模块化.但是仍然向下兼容.
 
 ```javascript
-isFinite() //检查数值是不是有限的
-isNaN() // 检查函数是不是数值
-parseInt()
-parseFloat()
+isFinite(); //检查数值是不是有限的
+isNaN(); // 检查函数是不是数值
+parseInt();
+parseFloat();
 ```
 
 ### 5.3 新增方法
 
-+ isInteger()
-这个方法用来判断一个值是否为整数，需要注意的是，在JS中，整数和浮点数存储方式一样，所以3和3.0被视为同一个值
+- isInteger()
+  这个方法用来判断一个值是否为整数，需要注意的是，在JS中，整数和浮点数存储方式一样，所以3和3.0被视为同一个值
 
-+ isSafeInteger()
-JS能够准确表示的整数范围是`-2^53`到`2^53`之间（不含两个端点），当超过这个范围的时候，就无法精准的表示了。
-
+- isSafeInteger()
+  JS能够准确表示的整数范围是`-2^53`到`2^53`之间（不含两个端点），当超过这个范围的时候，就无法精准的表示了。
 
 ```javascript
-if(Math.pow(2,53) === (Math.pow(2,53)+1)){
-	alert(1);
+if (Math.pow(2, 53) === Math.pow(2, 53) + 1) {
+  alert(1);
 }
 ```
 
 为此，我们可以用`Number.isSafeInteger()`来判断一个整数是否落在这个范围之内。
->ES6引入了`Number.MAX_SAFE_INTEGER` 和`NUMBR.MIN_SAFE_INTEGER`来表示这个范围的上下限。
+
+> ES6引入了`Number.MAX_SAFE_INTEGER` 和`NUMBR.MIN_SAFE_INTEGER`来表示这个范围的上下限。
 
 ### 5.4 新增极小常量 EPSILON
 
@@ -388,7 +406,7 @@ console.log(Number.EPSILON.toFixed(20));
 引入这个小的量的目的，是为了为浮点计算设置一个误差范围。因为我们在进行浮点运算的时候，计算结果往往是不精确的。
 
 ```javascript
-console.log(0.1+0.2);
+console.log(0.1 + 0.2);
 //0.30000000000000004
 ```
 
@@ -410,7 +428,7 @@ Math.trunc(4.9);
 Math.trunc(-4.1);
 Math.trunc(); //对于空值和无法取整的值返回NaN
 Math.trunc('abc');
-Math.trunc('12.34');//对于非数值 内部先将其转换为数值.
+Math.trunc('12.34'); //对于非数值 内部先将其转换为数值.
 Math.trunc(NaN);
 ```
 
@@ -418,11 +436,11 @@ Math.trunc(NaN);
 
 `Math.sign`方法可以用来判断一个数到底是正数，负数，还是零。
 
-+ 如果参数是正数，返回+1
-+ 如果参数为负数，返回-1
-+ 如果参数为0，返回0
-+ 如果参数是-0，返回-0
-+ 如果参数为其它，返回NaN
+- 如果参数是正数，返回+1
+- 如果参数为负数，返回-1
+- 如果参数为0，返回0
+- 如果参数是-0，返回-0
+- 如果参数为其它，返回NaN
 
 ### 6.3 Math.cbrt()
 
@@ -433,17 +451,16 @@ Math.trunc(NaN);
 ES7新增了一个指数运算符(`**`)
 
 ```javascript
-2**2 //4
-2**3 //8
+2 ** 2; //4
+2 ** 3; //8
 ```
 
 由此，又诞生了一个新的赋值运算符(`**=`)
 
 ```javascript
-a**=2
+a **= 2;
 //a = a*a;
 ```
-
 
 ## 七章 Array 数组对象
 
@@ -464,13 +481,13 @@ Array.constructor == Array
 ary instanceof Array
 ```
 
->instanceof用来判断内存中实际对象A是不是B类型
+> instanceof用来判断内存中实际对象A是不是B类型
 
 来进行判断.
 
 现在只需要使用该函数即可.
 
->我们平时所定义的数组其实是new Array([1,2,3])[0]
+> 我们平时所定义的数组其实是new Array([1,2,3])[0]
 
 ### 7.1 indexOf(),lastIndexOf() [ES5]
 
@@ -483,8 +500,6 @@ var array = [2,4,9,2];
 var index = array.indexOf(2);
 var lastindex = array.lastIndexOf(2);
 ```
-
-
 
 ### 7.2 filter() , map() [ES5]
 
@@ -500,16 +515,16 @@ var.filtered = array.filter(function(obj){
 
 ```js
 var stus = [
-    {name:'lily','gender':'女'},
-    {name:'poly','gender':'男'},
-    {name:'hmm','gender':'女'},
-    {name:'white','gender':'男'},
+  { name: 'lily', gender: '女' },
+  { name: 'poly', gender: '男' },
+  { name: 'hmm', gender: '女' },
+  { name: 'white', gender: '男' },
 ];
 
 // 过滤器,提供一个回调函数,得到一个新数组,
 // 新数组由回调返回true的单元组成
-var news = stus.filter(function(s) {
-    return s.gender == '男';
+var news = stus.filter(function (s) {
+  return s.gender == '男';
 });
 
 console.log(news);
@@ -524,10 +539,12 @@ var maped = numbers.map(Math.sqrt);
 ```
 
 ```javascript
-var score = [34,52,68];
-console.log( score.map(function(val) {
-    return val+10;
-}));
+var score = [34, 52, 68];
+console.log(
+  score.map(function (val) {
+    return val + 10;
+  })
+);
 ```
 
 ### 7.3 forEach() [ES5]
@@ -535,9 +552,9 @@ console.log( score.map(function(val) {
 同上述两个方法一样 `forEach()`也是用来遍历数组并且对数组的每个元素执行一次回调函数。
 该回调函数接受三个参数
 
-+ 当前元素元素的值
-+ 当前元素的索引
-+ 当前数组
+- 当前元素元素的值
+- 当前元素的索引
+- 当前数组
 
 ```
 [2,5,9].forEach(function(element,index,array){
@@ -550,10 +567,10 @@ console.log( score.map(function(val) {
 同样是遍历数组，`reduce()`方法接受一个回调函数作为累加器，数组中的每个值（从左到右）开始合并，最终合成一个值。
 回调函数包含四个参数
 
-+ previsousValue 上一次调用的回调值，或者是给定的初始值
-+ currentValue 数组中当前被处理的元素
-+ index 当前元素在数组中的索引值
-+ array 调用reduce的数组
+- previsousValue 上一次调用的回调值，或者是给定的初始值
+- currentValue 数组中当前被处理的元素
+- index 当前元素在数组中的索引值
+- array 调用reduce的数组
 
 ```
 [0,1,2,3,4,5].reduce(function(previsousValue,currentValue,index,array)　
@@ -562,16 +579,19 @@ console.log( score.map(function(val) {
 ```
 
 ```javascript
-var nums = [1,2,3,4,5,6,7,8,9,10];
-for(let i=0 ,sum=0; i<nums.length; i++) {
-    sum += nums[i];
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (let i = 0, sum = 0; i < nums.length; i++) {
+  sum += nums[i];
 }
 
-console.log( nums.reduce(function(sum,val) {
+console.log(
+  nums.reduce(function (sum, val) {
     sum += val;
     return sum;
-}));
+  })
+);
 ```
+
 而`reduceRight()`和`reduce()`方法类似，只是执行顺序是从右到左的。
 
 ### 7.5 entries()，keys()和values()
@@ -579,17 +599,16 @@ console.log( nums.reduce(function(sum,val) {
 ES6提供三个新的方法，`entries()`，`keys()`和`values()`,这三个方法可以用于遍历数组。它们和for···of类似，只是`keys()`是针对键名的遍历，`values()`是对键值的遍历，`entries()`是对键值对的遍历。
 
 ```js
-for(let index of ['a','b'].keys()){
-	console.log(index);
+for (let index of ['a', 'b'].keys()) {
+  console.log(index);
 }
-for(let elem of ['a','b'].values()){
-	console.log(elem);
+for (let elem of ['a', 'b'].values()) {
+  console.log(elem);
 }
 //values暂时不支持
-for(let [index,elem] of ['a','b'].entries()){
-	console.log(index,elem);
+for (let [index, elem] of ['a', 'b'].entries()) {
+  console.log(index, elem);
 }
-
 ```
 
 如果不使用原来的for···of循环，那么可以手动调用指针，使用`next`方法，进行遍历。
@@ -608,12 +627,11 @@ console.log(entries.next().value);
 
 ```javascript
 let arrayLike = {
-	'0':'a',
-	'1':'b',
-	'2':'c',
-	length:3
-
-}
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  length: 3,
+};
 let arr = Array.form(arrayLike);
 ```
 
@@ -639,15 +657,15 @@ Array.of(3,11,9);
 ```
 Array.copyWithin(target,start,end);
 ```
+
 它接受三个参数：
 
-+ target(必须)：从该位置开始替换数据。
-+ start(可选)：从该位置开始读取数据，默认为0，如果为负值，则表示从末尾开始计数。
-+ end（可选）：从该位置**前**停止读取数据，默认等于数组长度。如果为负值，表示从末尾开始计数。
-
+- target(必须)：从该位置开始替换数据。
+- start(可选)：从该位置开始读取数据，默认为0，如果为负值，则表示从末尾开始计数。
+- end（可选）：从该位置**前**停止读取数据，默认等于数组长度。如果为负值，表示从末尾开始计数。
 
 ```javascript
-[1,2,3,4,5].copyWithin(0,3,4);
+[1, 2, 3, 4, 5].copyWithin(0, 3, 4);
 //[4,2,3,4,5]
 ```
 
@@ -656,13 +674,13 @@ Array.copyWithin(target,start,end);
 数组实例的`find()`方法，用于找到第一个符合条件的数组成员。它的参数是一个回调函数。所有数组的成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回`undefined`
 回调函数可以接受三个参数
 
-+ value 当前的键值
-+ index 当前的索引值
-+ array 原数组
+- value 当前的键值
+- index 当前的索引值
+- array 原数组
 
 ```javascript
-[1,5,10,15].find(function(value,index,array){
-	return value > 9;
+[1, 5, 10, 15].find(function (value, index, array) {
+  return value > 9;
 });
 //10
 ```
@@ -684,6 +702,7 @@ Array.copyWithin(target,start,end);
 ['a','b','c'].fill(7)
 //7,7,7
 ```
+
 上面的代码表明，fill方法用于空数组的初始化非常方便。数组中已有的元素，会被全部抹去。
 fill方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。
 
@@ -692,7 +711,7 @@ fill方法还可以接受第二个和第三个参数，用于指定填充的起�
 //['a','7','c']
 ```
 
-### 7.11 includes() 
+### 7.11 includes()
 
 `Array.includes()`方法返回一个布尔值，表示某个数组是否包含给定的值。
 
@@ -700,6 +719,7 @@ fill方法还可以接受第二个和第三个参数，用于指定填充的起�
 [1,2,3].includes(2)//true
 [1,2,3].includes(4)//false
 ```
+
 同样该方法可以设置搜索的起始位置，默认为0.
 如果第二个参数为负数，则表示倒数的位置。
 
@@ -724,13 +744,13 @@ Array(3)//[,,,]
 
 ```js
 var a = 9;
-var obj = {a};
+var obj = { a };
 console.log(obj);
 var age = 19;
 var name = 'lucy';
 //变量名等于属性名时,可以简写
 //var stu = {name:name , age:age};
-var stu = {name , age};
+var stu = { name, age };
 console.log(stu); //{a:a}
 ```
 
@@ -738,10 +758,10 @@ console.log(stu); //{a:a}
 
 ```js
 obj = {
-    test() {
-        alert('a');
-    }
-}
+  test() {
+    alert('a');
+  },
+};
 
 /*var dog = {
     bark : function(){
@@ -750,12 +770,12 @@ obj = {
 }*/
 
 var dog = {
-    ['a'+'g'+'e'] : 23,
+  ['a' + 'g' + 'e']: 23,
 
-    bark() {
-        alert('小黑');
-    }
-}
+  bark() {
+    alert('小黑');
+  },
+};
 
 console.log(dog);
 ```
@@ -764,9 +784,9 @@ console.log(dog);
 
 ```javascript
 var obj = {
-    name : 'lucy',
-    ['a'+'ge'] : 19,
-}
+  name: 'lucy',
+  ['a' + 'ge']: 19,
+};
 ```
 
 ### 8.3 Object.is()
@@ -776,30 +796,31 @@ ES5比较两个值是否相等，只有两个运算符：相等运算符（==）
 ES6提出“Same-value equality”（同值相等）算法，用来解决这个问题。Object.is就是部署这个算法的新方法。它用来比较两个值是否严格相等，与严格比较运算符（===）的行为基本一致。
 
 ```js
-Object.is('foo', 'foo')
+Object.is('foo', 'foo');
 // true
-Object.is({}, {})
+Object.is({}, {});
 // false
 ```
+
 不同之处只有两个：一是+0不等于-0，二是NaN等于自身。
 
 ```js
-+0 === -0 //true
-NaN === NaN // false
++0 === -0; //true
+NaN === NaN; // false
 
-Object.is(+0, -0) // false
-Object.is(NaN, NaN) // true
+Object.is(+0, -0); // false
+Object.is(NaN, NaN); // true
 ```
 
-### 8.4 Object.assign() 
+### 8.4 Object.assign()
 
 ```javascript
 // Object.assign()复制其他对象的属性
-var tiger = {leg:4};
-Object.assign(tiger , {
-    climb : function() {
-        alert('爬树');
-    }
+var tiger = { leg: 4 };
+Object.assign(tiger, {
+  climb: function () {
+    alert('爬树');
+  },
 });
 
 console.log(tiger);
@@ -807,12 +828,13 @@ console.log(tiger);
 
 用途:
 
-+ 便捷添加属性
-+ 克隆对象
-+ 合并对象
-+ 添加默认值
+- 便捷添加属性
+- 克隆对象
+- 合并对象
+- 添加默认值
 
 ### 8.5 keys(),values(),entries()
+
 类似数组的方法
 
 ## 九章 Function的变化
@@ -827,18 +849,19 @@ fucntion add(score , incr=10) {
 add(5,1); //6
 add(5); // 15
 ```
->注意,默认参数应该写在最后一位.
+
+> 注意,默认参数应该写在最后一位.
 
 ### 9.2 不定参数
 
 不定形参
 
 ```js
-function add(score , ...other) {
-    console.log(other); 
+function add(score, ...other) {
+  console.log(other);
 }
 
-add(60 , 3,4,5) ;
+add(60, 3, 4, 5);
 ```
 
 不定实参
@@ -860,42 +883,42 @@ ES6允许使用箭头来定义函数
 ```javascript
 var f = v => v;
 ```
+
 上面的箭头函数等同于：
 
 ```javascript
-var f = function(v){
-	return v;
-}
+var f = function (v) {
+  return v;
+};
 ```
 
 对比:
 
 ```javascript
-
 var name = 'window name';
 var obj = {
-    name : 'obj name',
-    getName:function(){
-        return function(){
-            console.log(this.name)
-        }
-    }
-}
+  name: 'obj name',
+  getName: function () {
+    return function () {
+      console.log(this.name);
+    };
+  },
+};
 obj.getName()();
 ```
 
 ```javascript
 //箭头函数的this作用域遗传自他的生成环境
- var name = 'window name'; 
- var obj = { 
-    name : 'obj name', 
-    getName:function(){ 
-        return ()=>{ 
-            console.log(this.name); 
-        } 
-    } 
-} 
-  obj.getName()();
+var name = 'window name';
+var obj = {
+  name: 'obj name',
+  getName: function () {
+    return () => {
+      console.log(this.name);
+    };
+  },
+};
+obj.getName()();
 ```
 
 箭头将this函数绑定所在作用域.
@@ -906,39 +929,37 @@ this的绑定方法可以使this的指向变为bind生效的作用域内
 
 ```js
 var obj = {
-    0:"lisi",
-    1:'wangwu',
-    2:"zhaoliu",
-    length:3,
-    getName:function(callback){
-        for(i=0;i<this.length;i++)
-        callback(i);
-    }
-}
-var c = function(i){
-    console.log(this[i]);
-}
-obj.getName(c)
+  0: 'lisi',
+  1: 'wangwu',
+  2: 'zhaoliu',
+  length: 3,
+  getName: function (callback) {
+    for (i = 0; i < this.length; i++) callback(i);
+  },
+};
+var c = function (i) {
+  console.log(this[i]);
+};
+obj.getName(c);
 ```
 
 对比
 
 ```js
 var obj = {
-    0:"lisi",
-    1:'wangwu',
-    2:"zhaoliu",
-    length:3,
-    getName:function(callback){
-        for(i=0;i<this.length;i++)
-        callback.bind(this)(i);
-        // callback.call(this,i)
-    }
-}
-var c = function(i){
-    console.log(this[i]);
-}
-obj.getName(c)
+  0: 'lisi',
+  1: 'wangwu',
+  2: 'zhaoliu',
+  length: 3,
+  getName: function (callback) {
+    for (i = 0; i < this.length; i++) callback.bind(this)(i);
+    // callback.call(this,i)
+  },
+};
+var c = function (i) {
+  console.log(this[i]);
+};
+obj.getName(c);
 ```
 
 ## 十章 Set与Map
@@ -959,14 +980,14 @@ console.log(s);
 
 Set的相关方法
 
-+ add()
-+ delete
-+ has()
-+ clear()
+- add()
+- delete
+- has()
+- clear()
 
 我们在初始化set的时候，可以序列化的加入一些内容。
 
-### 10.2 Map 
+### 10.2 Map
 
 JavaScript的对象（Object），本质上是键值对的集合（Hash结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。
 为了解决这个问题，ES6提供了Map数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object结构提供了“字符串—值”的对应，Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。
@@ -974,9 +995,9 @@ JavaScript的对象（Object），本质上是键值对的集合（Hash结构）
 ```js
 var sym = {};
 var m = new Map();
-m.set('name' , 'lucy');
-m.set(sym , 'lily');
-m.set({} , function() {});
+m.set('name', 'lucy');
+m.set(sym, 'lily');
+m.set({}, function () {});
 
 console.log(m);
 console.log(m.get({}));
@@ -985,11 +1006,11 @@ console.log(m.get(sym));
 
 ### 10.3 Map相关方法
 
-+ set()
-+ get()
-+ has()
-+ delete()
-+ clear()
+- set()
+- get()
+- has()
+- delete()
+- clear()
 
 ## 十一章 Generator 生成器
 
@@ -1000,34 +1021,33 @@ console.log(m.get(sym));
 
 ```js
 function m1() {
-    var arr=[];
+  var arr = [];
 
-    for(let i=0;i<5; i++) {
-        arr.push(i);
-    }
+  for (let i = 0; i < 5; i++) {
+    arr.push(i);
+  }
 
-    return arr;
+  return arr;
 }
 
 var rs = m1();
-console.log( rs );
+console.log(rs);
 
-for(let i=0; i<rs.length; i++) {
-    console.log(rs[i]);
+for (let i = 0; i < rs.length; i++) {
+  console.log(rs[i]);
 }
 ```
 
 ```js
-function *make() {
-    for(let i=0;i<10; i++) {
-        yield i;
-    }
+function* make() {
+  for (let i = 0; i < 10; i++) {
+    yield i;
+  }
 }
 
 var getI = make();
-console.log( getI.next() );
+console.log(getI.next());
 ```
-
 
 ## 十二章 Iterator迭代器
 
@@ -1040,41 +1060,44 @@ Iterator给我们带来了相对统一的方式,即for...of
 
 ```js
 let str = 'hello';
-for(let s of str) {
-    console.log(s);
+for (let s of str) {
+  console.log(s);
 }
 ```
 
 ```js
-let arr = ['东' , '南' , '西'];
-for(let a of arr) {
-    console.log(a);
+let arr = ['东', '南', '西'];
+for (let a of arr) {
+  console.log(a);
 }
 ```
 
 ```js
-let sts = new Set(['春' , '夏' , '秋']);
-for(let s of sts) {
-    console.log(s);
+let sts = new Set(['春', '夏', '秋']);
+for (let s of sts) {
+  console.log(s);
 }
 ```
 
 ```js
-let maps = new Map([['name','lucy'] , ['age' , 9]]);
-for(let m of maps) {
-    console.log(m);
+let maps = new Map([
+  ['name', 'lucy'],
+  ['age', 9],
+]);
+for (let m of maps) {
+  console.log(m);
 }
 ```
 
 ```js
-function *makeSn(){
-    for(let i=0; i<5; i++) {
-        yield i;
-    }
+function* makeSn() {
+  for (let i = 0; i < 5; i++) {
+    yield i;
+  }
 }
 
-for(let sn of makeSn()) {
-    console.log(sn);
+for (let sn of makeSn()) {
+  console.log(sn);
 }
 ```
 
@@ -1093,13 +1116,13 @@ es5新增的forEach()
 ```js
 // 自动给你的回调函数传递3个参数(单元的值,单元的键,数组本身)
 
-['a' , 'b' , 'c'].forEach(function(val , key , arr){
-    
-    // if(val == 'b') break; //forEach中不能break
+['a', 'b', 'c'].forEach(function (val, key, arr) {
+  // if(val == 'b') break; //forEach中不能break
 
-    console.log(val);
+  console.log(val);
 });
 ```
+
 缺点:无法跳出forEach循环,break失效
 
 for...in
@@ -1107,18 +1130,17 @@ for...in
 ```javascript
 //for...in循环可以遍历数组的键名。
 
-for(let k in arr) {
-    console.log(typeof k); // string
+for (let k in arr) {
+  console.log(typeof k); // string
 }
 ```
 
 缺点:
 
-+ for...in循环主要是为遍历对象而设计的，不适用于遍历数组。
-+ 数组的键名是数字，但是for...in循环是以字符串作为键名“0”、“1”、“2”等等。
-+ for...in循环不仅遍历数字键名，还会遍历手动添加的其他键，甚至包括原型链上的键。
-+ 不敢保证遍历的键的顺序。
-
+- for...in循环主要是为遍历对象而设计的，不适用于遍历数组。
+- 数组的键名是数字，但是for...in循环是以字符串作为键名“0”、“1”、“2”等等。
+- for...in循环不仅遍历数字键名，还会遍历手动添加的其他键，甚至包括原型链上的键。
+- 不敢保证遍历的键的顺序。
 
 for...of
 
@@ -1140,27 +1162,24 @@ for(let i of arr) {
 }
 ```
 
-+ 有着同for...in一样的简洁语法，但是没有for...in那些缺点。
-+ 不同用于forEach方法，它可以与break、continue和return配合使用。
-+ 提供了遍历所有数据结构的统一操作接口。
-
+- 有着同for...in一样的简洁语法，但是没有for...in那些缺点。
+- 不同用于forEach方法，它可以与break、continue和return配合使用。
+- 提供了遍历所有数据结构的统一操作接口。
 
 ## 十三章 Class
 
 ```js
 class Cat {
-    constructor(color,leg) {
-        this.color = color;
-        this.leg = leg;
-    }
+  constructor(color, leg) {
+    this.color = color;
+    this.leg = leg;
+  }
 }
 
 class Tiger extends Cat {
-    constructor(color , leg) {
-        super(color,leg);
-        this.hunt = function(){  
-        }
-    }
+  constructor(color, leg) {
+    super(color, leg);
+    this.hunt = function () {};
+  }
 }
 ```
-

@@ -1,4 +1,4 @@
-# ****webpack的热更新是如何做到的？原理是什么？****
+# \***\*webpack的热更新是如何做到的？原理是什么？\*\***
 
 ## 一、是什么
 
@@ -11,15 +11,15 @@
 在`webpack`中配置开启热模块也非常的简单，如下代码：
 
 ```js
-const webpack = require('webpack')
+const webpack = require('webpack');
 module.exports = {
   // ...
   devServer: {
     // 开启 HMR 特性
-    hot: true
+    hot: true,
     // hotOnly: true
-  }
-}
+  },
+};
 ```
 
 通过上述这种配置，如果我们修改并保存`css`文件，确实能够以不刷新的形式更新到页面中
@@ -31,10 +31,10 @@ module.exports = {
 我们需要去指定哪些模块发生更新时进行`HRM`，如下代码：
 
 ```js
-if(module.hot){
-    module.hot.accept('./util.js',()=>{
-        console.log("util.js更新了")
-    })
+if (module.hot) {
+  module.hot.accept('./util.js', () => {
+    console.log('util.js更新了');
+  });
 }
 ```
 

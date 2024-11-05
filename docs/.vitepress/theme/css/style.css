@@ -1,4 +1,3 @@
-
 /**
  * Customize default theme styling by overriding CSS variables:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
@@ -10,13 +9,13 @@
 
 :root {
   --vp-c-brand: #646cff;
-  --vp-c-brand-light: #577DF3;
+  --vp-c-brand-light: #577df3;
   --vp-c-brand-lighter: #9499ff;
   --vp-c-brand-lightest: #bcc0ff;
   --vp-c-brand-dark: #535bf2;
   --vp-c-brand-darker: #454ce1;
   --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
-   --vp-vp-menu-group-color: rgba(0,0,0,1);
+  --vp-vp-menu-group-color: rgba(0, 0, 0, 1);
 }
 
 /**
@@ -34,6 +33,9 @@
   --vp-button-brand-active-text: var(--vp-c-white);
   --vp-button-brand-active-bg: var(--vp-button-brand-bg);
   --vp-vp-menu-group: var(--vp-vp-menu-group-color);
+
+  --globalnav-backdrop-filter: saturate(100%) blur(10px);
+  --globalnav-background: rgba(255, 255, 255, 0.8);
 }
 
 /**
@@ -123,11 +125,7 @@
   transition: color 0.25s;
 }
 
-
-
-.VPMenuGroup .title{
+.VPMenuGroup .title {
   color: var(--vp-vp-menu-group-color);
   font-weight: 600;
 }
-
-

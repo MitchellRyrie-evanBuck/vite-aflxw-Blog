@@ -35,7 +35,7 @@ class ScrollControllerExample extends StatefulWidget {
 
 class _ScrollControllerExampleState extends State<ScrollControllerExample> {
 ScrollController_controller = ScrollController();
-  
+
   @override
   void initState() {
     super.initState();
@@ -43,7 +43,7 @@ ScrollController_controller = ScrollController();
       print('Scroll position: ${_controller.offset}');
     });
   }
-  
+
   @override
   void dispose() {
     _controller.dispose();

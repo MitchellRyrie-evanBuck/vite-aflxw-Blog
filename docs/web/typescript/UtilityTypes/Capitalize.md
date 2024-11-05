@@ -1,6 +1,6 @@
 # Capitalize
 
-> *将字符串的字面量类型首字母转换为大写*
+> _将字符串的字面量类型首字母转换为大写_
 
 `Capitalize` 的实现为编译器内置
 
@@ -16,6 +16,6 @@ type Capitalize<S extends string> = intrinsic;
 - 用法
 
 ```tsx
-type DogName = "linlin"
-type CapitalizeDogName = Capitalize<DogName> // 得到 "LinLin"
+type DogName = 'linlin';
+type CapitalizeDogName = Capitalize<DogName>; // 得到 "LinLin"
 ```

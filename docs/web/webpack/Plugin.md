@@ -1,4 +1,4 @@
-# ****webpack中常见的Plugin？解决了什么问题？****
+# \***\*webpack中常见的Plugin？解决了什么问题？\*\***
 
 ## **一、是什么**
 
@@ -40,14 +40,13 @@ const pluginName = 'ConsoleLogOnBuildWebpackPlugin';
 
 class ConsoleLogOnBuildWebpackPlugin {
   apply(compiler) {
-    compiler.hooks.run.tap(pluginName, (compilation) => {
+    compiler.hooks.run.tap(pluginName, compilation => {
       console.log('webpack 构建过程开始！');
     });
   }
 }
 
 module.exports = ConsoleLogOnBuildWebpackPlugin;
-
 ```
 
 `compiler hook` 的 `tap`方法的第一个参数，应是驼峰式命名的插件名称
@@ -102,7 +101,18 @@ module.exports = {
 
 ```html
 <!--./src/html/index.html-->
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title><%=htmlWebpackPlugin.options.title%></title></head><body><h1>html-webpack-plugin</h1></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%=htmlWebpackPlugin.options.title%></title>
+  </head>
+  <body>
+    <h1>html-webpack-plugin</h1>
+  </body>
+</html>
 ```
 
 在 `html` 模板中，可以通过 `<%=htmlWebpackPlugin.options.XXX%>` 的方式获取配置的值
@@ -207,18 +217,15 @@ npm install copy-webpack-plugin -D
 
 ```js
 new CopyWebpackPlugin({
-    parrerns:[
-        {
-            from:"public",
-            globOptions:{
-                ignore:[
-                    '**/index.html'
-                ]
-            }
-        }
-    ]
-})
-
+  parrerns: [
+    {
+      from: 'public',
+      globOptions: {
+        ignore: ['**/index.html'],
+      },
+    },
+  ],
+});
 ```
 
 复制的规则在`patterns`属性中设置：

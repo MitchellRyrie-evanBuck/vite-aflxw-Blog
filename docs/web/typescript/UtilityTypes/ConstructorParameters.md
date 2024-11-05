@@ -1,6 +1,6 @@
 # ConstructorParameters
 
-> *从构造函数类型 T 的参数类型构造元组或数组类型（如果 T 不是函数，则为 never）*
+> _从构造函数类型 T 的参数类型构造元组或数组类型（如果 T 不是函数，则为 never）_
 
 - 源码
 
@@ -8,7 +8,8 @@
 /**
  * Obtain the parameters of a constructor function type in a tuple
  */
-type ConstructorParameters<T extends new (...args: any) => any> = T extends new (...args: infer P) => any ? P : never;
+type ConstructorParameters<T extends new (...args: any) => any> =
+  T extends new (...args: infer P) => any ? P : never;
 ```
 
 - 源码解析
@@ -27,14 +28,14 @@ type ConstructorParameters<T extends new (...args: any) => any> = T extends new 
 
 ```tsx
 class Dog {
-  private dogAge: number
-  private isMale: boolean
-  private dogKind: string
+  private dogAge: number;
+  private isMale: boolean;
+  private dogKind: string;
   constructor(isMale: boolean, dogKind: string) {
-    this.dogAge = 0
-    this.isMale = isMale
-    this.dogKind = dogKind
+    this.dogAge = 0;
+    this.isMale = isMale;
+    this.dogKind = dogKind;
   }
 }
-type DogGaveBirthNeedInfo = ConstructorParameters<typeof Dog> // 得到 [boolean, string] 类型
+type DogGaveBirthNeedInfo = ConstructorParameters<typeof Dog>; // 得到 [boolean, string] 类型
 ```

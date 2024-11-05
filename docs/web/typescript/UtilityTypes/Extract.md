@@ -1,6 +1,6 @@
 # Extract
 
-> *从 T 的联合类型成员中提取可分配给类型 U 的所有联合成员来构造类型*
+> _从 T 的联合类型成员中提取可分配给类型 U 的所有联合成员来构造类型_
 
 - 源码
 
@@ -8,7 +8,7 @@
 /**
  * Extract from T those types that are assignable to U
  */
-type Extract<T, U> = T extends U ? T : never
+type Extract<T, U> = T extends U ? T : never;
 ```
 
 - 源码解析
@@ -17,26 +17,26 @@ type Extract<T, U> = T extends U ? T : never
 
 ```tsx
 interface Dogs {
-  dogName: string
-  dogAge: number
-  dogKind: string
+  dogName: string;
+  dogAge: number;
+  dogKind: string;
 }
 
-type KeyofDogs = keyof Dogs // "dogName" | "dogAge" | "dogKind"
+type KeyofDogs = keyof Dogs; // "dogName" | "dogAge" | "dogKind"
 
-type KeysOnlyKind = Extract<KeyofDogs, "dogKind"> // "dogKind"
+type KeysOnlyKind = Extract<KeyofDogs, 'dogKind'>; // "dogKind"
 ```
 
 - 使用场景举例
 
-    1.与映射类型配合使用，参考 `Omit` 的实现
+  1.与映射类型配合使用，参考 `Omit` 的实现
 
 ```typescript
 // 提取 T 类型的部分（或全部）键构造一个新类型
 type Include<T extends object, U extends keyof any> = {
-  [Key in Extract<keyof T, U>]: T[Key]
-}
+  [Key in Extract<keyof T, U>]: T[Key];
+};
 // 或
-type Include<T, K extends keyof any> = Pick<T, Extract<keyof T, K>>
-复制代码
+type Include<T, K extends keyof any> = Pick<T, Extract<keyof T, K>>;
+复制代码;
 ```

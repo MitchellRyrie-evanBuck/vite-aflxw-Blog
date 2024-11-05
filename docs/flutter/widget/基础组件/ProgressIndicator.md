@@ -146,7 +146,7 @@ LinearProgressIndicator 适用于以下场景：
 ### LinearProgressIndicator注意事项
 
 - 当使用 LinearProgressIndicator 时，请确保根据任务的实际进度更新 value 属性。
-= 根据情况选择合适的进度颜色和高度。
+  = 根据情况选择合适的进度颜色和高度。
 - 在显示进度指示器时，尽量避免阻塞用户界面，以保持用户体验流畅。
 
 ### LinearProgressIndicator示例

@@ -7,17 +7,17 @@ Proxy 用于修改某些操作的默认行为，等同于在语言层面做出�
 面向对象编程，实质上是一种与用户争夺“控制权”的编程，封装性是控制权之争，外界不可以任意对对象的属性进行更改。
 
 ```js
-function Dog(){
-    this.leg = 4;
-    this.bark = function() {
-        alert('汪汪');
-    }
+function Dog() {
+  this.leg = 4;
+  this.bark = function () {
+    alert('汪汪');
+  };
 }
 
 var dog = new Dog();
 dog.wings = 2;
 console.log(dog.wings); // 2
-console.log(dog.tail) // undefined
+console.log(dog.tail); // undefined
 ```
 
 上述代码中，我们可以任意给`dog`对象添加属性，也可以获取该对象不存在的属性。实际上，我们就没有把握该对象的控制权。
@@ -35,7 +35,7 @@ var obj = new Proxy(dog, {
   set: function (target, propKey, value, receiver) {
     console.log(`setting ${propKey}!`);
     return Reflect.set(target, propKey, value, receiver);
-  }
+  },
 });
 ```
 
@@ -105,15 +105,18 @@ obj.time // 35
 `get`方法可以继承。
 
 ```javascript
-let proto = new Proxy({}, {
-  get(target, propertyKey, receiver) {
-    console.log('GET ' + propertyKey);
-    return target[propertyKey];
+let proto = new Proxy(
+  {},
+  {
+    get(target, propertyKey, receiver) {
+      console.log('GET ' + propertyKey);
+      return target[propertyKey];
+    },
   }
-});
+);
 
 let obj = Object.create(proto);
-obj.foo // "GET foo"
+obj.foo; // "GET foo"
 ```
 
 上面代码中，拦截操作定义在`Prototype`对象上面，所以如果读取`obj`对象继承的属性时，拦截会生效。
@@ -121,12 +124,15 @@ obj.foo // "GET foo"
 下面是一个`get`方法的第三个参数的例子，它总是指向**原始的读操作**所在的那个对象，一般情况下就是 Proxy 实例。
 
 ```javascript
-const proxy = new Proxy({}, {
-  get: function(target, key, receiver) {
-    return receiver;
+const proxy = new Proxy(
+  {},
+  {
+    get: function (target, key, receiver) {
+      return receiver;
+    },
   }
-});
-proxy.getReceiver === proxy // true
+);
+proxy.getReceiver === proxy; // true
 ```
 
 上面代码中，`proxy`对象的`getReceiver`属性是由`proxy`对象提供的，所以`receiver`指向`proxy`对象。
@@ -143,27 +149,30 @@ proxy.getReceiver === proxy // true
 var pipe = (function () {
   return function (value) {
     var funcStack = [];
-    var oproxy = new Proxy({} , {
-      get : function (pipeObject, fnName) {
-        if (fnName === 'get') {
-          return funcStack.reduce(function (val, fn) {
-            return fn(val);
-          },value);
-        }
-        funcStack.push(globle[fnName]);
-        return oproxy;
+    var oproxy = new Proxy(
+      {},
+      {
+        get: function (pipeObject, fnName) {
+          if (fnName === 'get') {
+            return funcStack.reduce(function (val, fn) {
+              return fn(val);
+            }, value);
+          }
+          funcStack.push(globle[fnName]);
+          return oproxy;
+        },
       }
-    });
+    );
 
     return oproxy;
-  }
-}());
+  };
+})();
 
 var double = n => n * 2;
-var pow    = n => n * n;
-var reverseInt = n => n.toString().split("").reverse().join("") | 0;
+var pow = n => n * n;
+var reverseInt = n => n.toString().split('').reverse().join('') | 0;
 
-pipe(3).double.pow.reverseInt.get; 
+pipe(3).double.pow.reverseInt.get;
 ```
 
 ### set()
@@ -174,7 +183,7 @@ pipe(3).double.pow.reverseInt.get;
 
 ```javascript
 let validator = {
-  set: function(obj, prop, value) {
+  set: function (obj, prop, value) {
     if (prop === 'age') {
       if (!Number.isInteger(value)) {
         throw new TypeError('The age is not an integer');
@@ -186,16 +195,16 @@ let validator = {
 
     // 对于满足条件的 age 属性以及其他属性，直接保存
     obj[prop] = value;
-  }
+  },
 };
 
 let person = new Proxy({}, validator);
 
 person.age = 100;
 
-person.age // 100
-person.age = 'young' // 报错
-person.age = 300 // 报错
+person.age; // 100
+person.age = 'young'; // 报错
+person.age = 300; // 报错
 ```
 
 上面代码中，由于设置了存值函数`set`，任何不符合要求的`age`属性赋值，都会抛出一个错误，这是数据验证的一种实现方法。利用`set`方法，还可以数据绑定，即每当对象发生变化时，会自动更新 DOM，这也是 Vue 实现数据绑定的方法。
@@ -203,8 +212,6 @@ person.age = 300 // 报错
 私有属性可以通过闭包实现，同时，我们也可以通过`get`和`set`实现。
 
 ![15-04](images/15-04.png)
-
-
 
 和`get`方法一样，`set`方法也是可以被继承的，同样，`set`的第四个参数`receiver`，指的是原始的操作行为所在的那个对象，一般情况下是`proxy`实例本身。
 
@@ -221,16 +228,18 @@ person.age = 300 // 报错
 下面是一个例子。
 
 ```javascript
-var target = function () { return 'I am the target'; };
+var target = function () {
+  return 'I am the target';
+};
 var handler = {
   apply: function () {
     return 'I am the proxy';
-  }
+  },
 };
 
 var p = new Proxy(target, handler);
 
-p()
+p();
 // "I am the proxy"
 ```
 
@@ -248,9 +257,9 @@ p()
 
 ```javascript
 var handler = {
-  construct (target, args, newTarget) {
+  construct(target, args, newTarget) {
     return new target(...args);
-  }
+  },
 };
 ```
 
@@ -262,13 +271,13 @@ var handler = {
 
 ```javascript
 var p = new Proxy(function () {}, {
-  construct: function(target, args) {
+  construct: function (target, args) {
     console.log('called: ' + args.join(', '));
     return { value: args[0] * 10 };
-  }
+  },
 });
 
-(new p(1)).value
+new p(1).value;
 // "called: 1"
 // 10
 ```
@@ -276,13 +285,13 @@ var p = new Proxy(function () {}, {
 `construct`方法返回的必须是一个对象，否则会报错。
 
 ```javascript
-var p = new Proxy(function() {}, {
-  construct: function(target, argumentsList) {
+var p = new Proxy(function () {}, {
+  construct: function (target, argumentsList) {
     return 1;
-  }
+  },
 });
 
-new p() // 报错
+new p(); // 报错
 // Uncaught TypeError: 'construct' on proxy: trap returned non-object ('1')
 ```
 
@@ -292,13 +301,13 @@ new p() // 报错
 
 ```javascript
 var handler = {
-  deleteProperty (target, key) {
+  deleteProperty(target, key) {
     invariant(key, 'delete');
     delete target[key];
     return true;
-  }
+  },
 };
-function invariant (key, action) {
+function invariant(key, action) {
   if (key[0] === '_') {
     throw new Error(`Invalid attempt to ${action} private "${key}" property`);
   }
@@ -306,7 +315,7 @@ function invariant (key, action) {
 
 var target = { _prop: 'foo' };
 var proxy = new Proxy(target, handler);
-delete proxy._prop
+delete proxy._prop;
 // Error: Invalid attempt to delete private "_prop" property
 ```
 
@@ -326,13 +335,13 @@ delete proxy._prop
 let target = {};
 let handler = {};
 
-let {proxy, revoke} = Proxy.revocable(target, handler);
+let { proxy, revoke } = Proxy.revocable(target, handler);
 
 proxy.foo = 123;
-proxy.foo // 123
+proxy.foo; // 123
 
 revoke();
-proxy.foo // TypeError: Revoked
+proxy.foo; // TypeError: Revoked
 ```
 
 `Proxy.revocable`方法返回一个对象，该对象的`proxy`属性是`Proxy`实例，`revoke`属性是一个函数，可以取消`Proxy`实例。上面代码中，当执行`revoke`函数之后，再访问`Proxy`实例，就会抛出一个错误。
@@ -361,8 +370,6 @@ proxy.getDate();
 上面代码中，`getDate`方法只能在`Date`对象实例上面拿到，如果`this`不是`Date`对象实例就会报错。这时，`this`绑定原始对象，就可以解决这个问题。
 
 ![15-09](images/15-09.png)
-
-
 
 ## 小结
 

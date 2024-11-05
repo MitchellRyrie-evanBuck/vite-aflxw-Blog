@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # RefreshIndicator
 
 > RefreshIndicator 是 Flutter 中用于实现下拉刷新效果的小部件，它可以在一个滚动视图中添加一个顶部的刷新指示器，用户可以通过下拉来触发刷新操作。
@@ -21,10 +22,10 @@ RefreshIndicator(
 ## 属性及功能
 
 1. onRefresh：刷新回调函数。
-功能：设置下拉刷新时的回调函数，通常在这里执行刷新操作。
+   功能：设置下拉刷新时的回调函数，通常在这里执行刷新操作。
 
 2. child（Widget）：子部件。
-功能：设置需要添加刷新指示器的子部件，通常是一个滚动视图，如 ListView、GridView 等。
+   功能：设置需要添加刷新指示器的子部件，通常是一个滚动视图，如 ListView、GridView 等。
 
 3.displacement（double）：刷新指示器的位移。
 功能：设置刷新指示器相对于滚动视图的位移，通常设置为正数。
@@ -108,4 +109,4 @@ class _MyRefreshPageState extends State<MyRefreshPage> {
 
 ![RefreshIndicatorWidget](./imgs/RefreshIndicatorWidget.gif)
 
-在这个示例中，我们使用 RefreshIndicator 创建一个下拉刷新效果。在_refreshData 函数中模拟网络请求，并在刷新完成后更新列表数据。用户可以通过下拉刷新来更新列表内容。
+在这个示例中，我们使用 RefreshIndicator 创建一个下拉刷新效果。在\_refreshData 函数中模拟网络请求，并在刷新完成后更新列表数据。用户可以通过下拉刷新来更新列表内容。

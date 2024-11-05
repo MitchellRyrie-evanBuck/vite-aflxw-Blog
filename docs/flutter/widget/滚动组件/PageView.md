@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # PageView
 
 PageView 是 Flutter 中的一个滚动视图小部件，用于显示一个可水平滑动的子部件列表。它常用于创建引导页、图片浏览器、卡片式布局等场景。
@@ -18,7 +19,7 @@ PageView(
 ## 属性及功能
 
 1. `children（List<Widget>）`：子部件列表。
-功能：设置 PageView 中的子部件列表，这些子部件会水平排列并可通过滑动进行切换。
+   功能：设置 PageView 中的子部件列表，这些子部件会水平排列并可通过滑动进行切换。
 
 2.controller：控制器。
 功能：控制 PageView 的滚动和切换操作，通常使用 PageController 对象。

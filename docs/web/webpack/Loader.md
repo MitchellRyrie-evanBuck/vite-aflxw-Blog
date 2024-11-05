@@ -1,4 +1,4 @@
-# ****webpack中常见的Loader？解决了什么问题？****
+# \***\*webpack中常见的Loader？解决了什么问题？\*\***
 
 ## **一、是什么**
 
@@ -47,16 +47,15 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true
-            }
+              modules: true,
+            },
           },
-          { loader: 'sass-loader' }
-        ]
-      }
-    ]
-  }
+          { loader: 'sass-loader' },
+        ],
+      },
+    ],
+  },
 };
-
 ```
 
 ## **二、特性**

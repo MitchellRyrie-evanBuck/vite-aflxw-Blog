@@ -1,6 +1,6 @@
 # ReturnType
 
-> *基于函数类型 T 的返回值类型构造一个新类型*
+> _基于函数类型 T 的返回值类型构造一个新类型_
 
 - 源码
 
@@ -8,7 +8,11 @@
 /**
  * Obtain the return type of a function type
  */
-type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
+type ReturnType<T extends (...args: any) => any> = T extends (
+  ...args: any
+) => infer R
+  ? R
+  : any;
 ```
 
 - 源码解析
@@ -20,10 +24,10 @@ function washDog() {
   return {
     dogName: 'linlin',
     dogAge: 20,
-    dogKind: 'husky'
-  }
+    dogKind: 'husky',
+  };
 }
-type WashTicket = ReturnType<typeof washDog>
+type WashTicket = ReturnType<typeof washDog>;
 /*
  * 会的到这样的类型，也就是函数 washDog 返回值的类型
  *type WashTicket = {
@@ -31,9 +35,8 @@ type WashTicket = ReturnType<typeof washDog>
  *  dogAge: number
  *  dogKind: string
  *}
-*/
+ */
 ```
 
 - 使用场景举例
-    1. 高阶函数，不使用泛型的情况下，某些场景可以用 ReturnType 提取出传入的函数的返回值类型
-
+  1. 高阶函数，不使用泛型的情况下，某些场景可以用 ReturnType 提取出传入的函数的返回值类型

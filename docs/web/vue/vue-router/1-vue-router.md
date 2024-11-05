@@ -21,8 +21,8 @@ yarn add vue-router
 通过前面提到的 <u>Vue.use</u> 方法，把 <u>vue-router</u> 安装到指定的 <u>Vue</u> 实例中
 
 ```javascript
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 ```
@@ -51,7 +51,7 @@ const myRouter = new Router({
 });
 
 ...,
-  
+
 new Vue({
   ...,
   router: myRouter
@@ -70,8 +70,8 @@ new Vue({
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <hr>
-    <router-view/>
+    <hr />
+    <router-view />
   </div>
 </template>
 ```

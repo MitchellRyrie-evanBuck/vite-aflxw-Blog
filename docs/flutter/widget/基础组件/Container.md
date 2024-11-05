@@ -18,7 +18,7 @@
     this.transformAlignment,
     this.child,
     this.clipBehavior = Clip.none,
-  }) 
+  })
 ```
 
 Container是Flutter中一个常用的布局小部件，它用于创建一个可容纳子小部件的矩形区域，并且可以在该区域内进行绘制、装饰和定位。Container具有多种属性，可以用来控制其外观、布局和功能。下面是Container的常用属性及其功能：

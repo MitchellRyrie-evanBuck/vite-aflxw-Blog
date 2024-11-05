@@ -20,9 +20,8 @@ Safari浏览器：WebKit引擎，（windows版本2008年3月18日推 出正式�
 FireFox浏览器: Gecko引擎
 Opera浏览器: Blink引擎(早期版使用Presto引擎，后改为Blink引擎)
 Internet Explorer浏览器: Trident引擎 。（最后一个版本 IE 11）
-Microsoft Edge浏览器: EdgeHTML引擎(Trident的一个分支) 
+Microsoft Edge浏览器: EdgeHTML引擎(Trident的一个分支)
 ```
-
 
 ### 工作原理
 
@@ -46,10 +45,6 @@ Microsoft Edge浏览器: EdgeHTML引擎(Trident的一个分支)
 解析DOM树---->构建渲染树---->渲染树布局---->绘制渲染树
 ```
 
-
-
-
-
 ### 浏览器访问网站过程
 
 ```css
@@ -65,11 +60,7 @@ Microsoft Edge浏览器: EdgeHTML引擎(Trident的一个分支)
 10、最终浏览器渲染出完整页面
 ```
 
-
-
-
-
-## Node概述 
+## Node概述
 
 ```css
 1. node.js 是一个开发平台，就像Java开发平台、.Net开发平台、PHP开发平台、Apple开发平台一样。
@@ -89,8 +80,6 @@ node.js全栈开发技术栈: MEAN-MongoDB Express Angular Node.js
 
 ```
 
-
-
 ### 特点
 
 ```css
@@ -108,8 +97,6 @@ node.js全栈开发技术栈: MEAN-MongoDB Express Angular Node.js
 
 5、Node本身就是个web容器（服务器），所以无需要 Apache、IIS等。
 ```
-
-
 
 ### node.js 中的单线程-非阻塞IO
 
@@ -159,8 +146,6 @@ JavaScript 是单线程工作，这意味着两段脚本不能同时运行，而
 可以自己进行编写代码，来去参考浏览器（与node.js运行原理相同）演示动画地址：
 ```
 
-
-
 ### REPL介绍
 
 ```css
@@ -177,10 +162,6 @@ JavaScript 是单线程工作，这意味着两段脚本不能同时运行，而
 	按住control 键不要放开，然后按两下c键
 ```
 
-
-
-
-
 ## ES6 语法
 
 ```css
@@ -191,10 +172,6 @@ ES6 既是一个历史名词，也是一个泛指，含义是 5.1 版以后的 J
 
 提到 ES6 的地方，一般是指 ES2015 标准，但有时也是泛指“下一代 JavaScript 语言”。
 ```
-
-
-
-
 
 ### let
 
@@ -268,10 +245,6 @@ var特点：
 4、可以重新赋值
 ```
 
-
-
-
-
 ### const
 
 ```javascript
@@ -296,10 +269,6 @@ foo = {}; // TypeError: "foo" is read-only
 上面代码中，常量foo储存的是一个地址，这个地址指向一个对象。
 不可变的只是这个地址，即不能把foo指向另一个地址，但对象本身是可变的，所以依然可以为其添加新属性。
 ```
-
-
-
-
 
 ### 对象解构赋值
 
@@ -357,7 +326,7 @@ let{name,...obj2}=obj
 console.log(obj2)
 /*
 	结果为：22  haha
-	
+
 	这写法是不包含obj中name属性，其他成员全部赋值给obj
 */
 
@@ -372,12 +341,6 @@ var obj={
 var name1=obj.name
 var age1=obj.age
 ```
-
-
-
-
-
-
 
 ### 数组解构赋值
 
@@ -413,26 +376,18 @@ var b=arr[1]
 var c=arr[2]
 ```
 
-
-
-
-
 ### 解构赋值结合函数声明
 
 ```javascript
-function test1({name,age}){
-	console.log(name,age)
+function test1({ name, age }) {
+  console.log(name, age);
 }
 
 test1({
-    name:"jine",
-    age:20,
-})
+  name: 'jine',
+  age: 20,
+});
 ```
-
-
-
-
 
 ### 箭头函数
 
@@ -506,8 +461,6 @@ console.log(name)
 "这样也是可以的，虽然换行了，但是因为有箭头，所以不是结束，所以还会输出name"
 ```
 
-
-
 ### 箭头函数 this
 
 ```javascript
@@ -548,8 +501,6 @@ console.log(name)
 
 </html>
 ```
-
-
 
 ### 对象成员的简写
 
@@ -595,42 +546,31 @@ obj.printf()
 /*结果：1  20  78*/
 ```
 
-
-
-
-
-
-
 ### 展开运算符
-
-
-
-
 
 #### 对象展开
 
 ```javascript
-let Person={
-    name:"jine",
-    age:22,
-    printf(){
-        console.log(this.name,this.age)
-    }
-}
+let Person = {
+  name: 'jine',
+  age: 22,
+  printf() {
+    console.log(this.name, this.age);
+  },
+};
 
-let Fun={
-    song:"歌唱",
-    jump:"跳跳"
-}
+let Fun = {
+  song: '歌唱',
+  jump: '跳跳',
+};
 
+let Jine = {
+  ...Person, //将Person对象中所有的成员拿过来
+  ...Fun,
+  jump: '不跳了', //此时jump把前面Fun对象传入的jump覆盖
+};
 
-let Jine={
-    ...Person, //将Person对象中所有的成员拿过来
-    ...Fun,
-    jump:"不跳了" //此时jump把前面Fun对象传入的jump覆盖
-}
-
-console.log(Jine)
+console.log(Jine);
 /*
 结果：
 	{
@@ -643,59 +583,49 @@ console.log(Jine)
 */
 ```
 
-
-
-
-
 #### 数组展开
 
 ```javascript
-可以做数组拼接
-也可求max值等
+可以做数组拼接;
+也可求max值等;
 
-let arr1=[1,2,3]
+let arr1 = [1, 2, 3];
 
-let arr2=[4,5,6]
+let arr2 = [4, 5, 6];
 
-let arr3=[...arr1,...arr2]
-console.log(arr3)
+let arr3 = [...arr1, ...arr2];
+console.log(arr3);
 /* [1,2,3,4,5,6] */
 
-let max1=Math.max(arr3)
-console.log(max1)
+let max1 = Math.max(arr3);
+console.log(max1);
 /* NaN */
 
-let max2=Math.max(...arr3)
-console.log(max2)
+let max2 = Math.max(...arr3);
+console.log(max2);
 /* 6 */
 ```
 
-
-
 ### 数组应用
-
-
 
 #### 数组降维
 
 ```javascript
-let arr=[1,2,3,[4,5,6],7,8]
+let arr = [1, 2, 3, [4, 5, 6], 7, 8];
 
-let arrNew=[]
+let arrNew = [];
 
-arr.forEach(v=>{
-    if(Array.isArray(v)){
-        arrNew.push(...v)
-    }else{
-        arrNew.push(v)
-    }
-})
+arr.forEach(v => {
+  if (Array.isArray(v)) {
+    arrNew.push(...v);
+  } else {
+    arrNew.push(v);
+  }
+});
 
-console.log(arrNew)
+console.log(arrNew);
 /*由二维降为了一维*/
 ```
-
-
 
 #### 数组去重
 
@@ -745,52 +675,47 @@ console.log(arrNew)
 /* [ 10, 20, 30, 40, 50 ] */
 ```
 
-
-
 #### 数组升维
 
 ```javascript
 //需求:将下列数组arr,根据类别type升为二维数组
-let arr =[
-{type:'电子产品',name:'iPhone',price: 8888},
-{type:'家具',name:'桌子',price: 100},
-{type:'食品',name:'瓜子',price: 10},
-{type:'家具',name:'椅子',price: 380},
-{type:'电子产品',name:'小米手机',price: 1380}, 
-{type :'食品',name:'辣条',price: 5},
-{type: '食品',name:'咖啡',price: 50}
+let arr = [
+  { type: '电子产品', name: 'iPhone', price: 8888 },
+  { type: '家具', name: '桌子', price: 100 },
+  { type: '食品', name: '瓜子', price: 10 },
+  { type: '家具', name: '椅子', price: 380 },
+  { type: '电子产品', name: '小米手机', price: 1380 },
+  { type: '食品', name: '辣条', price: 5 },
+  { type: '食品', name: '咖啡', price: 50 },
 ];
 
-let obj=[]
-let arrNew=[]
+let obj = [];
+let arrNew = [];
 
-arr.forEach(v=>{
-    //把第一次type和第一次的值加入arrNew
-    if(obj[v.type]==undefined){
-        obj[v.type]='value'
-        arrNew.push({
-            type:v.type,
-            data:[v]
-        })
-    }
-    //第二的值加入arrNew中对应的type中
-    else{
-        arrNew.forEach((v2,j)=>{
-            if(v.type==v2.type){
-                arrNew[j].data.push(v)
-            }
-        })
-    }
-})
-console.log(arrNew)
-
+arr.forEach(v => {
+  //把第一次type和第一次的值加入arrNew
+  if (obj[v.type] == undefined) {
+    obj[v.type] = 'value';
+    arrNew.push({
+      type: v.type,
+      data: [v],
+    });
+  }
+  //第二的值加入arrNew中对应的type中
+  else {
+    arrNew.forEach((v2, j) => {
+      if (v.type == v2.type) {
+        arrNew[j].data.push(v);
+      }
+    });
+  }
+});
+console.log(arrNew);
 ```
 
 ```
 
 ```
-
-
 
 ### 数据类型 Set
 
@@ -825,10 +750,6 @@ console.log(newArr)
 */
 ```
 
-
-
-
-
 ### 模板字符串
 
 ```javascript
@@ -862,10 +783,6 @@ console.log(strs)
 let fun=()=>"我是一个小函数~"
 console.log(`我也可以调用函数哟：${fun()}`)
 ```
-
-
-
-
 
 ### 数组的方法
 
@@ -939,12 +856,6 @@ console.log(ret)
 */
 ```
 
-
-
-
-
-
-
 ## Node.JS 模块化
 
 ```javascript
@@ -958,8 +869,6 @@ const http=require('http')
 db={name:'jine',age:22}
 module.exports=db
 ```
-
-
 
 ### 内置模块使用
 
@@ -1005,22 +914,14 @@ fs.writeFile('./etc/content.txt',data,(err)=>{
 })
 ```
 
-
-
-
-
 #### 获取文件或目录的路径
 
 ```javascript
-console.log(__dirname)
+console.log(__dirname);
 /*获取的是当前文件的所在目录的绝对路径 */
-console.log(__filename)
-/*获取的是当前文件的绝对路径*/ 
+console.log(__filename);
+/*获取的是当前文件的绝对路径*/
 ```
-
-
-
-
 
 #### path 模块
 
@@ -1035,77 +936,62 @@ c:\Users\Jine\Desktop\my_code_space\jine\Daily code practice\07、03\test\file.t
 */
 ```
 
-
-
-
-
 #### http 模块
 
 ```javascript
 //使用内置模块http创建一个服务器
 
 //1、导入http模块
-const  http=require('http')
+const http = require('http');
 
 //2、创建一个服务器 (返回值代表当前服务器)
-const server=http.createServer((request,response)=>{
-    //3、设置返回给用户看的内容
-    response.setHeader('Content-Type','text/html;charset=utf-8')
-    /*setHeader 防止中文乱码，所以要设置响应头 */
-    response.end("你好，世界~")
-})
+const server = http.createServer((request, response) => {
+  //3、设置返回给用户看的内容
+  response.setHeader('Content-Type', 'text/html;charset=utf-8');
+  /*setHeader 防止中文乱码，所以要设置响应头 */
+  response.end('你好，世界~');
+});
 
 //4、开启服务器
-server.listen(1024,()=>{
-    console.log("服务器开启~")
-})
-
+server.listen(1024, () => {
+  console.log('服务器开启~');
+});
 
 /*开启服务器后，可以在本地浏览器中访问 127.0.0.1:1024 或  localhost:1024*/
 ```
-
-
-
-
 
 #### 静态资源服务器
 
 ```javascript
 //导入模块
-const http=require("http")
-const fs=require("fs")
-const path=require('path')
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
 //创建服务器
-const server=http.createServer((request,response)=>{
-    //设置返回用户内容
+const server = http.createServer((request, response) => {
+  //设置返回用户内容
 
-    //获取用户请求哪一个资源
-    let userRq=request.url
-    
-    //获取用户读取的资源对应的路径
-    const filePath=path.join(__dirname,'web',userRq)
+  //获取用户请求哪一个资源
+  let userRq = request.url;
 
-    //读取用户请求的资源文件
-    fs.readFile(filePath,(err,data)=>{
-        if(err==null){
-            response.end(data)
-        }else{
-            response.end("404 not found")
-        }
-    })
+  //获取用户读取的资源对应的路径
+  const filePath = path.join(__dirname, 'web', userRq);
 
-    
-})
+  //读取用户请求的资源文件
+  fs.readFile(filePath, (err, data) => {
+    if (err == null) {
+      response.end(data);
+    } else {
+      response.end('404 not found');
+    }
+  });
+});
 
-server.listen(8888,()=>{
-    console.log("服务器开启成功√")
-})
+server.listen(8888, () => {
+  console.log('服务器开启成功√');
+});
 ```
-
-
-
-
 
 #### URL 模块 (get)
 
@@ -1138,10 +1024,6 @@ server.listen(8888,()=>{
 })
 
 ```
-
-
-
-
 
 #### querystring 模块（post）
 
@@ -1198,15 +1080,7 @@ server.listen(8888,()=>{
 
 ```
 
-
-
-
-
-
-
 ### 第三方模块
-
-
 
 #### 爬虫模块
 
@@ -1220,7 +1094,7 @@ server.listen(8888,()=>{
 
 爬取元素内容，例如：
 var Crawler = require("crawler");
- 
+
 var c = new Crawler({
     maxConnections : 10,
     // This will be called for each crawled page
@@ -1236,7 +1110,7 @@ var c = new Crawler({
         done();
     }
 });
- 
+
 // Queue just one URL, with default callback
 c.queue();
 
@@ -1244,7 +1118,7 @@ c.queue();
 爬取图片或视频，例如：
 var Crawler = require("crawler");
 var fs = require('fs');
- 
+
 var c = new Crawler({
     encoding:null,
     jQuery:false,// set false to suppress warning message.
@@ -1254,11 +1128,11 @@ var c = new Crawler({
         }else{
             fs.createWriteStream(res.options.filename).write(res.body);
         }
-        
+
         done();
     }
 });
- 
+
 c.queue({
     uri:"https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false&word=%E7%BE%8E%E5%A5%B3&step_word=&hs=0&pn=7&spn=0&di=35090&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=3186997546%2C1762170182&os=86097226%2C93959096&simid=3448572432%2C288122016&adpicid=0&lpn=0&ln=3390&fr=&fmq=1593780721779_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=girl&bdtype=0&oriquery=&objurl=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201309%2F03%2F20130903141830_Q4Wuc.jpeg&fromurl=ippr_z2C%24qAzdH3FAzdH3F4_z%26e3B17tpwg2_z%26e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3F8bnmndnllAzdH3F1jpwtsAzdH3F&gsm=7&rpstart=0&rpnum=0&islist=&querylist=&force=undefined",
     filename:"./mv.jpg",
@@ -1266,10 +1140,6 @@ c.queue({
     /*让服务器伪装成客户端，这样可以破解防爬虫 */
 });
 ```
-
-
-
-
 
 #### 自动重启工具（nodemon）
 
@@ -1281,9 +1151,7 @@ c.queue({
 nodemon app.js
 ```
 
-
-
-#### package.json  和 package-lock.json
+#### package.json 和 package-lock.json
 
 ```css
 package.json
@@ -1316,10 +1184,6 @@ package-lock.json文件内保存了node_ _modules中所有包的信息，包含�
 作量，测试/适配等，所以package-lock.jison文件出来了,当你每次安装一个依赖的时候就锁定在你安装的这个版本
 ```
 
-
-
-
-
 #### express 模块
 
 ```javascript
@@ -1333,7 +1197,7 @@ const express = require('express')
 
 //调用express()方法创建服务器
 const app = express()
- 
+
 //设置返回用户看的内容
 app.get('/', function (req, res) {
 
@@ -1351,10 +1215,6 @@ app.listen(8888,()=>{
 })
 ```
 
-
-
-
-
 #### 创建静态资源服务器
 
 ```javascript
@@ -1367,7 +1227,7 @@ const express = require('express')
 
 //调用express()方法创建服务器
 const app = express()
- 
+
 
 //通过如下代码，便可将web目录下的图片、css文件、JavaScript文件对外开放访问
 app.use(express.static('web'))
@@ -1378,45 +1238,38 @@ app.listen(8888,()=>{
 })
 ```
 
-
-
-
-
 #### 实现简单的get 接口
 
 ```javascript
 /**
  * 接口：得到一条随机笑话
  * 接口地址：/joke
- * 请求方式：get 
+ * 请求方式：get
  * 参数：无
  * 返回：一条笑话
  */
 
- //导包
- const express = require('express')
+//导包
+const express = require('express');
 
+//创建服务器
+const app = express();
 
- //创建服务器
- const app = express()
+//写接口
+app.get('/joke', (req, res) => {
+  //实际开发是从数据库或其他数据源获取
+  let arr = ['世界是你的', '程序员会找到女朋友', '你的代码永不报错'];
+  let index = Math.floor(Math.random() * 3); //0,1,2
 
- //写接口
- app.get('/joke',(req,res)=>{
-    //实际开发是从数据库或其他数据源获取
-    let arr=['世界是你的','程序员会找到女朋友','你的代码永不报错']
-    let index=Math.floor(Math.random()*3); //0,1,2
+  //返回笑话
+  res.send(`<h1>${arr[index]}</h1>`);
+});
 
-    //返回笑话
-    res.send(`<h1>${arr[index]}</h1>`)
- })
-
- //开启服务器
- app.listen(8888,()=>{
-     console.log("服务器已开启√")
- })
+//开启服务器
+app.listen(8888, () => {
+  console.log('服务器已开启√');
+});
 ```
-
-
 
 #### 实现带有参数的get接口
 
@@ -1424,51 +1277,48 @@ app.listen(8888,()=>{
 /**
  * 接口：查询英雄对应的外号
  * 接口地址：/name
- * 请求方式：get 
+ * 请求方式：get
  * 参数：heroName
  * 返回：英雄外号
  */
 
- //导包
- const express = require('express')
+//导包
+const express = require('express');
 
+//创建服务器
+const app = express();
 
- //创建服务器
- const app = express()
+//写接口
+app.get('/name', (req, res) => {
+  //要接受前端，传递过来的参数
+  let hero = '';
+  //req.query返回的是一个对象
+  //herName便是get请求的参数
+  switch (req.query.heroName) {
+    case '提莫':
+      hero = '迅捷斥候';
+      break;
+    case '李青':
+      hero = '盲僧';
+      break;
+    case '阿狸':
+      hero = '九尾妖狐';
+      break;
+    case '猴子':
+      hero = '齐天大圣';
+      break;
+    default:
+      hero = '该英雄查询不到';
+      break;
+  }
+  res.send(`<h1 style=color:red;>${hero}</h1>`);
+});
 
- //写接口
- app.get('/name',(req,res)=>{
-    //要接受前端，传递过来的参数
-    let hero=''
-    //req.query返回的是一个对象
-    //herName便是get请求的参数
-    switch(req.query.heroName){
-        case '提莫':
-            hero='迅捷斥候'
-            break;
-        case '李青':
-            hero="盲僧"
-            break;
-        case '阿狸':
-            hero="九尾妖狐"
-            break;
-        case '猴子':
-            hero="齐天大圣"
-            break; 
-        default:
-            hero="该英雄查询不到"; 
-            break;  
-    }
-    res.send(`<h1 style=color:red;>${hero}</h1>`)    
- })
-
- //开启服务器
- app.listen(8888,()=>{
-     console.log("服务器已开启√")
- })
+//开启服务器
+app.listen(8888, () => {
+  console.log('服务器已开启√');
+});
 ```
-
-
 
 #### 实现返回json数据的接口
 
@@ -1482,39 +1332,34 @@ app.listen(8888,()=>{
  */
 
 //导包
-const express = require('express')
-
+const express = require('express');
 
 //创建服务器
-const app = express()
+const app = express();
 
 //写接口
-app.get('/food',(req,res)=>{
-    //1、express模块写法：直接写成对象，这样会自动返回json格式
-   res.send({
-       foodName:'宫保鸡丁',
-       price:22,
-       description:'肉大，菜香，多吃不腻'
-   })
+app.get('/food', (req, res) => {
+  //1、express模块写法：直接写成对象，这样会自动返回json格式
+  res.send({
+    foodName: '宫保鸡丁',
+    price: 22,
+    description: '肉大，菜香，多吃不腻',
+  });
 
-//    //2、原生内置模块写法：使用内置模块setHeader设置
-//    res.setHeader('Conten-Type','application/json');
-//    res.send(`
-//     foodName:'宫保鸡丁',
-//     price:22,
-//     description:'肉大，菜香，多吃不腻'
-//     `)
-})
+  //    //2、原生内置模块写法：使用内置模块setHeader设置
+  //    res.setHeader('Conten-Type','application/json');
+  //    res.send(`
+  //     foodName:'宫保鸡丁',
+  //     price:22,
+  //     description:'肉大，菜香，多吃不腻'
+  //     `)
+});
 
 //开启服务器
-app.listen(8888,()=>{
-    console.log("服务器已开启√")
-})
+app.listen(8888, () => {
+  console.log('服务器已开启√');
+});
 ```
-
-
-
-
 
 #### 实现简单的post 接口
 
@@ -1527,28 +1372,22 @@ app.listen(8888,()=>{
  * 返回：这是一个post接口
  */
 
- //导包
- const express = require('express')
+//导包
+const express = require('express');
 
+//创建服务器
+const app = express();
 
- //创建服务器
- const app = express()
+//写接口
+app.post('/str', (req, res) => {
+  res.send(`<h1>这是一个post接口</h1>`);
+});
 
- //写接口
- app.post('/str',(req,res)=>{
-   
-    res.send(`<h1>这是一个post接口</h1>`)
- })
-
- //开启服务器
- app.listen(8888,()=>{
-     console.log("服务器已开启√")
- })
+//开启服务器
+app.listen(8888, () => {
+  console.log('服务器已开启√');
+});
 ```
-
-
-
-
 
 #### 实现带有参数的post接口
 
@@ -1594,7 +1433,7 @@ app.listen(8888,()=>{
             msg:'账户密码不正确'
         })
     }
-    
+
  })
 
  //开启服务器
@@ -1602,10 +1441,6 @@ app.listen(8888,()=>{
      console.log("服务器已开启√")
  })
 ```
-
-
-
-
 
 #### 实现post方式传文本参数的接口
 
@@ -1626,7 +1461,7 @@ app.listen(8888,()=>{
  //导包
  const express = require('express')
  const multer=require('multer')
- 
+
  //用包：创建一个uploads文件夹，接受传递来的文本
  let upload=multer({dest:'uploads/'})
 
@@ -1637,18 +1472,18 @@ app.listen(8888,()=>{
 
  //写接口
  app.post('/register',upload.single('usericon'),(req,res,next)=>{
-    // req.file is the usericon file 
+    // req.file is the usericon file
     //传过来的文件参数名用usericon
     // req. body will hold the text fields, if there were any
     //一起传过来的文件保存在req.body中
 
     //记录了传递过来的文件的一些信息
     console.log(req.file)
-    
+
     //记录了传递过来的post对象和其中的参数
     console.log(req.body)
 
-    
+
  })
 
  //开启服务器
@@ -1656,10 +1491,6 @@ app.listen(8888,()=>{
      console.log("服务器已开启√")
  })
 ```
-
-
-
-
 
 #### 注册路由
 
@@ -1702,8 +1533,6 @@ app.get('/getAllHero',(req,res)=>{
 })
 ```
 
-
-
 ### 自定义模块
 
 ```javascript
@@ -1735,47 +1564,34 @@ myMoudle.fun()
 myMoudle.funny()
 ```
 
-
-
-
-
-
-
 ## 其他补充
-
-
 
 ### 服务器重定向
 
 ```javascript
-服务器主动修改浏览器地址栏
+服务器主动修改浏览器地址栏;
 
 //导包
-const express=require("express")
+const express = require('express');
 
 //创建服务器
-const app=express()
+const app = express();
 
 //如果访问本服务器中找不到输入的这个页面，就会自动重定向跳转到指定页面
-app.use((req,res)=>{
-    //设置302响应头
-    //结束响应
-    res.writeHead(302,{
-        Location:'https://blog.3xnb.com'
-    });
-    res.end("ok")
-})
-
+app.use((req, res) => {
+  //设置302响应头
+  //结束响应
+  res.writeHead(302, {
+    Location: 'https://blog.3xnb.com',
+  });
+  res.end('ok');
+});
 
 //启动服务器
-app.listen(8888,()=>{
-    console.log("服务器已开启√")
-})
+app.listen(8888, () => {
+  console.log('服务器已开启√');
+});
 ```
-
-
-
-
 
 ### 中间件
 
@@ -1801,7 +1617,7 @@ const app=express()
 //next() 执行下一个中间件
 app.use((req,res,next)=>{
     console.log("LOGGED")
-    
+
     next()
 })
 
@@ -1818,10 +1634,6 @@ app.listen(8888,()=>{
 })
 ```
 
-
-
-
-
 ### 跨域
 
 ```javascript
@@ -1837,8 +1649,6 @@ app.listen(8888,()=>{
 -----------------------------------------------------------------------------------------
 出于安全考虑，浏览器不允许，页面向不同源的接口请求数据，因为如果接口和网页不同源，浏览器默认认为是俩个不同的服务器。
 ```
-
-
 
 #### 解决跨域
 
@@ -1871,7 +1681,7 @@ app.use((req,res,next)=>{
 })
 
 -----------------------------------------------------------------------------------------
-    
+
 或者还可以安装第三方模块（npm i cors）
 
 例如：
@@ -1943,7 +1753,7 @@ app.listen(8888,()=>{
 
 
 -----------------------------------------------------------------------------------------
-    
+
 或者还可以直接在Ajax请求时，加上 dataType:'jsonp'
 
 例如：
@@ -1985,10 +1795,6 @@ app.listen(8888,()=>{
 "注意：后端中的参数必须是callback，因为使用ajax开启jsonp，src传递的参数是callback，所以要一致"
 ```
 
-
-
-
-
 ### 聚合数据（API）
 
 ```
@@ -1997,21 +1803,11 @@ app.listen(8888,()=>{
 只要使用的接口支持jsonp，那么可以用ajax去请求
 ```
 
-
-
-
-
-
-
 ## 数据库操作
 
 ```javascript
 安装第三方模块（npm i mysql）
 ```
-
-
-
-
 
 ### 查询
 
@@ -2044,13 +1840,13 @@ connction.query('select * from student',(error,results,fields)=>{
     //
     if(error) throw console.error
 
-   
+
     // console.log(results[3].sname)
     //results返回的是一个数组，数组中包含对象
 
     // console.log(fields)
     //拿到字段的信息
-    
+
 });
 
 //关闭连接
@@ -2061,216 +1857,194 @@ app.listen(8888,()=>{
     console.log("服务器已成功开启√")
 })
 ```
-
-
-
-
 
 ### 增加
 
 ```javascript
 //导包
-const express=require("express")
-const mysql=require("mysql")
+const express = require('express');
+const mysql = require('mysql');
 
 //创建服务器
-const app=express()
+const app = express();
 
 //创建一个和数据库的连接
-const connction=mysql.createConnection({
-    host:'localhost', //地址
-    user:'root',     //账户
-    password:'xxxxxxxx', // 密码
-    database:'gradem'  //数据库名
-})
+const connction = mysql.createConnection({
+  host: 'localhost', //地址
+  user: 'root', //账户
+  password: 'xxxxxxxx', // 密码
+  database: 'gradem', //数据库名
+});
 
 //打开连接
 connction.connect();
 
 // 数据
-let data={
-    sno:'20200606',
-    name:'库里',
-    sex:'男',
-    saddress:'美国',
-    sdept:'NBA职业联赛系',
-    speciality:'三分篮球专业'
-}
+let data = {
+  sno: '20200606',
+  name: '库里',
+  sex: '男',
+  saddress: '美国',
+  sdept: 'NBA职业联赛系',
+  speciality: '三分篮球专业',
+};
 
-let addSql=`insert into student(sno,sname,ssex,saddress,sdept,speciality) values('${data.sno}','${data.name}','${data.sex}','${data.saddress}','${data.sdept}','${data.speciality}')`
+let addSql = `insert into student(sno,sname,ssex,saddress,sdept,speciality) values('${data.sno}','${data.name}','${data.sex}','${data.saddress}','${data.sdept}','${data.speciality}')`;
 
 //执行sql语句
 //增加数据
-connction.query(addSql,(error,results,fields)=>{
-    if(error==null){
-        //返回结果是一个对象
-        console.log(results)
-        
-        //受影响的行数，如果大于0，说明新增成功
-        console.log(results.affectedRows)
+connction.query(addSql, (error, results, fields) => {
+  if (error == null) {
+    //返回结果是一个对象
+    console.log(results);
 
-        //插入这条数据的id
-        console.log(results.insertId)
+    //受影响的行数，如果大于0，说明新增成功
+    console.log(results.affectedRows);
 
-    }else{}
-        console.log(error);   
+    //插入这条数据的id
+    console.log(results.insertId);
+  } else {
+  }
+  console.log(error);
 });
 
 //关闭连接
-connction.end()
+connction.end();
 
 //开启服务器
-app.listen(8888,()=>{
-    console.log("服务器已成功开启√")
-})
+app.listen(8888, () => {
+  console.log('服务器已成功开启√');
+});
 ```
-
-
-
-
 
 ### 更新
 
 ```javascript
 //导包
-const express=require("express")
-const mysql=require("mysql")
+const express = require('express');
+const mysql = require('mysql');
 
 //创建服务器
-const app=express()
+const app = express();
 
 //创建一个和数据库的连接
-const connction=mysql.createConnection({
-    host:'localhost', //地址
-    user:'root',     //账户
-    password:'19981123', // 密码
-    database:'gradem'  //数据库名
-})
+const connction = mysql.createConnection({
+  host: 'localhost', //地址
+  user: 'root', //账户
+  password: '19981123', // 密码
+  database: 'gradem', //数据库名
+});
 
 //打开连接
 connction.connect();
 
-
-let updateSql=`update student set sname='小学生' where sno='20200606' `
+let updateSql = `update student set sname='小学生' where sno='20200606' `;
 
 //执行sql语句
 //更新数据
-connction.query(updateSql,(error,results,fields)=>{
-    if(error==null){
-        //返回结果是一个对象
-        console.log(results)
-        
-        //受影响的行数，如果大于0，说明新增成功
-        console.log(results.affectedRows)
+connction.query(updateSql, (error, results, fields) => {
+  if (error == null) {
+    //返回结果是一个对象
+    console.log(results);
 
-        //插入这条数据的id
-        console.log(results.insertId)
+    //受影响的行数，如果大于0，说明新增成功
+    console.log(results.affectedRows);
 
-    }else{}
-        console.log(error);   
+    //插入这条数据的id
+    console.log(results.insertId);
+  } else {
+  }
+  console.log(error);
 });
 
 //关闭连接
-connction.end()
+connction.end();
 
 //开启服务器
-app.listen(8888,()=>{
-    console.log("服务器已成功开启√")
-})
+app.listen(8888, () => {
+  console.log('服务器已成功开启√');
+});
 ```
-
-
-
-
 
 ### 删除
 
 ```javascript
 //导包
-const express=require("express")
-const mysql=require("mysql")
+const express = require('express');
+const mysql = require('mysql');
 
 //创建服务器
-const app=express()
+const app = express();
 
 //创建一个和数据库的连接
-const connction=mysql.createConnection({
-    host:'localhost', //地址
-    user:'root',     //账户
-    password:'xxxxxxxx', // 密码
-    database:'gradem'  //数据库名
-})
+const connction = mysql.createConnection({
+  host: 'localhost', //地址
+  user: 'root', //账户
+  password: 'xxxxxxxx', // 密码
+  database: 'gradem', //数据库名
+});
 
 //打开连接
 connction.connect();
 
-
-let delSql=`delete from student where sno='20050202'`
+let delSql = `delete from student where sno='20050202'`;
 
 //执行sql语句
 //删除数据
-connction.query(delSql,(error,results,fields)=>{
-    if(error==null){
-        //返回结果是一个对象
-        console.log(results)
-        
-        //受影响的行数，如果大于0，说明新增成功
-        console.log(results.affectedRows)
+connction.query(delSql, (error, results, fields) => {
+  if (error == null) {
+    //返回结果是一个对象
+    console.log(results);
 
-        //插入这条数据的id
-        console.log(results.insertId)
+    //受影响的行数，如果大于0，说明新增成功
+    console.log(results.affectedRows);
 
-    }else{}
-        console.log(error);   
+    //插入这条数据的id
+    console.log(results.insertId);
+  } else {
+  }
+  console.log(error);
 });
 
 //关闭连接
-connction.end()
+connction.end();
 
 //开启服务器
-app.listen(8888,()=>{
-    console.log("服务器已成功开启√")
-})
+app.listen(8888, () => {
+  console.log('服务器已成功开启√');
+});
 ```
-
-
 
 ### 黑马第三方库（数据库简易操作）
 
 ```javascript
-const hm=require('mysql-ithm')
+const hm = require('mysql-ithm');
 
 //连接数据库
 //没有自动创建
 hm.connect({
-    host:"localhost",
-    port:'3306',
-    user:'root',
-    password:'19981123',
-    database:'game'
-})
+  host: 'localhost',
+  port: '3306',
+  user: 'root',
+  password: '19981123',
+  database: 'game',
+});
 
 //创建Model（表格模型，增删改查）
 //如果table表格存在则连接，不存在则自动创建
 //最好先创建好数据库和表，因为这个hm模块创建出来的表，再存入中文时会报错
 //自己创建的数据库和表可以先设置为utf-8
-let heroModel=hm.model('hero',{
-    name:String,
-    skill:String,
-    icon:String,
-    status:String
-})
+let heroModel = hm.model('hero', {
+  name: String,
+  skill: String,
+  icon: String,
+  status: String,
+});
 ```
-
-
 
 ## npm发布包
 
-
-
 ### 一、发布一个新包
-
-
 
 #### 1、进入要发布的项目根目录，初始化为npm包：
 
@@ -2279,7 +2053,6 @@ npm init
 ```
 
 依次按提示填入包名、版本、描述、github地址、关键字、license等
-
 
 这步完成之后会生成一个package.json文件，上面输入的这些信息可以在该文件中修改
 
@@ -2292,11 +2065,7 @@ npm init
   }
 ```
 
-
-
 #### 2、注册npm用户，有两种方法
-
-
 
 方法一、npm官网注册：npm
 
@@ -2314,8 +2083,6 @@ Unable to authenticate, need：Basic
  'mypackage1' is not in the npm registry.
 ```
 
-
-
 #### 3、账号登录
 
 ```
@@ -2323,8 +2090,6 @@ npm login
 ```
 
 依次输入第二步中第一种方法注册的用户名、密码和邮箱
-
-
 
 #### 4、发布包，上传到npm包服务器
 
@@ -2338,11 +2103,7 @@ npm publish
 
 ’+’符合表示发布成功了
 
-
-
 可以去自己的npm主页上验证以下，可以看到包mypackage_tao已经在列表中了
-
-
 
 <font color="red">注意：如果发布时报错：‘no_perms Private mode enable, only admin can publish this module:’</font>
 
@@ -2356,8 +2117,6 @@ npm config set registry https://registry.npmjs.org/
 
 如果用了nrm工具，使用命令：nrm use npm 切换
 
-
-
 淘宝镜像
 
 ```css
@@ -2369,17 +2128,11 @@ npm config get registry
 npm info express
 ```
 
-
-
 ### 二、更新一个已经发布的包
-
-
 
 #### 1、修改包的版本
 
 将package.json文件中的version值修改。
-
-
 
 #### 2、重新发布包
 
@@ -2387,19 +2140,13 @@ npm info express
 npm publish
 ```
 
-
-
 ### 三、删除包
-
-
 
 #### 1、删除指定的版本
 
 ```
 npm unpublish 包名@版本号
 ```
-
-
 
 #### 2、删除整个包
 
@@ -2409,284 +2156,254 @@ npm unpublish 包名 --force
 
 会有警告提示
 
-
-
-
-
 ## 抓包入库
-
-
 
 ### 爬取王者荣耀英雄
 
 ```javascript
 //导入模块
-const hm=require('mysql-ithm')
-const Crawler = require("crawler");
-
+const hm = require('mysql-ithm');
+const Crawler = require('crawler');
 
 //1、抓包
 var c = new Crawler({
-    maxConnections : 10,
-    // This will be called for each crawled page
-    callback : function (error, res, done) {
-        if(error){
-            console.log(error);
-        }else{
-            var $ = res.$;
-            // $ is Cheerio by default
-            //a lean implementation of core jQuery designed specifically for the server
-            
-            // console.log(JSON.parse(res.body))
-            /*王者荣耀所有的英雄，返回的是包含了很多对象的数组 */
+  maxConnections: 10,
+  // This will be called for each crawled page
+  callback: function (error, res, done) {
+    if (error) {
+      console.log(error);
+    } else {
+      var $ = res.$;
+      // $ is Cheerio by default
+      //a lean implementation of core jQuery designed specifically for the server
 
+      // console.log(JSON.parse(res.body))
+      /*王者荣耀所有的英雄，返回的是包含了很多对象的数组 */
 
-            //所有的英雄，都要去获取他对应的头像和技能
-            //所以要遍历出每一个英雄的ename，拼接一个路径重新发请求
-           
-            JSON.parse(res.body).forEach((item)=>{
-                //console.log(`https;//pvp.qq.com/web201605/herodetaul/${item.ename}.shtml`)
+      //所有的英雄，都要去获取他对应的头像和技能
+      //所以要遍历出每一个英雄的ename，拼接一个路径重新发请求
 
-                //详情技能请求
-                xq.queue(`https://pvp.qq.com/web201605/herodetail/${item.ename}.shtml`)
-            })
-        }
-        done();
+      JSON.parse(res.body).forEach(item => {
+        //console.log(`https;//pvp.qq.com/web201605/herodetaul/${item.ename}.shtml`)
+
+        //详情技能请求
+        xq.queue(`https://pvp.qq.com/web201605/herodetail/${item.ename}.shtml`);
+      });
     }
+    done();
+  },
 });
 
 //存取英雄信息
-let heros=[]
+let heros = [];
 
 //创建一个英雄技能详情的信息的抓包
 var xq = new Crawler({
-    maxConnections : 10,
-    // This will be called for each crawled page
-    callback : function (error, res, done) {
-        if(error){
-            console.log(error);
-        }else{
-            var $ = res.$;
+  maxConnections: 10,
+  // This will be called for each crawled page
+  callback: function (error, res, done) {
+    if (error) {
+      console.log(error);
+    } else {
+      var $ = res.$;
 
-            // //英雄名字
-            // console.log($('.cover-name').text())
+      // //英雄名字
+      // console.log($('.cover-name').text())
 
-            // // //英雄技能
-            // console.log($('.skill-name>b').first().text())
+      // // //英雄技能
+      // console.log($('.skill-name>b').first().text())
 
-            // // //英雄头像
-            // console.log('https:'+$('.ico-play').prev('img').attr('src'))
-            
-            //增加英雄名字、英雄技能、英雄头像
-            heros.push({
-                name:$('.cover-name').text(),
-                skill:$('.skill-name>b').first().text(),
-                icon:'https:'+$('.ico-play').prev('img').attr('src'),
-                status:false
-            })
-        }
-        done();
+      // // //英雄头像
+      // console.log('https:'+$('.ico-play').prev('img').attr('src'))
+
+      //增加英雄名字、英雄技能、英雄头像
+      heros.push({
+        name: $('.cover-name').text(),
+        skill: $('.skill-name>b').first().text(),
+        icon: 'https:' + $('.ico-play').prev('img').attr('src'),
+        status: false,
+      });
     }
+    done();
+  },
 });
 
 //王者荣耀，页面人物信息数据抓取
 // Queue just one URL, with default callback
 c.queue('https://pvp.qq.com/web201605/js/herolist.json');
 
-
 //要等待所有异步请求数据全部做完后，才开始入库
-xq.on('drain',()=>{
-    // 调用API,插入数据
-    heroModel.insert(heros,(err,res)=>{
-        console.log(err)
-        console.log(res)
-        if(!err) console.log("成功添加√")
-    })
-})
+xq.on('drain', () => {
+  // 调用API,插入数据
+  heroModel.insert(heros, (err, res) => {
+    console.log(err);
+    console.log(res);
+    if (!err) console.log('成功添加√');
+  });
+});
 
 //2、连接数据库
 //没有自动创建
 hm.connect({
-    host:"localhost",
-    port:'3306',
-    user:'root',
-    password:'19981123',
-    database:'game'
-})
+  host: 'localhost',
+  port: '3306',
+  user: 'root',
+  password: '19981123',
+  database: 'game',
+});
 
 //3、创建Model（表格模型，增删改查）
 //如果table表格存在则连接，不存在则自动创建
 //最好先创建好数据库和表，因为这个hm模块创建出来的表，再存入中文时会报错
 //自己创建的数据库和表可以先设置为utf-8
-let heroModel=hm.model('hero',{
-    name:String,
-    skill:String,
-    icon:String,
-    status:String
-})
+let heroModel = hm.model('hero', {
+  name: String,
+  skill: String,
+  icon: String,
+  status: String,
+});
 ```
-
-
-
-
 
 ### 爬取美女图片
 
 ```javascript
 //导入模块
-const hm=require('mysql-ithm')
-const Crawler = require("crawler");
-
-
-
+const hm = require('mysql-ithm');
+const Crawler = require('crawler');
 
 //存取所有美女图片链接
-let links=[]
+let links = [];
 
 //1、抓包
 var c = new Crawler({
-    maxConnections : 10,
-    // This will be called for each crawled page
-    callback : function (error, res, done) {
-        if(error){
-            console.log(error);
-        }else{
-            var $ = res.$;
-            // $ is Cheerio by default
-            //a lean implementation of core jQuery designed specifically for the server
+  maxConnections: 10,
+  // This will be called for each crawled page
+  callback: function (error, res, done) {
+    if (error) {
+      console.log(error);
+    } else {
+      var $ = res.$;
+      // $ is Cheerio by default
+      //a lean implementation of core jQuery designed specifically for the server
 
-            //遍历当前页面所有指定的美女图片
-            $('.soxflashtext').each((index,item)=>{
-                let img=$(item).prev('a').children().attr('src')
-                let name=$(item).prev('a').children().attr('alt')
-                links.push({
-                    name,
-                    link:img
-                })
-            })
-        }
-        done();
+      //遍历当前页面所有指定的美女图片
+      $('.soxflashtext').each((index, item) => {
+        let img = $(item).prev('a').children().attr('src');
+        let name = $(item).prev('a').children().attr('alt');
+        links.push({
+          name,
+          link: img,
+        });
+      });
     }
+    done();
+  },
 });
 
 // // Queue just one URL, with default callback
 c.queue('https://www.tupianzj.com/meinv/mm/toumingqunzi/');
 
-
-
-
 //要等待所有异步请求数据全部做完后，才开始入库
-c.on('drain',()=>{
-    // 调用API,插入数据
-    mmModel.insert(links,(err,res)=>{
-        console.log(err)
-        console.log(res)
-        if(!err) console.log("成功添加√")
-    })
-})
+c.on('drain', () => {
+  // 调用API,插入数据
+  mmModel.insert(links, (err, res) => {
+    console.log(err);
+    console.log(res);
+    if (!err) console.log('成功添加√');
+  });
+});
 
 //2、连接数据库
 //没有自动创建
 hm.connect({
-    host:"localhost",
-    port:'3306',
-    user:'root',
-    password:'19981123',
-    database:'girl'
-})
+  host: 'localhost',
+  port: '3306',
+  user: 'root',
+  password: '19981123',
+  database: 'girl',
+});
 
 //3、创建Model（表格模型，增删改查）
 //如果table表格存在则连接，不存在则自动创建
 //最好先创建好数据库和表，因为这个hm模块创建出来的表，再存入中文时会报错
 //自己创建的数据库和表可以先设置为utf-8
-let mmModel=hm.model('mm',{
-    name:String,
-    link:String
-})
+let mmModel = hm.model('mm', {
+  name: String,
+  link: String,
+});
 ```
 
-
-
-
-
 ## cookie
-
-
 
 ### 原生cookie设置
 
 ```javascript
 //导入模块
-const express= require("express")
+const express = require('express');
 
 //创建服务器
-const app=express()
+const app = express();
 
 //路由
 //登录
-app.get('/login',(req,res)=>{
-    let {username,password}=req.query
-    //设置cookie
-    res.writeHead(200,{
-        'Conten-Type':'text/plain;charset=utf-8',
-        'Set-Cookie':`user=${password}` //实际开发，是密文
-    })
-    res.send()
-})
+app.get('/login', (req, res) => {
+  let { username, password } = req.query;
+  //设置cookie
+  res.writeHead(200, {
+    'Conten-Type': 'text/plain;charset=utf-8',
+    'Set-Cookie': `user=${password}`, //实际开发，是密文
+  });
+  res.send();
+});
 
 //查询
-app.get('/list',(req,res)=>{
-    console.log(req.headers)
-    res.send('666')
-})
-
+app.get('/list', (req, res) => {
+  console.log(req.headers);
+  res.send('666');
+});
 
 //开启服务器
-app.listen(8888,()=>{
-    console.log("服务器已开启√")
-})
+app.listen(8888, () => {
+  console.log('服务器已开启√');
+});
 ```
-
-
-
-
 
 ### 第三方 cookie-session 模块
 
 ```javascript
 //1、导包
-const express=require('express')
-const cookieSession=require('cookie-session')
+const express = require('express');
+const cookieSession = require('cookie-session');
 
 //2、创建服务器
-const app=express()
+const app = express();
 
 //3、设置cookie中间件
-app.use(cookieSession({
+app.use(
+  cookieSession({
     name: 'session',
-    keys: ['jine','niec','good'],
-  
+    keys: ['jine', 'niec', 'good'],
+
     // Cookie Options
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours（cookie过期时间）
-}))
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours（cookie过期时间）
+  })
+);
 
 //4、注册路由
 //登录接口
-app.get('/login',(req,res)=>{
-    let {name,passwd}=req.query
-    //登录成功，响应回去一个cookie
-    //发回去的session，是一个userCookie对象
-    req.session.userCookie ={name,passwd}
-    res.send("ok")
-})
+app.get('/login', (req, res) => {
+  let { name, passwd } = req.query;
+  //登录成功，响应回去一个cookie
+  //发回去的session，是一个userCookie对象
+  req.session.userCookie = { name, passwd };
+  res.send('ok');
+});
 
 //5、开启服务器
-app.listen(8888,()=>{
-    console.log("服务器已成功开启√")
-})
+app.listen(8888, () => {
+  console.log('服务器已成功开启√');
+});
 ```
-
-
 
 ### 解决cookie跨域问题
 
@@ -2731,11 +2448,7 @@ app.all('*', function(req, res, next) {
 
 ```
 
-
-
 ## Promise （解决回调地狱）
-
-
 
 ### Promise 概述
 
@@ -2764,8 +2477,6 @@ Promise对象的状态改变，只有两种可能:
 
 ajxa和axios也会返回promise对象（有些方法自身便会返回promise对象，不用去手写promise对象）
 ```
-
-
 
 ### Promise 语法
 
@@ -2828,10 +2539,6 @@ getPromise().then((data)=>{
 })
 ```
 
-
-
-
-
 ### 回调地狱概述
 
 ```javascript
@@ -2854,21 +2561,21 @@ fs.readFile(`${__dirname}/file/a.txt`,'utf-8',(err,data)=>{
     if(err){
         console.log(err);
     }else{
-        console.log(data); 
-        
+        console.log(data);
+
         //读b文件
         fs.readFile(`${__dirname}/file/b.txt`,'utf-8',(err,data)=>{
             if(err){
                 console.log(err);
             }else{
-                console.log(data);  
+                console.log(data);
 
                 //读c文件
                 fs.readFile(`${__dirname}/file/c.txt`,'utf-8',(err,data)=>{
                     if(err){
                         console.log(err);
                     }else{
-                        console.log(data);  
+                        console.log(data);
                     }
                 })
             }
@@ -2879,56 +2586,55 @@ fs.readFile(`${__dirname}/file/a.txt`,'utf-8',(err,data)=>{
 
 ```
 
-
-
-
-
 ### 解决回调地狱
 
 ```javascript
 //导包
-const fs=require('fs')
+const fs = require('fs');
 
-function getPromise(filename){
-    return new Promise((resolve,reject)=>{
+function getPromise(filename) {
+  return new Promise((resolve, reject) => {
     //写异步操作（读文件）
-    fs.readFile(`${__dirname}/file/${filename}.txt`,'utf-8',(err,data)=>{
-        if(err){
-            //文件读取失败
-            reject(err)  // 调用then() 里面第二个参数函数
-        }else{
-            //文件读取成功
-            resolve(data)//调用then() 里面第一个参数函数
-        }
-    })
-})
+    fs.readFile(`${__dirname}/file/${filename}.txt`, 'utf-8', (err, data) => {
+      if (err) {
+        //文件读取失败
+        reject(err); // 调用then() 里面第二个参数函数
+      } else {
+        //文件读取成功
+        resolve(data); //调用then() 里面第一个参数函数
+      }
+    });
+  });
 }
 
-getPromise('a').then((data)=>{
-    console.log(data)
-    
-    //调用getPromise()，此时传入的参数是b文件，并返回
-    //return 返回的整体再去执行下一个then
-    return getPromise('b')
-},(err)=>{
-    console.log(err)
-}).then((data)=>{
-    console.log(data)
-    return getPromise('c')
-}).then((data)=>{
-    console.log(data)
-},(err)=>{
-    console.log(err)
-})
+getPromise('a')
+  .then(
+    data => {
+      console.log(data);
+
+      //调用getPromise()，此时传入的参数是b文件，并返回
+      //return 返回的整体再去执行下一个then
+      return getPromise('b');
+    },
+    err => {
+      console.log(err);
+    }
+  )
+  .then(data => {
+    console.log(data);
+    return getPromise('c');
+  })
+  .then(
+    data => {
+      console.log(data);
+    },
+    err => {
+      console.log(err);
+    }
+  );
 ```
 
-
-
-
-
 ### Promise 方法补充
-
-
 
 #### catch()
 
@@ -2958,7 +2664,7 @@ function getPromise(filename){
 
 getPromise('a').then((data)=>{
     console.log(data)
-    
+
     //调用getPromise()，此时传入的参数是b文件，并返回
     //return 返回的整体再去执行下一个then
     return getPromise('b1')
@@ -2973,11 +2679,7 @@ getPromise('a').then((data)=>{
 
 ```
 
-
-
-
-
-####  all()
+#### all()
 
 ```javascript
 用于将多个promise实例，包装成一个新的promise实例
@@ -3011,10 +2713,6 @@ pAll.then((data)=>{
     console.log(data)
 })
 ```
-
-
-
-
 
 #### race()
 
@@ -3052,12 +2750,6 @@ pAll.then((data)=>{
 })
 ```
 
-
-
-
-
-
-
 ## Module 模块
 
 ```css
@@ -3077,4 +2769,3 @@ import命令:用于输入其它模块提供的功能
 浏览器加载ES6模块
 <script type='module' src='xxx.js'> </script>
 ```
-

@@ -85,7 +85,7 @@ NotificationListener<DraggableScrollableNotification>(
 ## 属性及功能
 
 1. onNotification：通知回调函数。
-功能：监听指定类型的通知，当通知被派发时调用该回调函数。返回值为 true 时表示阻止通知继续冒泡。
+   功能：监听指定类型的通知，当通知被派发时调用该回调函数。返回值为 true 时表示阻止通知继续冒泡。
 
 2.child（Widget）：子部件。
 功能：设置需要监听通知的子树。

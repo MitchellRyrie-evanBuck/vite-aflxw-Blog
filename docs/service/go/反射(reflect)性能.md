@@ -21,7 +21,7 @@ type Config struct {
 }
 ```
 
-配置默认从 json 文件中读取，如果环境变量中设置了某个配置项，则以环境变量中的配置为准。配置项和环境变量对应的规则非常简单：将 json 字段的字母转为大写，将 - 转为下划线，并添加 CONFIG_ 前缀。
+配置默认从 json 文件中读取，如果环境变量中设置了某个配置项，则以环境变量中的配置为准。配置项和环境变量对应的规则非常简单：将 json 字段的字母转为大写，将 - 转为下划线，并添加 CONFIG\_ 前缀。
 
 最终的对应结果如下：
 
@@ -237,7 +237,7 @@ func (t *structType) FieldByName(name string) (f StructField, present bool) {
 (v Value) FieldByName -> (t *rtype) FieldByName -> (t*structType) FieldByName
 ```
 
-而 (t *structType) FieldByName 中使用 for 循环，逐个字段查找，字段名匹配时返回。也就是说，在反射的内部，字段是按顺序存储的，因此按照下标访问查询效率为 O(1)，而按照 Name 访问，则需要遍历所有字段，查询效率为 O(N)。结构体所包含的字段(包括方法)越多，那么两者之间的效率差距则越大。
+而 (t \*structType) FieldByName 中使用 for 循环，逐个字段查找，字段名匹配时返回。也就是说，在反射的内部，字段是按顺序存储的，因此按照下标访问查询效率为 O(1)，而按照 Name 访问，则需要遍历所有字段，查询效率为 O(N)。结构体所包含的字段(包括方法)越多，那么两者之间的效率差距则越大。
 
 ## 4 如何提高性能
 

@@ -1,37 +1,36 @@
 const itemsFn = (value: Array<string> | string) => {
   if (Array.isArray(value)) {
-    return value.map((item, index) => {
-      let nameArr = item.split('/')
-      let name = nameArr[nameArr.length - 1]
+    return value.map((item, _index) => {
+      let nameArr = item.split('/');
+      let name = nameArr[nameArr.length - 1];
       return {
         text: name,
-        link: item
-      }
-    })
+        link: item,
+      };
+    });
   } else {
-    let nameArr = value.split('/')
-    let name = nameArr[nameArr.length - 1]
+    let nameArr = value.split('/');
+    let name = nameArr[nameArr.length - 1];
     return {
       text: name,
-      link: value
-    }
+      link: value,
+    };
   }
-}
-
+};
 
 export const sidebarZh: any = {
   '/web/javascript/': [
     {
       text: '设计模式',
-      link: "/web/javascript/设计模式.md"
-    }, 
+      link: '/web/javascript/设计模式.md',
+    },
     {
       text: 'JS高级',
-      link: "/web/javascript/JS高级.md"
-    }, 
+      link: '/web/javascript/JS高级.md',
+    },
     {
       text: 'Zepto',
-      link: "/web/javascript/Zepto.md"
+      link: '/web/javascript/Zepto.md',
     },
     {
       text: 'Sass、Less',
@@ -39,36 +38,35 @@ export const sidebarZh: any = {
       items: [
         {
           text: 'Less and Sass',
-          link: '/web/javascript/Less and Sass/Less and Sass.md'
+          link: '/web/javascript/Less and Sass/Less and Sass.md',
         },
         {
           text: '1、相关介绍',
-          link: '/web/javascript/Less and Sass/1、相关介绍.md'
+          link: '/web/javascript/Less and Sass/1、相关介绍.md',
         },
         {
           text: '2、环境配置',
-          link: '/web/javascript/Less and Sass/2、环境配置.md'
+          link: '/web/javascript/Less and Sass/2、环境配置.md',
         },
         {
           text: '3、SassScript',
-          link: '/web/javascript/Less and Sass/3、SassScript.md'
+          link: '/web/javascript/Less and Sass/3、SassScript.md',
         },
-
-      ]
+      ],
     },
     {
       text: 'html5',
       collapsed: true,
-      items: [{
-        text: 'HTML5',
-        link: '/web/javascript/html5/HTML5.md'
-      }, 
-      {
-        text: '弹性盒子',
-        link: '/web/javascript/html5/弹性盒子.md'
-      },
-
-      ]
+      items: [
+        {
+          text: 'HTML5',
+          link: '/web/javascript/html5/HTML5.md',
+        },
+        {
+          text: '弹性盒子',
+          link: '/web/javascript/html5/弹性盒子.md',
+        },
+      ],
     },
     {
       text: '移动端',
@@ -76,9 +74,9 @@ export const sidebarZh: any = {
       items: [
         {
           text: '前言介绍',
-          link: '/web/javascript/移动端/移动端.md'
+          link: '/web/javascript/移动端/移动端.md',
         },
-      ]
+      ],
     },
     {
       text: 'ES6',
@@ -86,187 +84,187 @@ export const sidebarZh: any = {
       items: [
         {
           text: '01.ECMAScript 6 简介.md',
-          link: '/web/javascript/eS6/01.ECMAScript 6 简介.md'
+          link: '/web/javascript/eS6/01.ECMAScript 6 简介.md',
         },
         {
           text: '02.let与const.md',
-          link: '/web/javascript/eS6/02.let与const.md'
+          link: '/web/javascript/eS6/02.let与const.md',
         },
         {
           text: '03 解构赋值.md',
-          link: '/web/javascript/eS6/03 解构赋值.md'
+          link: '/web/javascript/eS6/03 解构赋值.md',
         },
         {
           text: '04 字符串新特性.md',
-          link: '/web/javascript/eS6/04 字符串新特性.md'
+          link: '/web/javascript/eS6/04 字符串新特性.md',
         },
         {
           text: '05 字符串新方法.md',
-          link: '/web/javascript/eS6/05 字符串新方法.md'
+          link: '/web/javascript/eS6/05 字符串新方法.md',
         },
         {
           text: '06 数值新特性.md',
-          link: '/web/javascript/eS6/06 数值新特性.md'
+          link: '/web/javascript/eS6/06 数值新特性.md',
         },
         {
           text: '07 ES5 数组变化.md',
-          link: '/web/javascript/eS6/07 ES5 数组变化.md'
+          link: '/web/javascript/eS6/07 ES5 数组变化.md',
         },
         {
           text: '08 数组新特性.md',
-          link: '/web/javascript/eS6/08 数组新特性.md'
+          link: '/web/javascript/eS6/08 数组新特性.md',
         },
         {
           text: '09 对象新特性.md',
-          link: '/web/javascript/eS6/09 对象新特性.md'
+          link: '/web/javascript/eS6/09 对象新特性.md',
         },
         {
           text: '10 对象新方法.md',
-          link: '/web/javascript/eS6/10 对象新方法.md'
+          link: '/web/javascript/eS6/10 对象新方法.md',
         },
         {
           text: '11 函数新方法.md',
-          link: '/web/javascript/eS6/11 函数新方法.md'
+          link: '/web/javascript/eS6/11 函数新方法.md',
         },
         {
           text: '12 新增数据类型和数据结构.md',
-          link: '/web/javascript/eS6/12 新增数据类型和数据结构.md'
+          link: '/web/javascript/eS6/12 新增数据类型和数据结构.md',
         },
         {
           text: '13 遍历器.md',
-          link: '/web/javascript/eS6/13 遍历器.md'
+          link: '/web/javascript/eS6/13 遍历器.md',
         },
         {
           text: '14 生成器 Generator.md',
-          link: '/web/javascript/eS6/14 生成器 Generator.md'
+          link: '/web/javascript/eS6/14 生成器 Generator.md',
         },
         {
           text: '15 Proxy.md',
-          link: '/web/javascript/eS6/15 Proxy.md'
+          link: '/web/javascript/eS6/15 Proxy.md',
         },
         {
           text: '16 Peflect.md',
-          link: '/web/javascript/eS6/16 Peflect.md'
+          link: '/web/javascript/eS6/16 Peflect.md',
         },
         {
           text: '17 Class 基本语法.md',
-          link: '/web/javascript/eS6/17 Class 基本语法.md'
+          link: '/web/javascript/eS6/17 Class 基本语法.md',
         },
         {
           text: '18 Class 的继承.md',
-          link: '/web/javascript/eS6/18 Class 的继承.md'
-        }
-      ]
+          link: '/web/javascript/eS6/18 Class 的继承.md',
+        },
+      ],
     },
   ],
-  "/web/typescript/": [
-  {
-    text: '基本数据类型',
-    link: '/web/typescript/基本数据类型.md'
-  },
-  {
-    text: '范型',
-    link: '/web/typescript/范型.md'
-  },
-  {
-    text: 'infer',
-    link: '/web/typescript/infer.md'
-  },
-  {
-    text: '协变逆变',
-    link: '/web/typescript/协变逆变.md'
-  },
+  '/web/typescript/': [
+    {
+      text: '基本数据类型',
+      link: '/web/typescript/基本数据类型.md',
+    },
+    {
+      text: '范型',
+      link: '/web/typescript/范型.md',
+    },
+    {
+      text: 'infer',
+      link: '/web/typescript/infer.md',
+    },
+    {
+      text: '协变逆变',
+      link: '/web/typescript/协变逆变.md',
+    },
     {
       text: 'Utility-Types',
       collapsed: false,
       items: [
         {
           text: 'Partial.md',
-          link: '/web/typescript/UtilityTypes/Partial.md'
+          link: '/web/typescript/UtilityTypes/Partial.md',
         },
         {
           text: 'Record.md',
-          link: '/web/typescript/UtilityTypes/Record.md'
+          link: '/web/typescript/UtilityTypes/Record.md',
         },
         {
           text: 'Exclude.md',
-          link: '/web/typescript/UtilityTypes/Exclude.md'
+          link: '/web/typescript/UtilityTypes/Exclude.md',
         },
         {
           text: 'Omit.md',
-          link: '/web/typescript/UtilityTypes/Omit.md'
+          link: '/web/typescript/UtilityTypes/Omit.md',
         },
         {
           text: 'Required.md',
-          link: '/web/typescript/UtilityTypes/Required.md'
+          link: '/web/typescript/UtilityTypes/Required.md',
         },
         {
           text: 'Readonly.md',
-          link: '/web/typescript/UtilityTypes/Readonly.md'
+          link: '/web/typescript/UtilityTypes/Readonly.md',
         },
         {
           text: 'Pick.md',
-          link: '/web/typescript/UtilityTypes/Pick.md'
+          link: '/web/typescript/UtilityTypes/Pick.md',
         },
         {
           text: 'Capitalize.md',
-          link: '/web/typescript/UtilityTypes/Capitalize.md'
+          link: '/web/typescript/UtilityTypes/Capitalize.md',
         },
         {
           text: 'ConstructorParameters.md',
-          link: '/web/typescript/UtilityTypes/ConstructorParameters.md'
+          link: '/web/typescript/UtilityTypes/ConstructorParameters.md',
         },
         {
           text: 'Extract.md',
-          link: '/web/typescript/UtilityTypes/Extract.md'
+          link: '/web/typescript/UtilityTypes/Extract.md',
         },
         {
           text: 'ThisType.md',
-          link: '/web/typescript/UtilityTypes/ThisType.md'
+          link: '/web/typescript/UtilityTypes/ThisType.md',
         },
         {
           text: 'InstanceType.md',
-          link: '/web/typescript/UtilityTypes/InstanceType.md'
+          link: '/web/typescript/UtilityTypes/InstanceType.md',
         },
         {
           text: 'NonNullable.md',
-          link: '/web/typescript/UtilityTypes/NonNullable.md'
+          link: '/web/typescript/UtilityTypes/NonNullable.md',
         },
         {
           text: 'OmitThisParameter.md',
-          link: '/web/typescript/UtilityTypes/OmitThisParameter.md'
+          link: '/web/typescript/UtilityTypes/OmitThisParameter.md',
         },
         {
           text: 'Parameters.md',
-          link: '/web/typescript/UtilityTypes/Parameters.md'
+          link: '/web/typescript/UtilityTypes/Parameters.md',
         },
         {
           text: 'ReturnType.md',
-          link: '/web/typescript/UtilityTypes/ReturnType.md'
+          link: '/web/typescript/UtilityTypes/ReturnType.md',
         },
         {
           text: 'ThisParameterType.md',
-          link: '/web/typescript/UtilityTypes/ThisParameterType.md'
+          link: '/web/typescript/UtilityTypes/ThisParameterType.md',
         },
         {
           text: 'Uncapitalize.md',
-          link: '/web/typescript/UtilityTypes/Uncapitalize.md'
+          link: '/web/typescript/UtilityTypes/Uncapitalize.md',
         },
         {
           text: 'Uppercase.md',
-          link: '/web/typescript/UtilityTypes/Uppercase.md'
+          link: '/web/typescript/UtilityTypes/Uppercase.md',
         },
         {
           text: 'Utility Types.md',
-          link: '/web/typescript/UtilityTypes/Utility Types.md'
-        }
-      ]
+          link: '/web/typescript/UtilityTypes/Utility Types.md',
+        },
+      ],
     },
   ],
-  "/web/threejs/": [
+  '/web/threejs/': [
     {
       text: 'threeJS.md',
-      link: '/web/threejs/three.JS库'
+      link: '/web/threejs/three.JS库',
     },
     {
       text: 'react-three-fiber',
@@ -274,50 +272,49 @@ export const sidebarZh: any = {
       items: [
         {
           text: 'index.md',
-          link: '/web/threejs/react-three-fiber/index.md'
+          link: '/web/threejs/react-three-fiber/index.md',
         },
         {
           text: 'use.md',
-          link: '/web/threejs/react-three-fiber/use.md'
+          link: '/web/threejs/react-three-fiber/use.md',
         },
         {
           text: 'canvas.md',
-          link: '/web/threejs/react-three-fiber/canvas.md'
+          link: '/web/threejs/react-three-fiber/canvas.md',
         },
         {
           text: '对象、属性和构造函数参数.md',
-          link: '/web/threejs/react-three-fiber/对象、属性和构造函数参数.md'
+          link: '/web/threejs/react-three-fiber/对象、属性和构造函数参数.md',
         },
         {
           text: 'hooks.md',
-          link: '/web/threejs/react-three-fiber/hooks.md'
+          link: '/web/threejs/react-three-fiber/hooks.md',
         },
         {
           text: 'event.md',
-          link: '/web/threejs/react-three-fiber/event.md'
+          link: '/web/threejs/react-three-fiber/event.md',
         },
         {
           text: 'Additional-Exports.md',
-          link: '/web/threejs/react-three-fiber/Additional-Exports.md'
+          link: '/web/threejs/react-three-fiber/Additional-Exports.md',
         },
         {
           text: '扩展性能.md',
-          link: '/web/threejs/react-three-fiber/扩展性能.md'
+          link: '/web/threejs/react-three-fiber/扩展性能.md',
         },
         {
           text: '性能陷阱.md',
-          link: '/web/threejs/react-three-fiber/性能陷阱.md'
+          link: '/web/threejs/react-three-fiber/性能陷阱.md',
         },
         {
           text: '加载模型.md',
-          link: '/web/threejs/react-three-fiber/加载模型.md'
+          link: '/web/threejs/react-three-fiber/加载模型.md',
         },
         {
           text: '加载纹理.md',
-          link: '/web/threejs/react-three-fiber/加载纹理.md'
-        }
-      ]
-
+          link: '/web/threejs/react-three-fiber/加载纹理.md',
+        },
+      ],
     },
     {
       text: 'react-three-deri',
@@ -325,67 +322,67 @@ export const sidebarZh: any = {
       items: [
         {
           text: '前言.md',
-          link: '/web/threejs/react-three-deri/index.md'
+          link: '/web/threejs/react-three-deri/index.md',
         },
-      ]
-    }
+      ],
+    },
   ],
-  "/web/webGL/": [
+  '/web/webGL/': [
     {
       text: '原理',
-      link: '/web/webGL/原理.md'
+      link: '/web/webGL/原理.md',
     },
     {
       text: 'Canvas',
       collapsed: true,
       items: [
-          {
-            text: 'canvas',
-            link: '/web/webGL/Canvas/canvas.md'
-          },
-          {
-            text: 'konva',
-            link: '/web/webGL/Canvas/konva.md'
-          }
-      ]
+        {
+          text: 'canvas',
+          link: '/web/webGL/Canvas/canvas.md',
+        },
+        {
+          text: 'konva',
+          link: '/web/webGL/Canvas/konva.md',
+        },
+      ],
     },
   ],
-  "/web/cI-CD/": [
+  '/web/cI-CD/': [
     {
       text: '前言',
       collapsed: true,
       items: [
         {
           text: '前言',
-          link: '/web/cI-CD/前言'
+          link: '/web/cI-CD/前言',
         },
         {
           text: 'CI工具',
-          link: '/web/cI-CD/工具'
+          link: '/web/cI-CD/工具',
         },
         {
           text: 'runner',
-          link: '/web/cI-CD/runner'
+          link: '/web/cI-CD/runner',
         },
         {
           text: '配置事例',
-          link: '/web/cI-CD/配置事例'
+          link: '/web/cI-CD/配置事例',
         },
-      ]
+      ],
     },
   ],
-  "/web/vue/": [
+  '/web/vue/': [
     {
       text: '介绍',
-      link: '/web/vue/vue'
+      link: '/web/vue/vue',
     },
     {
       text: 'vue组件之间通信方式',
-      link: '/web/vue/vue组件之间通信方式'
+      link: '/web/vue/vue组件之间通信方式',
     },
     {
       text: 'vuex',
-      link: '/web/vue/vuex'
+      link: '/web/vue/vuex',
     },
     // {
     //   text: 'vue-router',
@@ -451,68 +448,67 @@ export const sidebarZh: any = {
 
     // },
   ],
-  "/web/webpack/": [
+  '/web/webpack/': [
     {
       text: 'Webpack',
       collapsed: true,
       items: [
         {
           text: '',
-          link: '/web/webpack/'
+          link: '/web/webpack/',
         },
         {
           text: '构建流程',
-          link: '/web/webpack/构建流程'
+          link: '/web/webpack/构建流程',
         },
         {
           text: '理解',
-          link: '/web/webpack/理解'
+          link: '/web/webpack/理解',
         },
         {
           text: '提高构建速度',
-          link: '/web/webpack/提高构建速度'
+          link: '/web/webpack/提高构建速度',
         },
         {
           text: '优化前端性能',
-          link: '/web/webpack/优化前端性能'
+          link: '/web/webpack/优化前端性能',
         },
         {
           text: 'Loader',
-          link: '/web/webpack/Loader'
+          link: '/web/webpack/Loader',
         },
         {
           text: 'Loader和Plugin',
-          link: '/web/webpack/Loader和Plugin'
+          link: '/web/webpack/Loader和Plugin',
         },
         {
           text: 'Plugin',
-          link: '/web/webpack/Plugin'
+          link: '/web/webpack/Plugin',
         },
         {
           text: 'webpack_proxy',
-          link: '/web/webpack/webpack_proxy'
+          link: '/web/webpack/webpack_proxy',
         },
         {
           text: 'webpack热更新',
-          link: '/web/webpack/webpack热更新'
-        }
-      ]
-
+          link: '/web/webpack/webpack热更新',
+        },
+      ],
     },
   ],
-  "/web/react/": [
+  '/web/react/': [
     {
       text: 'React',
       collapsed: true,
       items: [
         {
           text: '前言',
-          link: '/web/react/'
-        }
-      ]
+          link: '/web/react/',
+        },
+      ],
     },
   ],
-  "/tests/cypress/": [
+  '/tests/cypress/': [
     {
       text: 'cypress',
       collapsed: true,
@@ -537,30 +533,25 @@ export const sidebarZh: any = {
         '/tests/cypress/17. 聚焦元素',
         '/tests/cypress/18. 屏幕截图',
         '/tests/cypress/19. 断言',
-      ])
+      ]),
     },
   ],
-  "/tests/playwright/": [
+  '/tests/playwright/': [
     {
       text: 'playwright',
       collapsed: true,
-      items: itemsFn([
-        '/tests/playwright/',
-      ])
+      items: itemsFn(['/tests/playwright/']),
     },
   ],
 
   //---------------------------------------------------------------
-
 
   '/interviews/code/': [
     '/interviews/code/',
     {
       text: 'code',
       collapsed: true,
-      items: itemsFn([
-        '/interviews/code/eventFn.md',
-      ]),
+      items: itemsFn(['/interviews/code/eventFn.md']),
     },
   ],
 
@@ -569,29 +560,21 @@ export const sidebarZh: any = {
     {
       text: 'nodejs',
       collapsed: true,
-      items: itemsFn([
-        '/service/node/',
-      ])
+      items: itemsFn(['/service/node/']),
     },
   ],
   '/service/rust/': [
     {
       text: 'Rust',
       collapsed: true,
-      items: itemsFn([
-        '/service/rust/',
-        '/service/rust/安装.md',
-      ])
+      items: itemsFn(['/service/rust/', '/service/rust/安装.md']),
     },
   ],
   '/service/go/': [
     {
       text: 'Golang',
       collapsed: true,
-      items: itemsFn([
-        '/service/go/前言',
-        '/service/go/package',
-      ])
+      items: itemsFn(['/service/go/前言', '/service/go/package']),
     },
     {
       text: '基础参考',
@@ -600,7 +583,7 @@ export const sidebarZh: any = {
         '/service/go/基础参考/channel',
         '/service/go/基础参考/interface',
         '/service/go/基础参考/map',
-      ])
+      ]),
     },
     {
       text: '进阶',
@@ -610,21 +593,17 @@ export const sidebarZh: any = {
         '/service/go/进阶/context',
         '/service/go/进阶/reflect',
         '/service/go/进阶/sync',
-      ])
+      ]),
     },
     {
       text: 'Gin',
       collapsed: true,
-      items: itemsFn([
-        '/service/go/gin/前言',
-        '/service/go/gin/structTag',
-
-      ])
+      items: itemsFn(['/service/go/gin/前言', '/service/go/gin/structTag']),
     },
     {
       text: '反射(reflect)性能',
       link: '/service/go/反射(reflect)性能',
-    }
+    },
   ],
   '/service/docker/': [
     {
@@ -633,28 +612,19 @@ export const sidebarZh: any = {
       items: [
         {
           text: '前言',
-          link: '/service/docker/'
+          link: '/service/docker/',
         },
         {
           text: 'dockerfile',
-          link: '/service/docker/dockerfileMd'
-        }
-      ]
-
+          link: '/service/docker/dockerfileMd',
+        },
+      ],
     },
   ],
-  '/service/mongodb/': [
-    '/service/mongodb/',
-  ],
-  '/service/mysql/': [
-    '/service/mysql/',
-  ],
-  '/service/elasticsearch/': [
-    '/service/elasticsearch/',
-  ],
-  '/service/redis/': [
-    '/service/redis/',
-  ],
+  '/service/mongodb/': ['/service/mongodb/'],
+  '/service/mysql/': ['/service/mysql/'],
+  '/service/elasticsearch/': ['/service/elasticsearch/'],
+  '/service/redis/': ['/service/redis/'],
   // --------------------------------------------------------------
 
   '/flutter/': [
@@ -669,8 +639,7 @@ export const sidebarZh: any = {
         '/flutter/dart/class.md',
         '/flutter/dart/list.md',
         '/flutter/dart/map.md',
-
-      ])
+      ]),
     },
     {
       text: 'widget',
@@ -690,8 +659,7 @@ export const sidebarZh: any = {
             '/flutter/widget/基础组件/TextField.md',
             '/flutter/widget/基础组件/Form.md',
             '/flutter/widget/基础组件/Switch、Checkbox.md',
-
-          ])
+          ]),
         },
         {
           text: '滚动组件',
@@ -709,7 +677,7 @@ export const sidebarZh: any = {
             '/flutter/widget/滚动组件/Scrollbar.md',
             '/flutter/widget/滚动组件/ScrollConfiguration.md',
             '/flutter/widget/滚动组件/AnimatedList.md',
-          ])
+          ]),
         },
         {
           text: 'Sliver组件',
@@ -735,8 +703,7 @@ export const sidebarZh: any = {
             '/flutter/widget/Sliver组件/SliverOverlapAbsorber.md',
             '/flutter/widget/Sliver组件/SliverAnimatedPadding.md',
             '/flutter/widget/Sliver组件/SliverAnimatedPositioned.md',
-
-          ])
+          ]),
         },
         {
           text: '按钮组件',
@@ -749,7 +716,7 @@ export const sidebarZh: any = {
             '/flutter/widget/按钮组件/IconButton.md',
             '/flutter/widget/按钮组件/PopupMenuButton.md',
             '/flutter/widget/按钮组件/ElevatedButton.md',
-          ])
+          ]),
         },
         {
           text: '布局组件',
@@ -764,14 +731,12 @@ export const sidebarZh: any = {
             '/flutter/widget/布局组件/Stack.md',
             '/flutter/widget/布局组件/LayoutBuilder.md',
             '/flutter/widget/布局组件/FittedBox.md',
-
-
-          ])
+          ]),
         },
         {
           text: '动画组件',
           collapsed: true,
-          items: ([
+          items: [
             '/flutter/widget/动画组件/index.md',
             '/flutter/widget/动画组件/AlignTransition.md',
             '/flutter/widget/动画组件/AnimatedBuilder.md',
@@ -796,7 +761,7 @@ export const sidebarZh: any = {
             '/flutter/widget/动画组件/SizeTransition.md',
             '/flutter/widget/动画组件/SlideTransition.md',
             '/flutter/widget/动画组件/Transform.md',
-          ])
+          ],
         },
         {
           text: '手势组件',
@@ -813,37 +778,27 @@ export const sidebarZh: any = {
             '/flutter/widget/手势组件/InteractiveViewer.md',
             '/flutter/widget/手势组件/Listener.md',
             '/flutter/widget/手势组件/RawGestureDetector.md',
-          ])
+          ]),
         },
         {
           text: '弹出widget',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/widget/弹出组件/showModalBottomSheet.md',
-          ])
+          items: itemsFn(['/flutter/widget/弹出组件/showModalBottomSheet.md']),
         },
         {
           text: '导航和路由Widget',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/widget/导航和路由Widget/index.md',
-
-          ])
+          items: itemsFn(['/flutter/widget/导航和路由Widget/index.md']),
         },
         {
           text: '画布和绘图Widget',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/widget/画布和绘图Widget/index.md',
-
-          ])
+          items: itemsFn(['/flutter/widget/画布和绘图Widget/index.md']),
         },
         {
           text: '样式Widget',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/widget/样式Widget/index.md',
-          ])
+          items: itemsFn(['/flutter/widget/样式Widget/index.md']),
         },
         {
           text: '其他组件',
@@ -857,24 +812,24 @@ export const sidebarZh: any = {
             '/flutter/widget/其他组件/ClipRect.md',
 
             '/flutter/widget/其他组件/Checkbox.md',
-            '/flutter/widget/其他组件/CheckboxListTile.md',//
+            '/flutter/widget/其他组件/CheckboxListTile.md', //
             '/flutter/widget/其他组件/Switch.md',
             '/flutter/widget/其他组件/Slider.md',
-            '/flutter/widget/其他组件/Chip.md',//
-            '/flutter/widget/其他组件/DataTable.md',//
-            '/flutter/widget/其他组件/DatePicker.md',//
-            '/flutter/widget/其他组件/Dialog.md',//
-            '/flutter/widget/其他组件/Divider.md',//
-            '/flutter/widget/其他组件/Drawer.md',//
-            '/flutter/widget/其他组件/ExpansionPanel.md',//
-            '/flutter/widget/其他组件/ExpansionTile.md',//
-            '/flutter/widget/其他组件/FadeInImage.md',//
+            '/flutter/widget/其他组件/Chip.md', //
+            '/flutter/widget/其他组件/DataTable.md', //
+            '/flutter/widget/其他组件/DatePicker.md', //
+            '/flutter/widget/其他组件/Dialog.md', //
+            '/flutter/widget/其他组件/Divider.md', //
+            '/flutter/widget/其他组件/Drawer.md', //
+            '/flutter/widget/其他组件/ExpansionPanel.md', //
+            '/flutter/widget/其他组件/ExpansionTile.md', //
+            '/flutter/widget/其他组件/FadeInImage.md', //
             '/flutter/widget/其他组件/FlexibleSpaceBar.md',
             '/flutter/widget/其他组件/SliverFillRemaining.md',
             '/flutter/widget/其他组件/ListTile.md',
-          ])
-        }
-      ]
+          ]),
+        },
+      ],
     },
     {
       text: 'widget基础类',
@@ -894,8 +849,7 @@ export const sidebarZh: any = {
         '/flutter/widget基础类/TickerProviderStateMixin.md',
         '/flutter/widget基础类/WidgetsBindingObserver.md',
         '/flutter/widget基础类/WidgetsLocalizationsDelegate.md',
-
-      ])
+      ]),
     },
     {
       text: 'Animation类',
@@ -907,8 +861,7 @@ export const sidebarZh: any = {
         '/flutter/Animation/AnimationController.md',
         '/flutter/Animation/CupertinoPageRoute.md',
         '/flutter/Animation/CurvedAnimation.md',
-
-      ])
+      ]),
     },
     {
       text: 'controller',
@@ -936,7 +889,7 @@ export const sidebarZh: any = {
         '/flutter/controller/ValueNotifier.md',
         '/flutter/controller/ValueListenableBuilder.md',
         '/flutter/controller/ValueListenable.md',
-      ])
+      ]),
     },
     {
       text: 'package',
@@ -945,63 +898,45 @@ export const sidebarZh: any = {
         {
           text: 'getX',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/package/getX/前言',
-          ])
+          items: itemsFn(['/flutter/package/getX/前言']),
         },
         {
           text: 'provider',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/package/provider/前言',
-          ])
+          items: itemsFn(['/flutter/package/provider/前言']),
         },
         {
           text: 'chewie',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/package/chewie/前言',
-          ])
+          items: itemsFn(['/flutter/package/chewie/前言']),
         },
         {
           text: 'infinite_scroll_pagination',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/package/infinite_scroll_pagination/前言',
-          ])
+          items: itemsFn(['/flutter/package/infinite_scroll_pagination/前言']),
         },
         {
           text: 'music',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/package/music/前言',
-          ])
+          items: itemsFn(['/flutter/package/music/前言']),
         },
         {
           text: 'video',
           collapsed: true,
-          items: itemsFn([
-            '/flutter/package/video/前言',
-          ])
+          items: itemsFn(['/flutter/package/video/前言']),
         },
-      ]
+      ],
     },
     {
       text: '事件',
       collapsed: true,
-      items: itemsFn([
-        '/flutter/event/事件传递',
-      ]),
+      items: itemsFn(['/flutter/event/事件传递']),
     },
     {
       text: '日志',
       collapsed: true,
-      items: itemsFn([
-        '/flutter/logs/',
-        '/flutter/logs/isolate/index.md',
-
-      ]),
-    }
+      items: itemsFn(['/flutter/logs/', '/flutter/logs/isolate/index.md']),
+    },
   ],
   '/reactNative/': itemsFn([
     '/reactNative/reactNative',
@@ -1014,54 +949,25 @@ export const sidebarZh: any = {
     '/docMD/git/分支新建与合并',
     '/docMD/git/提交规范',
   ]),
-  '/docMD/mac/': itemsFn([
-    '/docMD/mac/菜单大小调整',
-    '/docMD/mac/微信双开',
-
-  ]),
+  '/docMD/mac/': itemsFn(['/docMD/mac/菜单大小调整', '/docMD/mac/微信双开']),
   '/docMD/order/': [
     {
       text: '介绍',
       link: '/docMD/order/介绍',
     },
-  
   ],
-  "/system/informationSystem/":[
+  '/system/informationSystem/': [
     {
       text: '信息系统管理',
       link: '/system/informationSystem/information.md',
-    }
+    },
   ],
 
-
   // =====================Deisgn=========================
-  '/design/ui/': itemsFn([
-    '/design/ui/介绍',
-  ]),
-  '/design/ux/': itemsFn([
-    '/design/ux/介绍',
-  ]),
+  '/design/ui/': itemsFn(['/design/ui/介绍']),
+  '/design/ux/': itemsFn(['/design/ux/介绍']),
 
   // ========================Harmony==========================
-  '/harmony/ark/arkts/': itemsFn([
-    '/harmony/ark/arkts/',
-  ]),
-  '/harmony/ark/arkui/': itemsFn([
-    '/harmony/ark/arkui/',
-  ]),
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  '/harmony/ark/arkts/': itemsFn(['/harmony/ark/arkts/']),
+  '/harmony/ark/arkui/': itemsFn(['/harmony/ark/arkui/']),
+};

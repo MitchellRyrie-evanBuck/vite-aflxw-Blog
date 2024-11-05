@@ -29,7 +29,7 @@ ListView(
 ## 属性及功能
 
 1. scrollDirection（Axis）：滚动方向。默认为垂直方向。
-功能：设置列表的滚动方向，可以是垂直方向（Axis.vertical）或水平方向（Axis.horizontal）。
+   功能：设置列表的滚动方向，可以是垂直方向（Axis.vertical）或水平方向（Axis.horizontal）。
 
 示例：
 
@@ -154,6 +154,5 @@ ListView(
 如图
 
 ![Alt text](./imgs/ListView-1.gif)
-
 
 在这个示例中，ListView包含20个文本子项，每个子项显示一个标题。scrollDirection属性设置为垂直方向，shrinkWrap属性设置为true，以适应包裹的内容大小，padding属性添加内边距。注意，这只是一个简单的演示，实际应用中可以根据需要进行更复杂的定制和交互。

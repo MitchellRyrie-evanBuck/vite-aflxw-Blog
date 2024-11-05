@@ -26,17 +26,17 @@ ClipPath: 可以根据自定义路径来裁剪子组件，可以实现更加复�
 dart
 Copy code
 ClipRect(
-  child: Container(
-    width: 100,
-    height: 100,
-    color: Colors.blue,
-    child: Center(
-      child: Text(
-        'ClipRect Example',
-        style: TextStyle(color: Colors.white),
-      ),
-    ),
-  ),
+child: Container(
+width: 100,
+height: 100,
+color: Colors.blue,
+child: Center(
+child: Text(
+'ClipRect Example',
+style: TextStyle(color: Colors.white),
+),
+),
+),
 )
 在这个示例中，ClipRect 将一个蓝色的矩形区域裁剪为一个矩形范围内的内容，并将文字居中显示在裁剪后的区域内。
 

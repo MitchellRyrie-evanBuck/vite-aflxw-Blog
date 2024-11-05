@@ -31,16 +31,15 @@ Generator 函数就类似啤酒机，不直接将啤酒一下子给客户，而�
 
 ```javascript
 function fib(max) {
-    var
-        t,
-        a = 0,
-        b = 1,
-        arr = [0, 1];
-    while (arr.length < max) {
-        [a, b] = [b, a + b];
-        arr.push(b);
-    }
-    return arr;
+  var t,
+    a = 0,
+    b = 1,
+    arr = [0, 1];
+  while (arr.length < max) {
+    [a, b] = [b, a + b];
+    arr.push(b);
+  }
+  return arr;
 }
 
 // 测试:
@@ -52,17 +51,16 @@ fib(10); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 
 ```js
 function* fib(max) {
-    var
-        t,
-        a = 0,
-        b = 1,
-        n = 0;
-    while (n < max) {
-        yield a;
-        [a, b] = [b, a + b];
-        n ++;
-    }
-    return;
+  var t,
+    a = 0,
+    b = 1,
+    n = 0;
+  while (n < max) {
+    yield a;
+    [a, b] = [b, a + b];
+    n++;
+  }
+  return;
 }
 ```
 
@@ -109,16 +107,16 @@ var hw = helloWorldGenerator();
 下一步，必须调用遍历器对象的`next`方法，使得指针移向下一个状态。也就是说，每次调用`next`方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个`yield`表达式（或`return`语句）为止。换言之，Generator 函数是分段执行的，`yield`表达式是暂停执行的标记，而`next`方法可以恢复执行。
 
 ```javascript
-hw.next()
+hw.next();
 // { value: 'hello', done: false }
 
-hw.next()
+hw.next();
 // { value: 'world', done: false }
 
-hw.next()
+hw.next();
 // { value: 'ending', done: true }
 
-hw.next()
+hw.next();
 // { value: undefined, done: true }
 ```
 
@@ -172,18 +170,18 @@ hw.next()
 
 ![14-04](images/14-04.png)
 
-上面代码中，Generator 函数赋值给`Symbol.iterator`属性，从而使得`myIterable`对象具有了 Iterator 接口，可以被`...`运算符遍历了。 
+上面代码中，Generator 函数赋值给`Symbol.iterator`属性，从而使得`myIterable`对象具有了 Iterator 接口，可以被`...`运算符遍历了。
 
 Generator 函数执行后，返回一个遍历器对象。该对象本身也具有`Symbol.iterator`属性，执行后返回自身。
 
 ```javascript
-function* gen(){
+function* gen() {
   // some code
 }
 
 var g = gen();
 
-g[Symbol.iterator]() === g
+g[Symbol.iterator]() === g;
 ```
 
 ## next 方法的参数
@@ -191,9 +189,9 @@ g[Symbol.iterator]() === g
 上一节中我们提到了`yield`需要注意的一个例子：
 
 ```js
-function* g(){
-    let k =  yield 10;
-    console.log(k);
+function* g() {
+  let k = yield 10;
+  console.log(k);
 }
 ```
 
@@ -211,9 +209,9 @@ function* g(){
 
 ```javascript
 function* foo(x) {
-  var y = 2 * (yield (x + 1));
-  var z = yield (y / 3);
-  return (x + y + z);
+  var y = 2 * (yield x + 1);
+  var z = yield y / 3;
+  return x + y + z;
 }
 ```
 
@@ -308,7 +306,7 @@ for (let [key, value] of jane) {
 
 除了`for...of`循环以外，扩展运算符（`...`）、解构赋值和`Array.from`方法内部调用的，都是遍历器接口。这意味着，它们都可以将 Generator 函数返回的 Iterator 对象，作为参数。
 
-## Generator.prototype.throw() 
+## Generator.prototype.throw()
 
 Generator 函数返回的遍历器对象，都有一个`throw`方法，可以在函数体外抛出错误，然后在 Generator 函数体内捕获。
 
@@ -332,7 +330,7 @@ Generator 函数返回的遍历器对象，都有一个`throw`方法，可以在
 
 上面代码中，`g.throw`方法被捕获以后，自动执行了一次`next`方法，所以会打印`b`。另外，也可以看到，只要 Generator 函数内部部署了`try...catch`代码块，那么遍历器的`throw`方法抛出的错误，不影响下一次遍历。
 
-## Generator.prototype.return() 
+## Generator.prototype.return()
 
 Generator 函数返回的遍历器对象，还有一个`return`方法，可以返回给定的值，并且终结遍历 Generator 函数。
 
@@ -345,9 +343,9 @@ function* gen() {
 
 var g = gen();
 
-g.next()        // { value: 1, done: false }
-g.return('foo') // { value: "foo", done: true }
-g.next()        // { value: undefined, done: true }
+g.next(); // { value: 1, done: false }
+g.return('foo'); // { value: "foo", done: true }
+g.next(); // { value: undefined, done: true }
 ```
 
 上面代码中，遍历器对象`g`调用`return`方法后，返回值的`value`属性就是`return`方法的参数`foo`。并且，Generator 函数的遍历就终止了，返回值的`done`属性为`true`，以后再调用`next`方法，`done`属性总是返回`true`。
@@ -394,7 +392,7 @@ gen.return(2); // Object {value: 2, done: true}
 // 替换成 let result = return 2;
 ```
 
-## yield* 表达式
+## yield\* 表达式
 
 如果在 Generator 函数内部，调用另一个 Generator 函数。需要在前者的函数体内部，自己手动完成遍历。
 
@@ -413,7 +411,7 @@ function* bar() {
   yield 'y';
 }
 
-for (let v of bar()){
+for (let v of bar()) {
   console.log(v);
 }
 // x
@@ -438,8 +436,8 @@ let read = (function* () {
   yield* 'hello';
 })();
 
-read.next().value // "hello"
-read.next().value // "h"
+read.next().value; // "hello"
+read.next().value; // "h"
 ```
 
 上面代码中，`yield`表达式返回整个字符串，`yield*`语句返回单个字符。因为字符串具有 Iterator 接口，所以被`yield*`遍历。
@@ -450,28 +448,28 @@ read.next().value // "h"
 function* foo() {
   yield 2;
   yield 3;
-  return "foo";
+  return 'foo';
 }
 
 function* bar() {
   yield 1;
   var v = yield* foo();
-  console.log("v: " + v);
+  console.log('v: ' + v);
   yield 4;
 }
 
 var it = bar();
 
-it.next()
+it.next();
 // {value: 1, done: false}
-it.next()
+it.next();
 // {value: 2, done: false}
-it.next()
+it.next();
 // {value: 3, done: false}
 it.next();
 // "v: foo"
 // {value: 4, done: false}
-it.next()
+it.next();
 // {value: undefined, done: true}
 ```
 
@@ -497,7 +495,7 @@ let obj = {
 let obj = {
   myGeneratorMethod: function* () {
     // ···
-  }
+  },
 };
 ```
 
@@ -546,7 +544,7 @@ function doStuff() {
   return [
     fs.readFile.bind(null, 'hello.txt'),
     fs.readFile.bind(null, 'world.txt'),
-    fs.readFile.bind(null, 'and-such.txt')
+    fs.readFile.bind(null, 'and-such.txt'),
   ];
 }
 ```

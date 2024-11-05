@@ -33,7 +33,7 @@ Future<T?> showModalBottomSheet<T>({
 - transitionDuration: 过渡动画的持续时间。
 - routeSettings: 底部弹出框的路由设置。
 - builder: 一个WidgetBuilder，用于构建底部弹出框的内容。
-下面是一个使用showModalBottomSheet的完整案例：
+  下面是一个使用showModalBottomSheet的完整案例：
 
 ```dart
 import 'package:flutter/material.dart';

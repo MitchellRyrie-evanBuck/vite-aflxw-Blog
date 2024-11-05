@@ -263,7 +263,7 @@ class _MyTextFieldPageState extends State<MyTextFieldPage> {
 
   @override
   void initState() {
-    //监听输入改变  
+    //监听输入改变
     myController.addListener((){
       print(myController.text);
     });

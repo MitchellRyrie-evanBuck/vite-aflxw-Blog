@@ -33,7 +33,7 @@
 - Reflect.getPrototypeOf(target)
 - Reflect.setPrototypeOf(target, prototype)
 
-上面这些方法的作用，大部分与`Object`对象的同名方法的作用都是相同的，而且它与`Proxy`对象的方法是一一对应的。我们介绍几个在上一章中在代理器中提及的方法，剩下的同学们可以参考 MDN上的 [Reflect](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect) 
+上面这些方法的作用，大部分与`Object`对象的同名方法的作用都是相同的，而且它与`Proxy`对象的方法是一一对应的。我们介绍几个在上一章中在代理器中提及的方法，剩下的同学们可以参考 MDN上的 [Reflect](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 
 ### Reflect.get(target, name, receiver)
 
@@ -46,8 +46,6 @@
 ![16-03](images/16-03.png)
 
 用直白的话来解释就是：通过`Reflect`对象中的`get`方法，获取`myObject`中的`baz`属性值，并在获取的过程中，将`this`指向`myReceiverObject`。
-
-
 
 ### Reflect.set(target, name, value, receiver)
 
@@ -73,18 +71,18 @@
 
 ```javascript
 let p = {
-  a: 'a'
+  a: 'a',
 };
 
 let handler = {
   set(target, key, value, receiver) {
     console.log('set');
-    Reflect.set(target, key, value, receiver)
+    Reflect.set(target, key, value, receiver);
   },
   defineProperty(target, key, attribute) {
     console.log(key);
     Reflect.defineProperty(target, key, attribute);
-  }
+  },
 };
 
 let obj = new Proxy(p, handler);
@@ -156,11 +154,11 @@ const type = Reflect.apply(Object.prototype.toString, youngest, []);
 ```javascript
 const person = observable({
   name: '张三',
-  age: 20
+  age: 20,
 });
 
 function print() {
-  console.log(`${person.name}, ${person.age}`)
+  console.log(`${person.name}, ${person.age}`);
 }
 
 observe(print);
@@ -175,7 +173,7 @@ person.name = '李四';
 
 ```javascript
 function print() {
-  console.log(`${person.name}, ${person.age}`)
+  console.log(`${person.name}, ${person.age}`);
 }
 
 const queuedObservers = new Set();
@@ -184,25 +182,25 @@ const queuedObservers = new Set();
 const observe = fn => queuedObservers.add(fn);
 
 // 设置代理器
-const observable = obj => new Proxy(obj, {
-  set(target, key, value, receiver) {
-    // 正常设置 key 的值
-    const result = Reflect.set(target, key, value, receiver);
-    // 依次调用集合中的观察者
-  	queuedObservers.forEach(observer => observer());
-  	return result;
-}});
+const observable = obj =>
+  new Proxy(obj, {
+    set(target, key, value, receiver) {
+      // 正常设置 key 的值
+      const result = Reflect.set(target, key, value, receiver);
+      // 依次调用集合中的观察者
+      queuedObservers.forEach(observer => observer());
+      return result;
+    },
+  });
 
-observe(print)
+observe(print);
 
 const person = observable({
   name: '张三',
-  age: 20
+  age: 20,
 });
 
-person.name = "lisi"
-
-
+person.name = 'lisi';
 ```
 
 上面代码中，先定义了一个`Set`集合，所有观察者函数都放进这个集合。然后，`observable`函数返回原始对象的代理，拦截赋值操作。拦截函数`set`之中，会自动执行所有观察者。

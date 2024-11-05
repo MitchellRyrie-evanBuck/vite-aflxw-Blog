@@ -42,13 +42,10 @@
     "docs/.vitepress/**/*.ts",
     "docs/.vitepress/**/*.d.ts",
     "docs/.vitepress/**/*.tsx",
-    "docs/.vitepress/**/*.vue"
-, "vite.config.ts"  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "public"
+    "docs/.vitepress/**/*.vue",
+    "vite.config.ts"
   ],
+  "exclude": ["node_modules", "dist", "public"],
   "references": [
     {
       "path": "./tsconfig.node.json"

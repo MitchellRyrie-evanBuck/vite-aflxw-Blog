@@ -7,34 +7,35 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from './ui/navigation-menu'
-import { useData } from 'vitepress'
-import { Twitter, Github, Youtube, Badge } from 'lucide-vue-next'
-import NavItems from './NavItems.vue'
+} from '../../ui/navigation-menu';
+import { Badge as BadgeCom } from '../../ui/badge'
 
-const { site, theme } = useData()
-console.log(site.value, 'site')
-console.log(theme.value, 'theme')
+import { useData } from 'vitepress';
+import { Twitter, Github, Youtube, Badge } from 'lucide-vue-next';
+import NavItems from './NavItems.vue';
 
-const socialLinks = theme.value.socialLinks || []
+const { site, theme } = useData();
+console.log(site.value, 'site');
+console.log(theme.value, 'theme');
+
+const socialLinks = theme.value.socialLinks || [];
 
 const getIconComponent = (iconName: string) => {
   switch (iconName) {
     case 'github':
-      return Github
+      return Github;
     case 'twitter':
-      return Twitter
+      return Twitter;
     case 'youtube':
-      return Youtube
+      return Youtube;
     default:
-      return Badge
+      return Badge;
   }
-}
-
+};
 </script>
 
 <template>
-  <div class="w-full bg-white custom-nav dark:bg-black">
+  <div class="custom-nav dark:bg-black">
     <div class="container px-4 mx-auto">
       <div class="flex items-center justify-between h-16">
         <!-- Logo 区域 -->
@@ -59,28 +60,30 @@ const getIconComponent = (iconName: string) => {
               </template>
               <template v-else>
                 <NavigationMenuTrigger>{{ item.text }}</NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuContent
+                >
                   <div
-                    class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 "
+                    class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2"
+                    
                   >
                     <div v-for="component in item.items" :key="component.link">
-                      <NavigationMenuLink as-child>
-                        <a
-                          :href="component.link"
-                          class="block p-3 space-y-1 leading-none no-underline transition-colors rounded-md outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        <div
+                          class="block p-3 space-y-1 "
                         >
                           <div class="text-sm font-medium leading-none">
                             {{ component.text }}
                           </div>
-                        </a>
-                      </NavigationMenuLink>
+                        </div>
                       <!-- 递归渲染子项 -->
                       <template
                         v-if="component.items && component.items.length > 0"
                       >
-                        <ul class="ml-4">
-                          <NavItems :items="component.items" />
-                        </ul>
+                      <div
+                      class="flex flex-wrap"
+                      >
+                        <NavItems :items="component.items" />
+
+                      </div>
                       </template>
                     </div>
                   </div>
@@ -97,9 +100,13 @@ const getIconComponent = (iconName: string) => {
             :href="link.link"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-1"
+            class="px-2"
           >
-            <component :is="getIconComponent(link.icon)" class="icon" />
+            <component
+              :is="getIconComponent(link.icon)"
+              class="icon"
+              :size="18"
+            />
           </a>
         </div>
       </div>
@@ -114,5 +121,14 @@ const getIconComponent = (iconName: string) => {
   left: 0;
   right: 0;
   z-index: 50;
+  backdrop-filter: saturate(20%) blur(10px);
+  --globalnav-backdrop-filter: saturate(100%) blur(10px);
+  --globalnav-background: rgba(255, 255, 255, 0.8) ;
+  backdrop-filter: var(--globalnav-backdrop-filter);
+  background: var(--globalnav-background);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.01);
+  z-index: 10001;
+  color: rgb(38, 38, 39);
+  transition: all 600ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
 }
 </style>

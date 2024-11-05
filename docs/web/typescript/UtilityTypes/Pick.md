@@ -1,6 +1,6 @@
 # Pick
 
-> *从 T 类型选择一组属性构造新的类型*
+> _从 T 类型选择一组属性构造新的类型_
 
 - 源码
 
@@ -9,8 +9,8 @@
  * From T, pick a set of properties whose keys are in the union K
  */
 type Pick<T, K extends keyof T> = {
-  [P in K]: T[P]
-}
+  [P in K]: T[P];
+};
 ```
 
 - 源码解析
@@ -21,15 +21,15 @@ type Pick<T, K extends keyof T> = {
 
 ```tsx
 interface Dogs {
-  dogName: string
-  dogAge: number
-  dogKind: string
+  dogName: string;
+  dogAge: number;
+  dogKind: string;
 }
 // 联合类型
-type NameAndAge = Pick<Dogs, "dogName" | "dogAge"> // { dogName: string; dogAge: number }
+type NameAndAge = Pick<Dogs, 'dogName' | 'dogAge'>; // { dogName: string; dogAge: number }
 
 // 单个字符串类型
-type DogKind = Pick<Dogs, "dogKind"> // { dogKind: string; }
+type DogKind = Pick<Dogs, 'dogKind'>; // { dogKind: string; }
 ```
 
 在 `Pick` 的实现中，引入了新的语法，[泛型](https://link.juejin.cn/?target=https%3A%2F%2Fwww.typescriptlang.org%2Fdocs%2Fhandbook%2F2%2Fgenerics.html)、[extends](https://link.juejin.cn/?target=https%3A%2F%2Fwww.typescriptlang.org%2Fdocs%2Fhandbook%2F2%2Fgenerics.html%23generic-constraints)
@@ -42,8 +42,8 @@ type DogKind = Pick<Dogs, "dogKind"> // { dogKind: string; }
 
 - 使用场景举例
 
-    1.某个位置需要全部的属性，其他位置仅需要部分属性的情况，如上文的 `Dogs` 例子
+  1.某个位置需要全部的属性，其他位置仅需要部分属性的情况，如上文的 `Dogs` 例子
 
-    2.参考 [lodash](https://link.juejin.cn/?target=https%3A%2F%2Flodash.com.cn%2Fdocs%2Fchunk).pick 的声明和实现
+  2.参考 [lodash](https://link.juejin.cn/?target=https%3A%2F%2Flodash.com.cn%2Fdocs%2Fchunk).pick 的声明和实现
 
-    3.二次封装第三方组件，仅向外暴露部分参数的情况
+  3.二次封装第三方组件，仅向外暴露部分参数的情况

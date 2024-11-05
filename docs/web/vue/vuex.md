@@ -24,7 +24,6 @@
 
 Vuex 是一个专为 Vue.js 应用程序开发的 **状态管理模式**，类似 <u>redux</u>
 
-
 这种状态管理模式包含：
 
 - **State** : 状态数据源
@@ -62,10 +61,10 @@ yarn add vuex
 **通过 `import` 引入**
 
 ```javascript
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 ```
 
 通过 `import` 方式引入，需要手动安装（手动调用 `Vue.use(Vuex)`）
@@ -77,17 +76,17 @@ Vue.use(Vuex)
 ### 7-1、创建一个 Store
 
 ```javascript
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 let store = new Vuex.Store({
-    state: {},
-    getters: {},
-    mutations: {},
-    actions: {}
-})
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
+});
 ```
 
 > 必须在 `Vue.use(Vuex)` 之后创建 `store`
@@ -109,16 +108,16 @@ let store = new Vuex.Store({
 // let state = {
 //   a: 1
 // }
-let state = _=>({a:1})
+let state = _ => ({ a: 1 });
 
 const store = new Vuex.Store({
-   state
-})
+  state,
+});
 const store2 = new Vuex.Store({
-    state
-})
+  state,
+});
 
-console.log(store.state == store2.state)
+console.log(store.state == store2.state);
 store.state.a = 100;
 console.log(store.state.a, store2.state.a);
 ```
@@ -130,15 +129,15 @@ console.log(store.state.a, store2.state.a);
 
 ```javascript
 // stores/index.js
-import Vue from 'vue'
-import Vuex from 'vuex'
-import state from './state'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import state from './state';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    state
-})
+  state,
+});
 
 export default store;
 ```
@@ -146,30 +145,30 @@ export default store;
 ```javascript
 // stores/state.js
 export default () => ({
-    title: '开课吧',
-    content: 'javascript 高级工程师'
-})
+  title: '开课吧',
+  content: 'javascript 高级工程师',
+});
 ```
 
 ```vue
 <template>
   <div class="home">
-    <h2>{{title}}</h2>
-    <div>{{content}}</div>
+    <h2>{{ title }}</h2>
+    <div>{{ content }}</div>
   </div>
 </template>
 
 <script>
-import store from '@/stores'
+import store from '@/stores';
 export default {
   name: 'home',
   data() {
     return {
       title: store.state.title,
-      content: store.state.content
-    }
-  }
-}
+      content: store.state.content,
+    };
+  },
+};
 </script>
 ```
 
@@ -184,24 +183,24 @@ export default {
 ```vue
 <template>
   <div class="home">
-    <h2>{{title}}</h2>
-    <div>{{content}}</div>
+    <h2>{{ title }}</h2>
+    <div>{{ content }}</div>
   </div>
 </template>
 
 <script>
-import store from '@/stores'
+import store from '@/stores';
 export default {
   name: 'home',
   computed: {
     title() {
-      return store.state.title
+      return store.state.title;
     },
     content() {
-      return store.state.content
-    }
-  }
-}
+      return store.state.content;
+    },
+  },
+};
 </script>
 ```
 
@@ -210,18 +209,18 @@ export default {
 如果每个组件在使用 `store` 的时候都 `import` 会比较繁琐，这个时候，我们通过 <u>vuex</u> 提供的 `store` 选项把 `store` 对象注入到 <u>vue</u> 的原型上
 
 ```javascript
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from '@/stores'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from '@/stores';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: h => h(App),
+}).$mount('#app');
 ```
 
 配置注入后，我们就可以在组件实例中使用 `this.$store` 来访问 `store` 对象了
@@ -229,8 +228,8 @@ new Vue({
 ```vue
 <template>
   <div class="home">
-    <h2>{{title}}</h2>
-    <div>{{content}}</div>
+    <h2>{{ title }}</h2>
+    <div>{{ content }}</div>
   </div>
 </template>
 
@@ -240,13 +239,13 @@ export default {
   name: 'home',
   computed: {
     title() {
-      return this.$store.state.title
+      return this.$store.state.title;
     },
     content() {
-      return this.$store.state.content
-    }
-  }
-}
+      return this.$store.state.content;
+    },
+  },
+};
 </script>
 ```
 
@@ -257,20 +256,18 @@ export default {
 ```vue
 <template>
   <div class="home">
-    <h2>{{title}}</h2>
-    <div>{{content}}</div>
+    <h2>{{ title }}</h2>
+    <div>{{ content }}</div>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   name: 'home',
-  computed: mapState([
-    'title','content'
-  ])
-}
+  computed: mapState(['title', 'content']),
+};
 </script>
 ```
 
@@ -281,25 +278,26 @@ export default {
 ```vue
 <template>
   <div class="home">
-    <h1>{{title}}</h1>
-    <h2>{{subTitle}}</h2>
-    <div>{{content}}</div>
+    <h1>{{ title }}</h1>
+    <h2>{{ subTitle }}</h2>
+    <div>{{ content }}</div>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   name: 'home',
   data() {
-    return {title: 'Vuex'}
+    return { title: 'Vuex' };
   },
   computed: mapState({
-      subTitle: 'title',
-      content: ({content}) => content.length <= 12 ? content : content.substring(0, 12) + '......'
-  })
-}
+    subTitle: 'title',
+    content: ({ content }) =>
+      content.length <= 12 ? content : content.substring(0, 12) + '......',
+  }),
+};
 </script>
 ```
 
@@ -309,16 +307,18 @@ export default {
 
 ```vue
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   computed: {
-      computed() {/.../},
-      ...mapState({
-          // ...
-      })
-  }
-}
+    computed() {
+      /.../;
+    },
+    ...mapState({
+      // ...
+    }),
+  },
+};
 </script>
 ```
 

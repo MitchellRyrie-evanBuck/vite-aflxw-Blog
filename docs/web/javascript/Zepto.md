@@ -19,8 +19,8 @@ Zepto是针对现代浏览器开发的js库，现代浏览器基本上都支持q
 
 querySelector提供了两个API接口
 
-+ `document.querySelector("");`选中一个dom元素
-+ `document.querySelectorAll("")`; 选中一组dom元素，可以以数组的方式取出其中的单元。
+- `document.querySelector("");`选中一个dom元素
+- `document.querySelectorAll("")`; 选中一组dom元素，可以以数组的方式取出其中的单元。
 
 #### 2.2 querySelector实例
 
@@ -37,7 +37,7 @@ document.getElementById('test');
 如果采用querySelector选中的话,需要使用css选择器的#id,即为
 
 ```js
-document.querySelector("#test");
+document.querySelector('#test');
 ```
 
 或者
@@ -50,10 +50,10 @@ document.querySelectorAll('#test')[0];
 
 ```html
 <ul class="season">
-        <li>春</li>
-        <li>夏</li>
-        <li>秋</li>
-        <li>冬</li>
+  <li>春</li>
+  <li>夏</li>
+  <li>秋</li>
+  <li>冬</li>
 </ul>
 ```
 
@@ -70,7 +70,7 @@ document.querySelectorAll('.season>li')[1].innerHTML;
 ```js
 var node = document.querySelectorAll('.season>li');
 for (var i = 0; i < node.length; i++) {
-    console.log(node[i].innerHTML);
+  console.log(node[i].innerHTML);
 }
 ```
 
@@ -84,47 +84,47 @@ for (var i = 0; i < node.length; i++) {
 
 ##### 3.1.2 zepto模块分析
 
-| module     | default | description                                                                         |
-| ---------- | ------- | ----------------------------------------------------------------------------------- |
-| zepto      | ✔       | 核心模块；包含许多方法                                                                         |
-| event      | ✔       | 通过on()& off()处理事件                                                                   |
-| ajax       | ✔       | XMLHttpRequest 和 JSONP 实用功能                                                         |
-| form       | ✔       | 序列化 & 提交web表单                                                                       |
-| ie         | ✔       | 增加支持桌面的Internet Explorer 10+和Windows Phone 8。                                       |
-| detect     | ×       | 提供 $.os和 $.browser消息                                                                |
-| fx         | ×       | The animate()方法                                                                     |
-| fx_methods | ×       | 以动画形式的 show, hide, toggle, 和 fade*()方法.                                             |
-| assets     | ×       | 实验性支持从DOM中移除image元素后清理iOS的内存。                                                       |
-| data       | ×       | 一个全面的 data()方法, 能够在内存中存储任意对象。                                                       |
+| module     | default | description                                                                                                  |
+| ---------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| zepto      | ✔      | 核心模块；包含许多方法                                                                                       |
+| event      | ✔      | 通过on()& off()处理事件                                                                                      |
+| ajax       | ✔      | XMLHttpRequest 和 JSONP 实用功能                                                                             |
+| form       | ✔      | 序列化 & 提交web表单                                                                                         |
+| ie         | ✔      | 增加支持桌面的Internet Explorer 10+和Windows Phone 8。                                                       |
+| detect     | ×       | 提供 $.os和 $.browser消息                                                                                    |
+| fx         | ×       | The animate()方法                                                                                            |
+| fx_methods | ×       | 以动画形式的 show, hide, toggle, 和 fade\*()方法.                                                            |
+| assets     | ×       | 实验性支持从DOM中移除image元素后清理iOS的内存。                                                              |
+| data       | ×       | 一个全面的 data()方法, 能够在内存中存储任意对象。                                                            |
 | deferred   | ×       | 提供 $.Deferredpromises API. 依赖"callbacks" 模块. 当包含这个模块时候, $.ajax() 支持promise接口链式的回调。  |
-| callbacks  | ×       | 为"deferred"模块提供 $.Callbacks。                                                        |
-| selector   | ×       | 实验性的支持 jQuery CSS 表达式 实用功能，比如 $('div:first')和 el.is(':visible')。                    |
+| callbacks  | ×       | 为"deferred"模块提供 $.Callbacks。                                                                           |
+| selector   | ×       | 实验性的支持 jQuery CSS 表达式 实用功能，比如 $('div:first')和 el.is(':visible')。                           |
 | touch      | ×       | 在触摸设备上触发tap– 和 swipe– 相关事件。这适用于所有的`touch`(iOS, Android)和`pointer`事件(Windows Phone)。 |
-| gesture    | ×       | 在触摸设备上触发 pinch 手势事件。                                                                |
-| stack      | ×       | 提供 andSelf& end()链式调用方法                                                             |
-| ios3       | ×       | String.prototype.trim 和 Array.prototype.reduce 方法 (如果他们不存在) ，以兼容 iOS 3.x.           |
+| gesture    | ×       | 在触摸设备上触发 pinch 手势事件。                                                                            |
+| stack      | ×       | 提供 andSelf& end()链式调用方法                                                                              |
+| ios3       | ×       | String.prototype.trim 和 Array.prototype.reduce 方法 (如果他们不存在) ，以兼容 iOS 3.x.                      |
 
 ####3.2 zepto选择器
 
 #####3.2.1 zepto选择器特征
 和JQuery一样,zepto也拥有一个选择器帮我们选择dom元素,jQuery 通过自己编写的 sizzle 引擎来支持 CSS 选择器，而 Zepto 是直接通过浏览器提供的 document.querySelectorAll 接口,只能够使用标准的css选择器,至于JQuery中的一些伪类选择器,比如
 
-+ :visible :hidden
-+ :first
-+ :eq
+- :visible :hidden
+- :first
+- :eq
 
 等等,这些伪类选择器可以通过`selector.js`来进行拓展.
 
 #####3.2.2zepto选择器用法
 
 ```js
-$('div')  //=> 所有页面中得div元素
-$('#foo') //=> ID 为 "foo" 的元素
+$('div'); //=> 所有页面中得div元素
+$('#foo'); //=> ID 为 "foo" 的元素
 
 // 创建元素:
-$("<p>Hello</p>") //=> 新的p元素
+$('<p>Hello</p>'); //=> 新的p元素
 // 创建带有属性的元素:
-$("<p />", { text:"Hello", id:"greeting", css:{color:'darkblue'} })
+$('<p />', { text: 'Hello', id: 'greeting', css: { color: 'darkblue' } });
 //注意闭合标签的写法;
 ```
 
@@ -134,10 +134,10 @@ $("<p />", { text:"Hello", id:"greeting", css:{color:'darkblue'} })
 
 ```html
 <ul class="season">
-        <li>春</li>
-        <li>夏</li>
-        <li>秋</li>
-        <li>冬</li>
+  <li>春</li>
+  <li>夏</li>
+  <li>秋</li>
+  <li>冬</li>
 </ul>
 <button id="add">增加</button>
 <script src="src/zepto.js"></script>
@@ -146,10 +146,13 @@ $("<p />", { text:"Hello", id:"greeting", css:{color:'darkblue'} })
 ```
 
 ```js
-$('#add').tap(function(){
-        $("<li />", { text:"Hello", id:"greeting", css:{color:'darkblue'} }).appendTo('.season')
-
-    })
+$('#add').tap(function () {
+  $('<li />', {
+    text: 'Hello',
+    id: 'greeting',
+    css: { color: 'darkblue' },
+  }).appendTo('.season');
+});
 ```
 
 #### 3.3 zepto常见方法和事件
@@ -161,10 +164,13 @@ $('#add').tap(function(){
 修改上例:
 
 ```js
-$('#add').on(click,function(){
-        $("<li />", { text:"Hello", id:"greeting", css:{color:'darkblue'} }).appendTo('.season')
-
-    })
+$('#add').on(click, function () {
+  $('<li />', {
+    text: 'Hello',
+    id: 'greeting',
+    css: { color: 'darkblue' },
+  }).appendTo('.season');
+});
 ```
 
 使代码能够正常在pc页面执行.
@@ -177,16 +183,19 @@ $('#add').on(click,function(){
 查看animate的使用方法
 
 ```js
-setInterval(function() {
-    $('.banner-wrap>li:last-of-type').animate({
-        opacity: 0.4
-    }, 500, function() {
-        $('.banner-wrap>li:last-of-type').prependTo('.banner-wrap').css({
-            opacity: 1
-        });
-    })
-
-}, 3000)
+setInterval(function () {
+  $('.banner-wrap>li:last-of-type').animate(
+    {
+      opacity: 0.4,
+    },
+    500,
+    function () {
+      $('.banner-wrap>li:last-of-type').prependTo('.banner-wrap').css({
+        opacity: 1,
+      });
+    }
+  );
+}, 3000);
 ```
 
 #### 3.5 zepto中的手势
@@ -197,49 +206,50 @@ zepto中的手势暂时支持双击 单击 长按 滑动等效果.
 
 ```html
 <style>
-html,body{
+  html,
+  body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-}
-*{
+  }
+  * {
     margin: 0;
-    padding:0;
-}
+    padding: 0;
+  }
 
-#view {
-    background:orange;
-}
+  #view {
+    background: orange;
+  }
 </style>
 <body>
-    <div id="view">
-        <pre><b>哈哈</b></pre>
-        <p>第1段文字内容</p>
-        <p>第2段文字内容</p>
-        <p>第3段文字内容</p>
-        ......
-    </div>
+  <div id="view">
+    <pre><b>哈哈</b></pre>
+    <p>第1段文字内容</p>
+    <p>第2段文字内容</p>
+    <p>第3段文字内容</p>
+    ......
+  </div>
 </body>
 ```
 
 ```js
-$("#view").tap(function(){
+$('#view').tap(function () {
   $('pre').html('单击');
-})
-$("#view").longTap(function(){
+});
+$('#view').longTap(function () {
   $('pre').html('长按');
-})
-$("#view").doubleTap(function(){
+});
+$('#view').doubleTap(function () {
   $('pre').html('双击');
-})
-$(document).swipeUp(function(){
+});
+$(document).swipeUp(function () {
   $('pre').html('飞起');
-})
-$(document).swipeDown(function(){
+});
+$(document).swipeDown(function () {
   $('pre').html('下来');
-})
-$(document).swipeLeft(function(){
-    $('#view').css('transform' , 'translate(-50%,0,0)');
+});
+$(document).swipeLeft(function () {
+  $('#view').css('transform', 'translate(-50%,0,0)');
 });
 ```
 
@@ -252,9 +262,9 @@ $(document).swipeLeft(function(){
 经过测试,安卓手机不适配,测试苹果手机
 
 ```js
-$('#view').pinch(function(){
-    $('pre').html('pinch');
-})
+$('#view').pinch(function () {
+  $('pre').html('pinch');
+});
 ```
 
 需要引入OS模块并且禁用默认的手势事件
@@ -263,8 +273,7 @@ $('#view').pinch(function(){
 
 #### 4.1移动web开发和普通web开发的区别
 
-1.样式：移动适配
-2.行为：单击 双击 滑动 转动
+1.样式：移动适配2.行为：单击 双击 滑动 转动
 
 #### 4.2触摸事件
 
@@ -278,10 +287,10 @@ Touch事件在众多平台上都得到支持(最初在iOS上建立起的touch事
 
 #### 4.3 触摸事件的类型
 
-+ ontouchstart
-+ ontouchmove
-+ ontouchend
-+ ontouchcancel
+- ontouchstart
+- ontouchmove
+- ontouchend
+- ontouchcancel
 
 其中,触摸取消可以被更高优先级的事件所取代。打游戏来电话可以使用touchcancel来保存分数。
 
@@ -290,25 +299,36 @@ Touch事件在众多平台上都得到支持(最初在iOS上建立起的touch事
 我们来查看触摸事件的事件对象有哪些:
 
 ```js
-bd.addEventListener('touchstart' , function(e) {
+bd.addEventListener(
+  'touchstart',
+  function (e) {
     console.log(e);
-} , false);
+  },
+  false
+);
 
-
-bd.addEventListener('touchmove' , function(e) {
+bd.addEventListener(
+  'touchmove',
+  function (e) {
     console.log(e);
-} , false);
+  },
+  false
+);
 
-bd.addEventListener('touchend' , function(e) {
+bd.addEventListener(
+  'touchend',
+  function (e) {
     console.log(e);
-} , false);
+  },
+  false
+);
 ```
 
 可以看到,在这几种touch事件当中,都存在三个很重要的属性
 
-+ touches : 当前在屏幕上的所有点
-+ targetTouches : 当前在目标点击元素上的所有点
-+ changedTouches : 整个事件中，所触摸的所有点
+- touches : 当前在屏幕上的所有点
+- targetTouches : 当前在目标点击元素上的所有点
+- changedTouches : 整个事件中，所触摸的所有点
 
 在移动开发当中,触摸的对象一般来说是针对整个屏幕,即页面的body而言,所以touches和changedTouches可以混用.
 
@@ -320,7 +340,7 @@ bd.addEventListener('touchend' , function(e) {
 ```
 0:{
     pageX:...,
-    pageY:...,    
+    pageY:...,
 }
 ```
 
@@ -341,107 +361,133 @@ bd.addEventListener('touchend' , function(e) {
 
 ```html
 <style>
-html,body{
+  html,
+  body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-}
+  }
 </style>
 <body>
-    <div id="view" style="margin-top:0px">    
-        <h1>标题</h1>
-        <div>
-            <p>内容1</p>
-            <p>内容2</p>
-            <p>内容3</p>
-            .....
-         </div>
+  <div id="view" style="margin-top:0px">
+    <h1>标题</h1>
+    <div>
+      <p>内容1</p>
+      <p>内容2</p>
+      <p>内容3</p>
+      .....
     </div>
+  </div>
 </body>
 ```
 
 ```js
-(function(){
-    var bd = document.getElementsByTagName('body')[0];
-    var view = document.getElementById('view');
+(function () {
+  var bd = document.getElementsByTagName('body')[0];
+  var view = document.getElementById('view');
 
-    var startY = 0 , endY = 0 , distance;
+  var startY = 0,
+    endY = 0,
+    distance;
 
-    bd.addEventListener('touchstart' , function(e) {
-        console.log(startY = e.changedTouches[0].pageY);
-    } , false);
+  bd.addEventListener(
+    'touchstart',
+    function (e) {
+      console.log((startY = e.changedTouches[0].pageY));
+    },
+    false
+  );
 
-    bd.addEventListener('touchend' , function(e) {
-        endY = e.changedTouches[0].pageY;
-        distance = endY - startY;
+  bd.addEventListener(
+    'touchend',
+    function (e) {
+      endY = e.changedTouches[0].pageY;
+      distance = endY - startY;
 
-        console.log(view.style.marginTop);
+      console.log(view.style.marginTop);
 
-        view.style.marginTop = parseInt(view.style.marginTop) + distance + 'px';
-
-    } , false);
-    })();
+      view.style.marginTop = parseInt(view.style.marginTop) + distance + 'px';
+    },
+    false
+  );
+})();
 ```
 
 上面的滚动并不是无缝的,我们可以利用touchmove来动态的确定移动的起始值
 
 ```js
 var startY = 0,
-    endY = 0,
-    distance = 0,
-    mt = 0;
+  endY = 0,
+  distance = 0,
+  mt = 0;
 var bd = document.getElementsByTagName('body')[0];
 var view = document.getElementById('content');
-bd.addEventListener('touchstart', function(e) {
+bd.addEventListener(
+  'touchstart',
+  function (e) {
     startY = e.changedTouches[0].pageY;
-}, false);
-bd.addEventListener('touchmove', function(e) {
+  },
+  false
+);
+bd.addEventListener(
+  'touchmove',
+  function (e) {
     endY = e.changedTouches[0].pageY;
     distance = endY - startY;
     console.log(endY);
     mt = parseInt(view.style.marginTop);
     if (mt >= 100) {
-        return;
-    };
+      return;
+    }
     view.style.marginTop = mt + distance + 'px';
     startY = endY;
     //保证每次开始都是新的start
-}, false);
-bd.addEventListener('touchend', function(e) {
+  },
+  false
+);
+bd.addEventListener(
+  'touchend',
+  function (e) {
     if (mt >= 0) {
-        var step = mt / 20;
-        var clock = setInterval(function() {
-            mt = mt - step;
-            if (mt <= 0) {
-                view.style.marginTop = 0 + 'px';
-                clearInterval(clock);
-            } else {
-                view.style.marginTop = mt + 'px';
-            }
-        }, 50)
-    }else{
-        return false;
+      var step = mt / 20;
+      var clock = setInterval(function () {
+        mt = mt - step;
+        if (mt <= 0) {
+          view.style.marginTop = 0 + 'px';
+          clearInterval(clock);
+        } else {
+          view.style.marginTop = mt + 'px';
+        }
+      }, 50);
+    } else {
+      return false;
     }
-}, false)
+  },
+  false
+);
 ```
 
 **注意**
 在手机端展示的时候,要禁止手机端默认的手势效果
 
 ```js
-    document.getElementsByTagName('body')[0].addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    }, false);
+document.getElementsByTagName('body')[0].addEventListener(
+  'touchmove',
+  function (e) {
+    e.preventDefault();
+  },
+  false
+);
 ```
 
 #### 4.6 屏幕其他手势操作
 
 除了屏幕滚动以外,我们同样可以用起始点的坐标值自己封装一系列的手势动作.
 
-+ 左右滑动 判断起始点的相对位置 及位移的方向
-+ 双击 判断一定时间内同一对象上触发开始和结束的次数
-+ 旋转 判断初始两根手指所在的点连成的线于结束时的夹角
-+ 缩放 判断初始两根手指所在的点连成的线于结束时的长度比值
+- 左右滑动 判断起始点的相对位置 及位移的方向
+- 双击 判断一定时间内同一对象上触发开始和结束的次数
+- 旋转 判断初始两根手指所在的点连成的线于结束时的夹角
+- 缩放 判断初始两根手指所在的点连成的线于结束时的长度比值
 
 但是这些功能我们并非需要全部封装,基本上都是用第三方的类库,直接使用.
 
@@ -451,37 +497,71 @@ gusture是苹果手机原生支持的两个及两个以上的手指触控时发�
 
 ```html
 <style type="text/css">
-    #box{
-        width: 300px;
-        height: 300px;
-        background: red;
-    }
+  #box {
+    width: 300px;
+    height: 300px;
+    background: red;
+  }
 </style>
 <body>
-    <div id="output"></div>
-    <div id="box">111111111111</div>
+  <div id="output"></div>
+  <div id="box">111111111111</div>
 </body>
 ```
 
 ```js
-    document.getElementsByTagName('body')[0].addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    }, false);
-    var output = document.getElementById('output');
+document.getElementsByTagName('body')[0].addEventListener(
+  'touchmove',
+  function (e) {
+    e.preventDefault();
+  },
+  false
+);
+var output = document.getElementById('output');
 
-    document.addEventListener('gesturestart', function(event) {
-        event.preventDefault();
-    }, false);
+document.addEventListener(
+  'gesturestart',
+  function (event) {
+    event.preventDefault();
+  },
+  false
+);
 
-    document.addEventListener('gestureend', function() {
-        output.innerHTML = 'Gesture ended (rotation=' + event.rotation + ',scale=' + event.scale + ')';
-    }, false);
+document.addEventListener(
+  'gestureend',
+  function () {
+    output.innerHTML =
+      'Gesture ended (rotation=' +
+      event.rotation +
+      ',scale=' +
+      event.scale +
+      ')';
+  },
+  false
+);
 
-    document.addEventListener('gesturechange', function(event) {
-        output.innerHTML = 'Gesture changed (rotation=' + event.rotation + ',scale=' + event.scale + ')';
-        // document.getElementById('box').style.transform = "scale(" + event.scale + "," + event.scale + ")";
-        document.getElementById('box').style.transform = "rotateZ(" + event.rotation + "deg )" + "scale(" + event.scale + "," + event.scale + ")";
-    }, false);
+document.addEventListener(
+  'gesturechange',
+  function (event) {
+    output.innerHTML =
+      'Gesture changed (rotation=' +
+      event.rotation +
+      ',scale=' +
+      event.scale +
+      ')';
+    // document.getElementById('box').style.transform = "scale(" + event.scale + "," + event.scale + ")";
+    document.getElementById('box').style.transform =
+      'rotateZ(' +
+      event.rotation +
+      'deg )' +
+      'scale(' +
+      event.scale +
+      ',' +
+      event.scale +
+      ')';
+  },
+  false
+);
 ```
 
 ### 第五章 腾讯手势插件AlloyFinger
@@ -496,32 +576,32 @@ gusture是苹果手机原生支持的两个及两个以上的手指触控时发�
 
 ```html
 <style type="text/css">
-    #box{
-        width: 300px;
-        height: 300px;
-        background: red;
-    }
+  #box {
+    width: 300px;
+    height: 300px;
+    background: red;
+  }
 </style>
 <body>
-    <div id="output"></div>
-    <div id="box">111111111111</div>
+  <div id="output"></div>
+  <div id="box">111111111111</div>
 </body>
 ```
 
 ```js
-var box = document.getElementById("box");
-        Transform(box);
-        new AlloyFinger(box, {
-            rotate:function(evt){
-                box.rotateZ += evt.angle;
-            },
-            multipointStart: function () {
-                initScale = box.scaleX;
-            },
-            pinch: function (evt) {
-                box.scaleX = box.scaleY = initScale * evt.scale;
-            }
-        });
+var box = document.getElementById('box');
+Transform(box);
+new AlloyFinger(box, {
+  rotate: function (evt) {
+    box.rotateZ += evt.angle;
+  },
+  multipointStart: function () {
+    initScale = box.scaleX;
+  },
+  pinch: function (evt) {
+    box.scaleX = box.scaleY = initScale * evt.scale;
+  },
+});
 ```
 
 > 推荐文章: https://segmentfault.com/a/1190000007448808

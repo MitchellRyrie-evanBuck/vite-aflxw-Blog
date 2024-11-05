@@ -1,8 +1,8 @@
 # Canvas
 
 ```jsx
-import React from 'react'
-import { Canvas } from '@react-three/fiber'
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
 
 const App = () => (
   <Canvas>
@@ -12,7 +12,7 @@ const App = () => (
       <meshStandardMaterial color="hotpink" />
     </mesh>
   </Canvas>
-)
+);
 ```
 
 ## 属性

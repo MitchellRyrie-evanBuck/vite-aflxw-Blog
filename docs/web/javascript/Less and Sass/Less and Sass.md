@@ -29,7 +29,7 @@ lessc styles.less styles.css
 <script src="https://cdn.bootcss.com/less.js/2.7.2/less.js"></script>
 ```
 
->注意，一定要在自己写完的样式之后引入less编译器
+> 注意，一定要在自己写完的样式之后引入less编译器
 
 当然,我们的less通常用于持续化继承工具中进行使用,例如glup和webpack,这些工具可以帮助我们自动构建less为css
 
@@ -39,61 +39,63 @@ Less中的变量充许你在样式中的某个地方对常用的值进行定义�
 
 ```less
 @color: #4d926f;
-    #header {
-        color: @color;
-    }
-    h2 {
-        color: @color;
-    }      
+#header {
+  color: @color;
+}
+h2 {
+  color: @color;
+}
 ```
 
 编译后的效果
 
 ```css
 #header {
-    color: #4d926f;
+  color: #4d926f;
 }
 h2 {
-    color: #4d926f;
+  color: #4d926f;
 }
 ```
 
 同时，对于变量，我们还可以做运算
 
 ```less
-@nice-blue: #5B83AD;
+@nice-blue: #5b83ad;
 @light-blue: @nice-blue + #111;
 
-#header { color: @light-blue; }
+#header {
+  color: @light-blue;
+}
 ```
 
 我们不仅可以定义属性值为变量，同时可以定义属性为常量；类似其他语言中的动态变量.
 
 ```less
-@color :blue;
-@blue : 'color' ;
-@height:10px; 
-@width:100px; 
+@color: blue;
+@blue: 'color';
+@height: 10px;
+@width: 100px;
 #header {
-    height: @height; 
-    width: @width; 
-    color: @@blue; 
-} 
+  height: @height;
+  width: @width;
+  color: @@blue;
+}
 ```
 
 在一个less文件中,我们可以使用`@inport`导入其他less文件
 
 ```less
-@color : blue;
+@color: blue;
 @import '02.less';
-div{
-    color:@color;
-    background:@background;
+div {
+  color: @color;
+  background: @background;
 }
 ```
 
 ```less
-@background:yellow;
+@background: yellow;
 ```
 
 #### 2.3 混入
@@ -101,122 +103,123 @@ div{
 在 LESS 中我们可以定义一些通用的属性集为一个 class，然后在另一个 class 中去调用这些属性.
 
 ```less
-.border{
-    border:1px solid red;
+.border {
+  border: 1px solid red;
 }
-@color :blue;
-@blue : 'color' ;
-@height:10px; 
-@width:100px; 
+@color: blue;
+@blue: 'color';
+@height: 10px;
+@width: 100px;
 #header {
-    height: @height; 
-    width: @width; 
-    color: @@blue; 
-    .border;
+  height: @height;
+  width: @width;
+  color: @@blue;
+  .border;
 }
 ```
 
 在混入的同时,我们可以把这个类看作一个可以传递参数的函数调用
 
 ```less
-.border(@yourcolor){
-    border:1px solid @yourcolor;
+.border(@yourcolor) {
+  border: 1px solid @yourcolor;
 }
-@color :blue;
-@blue : 'color' ;
-@height:10px; 
-@width:100px; 
+@color: blue;
+@blue: 'color';
+@height: 10px;
+@width: 100px;
 #header {
-    height: @height; 
-    width: @width; 
-    color: @@blue; 
-    .border(yellow);
+  height: @height;
+  width: @width;
+  color: @@blue;
+  .border(yellow);
 }
 ```
 
 当然,对于函数,我们也可以定义默认值
 
 ```less
-.border(@yourcolor:red){
-    border:1px solid @yourcolor;
+.border(@yourcolor:red) {
+  border: 1px solid @yourcolor;
 }
-@color :blue;
-@blue : 'color' ;
-@height:10px; 
-@width:100px; 
+@color: blue;
+@blue: 'color';
+@height: 10px;
+@width: 100px;
 #header {
-    height: @height; 
-    width: @width; 
-    color: @@blue; 
-    .border;
+  height: @height;
+  width: @width;
+  color: @@blue;
+  .border;
 }
 ```
+
 #### 2.4 套嵌
 
 我们平时在写css的时候,通常会多次运用选择器选择子元素进行样式控制
 
 ```html
 <div id="header">
-    <a>学习less</a>
+  <a>学习less</a>
 </div>
 ```
 
 ```css
 #header {
-    display: inline;
-    float: left;
+  display: inline;
+  float: left;
 }
 #header a {
-    font-size: 26px;
-    font-weight: bold;
-}             
+  font-size: 26px;
+  font-weight: bold;
+}
 ```
 
 Less允许我们运用套嵌描述子元素样式,写法类似dom的层级关系
 
 ```less
-#header{
-    width: @width * 5;
-    height: @height;
-    .border;
-    a:first-child{
-        color:@color;
-    };
-    a:last-of-type{
-        color:blue;
-    }
+#header {
+  width: @width * 5;
+  height: @height;
+  .border;
+  a:first-child {
+    color: @color;
+  }
+  a:last-of-type {
+    color: blue;
+  }
 }
 ```
 
 对于伪类选择器,我们发现编译后的样式不正确
 
 ```less
-#header{
-    display: inline;
-    float: left;
-    a{
-        font-size: 26px;
-        font-weight: bold;
-        :hover{
-            color:yellow;
-        }
+#header {
+  display: inline;
+  float: left;
+  a {
+    font-size: 26px;
+    font-weight: bold;
+    :hover {
+      color: yellow;
     }
+  }
 }
 ```
 
 这时,我们只需要用`&`符号,让属性连写
 
 ```less
-#header{
-    display: inline;
-    float: left;
-    a{
-        font-size: 26px;
-        font-weight: bold;
-        &:hover{
-            color:yellow;
-        }
+#header {
+  display: inline;
+  float: left;
+  a {
+    font-size: 26px;
+    font-weight: bold;
+    &:hover {
+      color: yellow;
     }
+  }
 }
 ```
 
@@ -224,9 +227,9 @@ Less允许我们运用套嵌描述子元素样式,写法类似dom的层级关系
 
 Less 提供了多种函数用于控制颜色变化、处理字符串、算术运算等等
 
->http://www.1024i.com/demo/less/reference.html
+> http://www.1024i.com/demo/less/reference.html
 
->http://lesscss.cn/functions/
+> http://lesscss.cn/functions/
 
 #### 2.6 循环
 
@@ -236,7 +239,7 @@ less给我们提供了控制循环的API `loop`,类似于`if...else`语句,我�
 
 ```less
 .loop(@counter) when (@counter > 0) {
-  .loop((@counter - 1));    // next iteration
+  .loop((@counter - 1)); // next iteration
   width: (10px * @counter); // code for each iteration
 }
 
@@ -249,23 +252,23 @@ div {
 
 ```less
 .loop(@n , @i: 1 ) when (@i <= @n) {
-      .col-md-@{i} {
-            width: (@i * 100% / @n); 
-      }
-      .loop( @n , (@i + 1) ); 
+  .col-md-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .loop( @n , (@i + 1) );
 }
-@media(max-width:992px){
-    .loop(12);
+@media (max-width: 992px) {
+  .loop(12);
 }
 ```
 
->注意 `.loop`是函数名,可以随意定义,when相当于if判断
+> 注意 `.loop`是函数名,可以随意定义,when相当于if判断
 
 ### 第三章 Sass
 
 世界上最成熟、最稳定、最强大的专业级CSS扩展语言！`(...)`
 
->http://sass-lang.com/
+> http://sass-lang.com/
 
 学习完了less,sass对我们来说也会很简单
 
@@ -305,40 +308,39 @@ sass提供两种风格的书写格式,一种为默认的sass风格,另外一种�
 
 SASS提供四个编译风格的选项：
 
-+ nested：嵌套缩进的css代码，它是默认值。
-+ expanded：没有缩进的、扩展的css代码。
-+ compact：简洁格式的css代码。
-+ compressed：压缩后的css代码。
+- nested：嵌套缩进的css代码，它是默认值。
+- expanded：没有缩进的、扩展的css代码。
+- compact：简洁格式的css代码。
+- compressed：压缩后的css代码。
 
 我们使用默认值即可.
 
 ```css
-
 ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 li {
-         display: inline-block;
- }
+  display: inline-block;
+}
 
 a {
-        display: block;
-        padding: 6px 12px;
-        text-decoration: none;
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
 }
 ```
 
 尝试使用不同风格的sass样式进行编译;
 
->在使用express时,sass默认风格是sass,我们只需要略作更改,改做scss即可
+> 在使用express时,sass默认风格是sass,我们只需要略作更改,改做scss即可
 
 `sass test.scss` 可以在命令行输出编译后的结果
 `sass test.scss test.css` 可以将结果输出为css文件.
 
->sass在线编译器 http://www.sassmeister.com/
+> sass在线编译器 http://www.sassmeister.com/
 
 #### 3.3 变量
 
@@ -383,7 +385,7 @@ $width: 10px;
 $height : 100px;
 ```
 
->我们生成的css文件会有一个编译目录和sass.map文件,sass文件相当于源文件，css相当于编译后的文件，当检查到页面问题的时候，你看到的是css，但是需要修改的是sass文件，这个map就是两个文件的对应关系表。
+> 我们生成的css文件会有一个编译目录和sass.map文件,sass文件相当于源文件，css相当于编译后的文件，当检查到页面问题的时候，你看到的是css，但是需要修改的是sass文件，这个map就是两个文件的对应关系表。
 
 #### 3.4 计算
 
@@ -403,13 +405,13 @@ Sass同样支持选择器套嵌
 
 ```css
 #header {
-    display: inline;
-    float: left;
+  display: inline;
+  float: left;
 }
 #header a {
-    font-size: 26px;
-    font-weight: bold;
-}             
+  font-size: 26px;
+  font-weight: bold;
+}
 ```
 
 ```sass
@@ -422,7 +424,6 @@ Sass同样支持选择器套嵌
     }
 }
 ```
-
 
 对于伪类选择器,我们依旧用`&`符号链接
 
@@ -470,7 +471,7 @@ Sass允许一个选择器，继承另一个选择器,使用`@extend`继承父类
 
 #### 3.8 函数
 
->http://sass-lang.com/documentation/Sass/Script/Functions.html 
+> http://sass-lang.com/documentation/Sass/Script/Functions.html
 
 #### 3.9 控制结构
 
@@ -478,7 +479,7 @@ Sass允许一个选择器，继承另一个选择器,使用`@extend`继承父类
 
 Sass支持 if,for,while,each作为控制结构用于数据输出;
 
->http://sass-lang.com/documentation/file.SASS_REFERENCE.html#control_directives__expressions
+> http://sass-lang.com/documentation/file.SASS_REFERENCE.html#control_directives__expressions
 
 ```sass
 @media(max-width:992px){
@@ -487,14 +488,6 @@ Sass支持 if,for,while,each作为控制结构用于数据输出;
             width : $i*100%/12;
             float : left;
         }
-    } 
+    }
 }
 ```
-
-
-
-
-
-
-
-

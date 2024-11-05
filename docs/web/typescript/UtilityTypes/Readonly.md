@@ -1,6 +1,6 @@
 # Readonly
 
-> *将所有属性变为只读*
+> _将所有属性变为只读_
 
 - 源码
 
@@ -9,8 +9,8 @@
  * Make all properties in T readonly
  */
 type Readonly<T> = {
-  readonly [P in keyof T]: T[P]
-}
+  readonly [P in keyof T]: T[P];
+};
 ```
 
 - 源码解析
@@ -21,6 +21,6 @@ type Readonly<T> = {
 
 - 使用场景举例
 
-    1.参考 Object.freeze 的声明
+  1.参考 Object.freeze 的声明
 
-    2.某些项目中定义的常量，防止在后续维护中，不小心在其他位置做了修改，可以使用 `Readonly`
+  2.某些项目中定义的常量，防止在后续维护中，不小心在其他位置做了修改，可以使用 `Readonly`

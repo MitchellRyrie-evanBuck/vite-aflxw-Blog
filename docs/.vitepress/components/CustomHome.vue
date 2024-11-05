@@ -1,19 +1,24 @@
 <script setup>
-import { useData } from 'vitepress'
-const { frontmatter } = useData()
+import { useData } from 'vitepress';
+const { frontmatter } = useData();
 </script>
 
 <template>
-  <div class=" custom-home">
+  <div class="custom-home">
     <!-- 头部区域 -->
     <header class="hero">
-      <h1 class="text-3xl font-bold text-blue-600">{{ frontmatter.hero.name }}</h1>
+      <h1 class="text-3xl font-bold text-blue-600">
+        {{ frontmatter.hero.name }}
+      </h1>
       <p class="description">{{ frontmatter.hero.text }}</p>
       <p class="tagline">{{ frontmatter.hero.tagline }}</p>
-      
+
       <!-- 自定义图片 -->
       <div class="image">
-        <img :src="frontmatter.hero.image.src" :alt="frontmatter.hero.image.alt">
+        <img
+          :src="frontmatter.hero.image.src"
+          :alt="frontmatter.hero.image.alt"
+        />
       </div>
 
       <!-- 操作按钮 -->
@@ -26,9 +31,11 @@ const { frontmatter } = useData()
 
     <!-- 特性区域 -->
     <div class="features">
-      <div v-for="feature in frontmatter.features" 
-           :key="feature.title" 
-           class="feature-item">
+      <div
+        v-for="feature in frontmatter.features"
+        :key="feature.title"
+        class="feature-item"
+      >
         <div class="icon" v-if="feature.icon">{{ feature.icon }}</div>
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
@@ -38,7 +45,6 @@ const { frontmatter } = useData()
 </template>
 
 <style lang="less" scoped>
-
 .custom-home {
   padding: 24px;
   max-width: 1200px;

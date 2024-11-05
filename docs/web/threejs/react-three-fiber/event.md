@@ -7,19 +7,19 @@ three.js可以通过在对象上声明事件来与实现自己raycast方法（�
 
 ```jsx
 <mesh
-  onClick={(e) => console.log('click')}
-  onContextMenu={(e) => console.log('context menu')}
-  onDoubleClick={(e) => console.log('double click')}
-  onWheel={(e) => console.log('wheel spins')}
-  onPointerUp={(e) => console.log('up')}
-  onPointerDown={(e) => console.log('down')}
-  onPointerOver={(e) => console.log('over')}
-  onPointerOut={(e) => console.log('out')}
-  onPointerEnter={(e) => console.log('enter')} // see note 1
-  onPointerLeave={(e) => console.log('leave')} // see note 1
-  onPointerMove={(e) => console.log('move')}
+  onClick={e => console.log('click')}
+  onContextMenu={e => console.log('context menu')}
+  onDoubleClick={e => console.log('double click')}
+  onWheel={e => console.log('wheel spins')}
+  onPointerUp={e => console.log('up')}
+  onPointerDown={e => console.log('down')}
+  onPointerOver={e => console.log('over')}
+  onPointerOut={e => console.log('out')}
+  onPointerEnter={e => console.log('enter')} // see note 1
+  onPointerLeave={e => console.log('leave')} // see note 1
+  onPointerMove={e => console.log('move')}
   onPointerMissed={() => console.log('missed')}
-  onUpdate={(self) => console.log('props have been updated')}
+  onUpdate={self => console.log('props have been updated')}
 />
 ```
 
@@ -41,6 +41,7 @@ three.js可以通过在对象上声明事件来与实现自己raycast方法（�
 ```
 
 事件系统如何工作、冒泡和捕获
+
 > pointerenter事件pointerleave的工作方式与pointerover 和pointerout 完全相同。 pointerenter并且pointerleave语义没有实现。
 > 某些事件（例如）在和 射线pointerout之间没有相交时发生。eventObject发生这种情况时，该事件将包含先前事件与该对象的交集数据。
 
@@ -161,13 +162,13 @@ useEffect(() => {
 
 ```tsx
 function RaycastWhenCameraMoves() {
-  const matrix = new THREE.Matrix4()
-  useFrame((state) => {
+  const matrix = new THREE.Matrix4();
+  useFrame(state => {
     // Act only when the camera has moved
     if (!matrix.equals(state.camera.matrixWorld)) {
-      state.events.update()
-      matrix.copy(state.camera.matrixWorld)
+      state.events.update();
+      matrix.copy(state.camera.matrixWorld);
     }
-  })
+  });
 }
 ```

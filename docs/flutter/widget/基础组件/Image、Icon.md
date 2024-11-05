@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
             Image.asset("images/avatar.png",
               width: 100.0,
             )
-          ] 
+          ]
         ),
       ),
     );

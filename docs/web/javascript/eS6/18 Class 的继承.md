@@ -5,14 +5,15 @@
 Class 可以通过`extends`关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。
 
 ```javascript
-class Point { /* ... */ }
-
-class ColorPoint extends Point {
-  constructor() {
-  }
+class Point {
+  /* ... */
 }
 
-let cp = new ColorPoint(); 
+class ColorPoint extends Point {
+  constructor() {}
+}
+
+let cp = new ColorPoint();
 ```
 
 但是我们实际运行上述代码，却会报错。
@@ -40,8 +41,8 @@ ES5 的继承，实质是先创造子类的实例对象`this`，然后再将父�
 ```javascript
 let cp = new ColorPoint();
 
-cp instanceof ColorPoint // true
-cp instanceof Point // true
+cp instanceof ColorPoint; // true
+cp instanceof Point; // true
 ```
 
 上面代码中，实例对象`cp`同时是`ColorPoint`和`Point`两个类的实例，这与 ES5 的行为完全一致。
@@ -57,7 +58,7 @@ cp instanceof Point // true
 `Object.getPrototypeOf`方法可以用来从子类上获取父类。
 
 ```javascript
-Object.getPrototypeOf(ColorPoint) === Point
+Object.getPrototypeOf(ColorPoint) === Point;
 // true
 ```
 
@@ -119,7 +120,7 @@ class B extends A {
 }
 
 let b = new B();
-b.m() // 2
+b.m(); // 2
 ```
 
 上面代码中，`super.print()`虽然调用的是`A.prototype.print()`，但是`A.prototype.print()`内部的`this`指向子类`B`的实例，导致输出的是`2`，而不是`1`。也就是说，实际上执行的是`super.print.call(this)`。
@@ -137,12 +138,9 @@ b.m() // 2
 类的继承是按照下面的模式实现的。
 
 ```javascript
-class A {
-}
+class A {}
 
-class B {
-}
-
+class B {}
 
 Object.setPrototypeOf(B.prototype, A.prototype);
 // 等同于
@@ -150,7 +148,7 @@ B.prototype.__proto__ = A.prototype; //完成方法的继承
 
 Object.setPrototypeOf(B, A);
 // 等同于
-B.__proto__ = A;//完成静态属性的继承
+B.__proto__ = A; //完成静态属性的继承
 ```
 
 正如上一章所讲，如果把类看作构造函数，那么类的方法是定义在构造函数的原型上的。所以要实现方法的继承，需要实现一条构造函数原型的继承链：
@@ -163,17 +161,19 @@ B.__proto__ = A;//完成静态属性的继承
 
 了解上述原理，我们能够更好的了解类的本质，并且在一定条件下修改继承关系。
 
-### 实例的 \__proto__ 属性
+### 实例的 \_\_proto\_\_ 属性
 
 子类实例的`__proto__`属性的`__proto__`属性，指向父类实例的`__proto__`属性，这也是可以根据本小节内容推断出来的。
 
 ```javascript
-var a = new A()
-var b = new B()
+var a = new A();
+var b = new B();
 
-b.__proto__ === B.prototype
-b,__proto__.__proto__ === B.prototype.__proto__ === A.prototype === a.__proto__
-b,__proto__.__proto__ = a.__proto__
+b.__proto__ === B.prototype;
+b,
+  ((__proto__.__proto__ === B.prototype.__proto__) === A.prototype) ===
+    a.__proto__;
+b, (__proto__.__proto__ = a.__proto__);
 ```
 
 上面代码中，`ColorPoint`继承了`Point`，导致前者原型的原型是后者的原型。
@@ -185,7 +185,7 @@ p2.__proto__.__proto__.printName = function () {
   console.log('Ha');
 };
 
-p1.printName() // "Ha"
+p1.printName(); // "Ha"
 ```
 
 上面代码在`ColorPoint`的实例`p2`上向`Point`类添加方法，结果影响到了`Point`的实例`p1`。
@@ -195,32 +195,31 @@ p1.printName() // "Ha"
 ES5 当中，我们可以使用复制继承的方式，继承一个对象的属性和方法：
 
 ```js
-function Cat(leg,tail) {
-    this.leg = leg;
-    this.tail = tail;
+function Cat(leg, tail) {
+  this.leg = leg;
+  this.tail = tail;
 
-    this.climb = function() {
-        alert('我会爬树');
-    }
+  this.climb = function () {
+    alert('我会爬树');
+  };
 }
 
 function Tiger(color) {
-    this.color = color;
-    
-    this.extend = function (parent) {
-        for(var key in parent) {
-            //console.log(key);
-            this[key] = parent[key];
-        }
-    }
-}
+  this.color = color;
 
+  this.extend = function (parent) {
+    for (var key in parent) {
+      //console.log(key);
+      this[key] = parent[key];
+    }
+  };
+}
 
 var tiger = new Tiger('yellow');
 //tiger.climb(); 出错
 console.log(tiger);
 
-tiger.extend(new Cat(4,1));
+tiger.extend(new Cat(4, 1));
 console.log(tiger);
 
 tiger.climb();
@@ -248,10 +247,7 @@ function mix(...mixins) {
 
 function copyProperties(target, source) {
   for (let key of Reflect.ownKeys(source)) {
-    if ( key !== 'constructor'
-      && key !== 'prototype'
-      && key !== 'name'
-    ) {
+    if (key !== 'constructor' && key !== 'prototype' && key !== 'name') {
       let desc = Object.getOwnPropertyDescriptor(source, key);
       Object.defineProperty(target, key, desc);
     }
@@ -269,17 +265,15 @@ class DistributedEdit extends mix(Loggable, Serializable) {
 
 `mix`的调用自动传入两个类，拷贝静态属性，原型属性和实例属性，拷贝到`Mix`类上。
 
-
-
 ## 小结
 
-本章我们学习了类的继承。由于 ES6 的类“类”语法实现并不是很完好，如果我们学习过其它语言，总有一种“画虎不成反类犬”的感觉，为了能够读懂和使用 ES6  中的类，还是请大家认真学习继承的基本语法和`super`的使用方式。
+本章我们学习了类的继承。由于 ES6 的类“类”语法实现并不是很完好，如果我们学习过其它语言，总有一种“画虎不成反类犬”的感觉，为了能够读懂和使用 ES6 中的类，还是请大家认真学习继承的基本语法和`super`的使用方式。
 
 至此，我们 ES6 的基本语法已经学习完毕，还有一些内容需要在特定的场景中进行讲解，包括以下几个知识点：
 
-+ Promise 对象 
-+ async 函数 
-+ Module 的语法和加载实现
-+ 异步遍历
+- Promise 对象
+- async 函数
+- Module 的语法和加载实现
+- 异步遍历
 
 本套课程中我并未涉及到 ES6 中正则的扩展，有兴趣的同学可以自行查阅资料学习。

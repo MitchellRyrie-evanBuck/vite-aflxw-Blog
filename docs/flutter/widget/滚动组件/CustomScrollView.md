@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # CustomScrollView
 
 CustomScrollView 是 Flutter 中的一个强大的滚动容器，它可以包含多种滚动视图（sliver）组件，例如 SliverAppBar、SliverList、SliverGrid 等，以实现更复杂的滚动效果和布局。CustomScrollView 在需要定制滚动效果、嵌套滚动视图等情况下非常有用。
@@ -134,7 +135,7 @@ class MyScrollPage extends StatelessWidget {
 - SliverList: 创建一个垂直滚动的列表，可以包含多个子项。
 - SliverToBoxAdapter: 允许您将任何小部件包装在CustomScrollView中，但不会自动适应滚动。
 - SliverPersistentHeader: 创建一个固定的持久化头部，可以在滚动时保持可见。
-:::
+  :::
 
 ## 先提供一个示例看一下
 

@@ -7,7 +7,7 @@ Constructor (构造函数):
 class Person {
   String name;
   int age;
-  
+
   Person(this.name, this.age); // 构造函数
 }
 

@@ -1,6 +1,6 @@
 # Required
 
-> *让所有属性都变成必选的*
+> _让所有属性都变成必选的_
 
 - 源码
 
@@ -9,8 +9,8 @@
  * Make all properties in T required
  */
 type Required<T> = {
-  [P in keyof T]-?: T[P]
-}
+  [P in keyof T]-?: T[P];
+};
 ```
 
 - 源码解析
@@ -21,8 +21,8 @@ TS 在 2.8 版本改进了对[映射类型修饰符的控制](https://link.jueji
 
 ```tsx
 type Partial<T> = {
-  [P in keyof T]+?: T[P]
-}
+  [P in keyof T]+?: T[P];
+};
 ```
 
 也就是说 `-?` 的写法会去除可选属性这一属性修饰符，达到让每个属性都变为必选的目的
@@ -32,11 +32,11 @@ type Partial<T> = {
 ```tsx
 interface TestNullCheck {
   // 如果没有 number 类型，仅有 undefined 类型，则会保留 undefined
-  testParam?: number | undefined
+  testParam?: number | undefined;
 }
 
-type Test = Required<TestNullCheck> // 得到 { testParam: number }
-复制代码
+type Test = Required<TestNullCheck>; // 得到 { testParam: number }
+复制代码;
 ```
 
 - 使用场景举例

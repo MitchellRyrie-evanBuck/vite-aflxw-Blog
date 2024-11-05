@@ -1,6 +1,6 @@
 # OmitThisParameter
 
-> *基于一个函数类型构造一个没有 this 声明的函数类型*
+> _基于一个函数类型构造一个没有 this 声明的函数类型_
 
 - 源码
 
@@ -8,7 +8,12 @@
 /**
  * Removes the 'this' parameter from a function type.
  */
-type OmitThisParameter<T> = unknown extends ThisParameterType<T> ? T : T extends (...args: infer A) => infer R ? (...args: A) => R : T;
+type OmitThisParameter<T> =
+  unknown extends ThisParameterType<T>
+    ? T
+    : T extends (...args: infer A) => infer R
+      ? (...args: A) => R
+      : T;
 ```
 
 - 源码解析

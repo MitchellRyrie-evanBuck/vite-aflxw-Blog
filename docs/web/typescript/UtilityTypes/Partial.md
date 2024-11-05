@@ -1,6 +1,6 @@
 # Partial
 
-> *将传入的 T 类型所有属性置为可选*
+> _将传入的 T 类型所有属性置为可选_
 
 - 源码
 
@@ -52,15 +52,14 @@ type NewType = { [K in OldType]: NewResultType }
 5.粉色区域：属性的结果类型
 
 > TS 4.1 以上可以在橙色区域后使用 as 操作符重新映射映射类型中的键，它的作用目标是白色区域的键；除了这 5 个部分，下文中还会提到属性修饰符 readonly 和 ?
->
 
 假如在上述代码中，OldType 为 `type OldType = "key1" | "key2"`，那么 NewType 等同于
 
 ```tsx
 type NewType = {
-  key1: NewResultType
-  key2: NewResultType
-}
+  key1: NewResultType;
+  key2: NewResultType;
+};
 ```
 
 你可以在 TS 官网中看到类似的例子。
@@ -77,17 +76,17 @@ type IndexType = {
 
 ```tsx
 type MappingType = {
-  [key in OldType]?: NewResultType // 正确的写法
-}
+  [key in OldType]?: NewResultType; // 正确的写法
+};
 ```
 
 上面的代码会得到一个这样的类型
 
 ```tsx
 type NewType = {
-  key1?: NewResultType | undefined
-  key2?: NewResultType | undefined
-}
+  key1?: NewResultType | undefined;
+  key2?: NewResultType | undefined;
+};
 ```
 
 对于属性的结果类型，源码中是这样处理的：`T[P]`，也就是[索引访问](https://link.juejin.cn/?target=https%3A%2F%2Fwww.typescriptlang.org%2Fdocs%2Fhandbook%2F2%2Findexed-access-types.html)
@@ -96,21 +95,19 @@ type NewType = {
 
 ```tsx
 interface Dogs {
-  dogName: string
-  dogAge: number
-  dogKind: string
+  dogName: string;
+  dogAge: number;
+  dogKind: string;
 }
 
-type DogName = Dogs["dogName"] // 得到 string 类型
-
+type DogName = Dogs['dogName']; // 得到 string 类型
 ```
 
 如果字符串 `"dogName"` 代表一个[字面量类型](https://link.juejin.cn/?target=https%3A%2F%2Fwww.typescriptlang.org%2Fdocs%2Fhandbook%2F2%2Feveryday-types.html%23literal-types)，那么下面的这种写法就与 `T[P]` 是相似的
 
 ```tsx
-type DogNameKey = "dogName"
-type DogName = Dogs[DogNameKey]
-
+type DogNameKey = 'dogName';
+type DogName = Dogs[DogNameKey];
 ```
 
 对于源码的 `[P in keyof T]` 部分中的 `P`，在 `in` 操作符的作用下会是联合类型中的某一个具体的字面量类型
@@ -119,26 +116,26 @@ type DogName = Dogs[DogNameKey]
 
 - 使用场景举例
 
-    1.对象的扩展运算符，比如我们实现基于 `useReducer` 实现一个简单的 `setState`
+  1.对象的扩展运算符，比如我们实现基于 `useReducer` 实现一个简单的 `setState`
 
 ```tsx
 type State = {
-  loading: boolean
-  list: Array<any>
-  page: number
-}
+  loading: boolean;
+  list: Array<any>;
+  page: number;
+};
 const [state, setState] = useReducer(
   (state: State, nextState: Partial<State>) => {
-    return { ...state, ...nextState }
+    return { ...state, ...nextState };
   },
   {
     loading: false,
     list: [],
     page: 0,
   }
-)
+);
 // 使用
-setState({ page: 1 })
+setState({ page: 1 });
 ```
 
 上面的代码中 nextState 被传入后，会与原 state 做合并操作，nextState 并不需要含有 State 类型的所有键，故使用 Partial 进行类型的定义
@@ -147,16 +144,16 @@ setState({ page: 1 })
 
 ```tsx
 interface Params {
-  param1: string
-  param2: number
-  param3: Array<string>
+  param1: string;
+  param2: number;
+  param3: Array<string>;
 }
 function testFunction(params: Partial<Params>) {
   const requiredParams: Params = {
-    param1: params.param1 ?? "",
+    param1: params.param1 ?? '',
     param2: params.param2 ?? 0,
     param3: params.param3 ?? [],
-  }
-  return requiredParams
+  };
+  return requiredParams;
 }
 ```

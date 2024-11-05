@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # GridView
 
 GridView是Flutter中用于展示网格布局的小部件，它可以在垂直或水平方向上展示一组子项，并支持滚动。GridView常用于展示图像列表、商品展示、瀑布流布局等，是构建网格布局的重要组件。
@@ -22,10 +23,10 @@ GridView(
 ## 属性及功能
 
 1. gridDelegate（SliverGridDelegate）：网格布局代理。
-功能：用于配置网格布局的一些参数，如子项数量、间隔等。
+   功能：用于配置网格布局的一些参数，如子项数量、间隔等。
 
 2. `children（List<Widget>）`：子项列表。
-功能：设置网格中的子项内容。
+   功能：设置网格中的子项内容。
 
 ## 使用场景
 
@@ -43,7 +44,7 @@ GridView(
 ## 每项属性举例
 
 - crossAxisCount：每行的子项数量。
-示例：
+  示例：
 
 ```dart
 SliverGridDelegateWithFixedCrossAxisCount(
@@ -53,7 +54,7 @@ SliverGridDelegateWithFixedCrossAxisCount(
 ```
 
 - mainAxisSpacing：主轴方向的间隔。
-示例：
+  示例：
 
 ```dart
 SliverGridDelegateWithFixedCrossAxisCount(
@@ -63,7 +64,7 @@ SliverGridDelegateWithFixedCrossAxisCount(
 ```
 
 - crossAxisSpacing：交叉轴方向的间隔。
-示例：
+  示例：
 
 ```dart
 SliverGridDelegateWithFixedCrossAxisCount(
@@ -73,7 +74,7 @@ SliverGridDelegateWithFixedCrossAxisCount(
 ```
 
 - childAspectRatio：子项的宽高比。
-示例：
+  示例：
 
 ```dart
 SliverGridDelegateWithFixedCrossAxisCount(

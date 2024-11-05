@@ -47,9 +47,8 @@ FormState为Form的State类，可以通过Form.of()或GlobalKey获得。我们�
 
 我们修改一下上面用户登录的示例，在提交之前校验：
 
-1. 用户名不能为空，如果为空则提示“用户名不能为空”。
-2.密码不能少于 6 位，如果小于 6 为则提示“密码不能少于 6 位”。
-完整代码：
+1. 用户名不能为空，如果为空则提示“用户名不能为空”。2.密码不能少于 6 位，如果小于 6 为则提示“密码不能少于 6 位”。
+   完整代码：
 
 ```dart
 import 'package:flutter/material.dart';
@@ -137,7 +136,7 @@ Expanded(
     return ElevatedButton(
       ...
       onPressed: () {
-        //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState  
+        //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState
         if(Form.of(context).validate()){
           //验证通过提交数据
         }

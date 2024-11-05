@@ -1,20 +1,21 @@
 # JS高级
 
 ## 高级事件绑定
+
 W3c中的标准--addEventListener
 
-1. 绑在哪个事件上?  click,load,change,blur,focus,mouseover,mouseup.....等等
+1. 绑在哪个事件上? click,load,change,blur,focus,mouseover,mouseup.....等等
 2. 绑定什么函数---自定义事件函数
 3. 什么方式监听执行事件函数? 捕捉,冒泡?
 
 语法: xxxDomObject.addEventListener('事件' , 函数 , 冒泡/捕捉);
 
->1级DOM--(为什么没有1级DOM)
-DOM级别1于1998年10月1日成为W3C推荐标准。1级DOM标准中并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型。在2级DOM中除了定义了一些DOM相关的操作之外还定义了一个事件模型 ，这个标准下的事件模型就是我们所说的2级DOM事件模型 
+> 1级DOM--(为什么没有1级DOM)
+> DOM级别1于1998年10月1日成为W3C推荐标准。1级DOM标准中并没有定义事件相关的内容，所以没有所谓的1级DOM事件模型。在2级DOM中除了定义了一些DOM相关的操作之外还定义了一个事件模型 ，这个标准下的事件模型就是我们所说的2级DOM事件模型
 
-注意细节: 
+注意细节:
 
-1. 事件名,一律不带on 
+1. 事件名,一律不带on
 2. 绑定事件函数中的"this"指绑定该事件的对象
 3. 执行顺序,是按绑定顺序来执行的!
 
@@ -52,20 +53,55 @@ removeEventListener()
 如果我在红框hd中,点击一下,china,bj,hd都被点击中了.
 而且,如果3者都有click事件,谁先发生?
 
-
 ```js
 function $(id) {
-    return document.getElementById(id);
+  return document.getElementById(id);
 }
 
-$('china').addEventListener('click',function() {alert('进入china');},true);
-$('bj').addEventListener('click',function() {alert('进入bj');},true);
-$('hd').addEventListener('click',function() {alert('进入hd');},true);
+$('china').addEventListener(
+  'click',
+  function () {
+    alert('进入china');
+  },
+  true
+);
+$('bj').addEventListener(
+  'click',
+  function () {
+    alert('进入bj');
+  },
+  true
+);
+$('hd').addEventListener(
+  'click',
+  function () {
+    alert('进入hd');
+  },
+  true
+);
 
-
-$('china').addEventListener('click',function(ev) {console.log(ev);alert('离开china');},false);
-$('bj').addEventListener('click',function() {alert('离开bj');},false);
-$('hd').addEventListener('click',function() {alert('离开hd');},false);
+$('china').addEventListener(
+  'click',
+  function (ev) {
+    console.log(ev);
+    alert('离开china');
+  },
+  false
+);
+$('bj').addEventListener(
+  'click',
+  function () {
+    alert('离开bj');
+  },
+  false
+);
+$('hd').addEventListener(
+  'click',
+  function () {
+    alert('离开hd');
+  },
+  false
+);
 ```
 
 ## 停止传播
@@ -75,19 +111,27 @@ $('hd').addEventListener('click',function() {alert('离开hd');},false);
 例1: 阻止捕捉
 
 ```js
-$('china').addEventListener('click',function(ev) {
+$('china').addEventListener(
+  'click',
+  function (ev) {
     alert('进入china');
     ev.stopPropagation();
-},true);
+  },
+  true
+);
 ```
 
 例2: 阻止冒泡
 
 ```js
-$('hd').addEventListener('click',function(ev) {
+$('hd').addEventListener(
+  'click',
+  function (ev) {
     alert('进离开');
     ev.stopPropagation();
-},false);
+  },
+  false
+);
 ```
 
 ## 阻止事件的默认行为
@@ -155,11 +199,11 @@ var 是在函数运行的上下文中,声明一个变量,
 
 **/
 function t1() {
-    var d= 5;
-    e = 6;
+  var d = 5;
+  e = 6;
 
-    alert(d);
-    alert(e);
+  alert(d);
+  alert(e);
 }
 
 t1();
@@ -203,13 +247,12 @@ t1();   // ? ?
 
 1. 函数运行前的1瞬间, 生成 Active Object (活动对象),下称AO
 2. 函数声明的参数,形成AO的属性,值为实参的值,未传实参则为undefined
-3. 分析变量声明声明声明! 如 var age, 
+3. 分析变量声明声明声明! 如 var age,
    如果AO上还没有age属性,则添加AO属性,值是undefined
    如果AO上已经有age属性,则不做任何影响
-   
-4. 分析函数声明,如 function foo() {}, 
-则把函数赋给AO.foo属性
-**注: **如果此前foo属性已存在,则被无情的覆盖了
+4. 分析函数声明,如 function foo() {},
+   则把函数赋给AO.foo属性
+   **注: **如果此前foo属性已存在,则被无情的覆盖了
 
 作用域链既是AO逐级向上寻找的过程中形成的链
 
@@ -232,6 +275,7 @@ t();
 AO {age:5}
 
 运行过程:
+
 ```
 alert(AO.age); //5
 
@@ -246,7 +290,7 @@ function t2(age) {
     alert(age);
 }
 
-t2(5); 
+t2(5);
 ```
 
 分析过程:
@@ -256,6 +300,7 @@ t2(5);
 2. 分析var age, 发现AO已有age属性,不做任何影响
 
 执行过程:
+
 ```
 执行赋值: AO.age = 99;
 alert(age);
@@ -277,12 +322,13 @@ function t3(greet) {
 t3(null);
 ```
 
-分析过程:
-0. 形成AO = {}
+分析过程: 0. 形成AO = {}
+
 1. 分析参数 AO = {greet:null}
 2. 分析函数声明, AO.greet = function(){} 被覆盖成函数
 
 执行过程:
+
 ```
 alert(age);
 AO.greet = hello;
@@ -308,14 +354,15 @@ a(1);
 分析期:
 
 0. AO = {}
-1. 分析参数  AO = {b:1}
+1. 分析参数 AO = {b:1}
 2. 分析var 声明,此函数没有var
 3. 分析函数声明, AO = {b: function(){alert(b);}}
 
 执行期:
+
 ```
 alert(b);  // function
-b();       // 由作用域寻找到a函数中的b,即 function,alert()出来   
+b();       // 由作用域寻找到a函数中的b,即 function,alert()出来
 ```
 
 **第5题:**
@@ -326,7 +373,7 @@ function a(b) {
    b = function (){
         alert (b);
    }
-   
+
    b();
 }
 
@@ -339,20 +386,20 @@ a(1);
 1,1
 1, function
 1, undefined
-function ,function 
+function ,function
 ```
 
 词法分析过程:
 
 0. AO = {}
-1. 分析参数 AO =  {b:1}
+1. 分析参数 AO = {b:1}
 2. 分析var声明,没有.
-3. 分析函数声明??  没有!
+3. 分析函数声明?? 没有!
 
->(注: b = function() {} ,是一个赋值过程,在执行期才有用)
-
+> (注: b = function() {} ,是一个赋值过程,在执行期才有用)
 
 执行过程:
+
 ```
 alert(b); // 1
 b = function() {
@@ -368,11 +415,9 @@ JS中,函数也是一种值,
 可以赋值给变量,可以作为参数来传递.
 
 ```js
-function t1() {
-}
+function t1() {}
 
-t2 = function() {
-}
+t2 = function () {};
 ```
 
 这2种方式,效果不同的,
@@ -381,7 +426,7 @@ t1是函数声明, 虽然全局内也得到一个t1变量,值是function
 
 而t2 只是一个赋值过程------值是谁? 值是右侧的表达式的返回结果,即函数
 
-就是说 function () {} 在js看来,就和 3*2, 6/3 一样,是个表达式,返回一个结果
+就是说 function () {} 在js看来,就和 3\*2, 6/3 一样,是个表达式,返回一个结果
 
 因此,t1 t2 两种方式在词法分析时,有着本质区别
 
@@ -389,13 +434,10 @@ t1是函数声明, 虽然全局内也得到一个t1变量,值是function
 
 而后者,在运行阶段,才发挥作用
 
-
-
 知道了函数表达式的概念,再看看一个你以前看不懂的东西
 
 ```js
-(function(window,undefined) {
-})(window);
+(function (window, undefined) {})(window);
 ```
 
 这是jquery的最外层代码
@@ -435,7 +477,7 @@ jquery就是为了加快内部查找变局变量的速度，而直接把window�
 
 不传undefined是为了安全
 
-因为在IE,FF低版本中 ,  undefined竟然可以重新赋值 ,如 undefined = 3;
+因为在IE,FF低版本中 , undefined竟然可以重新赋值 ,如 undefined = 3;
 
 声明undefined局部变量(名字是undefined而已), 同时,又不传参,值自然是undefined
 防止了外界对undefined的污染
@@ -464,7 +506,7 @@ this: 沿原型查找,形成原型链
 (function (d,e,f) {
     console.log(arguments); // 对象
     console.log(arguments[0]) // hello -->长的像数组
-    console.log(arguments[2]) // !   
+    console.log(arguments[2]) // !
 })('hello','world','!');
 ```
 
@@ -479,14 +521,13 @@ this: 沿原型查找,形成原型链
 })('hello','world','!','haha');
 ```
 
-
 **arguments.callee 属性**
 
 callee 代表 "当前运行的函数"
 
 ```JS
 (function (d,e,f) {
-    console.log(arguments.callee);  
+    console.log(arguments.callee);
 })('hello','world','!');
 ```
 
@@ -517,12 +558,12 @@ alert(window.xx);
 而不论函数声明时,this属于谁.
 
 ```js
-show = function() {
-    alert('show '+this.xx);
-}
+show = function () {
+  alert('show ' + this.xx);
+};
 
 dog.t = show;
-dog.t();// show wangwang
+dog.t(); // show wangwang
 ```
 
 3: 作为构造函数调用时
@@ -551,7 +592,6 @@ c. 执行该函数
 d. 返回该对象
 ```
 
-
 下面这个返回什么?
 
 ```JS
@@ -561,8 +601,8 @@ function Pig() {
 }
 ```
 
-var pig = new Pig();  // Pig对象,因为函数作为构造函数运行时,return 的值是忽略的,还是返回对象.
-console.log(pig); 
+var pig = new Pig(); // Pig对象,因为函数作为构造函数运行时,return 的值是忽略的,还是返回对象.
+console.log(pig);
 
 4: 函数通过call , apply调用
 
@@ -592,32 +632,33 @@ fn.call(对象obj,参数1,参数2...参数N);
 运行如下:
 
 ```
-a): fn函数中的this----指向-->对象obj  
+a): fn函数中的this----指向-->对象obj
 b): 运行fn(参数1,参数2...参数N);
 ```
-
 
 this练习题:
 
 ```js
 name = 'this is window';
 
-var obj = {name:'php',t:function () {alert(this.name)}};
-var dog = {name:'huzi'};
-
+var obj = {
+  name: 'php',
+  t: function () {
+    alert(this.name);
+  },
+};
+var dog = { name: 'huzi' };
 
 obj.t(); // php
 
-
 var tmp = obj.t;
 tmp(); //相当于window.tmp() this is window
-
 
 dog.t = obj.t;
 dog.t(); // huzi;
 
 (dog.t = obj.t)();
-// (dog.t = obj.t)是一个表达式,返回值是"值",即t函数, 
+// (dog.t = obj.t)是一个表达式,返回值是"值",即t函数,
 // 强调是值,说明不是通过引用来调用的,而是立即使用函数本身
 // 效果等同于 (function () {alert(this.name)})()
 // null又被解释成window
@@ -628,19 +669,19 @@ dog.t.call(obj); //php
 
 QQ群问题:
 
-〓天〓(372XXXX95) 9:04:17 
+〓天〓(372XXXX95) 9:04:17
 
 ```js
-var name = "The Window";   
-　　var object = {  
-　　　　name : "My Object",  
-　　　　getNameFunc : function(){  
-　　　　　　return function(){  
-　　　　　　　　return this.name;  
-　　　　　};   
-　　　　}   
-};  
-alert(object.getNameFunc()()); 
+var name = "The Window";
+　　var object = {
+　　　　name : "My Object",
+　　　　getNameFunc : function(){
+　　　　　　return function(){
+　　　　　　　　return this.name;
+　　　　　};
+　　　　}
+};
+alert(object.getNameFunc()());
 请教各位大神.......为什么是The window
 ```
 
@@ -659,7 +700,7 @@ function t1() {
 
 var age = 99;
 var tmp = t1();
-tmp();  // 20 
+tmp();  // 20
 ```
 
 :在大部分的语言中,t1被调用执行,则申请内存
@@ -693,6 +734,7 @@ window.cnt = 0;
 该计数器就损坏了.(所以要尽量避免用全局变量)
 
 2: 闭包维护一个别人污染不到的变量,做计数器
+
 ```JS
 function counter() {
     var cnt = 0;  // 当counter执行完毕后,除了返回的cnter函数,谁也别想碰到cnt变量了.
@@ -711,8 +753,8 @@ alert(cnt()); // 2
 alert(cnt()); // 3
 ```
 
-
 // 第2版 匿名函数简化
+
 ```JS
 var cnt = (function () {
     var cnt = 0;
@@ -728,12 +770,13 @@ alert(cnt());
 
 第3版 如何避免全局污染或冲突
 
-/*
+/_
 1:统一放在一个全局对象上,如jquery->$
 2:每人用自己的命名空间.
-*/
+_/
 
 // jquery的计数器插件形式
+
 ```JS
 $ = {};
 $.cnt = (function () {
@@ -750,6 +793,7 @@ alert($.cnt());
 
 // 个人命名空间,在团队开发中也很常见
 // 其实就是把自己的变量,函数,都放在一个对象里.
+
 ```JS
 var Y18 = {};  // 跟团队说清,这是我的空间,别人不要用了
 Y18.cnt = (function () {
@@ -764,11 +808,11 @@ alert(Y18.cnt());
 ```
 
 ## JS面向对象
+
 先有人 还是 先有人类?
 
 如果从造物主的角度讲, 脑子中,先构想"人类的形象",然后再造人
 先有类,再有对象. 如java,php,c++,先把类构思好,才能对象.
-
 
 如果从地球生物演化的角度讲,
 先有人,才有人类.
@@ -776,7 +820,6 @@ alert(Y18.cnt());
 因为,原本没有人,只有猴子.
 一个雷打下来, 某个猴子变异了,能站着走路,脑子也聪明了------
 总结这个猴子及其后代---->和普通猴不一样,把他们叫人类.
-
 
 其次: 在java,PHP中,通过类造的对象,所有的都一个模板,比如 能哭,会笑
 如果类改变了,所有对象的方法,都改变.
@@ -802,6 +845,7 @@ bird.song();
 ```
 
 js的对象的属性,可以任意增添和删除的
+
 ```JS
 bird.wine = 2;  // 增加2条翅膀
 console.log(bird.wine);
@@ -812,6 +856,7 @@ console.log(bird);
 ```
 
 ## 构造函数
+
 ```JS
 function Dog(){
     this.leg = 4;
@@ -844,9 +889,9 @@ alert(huzi.leg);
 
 function Girl (name,bf) {
     var love;
-    
+
     this.name = name;
-    
+
     // 通过showlove做接口, 来读取私有属性love
     this.showlove = function() {
         return love;
@@ -869,35 +914,34 @@ alert(girl.name + '喜欢' + girl.showlove());
 
 这是通过闭包来完成js面向对象的私有属性与封装
 
-这是方法是JS大牛, Douglas Crockford  提出来的,
+这是方法是JS大牛, Douglas Crockford 提出来的,
 他以前在Yahoo,现在在paypal,
 
 JSON格式也是他倡导的,
 他的书---the Javascript good parts;
 
->我们可以通过set方法控制对象的属性设置的权限.
-
+> 我们可以通过set方法控制对象的属性设置的权限.
 
 ## 原型继承和原型链
 
 ```js
 function Cat() {
-    this.climb = function() {
-        alert('我会爬树');
-    }
+  this.climb = function () {
+    alert('我会爬树');
+  };
 }
 
 function Tiger() {
-    this.bark = function() {
-        alert('我是百兽之王');
-    }
+  this.bark = function () {
+    alert('我是百兽之王');
+  };
 }
 
 Tiger.prototype = new cat(); // 用1只猫做"造虎机"的原型
 var hnhu = new Tiger();
 hnhu.climb();
 
-alert(hnhu.valueOf());// 正常调用
+alert(hnhu.valueOf()); // 正常调用
 console.log(hnhu);
 ```
 
@@ -905,10 +949,10 @@ console.log(hnhu);
 
 1. 构造空对象hnhu {}
 2. hnhu.bark = function () {}
-3. hnhu.__proto__ = Tiger.prototype(即cat对象)  // 这是继承的关键
+3. hnhu.**proto** = Tiger.prototype(即cat对象) // 这是继承的关键
 
-就是说---js中,每个对象,都有一个__proto__指向其原型对象
-原型对象也是对象,也有__proto__
+就是说---js中,每个对象,都有一个**proto**指向其原型对象
+原型对象也是对象,也有**proto**
 
 ..原型的原型的原型的原型.......是谁?
 
@@ -939,6 +983,7 @@ zhu.sing();
 ```
 
 ## 原型冒充
+
 JS的语法,非常灵活
 不仅可以用原型继承,还有其他办法
 
@@ -959,29 +1004,28 @@ function Tiger(leg,tail,color) {
     // 把要继承的类的语句,拿来执行一遍
     this.parent = Cat; // 把父类构造函数引入到一个parent属性上
     this.parent.apply(this,arguments);
-    
+
     delete this.parent;
 
     this.color = color;
 }
 
 
-var tiger = new Tiger(4,1,'yellow'); // 
+var tiger = new Tiger(4,1,'yellow'); //
 
 console.log(tiger);
 
 tiger.climb();
 ```
 
-
 这是什么过程?
-答:其实就是,在用Tiger造对象时,用Tiger的语句影响一个空对象{}, 
+答:其实就是,在用Tiger造对象时,用Tiger的语句影响一个空对象{},
 在此过程员,Tiger影响空对象前,先由Cat函数实施影响
 
 因此,最终得到的对象,是由Cat和Tiger两者共同作用过的对象
 
-
 ## 复制继承
+
 ```JS
 // 复制继承,就是把父对象的所有属性,直接复制到自己对象上
 function Cat(leg,tail) {
@@ -995,7 +1039,7 @@ function Cat(leg,tail) {
 
 function Tiger(color) {
     this.color = color;
-    
+
     this.extend = function (parent) {
         for(var key in parent) {
             //console.log(key);
@@ -1016,26 +1060,28 @@ tiger.climb();
 ```
 
 ## 函数也是对象
+
 ```js
 // 字符串是对象
 var str = 'hello';
-str.substr(2,3);
+str.substr(2, 3);
 
 // 函数也是对象
-function func(num1 , num2) {
-    return num1 + num2;
+function func(num1, num2) {
+  return num1 + num2;
 }
 
 // 是对象当然有属性
 console.log(func.length); // 2 即定义函数时形参的数量
-console.log(func.name)
+console.log(func.name);
 
 // 添加1个属性
-func.ajax = function() {
-    alert('发ajax请求');
-}
+func.ajax = function () {
+  alert('发ajax请求');
+};
 ```
 
 ## jQuery插件
+
 jQuery插件其实就是在jQuery对象上增加方法.
 jQuery通过extend把对象的方法复制继承过去.

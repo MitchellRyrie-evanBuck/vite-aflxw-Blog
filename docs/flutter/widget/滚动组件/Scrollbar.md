@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # Scrollbar
 
 > Scrollbar 是 Flutter 中用于在滚动视图上显示滚动条的小部件，它可以在滚动内容较长时，让用户知道当前滚动的位置，并且可以通过点击或拖动滚动条来实现快速滚动。

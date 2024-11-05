@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # AnimatedList
 
 > AnimatedList 是 Flutter 中用于创建具有动画效果的列表的小部件。它允许您在列表中插入、删除或移动项目时产生平滑的动画过渡效果
@@ -14,7 +15,7 @@ pageClass: custom-page-imgs-class
     this.initialItemCount = 0,  // 初始列表项的数量，用于初始化列表的长度。
     this.scrollDirection = Axis.vertical, //确定列表的滚动方向，可以是 Axis.vertical 或 Axis.horizontal。
     this.reverse = false, //决定列表项是否按照反向顺序排列。
-    this.controller,  //用于控制列表滚动的滚动控制器。 
+    this.controller,  //用于控制列表滚动的滚动控制器。
     this.primary,    //确定是否将列表视图放置在主轴的开始处
     this.physics,   //用于控制列表的滚动行为的滚动物理效果。
     this.shrinkWrap = false, //确定列表是否根据子项的总长度来调整自身的大小。

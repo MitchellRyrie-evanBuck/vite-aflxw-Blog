@@ -1,4 +1,4 @@
-# ****webpack proxy工作原理？为什么能解决跨域?****
+# \***\*webpack proxy工作原理？为什么能解决跨域?\*\***
 
 ## **一、是什么**
 
@@ -20,22 +20,22 @@
 
 ```js
 // ./webpack.config.js
-const path = require('path')
+const path = require('path');
 
 module.exports = {
+  // ...
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    proxy: {
+      '/api': {
+        target: 'https://api.github.com',
+      },
+    },
     // ...
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 9000,
-        proxy: {
-            '/api': {
-                target: 'https://api.github.com'
-            }
-        }
-        // ...
-    }
-}
+  },
+};
 ```
 
 `devServetr`里面`proxy`则是关于代理的配置，该属性为对象的形式，对象中每一个属性就是一个代理的规则匹配
@@ -61,7 +61,10 @@ const proxy = require('http-proxy-middleware');
 
 const app = express();
 
-app.use('/api', proxy({target: 'http://www.example.org', changeOrigin: true}));
+app.use(
+  '/api',
+  proxy({ target: 'http://www.example.org', changeOrigin: true })
+);
 app.listen(3000);
 
 // http://localhost:3000/api/foo/bar -> http://www.example.org/api/foo/bar

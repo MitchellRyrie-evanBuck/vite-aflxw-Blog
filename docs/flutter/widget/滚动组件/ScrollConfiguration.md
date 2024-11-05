@@ -1,6 +1,7 @@
 ---
 pageClass: custom-page-imgs-class
 ---
+
 # ScrollConfiguration
 
 > ScrollConfiguration 是 Flutter 中用于配置滚动视图的小部件，它可以自定义滚动视图的滑动行为、滚动效果等。通过包裹滚动视图，可以为特定范围内的滚动视图应用不同的配置。

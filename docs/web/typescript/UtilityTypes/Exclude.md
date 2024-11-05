@@ -1,6 +1,6 @@
 # Exclude
 
-> *从 T 的联合类型成员中排除可分配给类型 U 的所有联合成员来构造类型*
+> _从 T 的联合类型成员中排除可分配给类型 U 的所有联合成员来构造类型_
 
 - 源码
 
@@ -8,7 +8,7 @@
 /**
  * Exclude from T those types that are assignable to U
  */
-type Exclude<T, U> = T extends U ? never : T
+type Exclude<T, U> = T extends U ? never : T;
 ```
 
 - 源码解析
@@ -17,14 +17,14 @@ type Exclude<T, U> = T extends U ? never : T
 
 ```tsx
 interface Dogs {
-  dogName: string
-  dogAge: number
-  dogKind: string
+  dogName: string;
+  dogAge: number;
+  dogKind: string;
 }
 
-type KeyofDogs = keyof Dogs // "dogName" | "dogAge" | "dogKind"
+type KeyofDogs = keyof Dogs; // "dogName" | "dogAge" | "dogKind"
 
-type KeysWithoutKind = Exclude<KeyofDogs, "dogKind"> // "dogName" | "dogAge"
+type KeysWithoutKind = Exclude<KeyofDogs, 'dogKind'>; // "dogName" | "dogAge"
 ```
 
 在 `Exclude` 的源码中，引入了新的语法，[条件类型 Conditional Types](https://link.juejin.cn/?target=https%3A%2F%2Fwww.typescriptlang.org%2Fdocs%2Fhandbook%2F2%2Fconditional-types.html)
@@ -44,12 +44,12 @@ type KeysWithoutKind = Exclude<KeyofDogs, "dogKind"> // "dogName" | "dogAge"
 如果 Exclude 第一个参数不是联合类型会怎么样？
 
 ```tsx
-type ExampleA = Exclude<1, 2> // 会走正常的条件类型，1 不能分配给 2，会得到第一个泛型参数的类型，也就是字面量类型 1
+type ExampleA = Exclude<1, 2>; // 会走正常的条件类型，1 不能分配给 2，会得到第一个泛型参数的类型，也就是字面量类型 1
 
-type ExampleB = Exclude<{ 2: string }, 2> // 原理同上方注释，也是传入的第一个泛型参数的类型 { 2: string }
-复制代码
+type ExampleB = Exclude<{ 2: string }, 2>; // 原理同上方注释，也是传入的第一个泛型参数的类型 { 2: string }
+复制代码;
 ```
 
 - 使用场景举例
 
-    1.与映射类型配合使用，参考 `Omit` 的实现
+  1.与映射类型配合使用，参考 `Omit` 的实现

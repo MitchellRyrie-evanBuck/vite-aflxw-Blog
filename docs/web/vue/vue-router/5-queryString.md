@@ -18,14 +18,7 @@
 我们可以通过路由对象 <u>$route</u> 的 <u>query</u> 属性来获取 <u>queryString</u>
 
 ```vue
-...
-computed: {
-	sort: {
-		get() {
-      return this.$route.query.sort || 'desc';
-    }
-	}
-}
+... computed: { sort: { get() { return this.$route.query.sort || 'desc'; } } }
 ...
 ```
 
@@ -34,26 +27,10 @@ computed: {
 有的时候，我们可能需要用到编程的方式来导航（跳转），而不是点击链接。如：当 `sort` 发生改变的时候跳转
 
 ```vue
-...
-computed: {
-	sort: {
-		get() {
-      return this.$route.query.sort || 'desc';
-    },
-		set(newVal) {
-			this.$router.push({
-        name: 'home',
-        query: {
-          sort: newVal
-        }
-      });
-		}
-	}
-}
-...
+... computed: { sort: { get() { return this.$route.query.sort || 'desc'; },
+set(newVal) { this.$router.push({ name: 'home', query: { sort: newVal } }); } }
+} ...
 ```
-
-
 
 ## 路由组件的复用
 
@@ -64,11 +41,7 @@ computed: {
 如果切换的路由复用了组件，这个时候，我们可以使用 <u>watch</u> 监听 <u>$route</u>
 
 ```vue
-watch: {
-  $route(to, from) {
-      console.log('$route');
-  }
-}
+watch: { $route(to, from) { console.log('$route'); } }
 ```
 
 - to : 改变之后的 <u>$route</u> 对象

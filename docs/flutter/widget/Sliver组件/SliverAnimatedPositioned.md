@@ -30,21 +30,21 @@ SliverAnimatedPositioned通常用于需要在滚动视图中实现子部件位�
 dart
 Copy code
 SliverAnimatedPositioned(
-  duration: const Duration(milliseconds: 500),
-  curve: Curves.easeInOut,
-  top: 100.0, // 初始位置为垂直方向100.0
-  left: 20.0, // 初始位置为水平方向20.0
-  child: Container(
-    width: 100,
-    height: 100,
-    color: Colors.blue,
-    child: Center(
-      child: Text(
-        'Animated Positioned',
-        style: TextStyle(fontSize: 16, color: Colors.white),
-      ),
-    ),
-  ),
+duration: const Duration(milliseconds: 500),
+curve: Curves.easeInOut,
+top: 100.0, // 初始位置为垂直方向100.0
+left: 20.0, // 初始位置为水平方向20.0
+child: Container(
+width: 100,
+height: 100,
+color: Colors.blue,
+child: Center(
+child: Text(
+'Animated Positioned',
+style: TextStyle(fontSize: 16, color: Colors.white),
+),
+),
+),
 )
 注意事项：
 

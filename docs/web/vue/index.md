@@ -45,7 +45,7 @@ let app = new Vue(创建组件所需要的一些配置选项);
 通过 `Vue` 提供的静态方法 `component` 窗口可复用的功能组件
 
 ```js
-let component1 = Vue.component(创建组件所需要的一些配置选项)
+let component1 = Vue.component(创建组件所需要的一些配置选项);
 ```
 
 > 组件配置选项：<https://cn.vuejs.org/v2/api/>
@@ -115,51 +115,52 @@ type : (createElement: () => VNode) => VNode
 在 {{}} 中，我们可以放置表达式值
 
 ```js
-{{表达式}}
+{
+  {
+    表达式;
+  }
+}
 ```
 
 ```js
 new Vue({
   el: '#app',
   data: {
-    title: 'vue 框架'
+    title: 'vue 框架',
   },
-  template: `<div>{{title}}</div>`
+  template: `<div>{{title}}</div>`,
 });
 ```
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="app">{{title}}</div>
 
-    <div id="app">
-      {{title}}
-   </div>
-    
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        let app = new Vue({
-            el: '#app',
-            data: {
-              title: 'vue 框架'
-            }
-        });
+      let app = new Vue({
+        el: '#app',
+        data: {
+          title: 'vue 框架',
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
 ### 数据到视图的更新
 
-<u>vue</u> 会把  `data` 中的数据挂载到实例属性下，同时对它们进行主动的监听拦截，当数据发生变化的时候，重新渲染模板。我们可以通过实例对象对数据进行修改
+<u>vue</u> 会把 `data` 中的数据挂载到实例属性下，同时对它们进行主动的监听拦截，当数据发生变化的时候，重新渲染模板。我们可以通过实例对象对数据进行修改
 
 ```js
 app.title = 'whisper';
@@ -189,36 +190,35 @@ app.$data.title = 'whisper';
 ### 使用 Vue.set 方法添加新数据
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <p>title: {{title}}</p>
-        <p>user.username: {{user.username}}</p>
-        <p>user.gender: {{user.gender}}</p>
+      <p>title: {{title}}</p>
+      <p>user.username: {{user.username}}</p>
+      <p>user.gender: {{user.gender}}</p>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        let app = new Vue({
-            el: '#app',
-            data: {
-                title: 'vue 框架',
-                user: {
-                    username: 'zMouse'
-                }
-            }
-        });
+      let app = new Vue({
+        el: '#app',
+        data: {
+          title: 'vue 框架',
+          user: {
+            username: 'zMouse',
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -232,7 +232,7 @@ Vue.set(app.user, 'gender', '男');
 app.$set(app.user, 'gender', '男');
 ```
 
-这样的方式，`set` 方法给 `app.user`  添加 `gender` 属性的同时，对它进行了 `defineProperty`
+这样的方式，`set` 方法给 `app.user` 添加 `gender` 属性的同时，对它进行了 `defineProperty`
 
 ## **指令**
 
@@ -340,12 +340,12 @@ app.$set(app.user, 'gender', '男');
 </div>
 
 <script>
- new Vue({
+  new Vue({
     el: '#app',
     data: {
-      myId: 'Deity'
-    }
-  })
+      myId: 'Deity',
+    },
+  });
 </script>
 ```
 
@@ -382,16 +382,16 @@ app.$set(app.user, 'gender', '男');
 
 ...
 <script>
-new Vue({
- el: '#app',
- data: {
-  style1: {
-      width: '100px',
-      height: '100px',
-      background: 'green'
-    }
- }
-});
+  new Vue({
+    el: '#app',
+    data: {
+      style1: {
+        width: '100px',
+        height: '100px',
+        background: 'green',
+      },
+    },
+  });
 </script>
 ```
 
@@ -402,19 +402,19 @@ new Vue({
 
 ...
 <script>
-new Vue({
- el: '#app',
- data: {
-  style1: {
-      width: '100px',
-      height: '100px',
-      background: 'green'
-    }
- },
-  style2: {
-    border: '1px solid black'
-  }
-});
+  new Vue({
+    el: '#app',
+    data: {
+      style1: {
+        width: '100px',
+        height: '100px',
+        background: 'green',
+      },
+    },
+    style2: {
+      border: '1px solid black',
+    },
+  });
 </script>
 ```
 
@@ -492,8 +492,8 @@ let app = new Vue({
   el: '#app',
   data: {
     v1: 'aaa',
-    v2: 'bbb'
-  }
+    v2: 'bbb',
+  },
 });
 ```
 
@@ -515,7 +515,7 @@ let app = new Vue({
   el: '#app',
   data: {
     v3: '女',
-  }
+  },
 });
 ```
 
@@ -524,7 +524,7 @@ let app = new Vue({
 ```html
 <div id="app">
   <input type="checkbox" v-model="v4" /> 同意
-  <hr/>
+  <hr />
   <input type="checkbox" v-model="v5" value="足球" /> 足球
   <input type="checkbox" v-model="v5" value="音乐" /> 音乐
 </div>
@@ -535,8 +535,8 @@ let app = new Vue({
   el: '#app',
   data: {
     v4: true,
-    v5: ['足球', '音乐']
-  }
+    v5: ['足球', '音乐'],
+  },
 });
 ```
 
@@ -600,7 +600,7 @@ let app = new Vue({
 ### 全局指令
 
 ```js
-Vue.directive('指令名称', {指令配置});
+Vue.directive('指令名称', { 指令配置 });
 ```
 
 ### 局部指令
@@ -609,8 +609,8 @@ Vue.directive('指令名称', {指令配置});
 new Vue({
   el: '#app',
   directives: {
-    '指令名称': {指令配置}
-  }
+    指令名称: { 指令配置 },
+  },
 });
 ```
 
@@ -642,123 +642,117 @@ new Vue({
 #### 官网的例子
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <input type="text" v-focus>
+      <input type="text" v-focus />
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
+      Vue.directive('focus', {
+        inserted(el) {
+          el.focus();
+        },
+      });
 
-        Vue.directive('focus', {
-            inserted(el) {
-                el.focus();
-            }
-        });
-        
-        let app = new Vue({
-            el: '#app'
-        });
+      let app = new Vue({
+        el: '#app',
+      });
     </script>
-</body>
+  </body>
 </html>
-
 ```
 
 #### 扩展：自定义拖拽指令
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .box {
-            position: absolute;
-            left: 100px;
-            top: 100px;
-            width: 100px;
-            height: 100px;
-            background: red;
-        }
+      .box {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <button @click="canDrag = !canDrag">Drag : {{canDrag}}</button>
-        <div class="box" v-drag.limit="canDrag"></div>
+      <button @click="canDrag = !canDrag">Drag : {{canDrag}}</button>
+      <div class="box" v-drag.limit="canDrag"></div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
+      Vue.directive('drag', {
+        bind(el, { modifiers, value }) {
+          let isDragStart = false;
+          let disX = 0;
+          let disY = 0;
+          el.canDrag = value;
+          el.addEventListener('mousedown', e => {
+            if (!el.canDrag) return;
+            disX = e.clientX - el.offsetLeft;
+            disY = e.clientY - el.offsetTop;
+            isDragStart = true;
 
-        Vue.directive('drag', {
-            bind(el, {modifiers,value}) {
-                let isDragStart = false;
-                let disX = 0;
-                let disY = 0;
-                el.canDrag = value;
-                el.addEventListener('mousedown', e => {
-                    if (!el.canDrag) return;
-                    disX = e.clientX - el.offsetLeft;
-                    disY = e.clientY - el.offsetTop;
-                    isDragStart = true;
+            e.preventDefault();
+          });
+          document.addEventListener('mousemove', e => {
+            if (isDragStart) {
+              let x = e.clientX - disX;
+              let y = e.clientY - disY;
 
-                    e.preventDefault();
-                });
-                document.addEventListener('mousemove', e => {
-                    if (isDragStart) {
-                        let x = e.clientX - disX;
-                        let y = e.clientY - disY;
+              if (modifiers.limit) {
+                if (x < 0) {
+                  x = 0;
+                }
+                if (y < 0) {
+                  y = 0;
+                }
+              }
 
-                        if (modifiers.limit) {
-                            if (x < 0) {
-                                x = 0;
-                            }
-                            if (y < 0) {
-                                y = 0;
-                            }
-                        }
-
-                        el.style.left = x + 'px';
-                        el.style.top = y + 'px';
-                    }
-                });
-                document.addEventListener('mouseup', e => {
-                    isDragStart = false;
-                });
-            },
-            componentUpdated(el, {value}) {
-                console.log('componentUpdated', value);
-                el.canDrag = value;
+              el.style.left = x + 'px';
+              el.style.top = y + 'px';
             }
-        });
-        
-        let app = new Vue({
-            el: '#app',
-            data: {
-                canDrag: false
-            }
-        });
+          });
+          document.addEventListener('mouseup', e => {
+            isDragStart = false;
+          });
+        },
+        componentUpdated(el, { value }) {
+          console.log('componentUpdated', value);
+          el.canDrag = value;
+        },
+      });
+
+      let app = new Vue({
+        el: '#app',
+        data: {
+          canDrag: false,
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
-
 ```
 
 ## 事件
@@ -766,8 +760,7 @@ new Vue({
 在 `vue` 中，事件通过指令 `v-on` 进行绑定，`v-on` 缩写 `@`
 
 ```html
-<组件 v-on:事件名称="表达式" />
-<组件 @事件名称="表达式" />
+<组件 v-on:事件名称="表达式" /> <组件 @事件名称="表达式" />
 ```
 
 ### 组件的 `methods` 选项
@@ -780,14 +773,14 @@ new Vue({
 <组件 @事件名称="fn" />
 
 <script>
-new Vue({
-  ...,
-  methods: {
-   fn() {
-    //... 
-  }
- }
-})
+  new Vue({
+    ...,
+    methods: {
+     fn() {
+      //...
+    }
+   }
+  })
 </script>
 ```
 
@@ -798,14 +791,14 @@ new Vue({
 <组件 @事件名称="fn('Deity', $event)" />
 
 <script>
-new Vue({
-  ...,
-  methods: {
-   fn(name, ev) {
-    //... 
-  }
- }
-})
+  new Vue({
+    ...,
+    methods: {
+     fn(name, ev) {
+      //...
+    }
+   }
+  })
 </script>
 ```
 
@@ -858,11 +851,9 @@ new Vue({
   <label><input type="radio" v-model="gender" value="" /> 所有</label>
   <label><input type="radio" v-model="gender" value="男" /> 男</label>
   <label><input type="radio" v-model="gender" value="女" /> 女</label>
-  <hr>
+  <hr />
   <ul>
-    <li v-for="user of showUsers">
-      {{user.username}}
-    </li>
+    <li v-for="user of showUsers">{{user.username}}</li>
   </ul>
 </div>
 ```
@@ -873,19 +864,21 @@ let app = new Vue({
   data: {
     gender: '',
     users: [
-      {id: 1, username: 'baogege', gender: '男'},
-      {id: 2, username: 'mt', gender: '男'},
-      {id: 3, username: 'haigege', gender: '男'},
-      {id: 4, username: 'zMouse', gender: '男'},
-      {id: 5, username: 'reci', gender: '女'},
-      {id: 6, username: 'lisi', gender: '女'}
-    ]
+      { id: 1, username: 'baogege', gender: '男' },
+      { id: 2, username: 'mt', gender: '男' },
+      { id: 3, username: 'haigege', gender: '男' },
+      { id: 4, username: 'zMouse', gender: '男' },
+      { id: 5, username: 'reci', gender: '女' },
+      { id: 6, username: 'lisi', gender: '女' },
+    ],
   },
   computed: {
     showUsers() {
-      return this.gender === '' ? [...this.users] : this.users.filter(user=>user.gender===this.gender);
-    }
-  }
+      return this.gender === ''
+        ? [...this.users]
+        : this.users.filter(user => user.gender === this.gender);
+    },
+  },
 });
 ```
 
@@ -940,14 +933,14 @@ computed: {
   <label><input type="radio" v-model="gender" value="" /> 所有</label>
   <label><input type="radio" v-model="gender" value="男" /> 男</label>
   <label><input type="radio" v-model="gender" value="女" /> 女</label>
-  <hr>
+  <hr />
   <ul>
     <li v-for="user of showUsers">
       <input type="checkbox" v-model="user.checked" />
       {{user.username}}
     </li>
   </ul>
-  <label><input type="checkbox" v-model="checkAll">全选</label>
+  <label><input type="checkbox" v-model="checkAll" />全选</label>
 </div>
 ```
 
@@ -957,32 +950,34 @@ let app = new Vue({
   data: {
     gender: '',
     users: [
-      {id: 1, username: 'baogege', gender: '男',checked:false},
-      {id: 2, username: 'mt', gender: '男',checked:false},
-      {id: 3, username: 'haigege', gender: '男',checked:false},
-      {id: 4, username: 'zMouse', gender: '男',checked:false},
-      {id: 5, username: 'reci', gender: '女',checked:false},
-      {id: 6, username: 'lisi', gender: '女',checked:false}
-    ]
+      { id: 1, username: 'baogege', gender: '男', checked: false },
+      { id: 2, username: 'mt', gender: '男', checked: false },
+      { id: 3, username: 'haigege', gender: '男', checked: false },
+      { id: 4, username: 'zMouse', gender: '男', checked: false },
+      { id: 5, username: 'reci', gender: '女', checked: false },
+      { id: 6, username: 'lisi', gender: '女', checked: false },
+    ],
   },
   computed: {
     showUsers() {
-      return this.gender === '' ? [...this.users] : this.users.filter(user=>user.gender===this.gender);
+      return this.gender === ''
+        ? [...this.users]
+        : this.users.filter(user => user.gender === this.gender);
     },
     checkAll: {
       get() {
-        return this.users.every(user=>user.checked);
+        return this.users.every(user => user.checked);
       },
       set(newValue) {
-        this.users = this.users.map(user=>{
+        this.users = this.users.map(user => {
           return {
             ...user,
-            checked: newValue
-          }
+            checked: newValue,
+          };
         });
-      }
-    }
-  }
+      },
+    },
+  },
 });
 ```
 
@@ -994,12 +989,10 @@ let app = new Vue({
 
 ```html
 <div id="app">
-  <input type="text" v-model="keyWord">
-  <hr>
+  <input type="text" v-model="keyWord" />
+  <hr />
   <ul>
-    <li v-for="user of showUsers">
-      {{user.username}}
-    </li>
+    <li v-for="user of showUsers">{{user.username}}</li>
   </ul>
 </div>
 ```
@@ -1010,25 +1003,26 @@ let app = new Vue({
   data: {
     keyWord: '',
     users: [
-      {id: 1, username: 'baogege', gender: '男',checked:false},
-      {id: 2, username: 'mt', gender: '男',checked:false},
-      {id: 3, username: 'haigege', gender: '男',checked:false},
-      {id: 4, username: 'zMouse', gender: '男',checked:false},
-      {id: 5, username: 'reci', gender: '女',checked:false},
-      {id: 6, username: 'lisi', gender: '女',checked:false}
+      { id: 1, username: 'baogege', gender: '男', checked: false },
+      { id: 2, username: 'mt', gender: '男', checked: false },
+      { id: 3, username: 'haigege', gender: '男', checked: false },
+      { id: 4, username: 'zMouse', gender: '男', checked: false },
+      { id: 5, username: 'reci', gender: '女', checked: false },
+      { id: 6, username: 'lisi', gender: '女', checked: false },
     ],
-    showUsers: []
+    showUsers: [],
   },
   watch: {
     keyWord(newVal, oldVal) {
       // 模拟网络请求
-      setTimeout(_=>{
-        this.showUsers = this.users.filter(user=>user.username.includes(newVal));
+      setTimeout(_ => {
+        this.showUsers = this.users.filter(user =>
+          user.username.includes(newVal)
+        );
       }, 1000);
-    }
-  }
+    },
+  },
 });
-
 ```
 
 ### 多层监听
@@ -1087,7 +1081,7 @@ Vue.filter('过滤器名称', 过滤器函数);
 Vue.component('组件', {
   ...,
   filters: {
-   '过滤器名称': 过滤器函数 
+   '过滤器名称': 过滤器函数
  }
 })
 ```
@@ -1095,36 +1089,34 @@ Vue.component('组件', {
 ### 实例
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-    <div id="app">
-        {{title|toUpperCase|slice(3)}}
-    </div>
+  </head>
+  <body>
+    <div id="app">{{title|toUpperCase|slice(3)}}</div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                title: 'Deity'
-            },
-            filters: {
-                toUpperCase: function(val) {
-                    return val.toUpperCase();
-                },
-                slice(val, n) {
-                    return val.slice(n);
-                }
-            }
-        })
+      new Vue({
+        el: '#app',
+        data: {
+          title: 'Deity',
+        },
+        filters: {
+          toUpperCase: function (val) {
+            return val.toUpperCase();
+          },
+          slice(val, n) {
+            return val.slice(n);
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -1135,7 +1127,7 @@ Vue.component('组件', {
 ### Vue.component()
 
 ```js
-Vue.component('组件名称', {组件选项})
+Vue.component('组件名称', { 组件选项 });
 ```
 
 - 组件名称遵循自定义组件命名规范：全小写、连字符（虽然驼峰式一般也没问题）
@@ -1149,7 +1141,7 @@ Vue.component('组件名称', {组件选项})
 new Vue({
   ...,
   components: {
-   '组件名称': {组件选项} 
+   '组件名称': {组件选项}
  }
 })
 ```
@@ -1167,44 +1159,42 @@ new Vue({
 组件中内部私有数据存储中组件 `data` 中，通过外部传入的数据，则通过 `props<` 选项接收
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <kkb-circle :r="n1"></kkb-circle>
-        <hr />
-        <kkb-circle :r="n2"></kkb-circle>
+      <kkb-circle :r="n1"></kkb-circle>
+      <hr />
+      <kkb-circle :r="n2"></kkb-circle>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        
-        let app = new Vue({
-            el: '#app',
-            data: {
-                n1: 10,
-                n2: 100
+      let app = new Vue({
+        el: '#app',
+        data: {
+          n1: 10,
+          n2: 100,
+        },
+        components: {
+          'kkb-circle': {
+            props: ['r'],
+            data() {
+              return { pi: 3.14 };
             },
-            components: {
-                'kkb-circle': {
-                    props: ['r'],
-                    data() {
-                        return {pi: 3.14}
-                    },
-                    template: `<div>r: {{r}} -> {{pi * r * r}}</div>`
-                }
-            }
-        });
+            template: `<div>r: {{r}} -> {{pi * r * r}}</div>`,
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -1219,61 +1209,61 @@ new Vue({
 父组件通过 `props` 传入数据到子组件内部，但是子组件内部不要修改外部传入的 `props`，`vue` 提供了一种事件机制通知父级更新，父级中使用子组件的时候监听对应的事件绑定对应的处理函数即可
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <p>父组件：{{quantity}}</p>
-        <kkb-child :quantity="initQuantity" @increment="appIncrement"></kkb-child>
-        <kkb-child :quantity="initQuantity" @increment="appIncrement"></kkb-child>
+      <p>父组件：{{quantity}}</p>
+      <kkb-child :quantity="initQuantity" @increment="appIncrement"></kkb-child>
+      <kkb-child :quantity="initQuantity" @increment="appIncrement"></kkb-child>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        const child = {
-            props: ['quantity'],
-            data() {
-                return {
-                    n: this.quantity
-                };
-            },
-            template: `
+      const child = {
+        props: ['quantity'],
+        data() {
+          return {
+            n: this.quantity,
+          };
+        },
+        template: `
                 <div>
                     <p>子组件：{{n}}</p>
                     <button @click="increment">按钮</button>
                 </div>
             `,
-            methods: {
-                increment() {
-                    this.n++;
-                    this.$emit('increment', this.n);
-                }
-            }
-        };
+        methods: {
+          increment() {
+            this.n++;
+            this.$emit('increment', this.n);
+          },
+        },
+      };
 
-        new Vue({
-            el: '#app',
-            data: {
-                quantity: 0,
-                initQuantity: 0
-            },
-            components: {
-                'kkb-child': child
-            },
-            methods: {
-                appIncrement(v) {
-                    this.quantity++;
-                }
-            }
-        });
+      new Vue({
+        el: '#app',
+        data: {
+          quantity: 0,
+          initQuantity: 0,
+        },
+        components: {
+          'kkb-child': child,
+        },
+        methods: {
+          appIncrement(v) {
+            this.quantity++;
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -1282,7 +1272,7 @@ new Vue({
 `vue` 为每个组件对象提供了一个内置方法 `$emit` ，它等同于自定义事件中的 `new Event`,`trigger` 等
 
 ```js
-this.$emit('自定义事件名称', 事件数据)
+this.$emit('自定义事件名称', 事件数据);
 ```
 
 - 事件数据就是中触发事件的同时携带传递的数据 - `event`
@@ -1298,102 +1288,98 @@ this.$emit('自定义事件名称', 事件数据)
 `v-model` 是 `vue` 提供的一个用于实现数据双向绑定的指令，用来简化 `props 到 data`，`data 到 props` 的操作流程
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .kkb-radio {
-            width: 20px;
-            height: 20px;
-            background-color: #cccccc;
-        }
-        .kkb-radio.checked {
-            background-color: #92beee;
-        }
-        .plane {
-            border: 1px solid #000000;
-            width: 300px;
-        }
-        .plane .header {
-            width: 100%;
-            height: 30px;
-            background: #cccccc;
-        }
-        .plane .content {
-            height: 100px;
-            width: 100%;
-            display: none;
-        }
-        .plane.expanded .content {
-            display: block;
-        }
+      .kkb-radio {
+        width: 20px;
+        height: 20px;
+        background-color: #cccccc;
+      }
+      .kkb-radio.checked {
+        background-color: #92beee;
+      }
+      .plane {
+        border: 1px solid #000000;
+        width: 300px;
+      }
+      .plane .header {
+        width: 100%;
+        height: 30px;
+        background: #cccccc;
+      }
+      .plane .content {
+        height: 100px;
+        width: 100%;
+        display: none;
+      }
+      .plane.expanded .content {
+        display: block;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <!-- <kkb-radio :checked="val"></kkb-radio> -->
-        <kkb-radio v-model="val"></kkb-radio>
+      <!-- <kkb-radio :checked="val"></kkb-radio> -->
+      <kkb-radio v-model="val"></kkb-radio>
 
-        <br /><br /><br />
+      <br /><br /><br />
 
-        <kkb-plane :expanded="val"></kkb-plane>
+      <kkb-plane :expanded="val"></kkb-plane>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-
-        const kkbRadio = {
-            model: {
-                prop: 'checked',
-                event: 'check'
-            },
-            props: ['checked'],
-            data() {
-                return {
-                    status: this.checked
-                }
-            },
-            template: `
+      const kkbRadio = {
+        model: {
+          prop: 'checked',
+          event: 'check',
+        },
+        props: ['checked'],
+        data() {
+          return {
+            status: this.checked,
+          };
+        },
+        template: `
                 <div class="kkb-radio" :class="{'checked': status}" @click="changeStatus"></div>
             `,
-            methods: {
-                changeStatus() {
-                    this.status = !this.status;
+        methods: {
+          changeStatus() {
+            this.status = !this.status;
 
-                    this.$emit('check', this.status);
-                }
-            }
-        };
-        const kkbPlane = {
-            props: ['expanded'],
-            template: `
+            this.$emit('check', this.status);
+          },
+        },
+      };
+      const kkbPlane = {
+        props: ['expanded'],
+        template: `
                 <div class="plane" :class="{'expanded': expanded}">
                     <div class="header"></div>
                     <div class="content"></div>
                 </div>
-            `
-        };
-        
+            `,
+      };
 
-        let vm = new Vue({
-            el: '#app',
-            data: {
-                val: true
-            },
-            components: {
-                'kkb-radio': kkbRadio,
-                'kkb-plane': kkbPlane
-            },
-            methods: {
-                
-            }
-        });
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          val: true,
+        },
+        components: {
+          'kkb-radio': kkbRadio,
+          'kkb-plane': kkbPlane,
+        },
+        methods: {},
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -1408,83 +1394,79 @@ this.$emit('自定义事件名称', 事件数据)
 通过 `v-model` 来进行双向绑定，会给状态维护带来一定的问题，因为修改比较隐蔽，同时只能处理一个 `prop` 的绑定，我们还可以通过另外一种方式来达到这个目的
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .kkb-radio {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #000000;
-            background-color: #ffffff;
-        }
-        .kkb-radio.checked {
-            border-color: green;
-        }
-        .kkb-radio.disabled {
-            background-color: #cccccc;
-        }
+      .kkb-radio {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #000000;
+        background-color: #ffffff;
+      }
+      .kkb-radio.checked {
+        border-color: green;
+      }
+      .kkb-radio.disabled {
+        background-color: #cccccc;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
+      <p>val1: {{val1}}</p>
+      <p>val2: {{val2}}</p>
+      <hr />
 
-        <p>val1: {{val1}}</p>
-        <p>val2: {{val2}}</p>
-        <hr>
-
-        <kkb-radio :checked.sync="val1" :disabled.sync="val2"></kkb-radio>
+      <kkb-radio :checked.sync="val1" :disabled.sync="val2"></kkb-radio>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-
-        const kkbRadio = {
-            props: ['checked', 'disabled'],
-            data() {
-                return {
-                    status: this.checked,
-                    dis: this.disabled
-                }
-            },
-            template: `
+      const kkbRadio = {
+        props: ['checked', 'disabled'],
+        data() {
+          return {
+            status: this.checked,
+            dis: this.disabled,
+          };
+        },
+        template: `
                 <div class="kkb-radio" :class="{'checked': status, 'disabled': dis}" @click="changeDis" @mouseover="setChecked" @mouseout="removeChecked"></div>
             `,
-            methods: {
-                setChecked() {
-                    this.status = true;
-                    this.$emit('update:checked', this.status);
-                },
-                removeChecked() {
-                    this.status = false;
-                    this.$emit('update:checked', this.status);
-                },
-                changeDis() {
-                    this.dis = !this.dis;
-                    this.$emit('update:disabled', this.dis);
-                }
-            }
-        };
+        methods: {
+          setChecked() {
+            this.status = true;
+            this.$emit('update:checked', this.status);
+          },
+          removeChecked() {
+            this.status = false;
+            this.$emit('update:checked', this.status);
+          },
+          changeDis() {
+            this.dis = !this.dis;
+            this.$emit('update:disabled', this.dis);
+          },
+        },
+      };
 
-        let vm = new Vue({
-            el: '#app',
-            data: {
-                val1: false,
-                val2: false
-            },
-            components: {
-                'kkb-radio': kkbRadio
-            },
-            methods: {
-                
-            }
-        });
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          val1: false,
+          val2: false,
+        },
+        components: {
+          'kkb-radio': kkbRadio,
+        },
+        methods: {},
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -1498,41 +1480,41 @@ this.$emit('自定义事件名称', 事件数据)
 
 ```css
 .dialog {
-    position: fixed;
-    left: 50%;
-    top: 30%;
-    transform: translateX(-50%) translateY(-50%) ;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.3);
-    box-sizing: border-box;
-    background: #fff;
-    width: 30%;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  background: #fff;
+  width: 30%;
 }
 .dialog_header {
-    padding: 20px 20px 0;
-    text-align: left;
+  padding: 20px 20px 0;
+  text-align: left;
 }
 .dialog_title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1f2d3d;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2d3d;
 }
 .dialog_content {
-    padding: 30px 20px;
-    color: #48576a;
-    font-size: 14px;
-    text-align: left;
+  padding: 30px 20px;
+  color: #48576a;
+  font-size: 14px;
+  text-align: left;
 }
 .dialog_close_btn {
-    position: absolute;
-    right: 10px;
-    top: 5px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
 }
 .dialog_close_btn:before {
-    content: 'x';
-    color: #999;
-    font-size: 20px;
-    cursor: pointer;
+  content: 'x';
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
 }
 ```
 
@@ -1542,7 +1524,6 @@ this.$emit('自定义事件名称', 事件数据)
     <p>这是内容</p>
   </kkb-dialog>
 </div>
-
 ```
 
 ```js
@@ -1558,16 +1539,15 @@ const Dialog = {
       <slot></slot>
      </div>
     </div>
- `
+ `,
 };
 
 new Vue({
   el: '#app',
   components: {
-    'kkb-dialog': Dialog
-  }
+    'kkb-dialog': Dialog,
+  },
 });
-
 ```
 
 #### 具名插槽
@@ -1584,7 +1564,6 @@ new Vue({
     </template>
   </kkb-dialog>
 </div>
-
 ```
 
 ```javascript
@@ -1600,16 +1579,15 @@ const Dialog = {
       <slot></slot>
      </div>
     </div>
- `
+ `,
 };
 
 new Vue({
   el: '#app',
   components: {
-    'kkb-dialog': Dialog
-  }
+    'kkb-dialog': Dialog,
+  },
 });
-
 ```
 
 ##### v-slot
@@ -1632,7 +1610,6 @@ new Vue({
     </template>
   </kkb-dialog>
 </div>
-
 ```
 
 ```javascript
@@ -1641,14 +1618,14 @@ const Dialog = {
   data() {
     return {
       users: [
-        {id: 1, username: 'baogege', gender: '男',checked:false},
-        {id: 2, username: 'mt', gender: '男',checked:false},
-        {id: 3, username: 'haigege', gender: '男',checked:false},
-        {id: 4, username: 'zMouse', gender: '男',checked:false},
-        {id: 5, username: 'reci', gender: '女',checked:false},
-        {id: 6, username: 'lisi', gender: '女',checked:false}
-      ]
-    }
+        { id: 1, username: 'baogege', gender: '男', checked: false },
+        { id: 2, username: 'mt', gender: '男', checked: false },
+        { id: 3, username: 'haigege', gender: '男', checked: false },
+        { id: 4, username: 'zMouse', gender: '男', checked: false },
+        { id: 5, username: 'reci', gender: '女', checked: false },
+        { id: 6, username: 'lisi', gender: '女', checked: false },
+      ],
+    };
   },
   template: `
     <div class="dialog">
@@ -1660,19 +1637,18 @@ const Dialog = {
       <slot v-for="user of users" :user="user"></slot>
      </div>
     </div>
- `
+ `,
 };
 
 new Vue({
   el: '#app',
   data: {
-    title: 'whisper'
+    title: 'whisper',
   },
   components: {
-    'kkb-dialog': Dialog
-  }
+    'kkb-dialog': Dialog,
+  },
 });
-
 ```
 
 ### props 验证
@@ -1689,31 +1665,30 @@ Vue.component('my-component', {
     // 必填的字符串
     propC: {
       type: String,
-      required: true
+      required: true,
     },
     // 带有默认值的数字
     propD: {
       type: Number,
-      default: 100
+      default: 100,
     },
     // 带有默认值的对象
     propE: {
       type: Object,
       // 对象或数组默认值必须从一个工厂函数获取
       default: function () {
-        return { message: 'hello' }
-      }
+        return { message: 'hello' };
+      },
     },
     // 自定义验证函数
     propF: {
       validator: function (value) {
         // 这个值必须匹配下列字符串中的一个
-        return ['success', 'warning', 'danger'].indexOf(value) !== -1
-      }
-    }
-  }
-})
-
+        return ['success', 'warning', 'danger'].indexOf(value) !== -1;
+      },
+    },
+  },
+});
 ```
 
 ### 非 prop 特性
@@ -1844,12 +1819,12 @@ vue ui
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      msg: 'Hello world!'
-    }
-  }
-}
+      msg: 'Hello world!',
+    };
+  },
+};
 </script>
 
 <style>
@@ -1874,14 +1849,14 @@ export default {
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
-  data () {
+  data() {
     return {
-      msg: 'Hello world'
-    }
-  }
-})
+      msg: 'Hello world',
+    };
+  },
+});
 </script>
 
 <style lang="stylus">
@@ -1979,148 +1954,146 @@ export default Vue.extend({
 每一个阶段都对应着 <u>之前</u> 和 <u>之后</u> 两个函数
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <h1>{{title}}</h1>
-        <button @click="show=!show">隐藏</button>
-        <hr>
-        <template v-if="hasError">
-            <h4>有错误发生了</h4>
-        </template>
-        <template v-else>
-            <kkb-component v-if="show" :t="title"></kkb-component>
-        </template>
+      <h1>{{title}}</h1>
+      <button @click="show=!show">隐藏</button>
+      <hr />
+      <template v-if="hasError">
+        <h4>有错误发生了</h4>
+      </template>
+      <template v-else>
+        <kkb-component v-if="show" :t="title"></kkb-component>
+      </template>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-
-        const kkbComponent = {
-            props: ['t'],
-            template: `
+      const kkbComponent = {
+        props: ['t'],
+        template: `
                 <div>
                     <h1>kkbComponent - {{t.a.b}}</h1>
                 </div>
             `,
-            beforeCreate() {
-                console.log('kkbComponent:beforeCreate');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            created() {
-                console.log('kkbComponent:created');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            beforeMount() {
-                console.log('kkbComponent:beforeMount');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            mounted() {
-                console.log('kkbComponent:mounted');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            beforeUpdate() {
-                console.log('kkbComponent:beforeUpdate');
-                console.log('props', this.$props);
-                console.log('='.repeat(100));
-            },
-            updated() {
-                console.log('kkbComponent:updated');
-                console.log('='.repeat(100));
-            },
-            beforeDestroy() {
-                console.log('kkbComponent:beforeDestroy');
-                console.log('this', this);
-                console.log('='.repeat(100));
-            },
-            destroyed() {
-                console.log('kkbComponent:destroyed');
-                console.log('this', this);
-                console.log('='.repeat(100));
-            }
-        }
-        
-        let app = new Vue({
-            el: '#app',
-            data: {
-                title: 'whisper',
-                show: true,
-                hasError: false
-            },
-            components: {
-                'kkb-component': kkbComponent
-            },
+        beforeCreate() {
+          console.log('kkbComponent:beforeCreate');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        created() {
+          console.log('kkbComponent:created');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        beforeMount() {
+          console.log('kkbComponent:beforeMount');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        mounted() {
+          console.log('kkbComponent:mounted');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        beforeUpdate() {
+          console.log('kkbComponent:beforeUpdate');
+          console.log('props', this.$props);
+          console.log('='.repeat(100));
+        },
+        updated() {
+          console.log('kkbComponent:updated');
+          console.log('='.repeat(100));
+        },
+        beforeDestroy() {
+          console.log('kkbComponent:beforeDestroy');
+          console.log('this', this);
+          console.log('='.repeat(100));
+        },
+        destroyed() {
+          console.log('kkbComponent:destroyed');
+          console.log('this', this);
+          console.log('='.repeat(100));
+        },
+      };
 
-            beforeCreate() {
-                console.log('beforeCreate');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            created() {
-                console.log('created');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            beforeMount() {
-                console.log('beforeMount');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            mounted() {
-                console.log('mounted');
-                console.log('data', this.$data);
-                console.log('el', this.$el);
-                console.log('='.repeat(100));
-            },
-            beforeUpdate() {
-                console.log('beforeUpdate');
-                console.log('props', this.$props);
-                console.log('='.repeat(100));
-            },
-            updated() {
-                console.log('updated');
-                console.log('='.repeat(100));
-            },
-            beforeDestroy() {
-                console.log('beforeDestroy');
-                console.log('this', this);
-                console.log('='.repeat(100));
-            },
-            destroyed() {
-                console.log('destroyed');
-                console.log('this', this);
-                console.log('='.repeat(100));
-            },
-            errorCaptured(err, vm, info) {
-                console.log('errorCaptured');
-                console.log(err, vm, info);
-                console.log('='.repeat(100));
-                this.hasError = true;
-                return false;
-            }
-        });
+      let app = new Vue({
+        el: '#app',
+        data: {
+          title: 'whisper',
+          show: true,
+          hasError: false,
+        },
+        components: {
+          'kkb-component': kkbComponent,
+        },
+
+        beforeCreate() {
+          console.log('beforeCreate');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        created() {
+          console.log('created');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        beforeMount() {
+          console.log('beforeMount');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        mounted() {
+          console.log('mounted');
+          console.log('data', this.$data);
+          console.log('el', this.$el);
+          console.log('='.repeat(100));
+        },
+        beforeUpdate() {
+          console.log('beforeUpdate');
+          console.log('props', this.$props);
+          console.log('='.repeat(100));
+        },
+        updated() {
+          console.log('updated');
+          console.log('='.repeat(100));
+        },
+        beforeDestroy() {
+          console.log('beforeDestroy');
+          console.log('this', this);
+          console.log('='.repeat(100));
+        },
+        destroyed() {
+          console.log('destroyed');
+          console.log('this', this);
+          console.log('='.repeat(100));
+        },
+        errorCaptured(err, vm, info) {
+          console.log('errorCaptured');
+          console.log(err, vm, info);
+          console.log('='.repeat(100));
+          this.hasError = true;
+          return false;
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -2173,73 +2146,71 @@ Vue 实例销毁后调用
 如果我们希望获取组件节点，进行 <u>DOM</u> 相关操作，可以通过 `ref` 和 `$refs` 来完成
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <h1>{{title}}</h1>
-        <button @click="getBoxHeight">获取 box 的高度</button>
-        <button @click="getKKBComponent">获取自定义组件实例及内部方法</button>
-        <hr>
-        <div ref="box">
-            这是内容<br>这是内容<br>这是内容<br>这是内容<br>这是内容<br>
-        </div>
-        <hr>
-        <kkb-component ref="kkb" :t="title"></kkb-component>
+      <h1>{{title}}</h1>
+      <button @click="getBoxHeight">获取 box 的高度</button>
+      <button @click="getKKBComponent">获取自定义组件实例及内部方法</button>
+      <hr />
+      <div ref="box">
+        这是内容<br />这是内容<br />这是内容<br />这是内容<br />这是内容<br />
+      </div>
+      <hr />
+      <kkb-component ref="kkb" :t="title"></kkb-component>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-
-        const kkbComponent = {
-            props: ['t'],
-            data() {
-                return {
-                    isShow: true
-                }
-            },
-            template: `
+      const kkbComponent = {
+        props: ['t'],
+        data() {
+          return {
+            isShow: true,
+          };
+        },
+        template: `
                 <div v-if="isShow">
                     <h1>kkbComponent - {{t}}</h1>
                 </div>
             `,
-            methods: {
-                hide() {
-                    this.isShow = false;
-                }
-            }
-        }
-        
-        let app = new Vue({
-            el: '#app',
-            data: {
-                title: 'whisper'
-            },
-            components: {
-                'kkb-component': kkbComponent
-            },
-            mounted() {
-                console.log(this.$refs.kkb);
-            },
-            methods: {
-                getBoxHeight() {
-                    console.log( this.$refs.box.clientHeight );
-                },
-                getKKBComponent() {
-                    this.$refs.kkb.hide();
-                }
-            }
-        });
+        methods: {
+          hide() {
+            this.isShow = false;
+          },
+        },
+      };
+
+      let app = new Vue({
+        el: '#app',
+        data: {
+          title: 'whisper',
+        },
+        components: {
+          'kkb-component': kkbComponent,
+        },
+        mounted() {
+          console.log(this.$refs.kkb);
+        },
+        methods: {
+          getBoxHeight() {
+            console.log(this.$refs.box.clientHeight);
+          },
+          getKKBComponent() {
+            this.$refs.kkb.hide();
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -2256,49 +2227,47 @@ Vue 实例销毁后调用
 当数据更新的时候，视图并不会立即渲染，这个时候我们期望获取到视图更新后的数据，可以通过 `nextTick` 来进行操作
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <h1>{{title}}</h1>
-        <button @click="setBoxContent">设置新的内容</button>
-        <hr>
-        <div ref="box" style="background: red" v-html="content"></div>
+      <h1>{{title}}</h1>
+      <button @click="setBoxContent">设置新的内容</button>
+      <hr />
+      <div ref="box" style="background: red" v-html="content"></div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-        
-        let app = new Vue({
-            el: '#app',
-            data: {
-                title: 'whisper',
-                n: 1
-            },
-            computed: {
-                content() {
-                    return new Array(this.n).fill(this.title).join('<br>');
-                }
-            },
-            methods: {
-                setBoxContent() {
-                    this.n++;
-                    this.$nextTick(_=>{
-                        console.log( this.$refs.box.clientHeight );
-                    })
-                }
-            }
-        });
+      let app = new Vue({
+        el: '#app',
+        data: {
+          title: 'whisper',
+          n: 1,
+        },
+        computed: {
+          content() {
+            return new Array(this.n).fill(this.title).join('<br>');
+          },
+        },
+        methods: {
+          setBoxContent() {
+            this.n++;
+            this.$nextTick(_ => {
+              console.log(this.$refs.box.clientHeight);
+            });
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -2313,45 +2282,53 @@ Vue 实例销毁后调用
 `component` 是 `vue` 内置的一个组件，它提供一个 `is` 属性用来动态渲染不同的组件
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .current {
-            background: yellow;
-        }
+      .current {
+        background: yellow;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="app">
-        <button @click="goto('InBox')" :class="{'current': currentComponent==='InBox'}">收邮件</button>
-        <button @click="goto('PostMail')" :class="{'current': currentComponent==='PostMail'}">发邮件</button>
-        <button @click="goto('RecycleBin')" :class="{'current': currentComponent==='RecycleBin'}">垃圾箱</button>
-        <hr>
-        <component :is="currentComponent"></component>
+      <button
+        @click="goto('InBox')"
+        :class="{'current': currentComponent==='InBox'}"
+      >
+        收邮件
+      </button>
+      <button
+        @click="goto('PostMail')"
+        :class="{'current': currentComponent==='PostMail'}"
+      >
+        发邮件
+      </button>
+      <button
+        @click="goto('RecycleBin')"
+        :class="{'current': currentComponent==='RecycleBin'}"
+      >
+        垃圾箱
+      </button>
+      <hr />
+      <component :is="currentComponent"></component>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <script>
-
-        const InBox = {
-            data() {
-                return {
-                    items: [
-                        '111111',
-                        '22222222222',
-                        'aaaaaaaa',
-                        '3333333'
-                    ]
-                }
-            },
-            template: `
+      const InBox = {
+        data() {
+          return {
+            items: ['111111', '22222222222', 'aaaaaaaa', '3333333'],
+          };
+        },
+        template: `
                 <div>
                     <ul>
                         <li v-for="item of items">
@@ -2361,54 +2338,54 @@ Vue 实例销毁后调用
                     </ul>
                 </div>
             `,
-            created() {
-                console.log('InBox:created');
-            },
-            destroyed() {
-                console.log('InBox:destroyed');
-            }
-        }
-        const PostMail = {
-            template: `
+        created() {
+          console.log('InBox:created');
+        },
+        destroyed() {
+          console.log('InBox:destroyed');
+        },
+      };
+      const PostMail = {
+        template: `
                 <div>PostMail</div>
             `,
-            created() {
-                console.log('PostMail:created');
-            },
-            destroyed() {
-                console.log('PostMail:destroyed');
-            }
-        }
-        const RecycleBin = {
-            template: `
+        created() {
+          console.log('PostMail:created');
+        },
+        destroyed() {
+          console.log('PostMail:destroyed');
+        },
+      };
+      const RecycleBin = {
+        template: `
                 <div>RecycleBin</div>
             `,
-            created() {
-                console.log('RecycleBin:created');
-            },
-            destroyed() {
-                console.log('RecycleBin:destroyed');
-            }
-        }
-        
-        let app = new Vue({
-            el: '#app',
-            data: {
-                currentComponent: 'InBox'
-            },
-            components: {
-                InBox,
-                PostMail,
-                RecycleBin
-            },
-            methods: {
-                goto(target) {
-                    this.currentComponent = target;
-                }
-            }
-        });
+        created() {
+          console.log('RecycleBin:created');
+        },
+        destroyed() {
+          console.log('RecycleBin:destroyed');
+        },
+      };
+
+      let app = new Vue({
+        el: '#app',
+        data: {
+          currentComponent: 'InBox',
+        },
+        components: {
+          InBox,
+          PostMail,
+          RecycleBin,
+        },
+        methods: {
+          goto(target) {
+            this.currentComponent = target;
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -2504,12 +2481,11 @@ function http(_Vue, options) {
   _Vue.prototype.$http = adaptor.http;
 }
 
-Vue.use(http, {adaptor: axios});
+Vue.use(http, { adaptor: axios });
 
 new Vue({
   el: '#app',
-  data: {
-  },
+  data: {},
   async created() {
     // let rs = await axios({
     //     method: 'post',
@@ -2519,10 +2495,10 @@ new Vue({
 
     let rs = await this.$http({
       method: 'post',
-      url: 'https://api.apiopen.top/musicRankings'
+      url: 'https://api.apiopen.top/musicRankings',
     });
     console.log(rs);
-  }
+  },
 });
 ```
 
@@ -2534,13 +2510,13 @@ new Vue({
 function http(_Vue) {
   _Vue.mixin({
     beforeCreate() {
-      if ( this.$options.adaptor ) {
+      if (this.$options.adaptor) {
         this.$http = this.$options.adaptor;
       }
-      if ( this.$options.parent && this.$options.parent.$http ) {
+      if (this.$options.parent && this.$options.parent.$http) {
         this.$http = this.$options.parent.$http;
       }
-    }
+    },
   });
 }
 
@@ -2550,9 +2526,9 @@ new Vue({
   el: '#app',
   adaptor: axios,
   components: {
-    'my-component': myComponent
-  }
-})
+    'my-component': myComponent,
+  },
+});
 ```
 
 ## 动画
@@ -2564,75 +2540,78 @@ new Vue({
 通过 `css` 添加动画的方式特别的简单，只需要利用 `css` 中的 `transition` 就可以做到
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .js_animation_box {
-            width: 100px;
-            height: 100px;
-            background: red;
-            transition: .5s all;
-        }
-        .js_animation_box.end {
-            width: 200px;
-            height: 200px;
-            background: green;
-        }
+      .js_animation_box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: 0.5s all;
+      }
+      .js_animation_box.end {
+        width: 200px;
+        height: 200px;
+        background: green;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <button id="js_animation_btn">原生动画</button>
     <div id="js_animation_box" class="js_animation_box"></div>
     <script>
-        // 原生 + css
-        let jsAnimationBtn = document.querySelector('#js_animation_btn');
-        let jsAnimationBox = document.querySelector('#js_animation_box');
+      // 原生 + css
+      let jsAnimationBtn = document.querySelector('#js_animation_btn');
+      let jsAnimationBox = document.querySelector('#js_animation_box');
 
-        jsAnimationBtn.onclick = function() {
-            jsAnimationBox.classList.add('end');
-        }
+      jsAnimationBtn.onclick = function () {
+        jsAnimationBox.classList.add('end');
+      };
     </script>
-</body>
+  </body>
 </html>
 ```
 
 ### JavaScript
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .js_animation_box {
-            width: 100px;
-            height: 100px;
-            background: red;
-        }
+      .js_animation_box {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <button id="js_animation_btn">原生动画</button>
     <div id="js_animation_box" class="js_animation_box"></div>
-   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script>
-    // jq
-        $('#js_animation_btn').on('click', function() {
-            $('#js_animation_box').animate({
-                width: 200,
-                height: 200
-            }, .5);
-        });
+      // jq
+      $('#js_animation_btn').on('click', function () {
+        $('#js_animation_box').animate(
+          {
+            width: 200,
+            height: 200,
+          },
+          0.5
+        );
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -2641,42 +2620,42 @@ new Vue({
 在 `vue` 中基本和上面的处理方式是一样的
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .js_animation_box {
-            width: 100px;
-            height: 100px;
-            background: red;
-            transition: .5s all;
-        }
-        .js_animation_box.end {
-            width: 200px;
-            height: 200px;
-            background: green;
-        }
+      .js_animation_box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: 0.5s all;
+      }
+      .js_animation_box.end {
+        width: 200px;
+        height: 200px;
+        background: green;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <button @click="isEnd = !isEnd">vue动画</button>
-        <div :class="['js_animation_box', isEnd ? 'end' : '']"></div>
+      <button @click="isEnd = !isEnd">vue动画</button>
+      <div :class="['js_animation_box', isEnd ? 'end' : '']"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        let app = new Vue({
-            el: '#app',
-            data: {
-                isEnd: false
-            }
-        });
+      let app = new Vue({
+        el: '#app',
+        data: {
+          isEnd: false,
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
 
@@ -2702,61 +2681,61 @@ new Vue({
 - `v-leave-active`：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数
 - `v-leave-to`: **2.1.8版及以上** 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 `v-leave` 被删除)，在过渡/动画完成之后移除
 
-
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .js_animation_box {
-            width: 100px;
-            height: 100px;
-            background: red;
-        }
+      .js_animation_box {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
 
-        .slide-fade-enter-active, .slide-fade-leave-active {
-            transition: all 5s ease;
-        }
-        .slide-fade-enter {
-            width: 0;
-            height: 0;
-        }
-        .slide-fade-enter-to {
-            width: 100px;
-            height: 100px;
-        }
-        .slide-fade-leave {
-           /*可以和slide-fade-enter-to合并*/
-            width: 100px;
-            height: 100px;
-        }
-        .slide-fade-leave-to {
-           /*可以和slide-fade-enter合并*/
-            width: 0;
-            height: 0;
-        }
+      .slide-fade-enter-active,
+      .slide-fade-leave-active {
+        transition: all 5s ease;
+      }
+      .slide-fade-enter {
+        width: 0;
+        height: 0;
+      }
+      .slide-fade-enter-to {
+        width: 100px;
+        height: 100px;
+      }
+      .slide-fade-leave {
+        /*可以和slide-fade-enter-to合并*/
+        width: 100px;
+        height: 100px;
+      }
+      .slide-fade-leave-to {
+        /*可以和slide-fade-enter合并*/
+        width: 0;
+        height: 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <button @click="isShow = !isShow">vue动画</button>
-        <transition name="slide-fade">
-            <div v-if="isShow" class="js_animation_box"></div>
-        </transition>
+      <button @click="isShow = !isShow">vue动画</button>
+      <transition name="slide-fade">
+        <div v-if="isShow" class="js_animation_box"></div>
+      </transition>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        let app = new Vue({
-            el: '#app',
-            data: {
-                isShow: false
-            }
-        });
+      let app = new Vue({
+        el: '#app',
+        data: {
+          isShow: false,
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
 ```
