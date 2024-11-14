@@ -4,11 +4,8 @@ import vue from 'eslint-plugin-vue';
 import prettier from 'eslint-plugin-prettier';
 
 export default [
-  // 1. 继承 ESLint 的推荐配置
   eslint.configs.recommended,
-  // 2. 继承 Prettier 配置
   eslintConfigPrettier,
-  // 3. 自定义配置
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx,vue}'],
     languageOptions: {
