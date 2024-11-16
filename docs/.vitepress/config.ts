@@ -5,7 +5,6 @@ import { navbarZh } from './nav';
 import { sidebarZh } from './sidebar';
 import { fileURLToPath } from 'url';
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Mitchell Ryrie Blog',
   description: 'Where there is a will, there is a way',
