@@ -82,7 +82,6 @@ export default defineConfig({
         less: {
           // Less 配置选项
           javascriptEnabled: true,
-          // 如果需要全局变量
           additionalData: `@import "docs/.vitepress/theme/variables.less";`,
         },
       },
