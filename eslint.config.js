@@ -82,7 +82,6 @@ export default [
       'vue/require-prop-types': 'error',
     },
   },
-  // 5. 测试文件的配置
   {
     files: ['**/*.{test,spec}.{js,ts}'],
     rules: {
