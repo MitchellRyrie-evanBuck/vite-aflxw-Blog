@@ -1,20 +1,77 @@
 <script setup>
 import { useData } from 'vitepress';
 const { frontmatter } = useData();
+
+// 定义动画变体
+const heroVariants = {
+  initial: { opacity: 0, y: 50 },
+  enter: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 800,
+      ease: 'easeOut'
+    }
+  }
+}
+
+const imageVariants = {
+  initial: { scale: 0.8, opacity: 0 },
+  enter: { 
+    scale: 1, 
+    opacity: 1,
+    transition: {
+      duration: 1000,
+      type: 'spring',
+      stiffness: 100
+    }
+  }
+}
+
+const actionVariants = {
+  initial: { opacity: 0, y: 20 },
+  enter: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 500,
+      delay: i * 100
+    }
+  })
+}
+
+const featureVariants = {
+  initial: { opacity: 0, y: 30 },
+  enter: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 600,
+      delay: i * 200
+    }
+  })
+}
 </script>
 
 <template>
   <div class="custom-home">
     <!-- 头部区域 -->
     <header class="hero">
-      <h1 class="text-3xl font-bold text-blue-600">
-        {{ frontmatter.hero.name }}
-      </h1>
-      <p class="description">{{ frontmatter.hero.text }}</p>
-      <p class="tagline">{{ frontmatter.hero.tagline }}</p>
+      <div v-motion
+        :initial="heroVariants.initial"
+        :enter="heroVariants.enter">
+        <h1 class="text-3xl font-bold text-blue-600">
+          {{ frontmatter.hero.name }}
+        </h1>
+        <p class="description">{{ frontmatter.hero.text }}</p>
+        <p class="tagline">{{ frontmatter.hero.tagline }}</p>
+      </div>
 
       <!-- 自定义图片 -->
-      <div class="image">
+      <div class="image"
+        v-motion
+        :initial="imageVariants.initial"
+        :enter="imageVariants.enter">
         <img
           :src="frontmatter.hero.image.src"
           :alt="frontmatter.hero.image.alt"
@@ -23,7 +80,11 @@ const { frontmatter } = useData();
 
       <!-- 操作按钮 -->
       <div class="actions">
-        <div v-for="action in frontmatter.hero.actions" :key="action.link">
+        <div v-for="(action, index) in frontmatter.hero.actions" 
+             :key="action.link"
+             v-motion
+             :initial="actionVariants.initial"
+             :enter="actionVariants.enter(index)">
           <a :href="action.link" :class="action.theme">{{ action.text }}</a>
         </div>
       </div>
@@ -32,9 +93,12 @@ const { frontmatter } = useData();
     <!-- 特性区域 -->
     <div class="features">
       <div
-        v-for="feature in frontmatter.features"
+        v-for="(feature, index) in frontmatter.features"
         :key="feature.title"
         class="feature-item"
+        v-motion
+        :initial="featureVariants.initial"
+        :enter="featureVariants.enter(index)"
       >
         <div class="icon" v-if="feature.icon">{{ feature.icon }}</div>
         <h2>{{ feature.title }}</h2>

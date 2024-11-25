@@ -9,6 +9,7 @@ import CustomHome from '../components/CustomHome.vue';
 import CustomNav from '../components/custom/navigation/CustomNav.vue';
 import { EnhanceAppContext } from 'vitepress';
 // import { plugin as shadcnPlugin } from './shadcn'
+import { MotionPlugin } from '@vueuse/motion'
 
 export default {
   ...Theme,
@@ -21,7 +22,7 @@ export default {
   enhanceApp({ app, router, siteData }: EnhanceAppContext) {
     console.log('router', router);
     console.log('siteData', siteData);
-
+    app.use(MotionPlugin)
     // ...
     app.component('CustomHome', CustomHome);
   },
