@@ -85,7 +85,6 @@ export default [
   {
     files: ['**/*.{test,spec}.{js,ts}'],
     rules: {
-      // 测试文件特定规则
       'no-unused-expressions': 'off',
     },
   },
